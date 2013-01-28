@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Header</key>
+		<string>Weather Scene</string>
+		<key>Rows</key>
+		<array>
+			<dict>
+				<key>Header</key>
+				<string>Location Based</string>
+				<key>Rows</key>
+				<array>
+					<string>Location Based</string>
+				</array>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>Header</key>
+		<string>Weather Effects</string>
+		<key>Rows</key>
+		<array>
+			<dict>
+				<key>Header</key>
+				<string>Season</string>
+				<key>Rows</key>
+				<array>
+					<string>Summer</string>
+					<string>Winter</string>
+				</array>
+			</dict>
+			<dict>
+				<key>Header</key>
+				<string>Clouds</string>
+				<key>Rows</key>
+				<array>
+					<string>None</string>
+					<string>Partially Cloudy</string>
+					<string>Cloudy</string>
+					<string>Overcast</string>
+				</array>
+			</dict>
+			<dict>
+				<key>Header</key>
+				<string>Rain</string>
+				<key>Rows</key>
+				<array>
+					<string>None</string>
+					<string>Light Rain</string>
+					<string>Rain</string>
+					<string>Downpour</string>
+				</array>
+			</dict>
+			<dict>
+				<key>Header</key>
+				<string>Snow</string>
+				<key>Rows</key>
+				<array>
+					<string>None</string>
+					<string>Light Snow</string>
+					<string>Snow</string>
+					<string>Blowing</string>
+					<string>Blizzard</string>
+				</array>
+			</dict>
+			<dict>
+				<key>Header</key>
+				<string>Lightning</string>
+				<key>Rows</key>
+				<array>
+					<string>Lightning</string>
+				</array>
+			</dict>
+			<dict>
+				<key>Header</key>
+				<string>Fog</string>
+				<key>Rows</key>
+				<array>
+					<string>Fog</string>
+				</array>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>

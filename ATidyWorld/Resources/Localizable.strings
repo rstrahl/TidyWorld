@@ -1,0 +1,109 @@
+/*
+ Localizable.strings
+ A Tidy World
+ 
+ Created by Rudi Strahl on 12-01-14.
+ Copyright (c) 2012 Rudi Strahl. All rights reserved.
+ */
+
+// Miscellaneous
+"YES"                                       = "Yes";
+"NO"                                        = "No";
+"OK"                                        = "Ok";
+"RETRY"                                     = "Retry";
+
+// Alarm Alert View
+"ALERT_VIEW_ALARM_TRIGGERED_TITLE"          = "Tidy Time Alarm";
+"ALERT_VIEW_ALARM_TRIGGERED_BUTTON_OFF"     = "Turn Off";
+"ALERT_VIEW_ALARM_TRIGGERED_BUTTON_SNOOZE"  = "Snooze";
+
+// Location Disabled Alert View
+"ALERT_VIEW_LOCATION_DISABLED_TITLE"        = "No Location";
+"ALERT_VIEW_LOCATION_DISABLED_MESSAGE"      = "Location services are disabled, to show the conditions of your current location please enable them";
+
+// Location Error Alert View
+"ALERT_VIEW_LOCATION_ERROR_TITLE"           = "Location Error";
+"ALERT_VIEW_LOCATION_ERROR_MESSAGE"         = "Your location could not be determined, would you like to retry?";
+
+// No Internet Service Alert View
+"ALERT_VIEW_NON_REACHABLE_TITLE"            = "No Internet Service";
+"ALERT_VIEW_NON_REACHABLE_MESSAGE"          = "The app cannot determine your location's weather because your device cannot access the internet. Try connecting via WiFi or cellular data.";
+
+// Weather Feed Problem Alert View
+"ALERT_VIEW_WEATHER_PROBLEM_TITLE"          = "No Weather Data";
+"ALERT_VIEW_WEATHER_PROBLEM_MESSAGE"        = "There was a problem finding weather data for your location, the app will try again in a few moments.";
+
+// Alarm List View
+"BUTTON_TITLE_NEW_ALARM"                    = "Add New Alarm";
+
+// Edit Alarm View
+"VIEW_TITLE_NEW_ALARM"                      = "New Alarm";
+"VIEW_TITLE_EDIT_ALARM"                     = "Edit Alarm";
+"CELL_TITLE_REPEAT"                         = "Repeat";
+"CELL_TITLE_SNOOZE"                         = "Snooze";
+"CELL_TITLE_ALARM_SOUND"                    = "Sound";
+"CELL_TITLE_ALARM_TITLE"                    = "Title";
+"DEFAULT_ALARM_TITLE"                       = "My Alarm";
+
+// Snooze Values
+"SNOOZE_5"                                  = "5 Minutes";
+"SNOOZE_10"                                 = "10 Minutes";
+"SNOOZE_15"                                 = "15 Minutes";
+"SNOOZE_30"                                 = "30 Minutes";
+
+// Alarm Sounds View
+"SEGMENT_TITLE_SOUNDS"                      = "Sounds";
+"SEGMENT_TITLE_SONGS"                       = "Songs";
+"BUTTON_TEXT_ADD_MUSIC"                     = "Add Music from Library";
+"PROMPT_TEXT_SELECT_MEDIA"                  = "Select a Song or Playlist";
+
+// No Music In Library Alert View
+"ALERT_TITLE_NO_MUSIC_IN_LIBRARY"           = "Add Music to Your Alarms";
+"ALERT_TEXT_NO_MUSIC_IN_LIBRARY"            = "You can add songs from your iPod library here, and use them as an alarm sound. Tap on the Add Music to Library button to add songs!";
+
+// Alarm Media Not Found Alert View
+"ALERT_TITLE_ALARM_MEDIA_NOT_FOUND"         = "Missing Alarm Sounds";
+"ALERT_TEXT_ALARM_MEDIA_NOT_FOUND"          = "One or more alarms are missing their sound. This can occur when songs have been removed from your iPod library. You must update any affected alarms before they can be used.";
+
+// Time/Date Strings
+"SOMEDAY" = "Someday";
+"EVERYDAY" = "Every day";
+"WEEKDAYS" = "Weekdays";
+"WEEKENDS" = "Weekends";
+"AM" = "AM";
+"PM" = "PM";
+"12_HOUR_SYMBOL" = "12";
+"24_HOUR_SYMBOL" = "24";
+
+// Weather Strings
+"FAHRENHEIT" = "F";
+"CELSIUS" = "C";
+
+// Screen Titles
+"VIEW_TITLE_ALARMS" = "Alarms";
+"VIEW_TITLE_OPTIONS" = "Settings";
+"VIEW_TITLE_WORLD_OPTIONS" = "World";
+"VIEW_TITLE_DEBUG" = "Debug";
+"VIEW_TITLE_DEBUG_DATA" = "Debug 2";
+
+// Settings Strings - Section Headers
+"OPTIONS_SECTION_HEADER_TIME" = "Time";
+"OPTIONS_SECTION_HEADER_ALARM" = "Alarm";
+"OPTIONS_SECTION_HEADER_WEATHER" = "Weather";
+"OPTIONS_SECTION_HEADER_GENERAL" = "General";
+"OPTIONS_SECTION_HEADER_DISPLAY" = "Display";
+
+// Settings Strings - Settings Titles
+// NOTE: The string key MUST match the #defines in OptionsConstants.h
+//"USE_SYSTEM_TIME_FORMAT" = "Use Device Time Format";
+"SYNC_CLOCK_TO_REAL_WORLD" = "Clock is Real";
+"CLOCK_MULTIPLIER" = "Clock Speed";
+"USE_24_HOUR_CLOCK" = "Use Time Format";
+"SHOW_DATE" = "Show Date";
+"SHOW_NEXT_ALARM" = "Show Next Alarm";
+"FADE_IN_MUSIC" = "Fade In Alarm Music";
+"SHOW_TEMPERATURE" = "Show Temperature";
+"USE_CELSIUS" = "Display Temperature In";
+"SHOW_FROST_FRAME" = "Show Frosty Screen";
+
+

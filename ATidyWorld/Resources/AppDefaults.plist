@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SYNC_CLOCK_TO_REAL_WORLD</key>
+	<true/>
+	<key>CLOCK_MULTIPLIER</key>
+	<integer>1</integer>
+	<key>USE_CELSIUS</key>
+	<true/>
+	<key>USE_24_HOUR_CLOCK</key>
+	<false/>
+	<key>SHOW_DATE</key>
+	<true/>
+	<key>SHOW_NEXT_ALARM</key>
+	<true/>
+	<key>SHOW_TEMPERATURE</key>
+	<true/>
+	<key>SHOW_FROST_FRAME</key>
+	<true/>
+	<key>CURRENT_SEASON</key>
+	<integer>0</integer>
+</dict>
+</plist>

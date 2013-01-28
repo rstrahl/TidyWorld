@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Title</key>
+		<string>Air Raid Siren</string>
+		<key>Filename</key>
+		<string>air_raid_siren.mp3</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>Beep</string>
+		<key>Filename</key>
+		<string>beep.mp3</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>Gong</string>
+		<key>Filename</key>
+		<string>gong.mp3</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>Grandfather Clock</string>
+		<key>Filename</key>
+		<string>grandfather_clock.mp3</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>Ranz des Vaches</string>
+		<key>Filename</key>
+		<string>ranz_des_vaches.mp3</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>Reveille</string>
+		<key>Filename</key>
+		<string>reveille.mp3</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>Train Whistle</string>
+		<key>Filename</key>
+		<string>train_whistle.mp3</string>
+	</dict>
+</array>
+</plist>
