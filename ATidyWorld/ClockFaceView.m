@@ -13,11 +13,9 @@
 //#import "Alarm.h"
 //#import "CoreLocationController.h"
 #import "Constants.h"
-//#import "WeatherService.h"
-//#import "ClockService.h"
 
 @interface ClockFaceView()
-- (void)didReceiveLocationUpdateNotification:(NSNotification *)notification;
+
 @end
 
 @implementation ClockFaceView
@@ -36,7 +34,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
         [[NSBundle mainBundle] loadNibNamed:@"ClockFaceView" owner:self options:nil];
         self.timeLabel.text = @"";
         self.timeLabel.font = [UIFont fontWithName:@"CenturyGothic" size:64];
@@ -58,22 +55,9 @@
 //        self.nextAlarmLabel.font = [UIFont fontWithName:@"CenturyGothic" size:14];
         [self updateUIForSettings];
         [self addSubview:self.view];
-//        [[NSNotificationCenter defaultCenter] addObserver:self
-//                                                 selector:@selector(didReceiveLocationUpdateNotification:)
-//                                                     name:NOTIFICATION_LOCATION_UPDATE
-//                                                   object:nil];
-        
     }
     return self;
 }
-
-#pragma mark - Notifications
-//- (void)didReceiveLocationUpdateNotification:(NSNotification *)notification
-//{
-//    CoreLocationController *service = (CoreLocationController *)notification.object;
-//    NSString *locationString = [NSString stringWithFormat:@"%@, %@, %@", service.city, service.state, service.country];
-//    [self updateLocation:locationString];
-//}
 
 #pragma mark - Getters/Setters
 - (NSTimeInterval)getClockTime
@@ -113,7 +97,7 @@
 #pragma mark - UI Updates
 - (void)updateClockFace:(NSTimeInterval)time
 {
-//    time -= [[NSTimeZone localTimeZone] secondsFromGMT];
+    // TODO: CODE REVIEW: Determine if required and delete if obsolete
 //    NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:time];
 //    NSString *timeString = [mTimeFormatter stringFromDate:date];
 //    self.timeLabel.text = [NSString stringWithFormat:@"%@:%@",
@@ -136,6 +120,7 @@
 //        [self.ampmLabel setHidden:YES];
 //    }
     // TIME Label
+    time += [[NSTimeZone localTimeZone] secondsFromGMT];
     int hours = time / 3600;
     int minutes = ((int)time % 3600) / 60;
     

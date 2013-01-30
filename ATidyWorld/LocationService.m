@@ -13,11 +13,11 @@ static LocationService *sharedLocationController = nil;
 
 @interface LocationService()
 
-// Yahoo Geocoding Service
+/// Determine location identifier for Yahoo! Weather Service
 - (void)findWOEIDByLocation:(CLLocation *)location;
-
-// Notifications
+/// Send notification that a location was successfully determined
 - (void)willSendLocationSuccessNotification;
+/// Send notification that a location failed to be determined
 - (void)willSendLocationFailedNotification;
 
 @end
@@ -31,6 +31,7 @@ static LocationService *sharedLocationController = nil;
             city = mCity,
             state = mState,
             country = mCountry,
+            serviceTimer = mServiceTimer,
             running = mRunning,
             internetReachable = mInternetReachable;
 
@@ -55,7 +56,7 @@ static LocationService *sharedLocationController = nil;
     return self;
 }
 
-+ (id)sharedManager
++ (id)sharedInstance
 {
     static dispatch_once_t safer;
     dispatch_once(&safer, ^{
@@ -74,7 +75,6 @@ static LocationService *sharedLocationController = nil;
     }
     else
     {
-        DLog(@"ERROR starting location service - internet not reachable");
         UIAlertView *noReachabilityAlertView =
         [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ALERT_VIEW_NON_REACHABLE_TITLE", @"No Reachability")
                                    message:NSLocalizedString(@"ALERT_VIEW_NON_REACHABLE_MESSAGE", @"No Reachability")
@@ -89,7 +89,6 @@ static LocationService *sharedLocationController = nil;
 #pragma mark - CLLocationManagerDelegate Implementation
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation 
 {
-//    DLog(@"");
     self.currentLocation = newLocation;
     [mLocationManager stopUpdatingLocation];
     mRunning = NO;
@@ -103,7 +102,9 @@ static LocationService *sharedLocationController = nil;
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
+#ifdef DEBUG
 	DLog(@"ERROR in CLLocationManager: %@", error);
+#endif
     switch (error.code)
     {
         case kCLErrorDenied:
@@ -140,7 +141,9 @@ static LocationService *sharedLocationController = nil;
                                   mWoeidServiceGFlags,
                                   mWoeidServiceFlags,
                                   mYahooApplicationID];
+#ifdef DEBUG
     DLog(@"updateWithLocation URL: %@", serviceURLString);
+#endif
     mWoeidServiceURL = [NSURL URLWithString:serviceURLString];
     NSURLRequest *request = [NSURLRequest requestWithURL:mWoeidServiceURL];
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -159,14 +162,18 @@ static LocationService *sharedLocationController = nil;
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
+#ifdef DEBUG
 	DLog(@"ERROR connection failed: %@", [error description]);
+#endif
     [self willSendLocationFailedNotification];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSString *responseString = [[NSString alloc] initWithData:mResponseData encoding:NSUTF8StringEncoding];
+#ifdef DEBUG
     DLog(@"Finished loading woeid response: \r %@", responseString);
+#endif
     NSError *error;
     NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:mResponseData options:kNilOptions error:&error];
     
@@ -183,12 +190,47 @@ static LocationService *sharedLocationController = nil;
 #pragma mark - Notifications
 - (void)willSendLocationSuccessNotification
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOCATION_UPDATE object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOCATION_SUCCESS object:self];
 }
 
 - (void)willSendLocationFailedNotification
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOCATION_FAILED object:self];
+}
+
+#pragma mark - Service Timer Control
+- (void)startServiceTimer
+{
+    if (self.serviceTimer == nil)
+    {
+#ifdef DEBUG
+        DLog(@"Creating and starting service timer");
+#endif
+        self.serviceTimer = [NSTimer timerWithTimeInterval:900
+                                                    target:[LocationService sharedInstance]
+                                                  selector:@selector(start)
+                                                  userInfo:nil
+                                                   repeats:YES];
+        [self start];
+    }
+}
+
+- (void)stopServiceTimer
+{
+    if (self.serviceTimer != nil)
+    {
+        if (self.serviceTimer.isValid)
+        {
+#ifdef DEBUG
+            DLog(@"Invalidating service timer...");
+#endif
+            [self.serviceTimer invalidate];
+        }
+#ifdef DEBUG
+        DLog(@"Service timer being nil'd...");
+#endif
+        self.serviceTimer = nil;
+    }
 }
 
 @end

@@ -7,30 +7,44 @@
 //
 
 #import "cocos2d.h"
-
 #import "AppDelegate.h"
 #import "IntroLayer.h"
-
 #import "LocationService.h"
 #import "WeatherService.h"
+#import "Constants.h"
+
+@interface AppController()
+/// Initialize Reachability service
+- (void)initReachability;
+/// Initialize Location service
+- (void)initLocationService;
+/// Initialize Weather service
+- (void)initWeatherService;
+
+/// Notification Listener for Location Service
+- (void)didReceiveLocationSuccessNotification:(NSNotification *)notification;
+- (void)didReceiveLocationFailedNotification:(NSNotification *)notification;
+/// Notification Listener for Weather Service
+- (void)didReceiveWeatherSuccessNotification:(NSNotification *)notification;
+- (void)didReceiveWeatherFailedNotification:(NSNotification *)notification;
+@end
 
 @implementation AppController
 
 @synthesize window = window_,
             navController = navController_,
             director = director_,
-            serviceTimer = mServiceTimer,
             internetReachability = mInternetReachability,
-            locationController = mLocationController;
+            locationService = mLocationService,
+            weatherService = mWeatherService;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self loadApplicationDefaults];
     [self initReachability];
-    [self initLocation];
-    [self initWeather];
-    [self.locationController start];
-    [self startServiceTimer];
+    [self initWeatherService];
+    [self initLocationService];
+
     
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -158,6 +172,13 @@
 
 - (void) dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NOTIFICATION_LOCATION_SUCCESS object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NOTIFICATION_WEATHER_SUCCESS object:nil];
+    
+    [mInternetReachability release];
+    [mLocationService release];
+    [mWeatherService release];
+    
 	[window_ release];
 	[navController_ release];
 
@@ -179,52 +200,34 @@
     mInternetReachability = [Reachability reachabilityForInternetConnection];
 }
 
-- (void)initLocation
+- (void)initLocationService
 {
     DLog(@"Initializing location service");
     
-    if (mLocationController == nil)
+    if (mLocationService == nil)
     {
-        mLocationController = [LocationService sharedManager];
-        mLocationController.delegate = self;
-        mLocationController.internetReachable = mInternetReachability.currentReachabilityStatus;
+        mLocationService = [LocationService sharedInstance];
+        mLocationService.delegate = self;
+        mLocationService.internetReachable = mInternetReachability.currentReachabilityStatus;
+        // Register notification listeners for service
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didReceiveLocationSuccessNotification:)
+                                                     name:NOTIFICATION_LOCATION_SUCCESS
+                                                   object:nil];
     }
 }
 
-- (void)initWeather
+- (void)initWeatherService
 {
     DLog(@"Initializing weather service");
     if (mWeatherService == nil)
     {
-        mWeatherService = [WeatherService sharedWeatherService];
+        mWeatherService = [WeatherService sharedInstance];
         mWeatherService.internetReachable = mInternetReachability.currentReachabilityStatus;
-    }
-}
-
-- (void)startServiceTimer
-{
-    if (self.serviceTimer == nil)
-    {
-        DLog(@"Creating and starting service timer");
-        self.serviceTimer = [NSTimer timerWithTimeInterval:900
-                                                    target:self.locationController
-                                                  selector:@selector(start)
-                                                  userInfo:nil
-                                                   repeats:YES];
-    }
-}
-
-- (void)stopServiceTimer
-{
-    if (self.serviceTimer != nil)
-    {
-        if (self.serviceTimer.isValid)
-        {
-            DLog(@"Invalidating service timer...");
-            [self.serviceTimer invalidate];
-        }
-        DLog(@"Service timer being nil'd...");
-        self.serviceTimer = nil;
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didReceiveWeatherSuccessNotification:)
+                                                     name:NOTIFICATION_WEATHER_SUCCESS
+                                                   object:nil];
     }
 }
 
@@ -234,19 +237,41 @@
     switch (mInternetReachability.currentReachabilityStatus) {
         case NotReachable:
         {
-            self.locationController.internetReachable = NO;
+            self.locationService.internetReachable = NO;
             self.weatherService.internetReachable = NO;
-            [self stopServiceTimer];
+            [self.locationService stopServiceTimer];
             break;
         }
         default:
         {
-            self.locationController.internetReachable = YES;
+            self.locationService.internetReachable = YES;
             self.weatherService.internetReachable = YES;
-            [self startServiceTimer];
+            [self.locationService startServiceTimer];
             break;
         }
     }
 }
+
+#pragma mark - Service Notifications
+- (void)didReceiveLocationSuccessNotification:(NSNotification *)notification
+{
+    [self.weatherService checkForWeatherUpdate];
+}
+
+- (void)didReceiveLocationFailedNotification:(NSNotification *)notification
+{
+    
+}
+
+- (void)didReceiveWeatherSuccessNotification:(NSNotification *)notification
+{
+    
+}
+
+- (void)didReceiveWeatherFailedNotification:(NSNotification *)notification
+{
+    
+}
+
 @end
 

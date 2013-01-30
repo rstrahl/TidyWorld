@@ -20,17 +20,15 @@
 
 	CCDirectorIOS               *director_;							// weak ref
     
-    NSTimer                     *mServiceTimer;
-    LocationService             *mLocationController;
+    LocationService             *mLocationService;
     Reachability                *mInternetReachability;
     WeatherService              *mWeatherService;
 }
 
-@property (nonatomic, retain) UIWindow *window;
-@property (readonly) UINavigationController *navController;
-@property (readonly) CCDirectorIOS *director;
-@property (nonatomic, strong) NSTimer *serviceTimer;
-@property (nonatomic, strong) LocationService *locationController;
-@property (nonatomic, strong) Reachability *internetReachability;
-@property (nonatomic, strong) WeatherService *weatherService;
+@property (nonatomic, retain) UIWindow          *window;
+@property (readonly) UINavigationController     *navController;
+@property (readonly) CCDirectorIOS              *director;
+@property (nonatomic, strong) LocationService   *locationService;
+@property (nonatomic, strong) Reachability      *internetReachability;
+@property (nonatomic, strong) WeatherService    *weatherService;
 @end

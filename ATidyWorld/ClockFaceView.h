@@ -38,11 +38,17 @@
 @property (nonatomic, strong) IBOutlet UILabel      *locationLabel;
 @property (nonatomic, strong) IBOutlet UIImageView  *alarmImageView;
 
+/// Returns the current time used by the clock
 - (NSTimeInterval)getClockTime;
+/// Sets the current time for the clock
 - (void)setClockTime:(NSTimeInterval)clockTime;
+/// Returns the current temperature used by the clock
 - (float)getTemperature;
+/// Sets the current temperature for the clock
 - (void)setTemperature:(float)temperature;
+/// Returns the name of the location used by the clock
 - (NSString *)getLocation;
+/// Sets the name of the location used by the clock
 - (void)setLocation:(NSString *)location;
 
 - (void)updateClockFace:(NSTimeInterval)time;
@@ -50,7 +56,7 @@
 - (void)updateTemperature:(float)temperature;
 - (void)updateLocation:(NSString *)location;
 - (void)updateUIForSettings;
-- (void)updateNextAlarm:(Alarm *)alarm;
+//- (void)updateNextAlarm:(Alarm *)alarm;
 - (void)swapTimeTemperatureAnimation;
 
 @end

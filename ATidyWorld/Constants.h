@@ -13,9 +13,9 @@
 #define ALARM_DEFAULT_SOUND_NAME            @"Beep"
 
 #define NOTIFICATION_SETTINGS_CHANGED       @"NotifySettingsUpdate"
-#define NOTIFICATION_WEATHER_UPDATE         @"NotifyWeatherUpdate"
+#define NOTIFICATION_WEATHER_SUCCESS        @"NotifyWeatherUpdate"
 #define NOTIFICATION_WEATHER_FAILED         @"NotifyWeatherFailed"
-#define NOTIFICATION_LOCATION_UPDATE        @"NotifyLocationUpdate"
+#define NOTIFICATION_LOCATION_SUCCESS       @"NotifyLocationUpdate"
 #define NOTIFICATION_LOCATION_FAILED        @"NotifyLocationFailed"
 
 #define COLOR_SKY_OVERCAST                  0x666666

@@ -64,7 +64,7 @@ typedef enum {
     WeatherSnowNone         = 0 << WEATHER_BITMASK_OFFSET_SNOW,
     WeatherSnowLight        = 1 << WEATHER_BITMASK_OFFSET_SNOW,
     WeatherSnowMedium       = 2 << WEATHER_BITMASK_OFFSET_SNOW,
-    WeatherSnowBlizzard        = 3 << WEATHER_BITMASK_OFFSET_SNOW,
+    WeatherSnowBlizzard     = 3 << WEATHER_BITMASK_OFFSET_SNOW,
     WeatherSnowBlowing      = 4 << WEATHER_BITMASK_OFFSET_SNOW,
     
     WeatherLightningNone    = 0 << WEATHER_BITMASK_OFFSET_LIGHTNING,
@@ -73,61 +73,62 @@ typedef enum {
 
 @interface WeatherService : NSObject <UIAlertViewDelegate, NSURLConnectionDelegate, NSXMLParserDelegate>
 {
-    NSMutableData *responseData;
-    NSURL *weatherServiceURL;
-    BOOL useCelsius;
-    BOOL mWeatherFeedValid;
-    BOOL mInternetReachable;
+    NSURL                   *mWeatherServiceURL;
+    BOOL                    mUseCelsius;
+    BOOL                    mWeatherFeedValid;
+    BOOL                    mInternetReachable;
 
-    NSString *weatherServiceString;
+    NSString                *mWeatherServiceString;
     
-    NSString *conditionText;
-    NSNumber *conditionTemp;
-    NSNumber *conditionCode;
-    NSString *astronomySunrise;
-    uint mSunriseInSeconds;
-    NSString *astronomySunset;
-    uint mSunsetInSeconds;
-    NSString *windChill;
-    NSString *windDirection;
-    NSString *windPressure;
-    NSString *windSpeed;
-    NSNumber *atmosphereHumidity;
-    NSNumber *atmosphereVisibility;
-    NSNumber *atmospherePressure;
-    NSNumber *atmosphereRising;    
-    WeatherServiceCode mWeatherCode;
+    NSString                *mConditionText;
+    NSNumber                *mConditionTemp;
+    NSNumber                *mConditionCode;
+    NSString                *mAstronomySunrise;
+    uint                    mSunriseInSeconds;
+    NSString                *mAstronomySunset;
+    uint                    mSunsetInSeconds;
+    NSString                *mWindChill;
+    NSString                *mWindDirection;
+    NSString                *mWindPressure;
+    NSString                *mWindSpeed;
+    NSNumber                *mAtmosphereHumidity;
+    NSNumber                *mAtmosphereVisibility;
+    NSNumber                *mAtmospherePressure;
+    NSNumber                *mAtmosphereRising;
+    WeatherServiceCode      mWeatherCode;
     
-    id __unsafe_unretained delegate;
+    id __unsafe_unretained  mDelegate;
 }
 
-@property (nonatomic, unsafe_unretained) id delegate;
-@property (nonatomic, strong) NSString *conditionText;
-@property (nonatomic, strong) NSNumber *conditionTemp;
-@property (nonatomic, strong) NSNumber *conditionCode;
-@property (nonatomic, strong) NSString *astronomySunrise;
-@property (nonatomic, strong) NSString *astronomySunset;
-@property (nonatomic, assign) uint sunriseInSeconds;
-@property (nonatomic, assign) uint sunsetInSeconds;
-@property (nonatomic, strong) NSString *windChill;
-@property (nonatomic, strong) NSString *windDirection;
-@property (nonatomic, strong) NSString *windPressure;
-@property (nonatomic, strong) NSString *windSpeed;
-@property (nonatomic, strong) NSNumber *atmosphereHumidity;
-@property (nonatomic, strong) NSNumber *atmosphereVisibility;
-@property (nonatomic, strong) NSNumber *atmospherePressure;
-@property (nonatomic, strong) NSNumber *atmosphereRising;
-@property (nonatomic, assign) WeatherServiceCode weatherCode;
+@property (nonatomic, unsafe_unretained) id         delegate;
+@property (nonatomic, strong) NSString              *conditionText;
+@property (nonatomic, strong) NSNumber              *conditionTemp;
+@property (nonatomic, strong) NSNumber              *conditionCode;
+@property (nonatomic, strong) NSString              *astronomySunrise;
+@property (nonatomic, strong) NSString              *astronomySunset;
+@property (nonatomic, assign) uint                  sunriseInSeconds;
+@property (nonatomic, assign) uint                  sunsetInSeconds;
+@property (nonatomic, strong) NSString              *windChill;
+@property (nonatomic, strong) NSString              *windDirection;
+@property (nonatomic, strong) NSString              *windPressure;
+@property (nonatomic, strong) NSString              *windSpeed;
+@property (nonatomic, strong) NSNumber              *atmosphereHumidity;
+@property (nonatomic, strong) NSNumber              *atmosphereVisibility;
+@property (nonatomic, strong) NSNumber              *atmospherePressure;
+@property (nonatomic, strong) NSNumber              *atmosphereRising;
+@property (nonatomic, assign) WeatherServiceCode    weatherCode;
 @property (nonatomic, assign, getter = isInternetReachable) BOOL internetReachable;
 
-+ (WeatherService *)sharedWeatherService;
+/// Returns a reference to the singleton instance
++ (WeatherService *)sharedInstance;
 
-- (void)didReceiveSettingsChangedNotification:(NSNotification *)notification;
-- (void)didReceiveLocationUpdateNotification:(NSNotification *)notification;
-- (void)willSendWeatherSuccessNotification;
-- (void)willSendWeatherFailedNotification;
-- (void)getWeatherFeedForWOEID:(NSNumber *)woeid;
+/// Polls the weather service for an update to the weather conditions
+- (void)checkForWeatherUpdate;
+
+/// Checks if the temperature is below the freezing point of water
 - (BOOL)isSubZero;
+
+
 - (void)setTemperature:(float)temperature;
 
 @end

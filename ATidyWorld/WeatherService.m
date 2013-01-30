@@ -17,11 +17,9 @@ static WeatherService *sharedWeatherService = nil;
 @interface WeatherService()
 
 - (WeatherServiceCode)buildWeatherCode:(NSNumber *)yahooCode;
-- (void)checkForWeatherUpdate;
+- (void)getWeatherFeedForWOEID:(NSNumber *)woeid;
 
 // Notifications
-- (void)didReceiveSettingsChangedNotification:(NSNotification *)notification;
-- (void)didReceiveLocationUpdateNotification:(NSNotification *)notification;
 - (void)willSendWeatherSuccessNotification;
 - (void)willSendWeatherFailedNotification;
 
@@ -34,19 +32,19 @@ static WeatherService *sharedWeatherService = nil;
 @implementation WeatherService
 
 @synthesize delegate,
-            conditionText,
-            conditionCode,
-            conditionTemp,
-            astronomySunrise,
-            astronomySunset,
-            windChill,
-            windDirection,
-            windPressure,
-            windSpeed,
-            atmosphereHumidity,
-            atmospherePressure,
-            atmosphereRising,
-            atmosphereVisibility,
+            conditionText = mConditionText,
+            conditionCode = mConditionCode,
+            conditionTemp = mConditionTemp,
+            astronomySunrise = mAstronomySunrise,
+            astronomySunset = mAstronomySunset,
+            windChill = mWindChill,
+            windDirection = mWindDirection,
+            windPressure = mWindPressure,
+            windSpeed = mWindSpeed,
+            atmosphereHumidity = mAtmosphereHumidity,
+            atmospherePressure = mAtmospherePressure,
+            atmosphereRising = mAtmosphereRising,
+            atmosphereVisibility = mAtmosphereVisibility,
             sunriseInSeconds = mSunriseInSeconds,
             sunsetInSeconds = mSunsetInSeconds,
             weatherCode = mWeatherCode,
@@ -55,26 +53,16 @@ static WeatherService *sharedWeatherService = nil;
 - (id)init
 {
     self = [super init];
-    if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(didReceiveLocationUpdateNotification:) 
-                                                     name:NOTIFICATION_LOCATION_UPDATE
-                                                   object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(didReceiveLocationUpdateNotification:)
-                                                     name:NOTIFICATION_SETTINGS_CHANGED
-                                                   object:nil];
-        
-        responseData = [NSMutableData data];
-        weatherServiceString = kYahooWeatherServiceURL;
-        weatherServiceURL = [NSURL URLWithString:weatherServiceString];
+    if (self) {        
+        mWeatherServiceString = kYahooWeatherServiceURL;
+        mWeatherServiceURL = [NSURL URLWithString:mWeatherServiceString];
     }
     return self;
 }
 
 
 #pragma mark - Singleton
-+ (WeatherService *) sharedWeatherService
++ (WeatherService *) sharedInstance
 {
     static dispatch_once_t safer;
     dispatch_once(&safer, ^{
@@ -104,7 +92,7 @@ static WeatherService *sharedWeatherService = nil;
 {
     if (self.internetReachable)
     {
-        LocationService *locationController = [LocationService sharedManager];
+        LocationService *locationController = [LocationService sharedInstance];
         if (locationController.woeid != nil)
         {
             NSOperationQueue *queue = [NSOperationQueue new];
@@ -117,7 +105,7 @@ static WeatherService *sharedWeatherService = nil;
     }
     else
     {
-        DLog(@"ERROR starting weather service - internet not reachable");
+        [self willSendWeatherFailedNotification];
     }
 }
 
@@ -128,15 +116,17 @@ static WeatherService *sharedWeatherService = nil;
     
     mWeatherFeedValid = NO;
     char units;
-    if (useCelsius)
+    if (mUseCelsius)
         units = 'c';
     else
         units = 'f';
-    NSString *serviceURLString = [NSString stringWithFormat:@"%@?w=%@&u=%c", weatherServiceString, woeid, units];
-//    DLog(@"Fetching weather at URL: %@", serviceURLString);
-    weatherServiceURL = [NSURL URLWithString:serviceURLString];
+    NSString *serviceURLString = [NSString stringWithFormat:@"%@?w=%@&u=%c", mWeatherServiceString, woeid, units];
+#ifdef DEBUG
+    DLog(@"Fetching weather at URL: %@", serviceURLString);
+#endif
+    mWeatherServiceURL = [NSURL URLWithString:serviceURLString];
     NSError *error;
-    NSData *data = [NSData dataWithContentsOfURL:weatherServiceURL options:NSDataReadingUncached error:&error];
+    NSData *data = [NSData dataWithContentsOfURL:mWeatherServiceURL options:NSDataReadingUncached error:&error];
     if (data != nil)
     {
         //    NSLog(@"Data length: %d", [data length]);
@@ -150,7 +140,9 @@ static WeatherService *sharedWeatherService = nil;
         
         if (![parser parse]) // Parse that data..
         {
+#ifdef DEBUG
             DLog(@"ERROR trying to parse xml: %@", [[parser parserError] localizedDescription]);
+#endif
             mWeatherFeedValid = NO;
             if (ANALYTICS_GOOGLE_ON)
             {
@@ -162,7 +154,9 @@ static WeatherService *sharedWeatherService = nil;
     }
     else
     {
+#ifdef DEBUG
         DLog(@"ERROR fetching weather data: %@", [error localizedDescription]);
+#endif
         if (ANALYTICS_GOOGLE_ON)
         {
             [[[GAI sharedInstance] defaultTracker] trackException:NO withNSError:error];
@@ -183,7 +177,9 @@ static WeatherService *sharedWeatherService = nil;
     }
     else
     {
+#ifdef DEBUG
         DLog(@"ERROR: Weather feed was invalid!");
+#endif
         if (![NSThread isMainThread])
         {
             [self performSelectorOnMainThread:@selector(willSendWeatherFailedNotification) withObject:nil waitUntilDone:NO];
@@ -227,8 +223,8 @@ static WeatherService *sharedWeatherService = nil;
         [weatherTimeFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
         [weatherTimeFormatter setDateFormat:@"hh:mm a"];
 
-        NSDate *sunriseDate = [weatherTimeFormatter dateFromString:astronomySunrise];
-        NSDate *sunsetDate = [weatherTimeFormatter dateFromString:astronomySunset];
+        NSDate *sunriseDate = [weatherTimeFormatter dateFromString:self.astronomySunrise];
+        NSDate *sunsetDate = [weatherTimeFormatter dateFromString:self.astronomySunset];
         NSInteger gmtOffset = [[NSTimeZone localTimeZone] secondsFromGMT];
 
         if([[NSTimeZone localTimeZone] isDaylightSavingTime])
@@ -387,22 +383,10 @@ static WeatherService *sharedWeatherService = nil;
     return code;
 }
 
-#pragma mark - Settings Changed Notification
-- (void)didReceiveSettingsChangedNotification:(NSNotification *)notification
-{
-    [self willSendWeatherSuccessNotification];
-}
-
-#pragma mark - Location Update Notification
-- (void)didReceiveLocationUpdateNotification:(NSNotification *)notification
-{
-    [self checkForWeatherUpdate];
-}
-
 #pragma mark - Weather Notification
 - (void)willSendWeatherSuccessNotification
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WEATHER_UPDATE object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WEATHER_SUCCESS object:self];
 }
 
 - (void)willSendWeatherFailedNotification

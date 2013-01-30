@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B96CB8A16B90318009A226B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B96CB8916B90318009A226B /* Localizable.strings */; };
 		9BCE857416B5DB500043048E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857316B5DB500043048E /* QuartzCore.framework */; };
 		9BCE857616B5DB500043048E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857516B5DB500043048E /* OpenGLES.framework */; };
 		9BCE857816B5DB500043048E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857716B5DB500043048E /* OpenAL.framework */; };
@@ -137,7 +138,6 @@
 		9BCE871416B5F2D20043048E /* ClockFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE871216B5F2D20043048E /* ClockFaceView.m */; };
 		9BCE871516B5F2D20043048E /* ClockFaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE871316B5F2D20043048E /* ClockFaceView.xib */; };
 		9BCE871716B5F2F70043048E /* century-gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE871616B5F2F60043048E /* century-gothic.ttf */; };
-		9BCE871A16B5F3FE0043048E /* ClockLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE871916B5F3FE0043048E /* ClockLayer.m */; };
 		9BCE871D16B5F81A0043048E /* ClockConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE871C16B5F81A0043048E /* ClockConstants.m */; };
 		9BCE872316B5FD610043048E /* SoundEffects.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE872016B5FD600043048E /* SoundEffects.plist */; };
 		9BCE872416B5FD610043048E /* WorldOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE872116B5FD600043048E /* WorldOptions.plist */; };
@@ -153,6 +153,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B96CB8916B90318009A226B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Resources/Localizable.strings; sourceTree = "<group>"; };
 		9BCE856F16B5DB500043048E /* ATidyWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATidyWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BCE857316B5DB500043048E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9BCE857516B5DB500043048E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -422,8 +423,6 @@
 		9BCE871216B5F2D20043048E /* ClockFaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockFaceView.m; sourceTree = "<group>"; };
 		9BCE871316B5F2D20043048E /* ClockFaceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClockFaceView.xib; sourceTree = "<group>"; };
 		9BCE871616B5F2F60043048E /* century-gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "century-gothic.ttf"; path = "Resources/century-gothic.ttf"; sourceTree = "<group>"; };
-		9BCE871816B5F3FD0043048E /* ClockLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockLayer.h; sourceTree = "<group>"; };
-		9BCE871916B5F3FE0043048E /* ClockLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockLayer.m; sourceTree = "<group>"; };
 		9BCE871B16B5F81A0043048E /* ClockConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockConstants.h; sourceTree = "<group>"; };
 		9BCE871C16B5F81A0043048E /* ClockConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockConstants.m; sourceTree = "<group>"; };
 		9BCE872016B5FD600043048E /* SoundEffects.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SoundEffects.plist; path = Resources/SoundEffects.plist; sourceTree = "<group>"; };
@@ -512,12 +511,12 @@
 		9BCE858516B5DB500043048E /* ATidyWorld */ = {
 			isa = PBXGroup;
 			children = (
+				9BCE874E16B6064C0043048E /* Constants */,
 				9BCE875316B608D40043048E /* GoogleAnalytics */,
 				9BCE871016B5F2BF0043048E /* Clock */,
-				9BCE874F16B6079C0043048E /* Weather */,
-				9BCE874E16B6064C0043048E /* Constants */,
-				9BCE874D16B6056B0043048E /* Reachability */,
 				9BCE874616B6043E0043048E /* Location */,
+				9BCE874D16B6056B0043048E /* Reachability */,
+				9BCE874F16B6079C0043048E /* Weather */,
 				9BCE870B16B5E2570043048E /* DLogMacro.h */,
 				9BCE86FD16B5DB530043048E /* AppDelegate.h */,
 				9BCE86FE16B5DB530043048E /* AppDelegate.m */,
@@ -525,8 +524,6 @@
 				9BCE870116B5DB530043048E /* HelloWorldLayer.m */,
 				9BCE870C16B5E6240043048E /* SummerBaseLayer.h */,
 				9BCE870D16B5E6240043048E /* SummerBaseLayer.m */,
-				9BCE871816B5F3FD0043048E /* ClockLayer.h */,
-				9BCE871916B5F3FE0043048E /* ClockLayer.m */,
 				9BCE870316B5DB530043048E /* IntroLayer.h */,
 				9BCE870416B5DB530043048E /* IntroLayer.m */,
 				9BCE858616B5DB500043048E /* Resources */,
@@ -539,6 +536,7 @@
 		9BCE858616B5DB500043048E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9B96CB8916B90318009A226B /* Localizable.strings */,
 				9BCE872216B5FD610043048E /* AppDefaults.plist */,
 				9BCE871616B5F2F60043048E /* century-gothic.ttf */,
 				9BCE858716B5DB500043048E /* Default.png */,
@@ -991,7 +989,7 @@
 		9BCE856616B5DB500043048E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = 9BCE856916B5DB500043048E /* Build configuration list for PBXProject "ATidyWorld" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1033,6 +1031,7 @@
 				9BCE872316B5FD610043048E /* SoundEffects.plist in Resources */,
 				9BCE872416B5FD610043048E /* WorldOptions.plist in Resources */,
 				9BCE872516B5FD610043048E /* AppDefaults.plist in Resources */,
+				9B96CB8A16B90318009A226B /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1149,7 +1148,6 @@
 				9BCE870516B5DB530043048E /* IntroLayer.m in Sources */,
 				9BCE870E16B5E6240043048E /* SummerBaseLayer.m in Sources */,
 				9BCE871416B5F2D20043048E /* ClockFaceView.m in Sources */,
-				9BCE871A16B5F3FE0043048E /* ClockLayer.m in Sources */,
 				9BCE871D16B5F81A0043048E /* ClockConstants.m in Sources */,
 				9BCE874516B5FE060043048E /* Constants.m in Sources */,
 				9BCE874916B604570043048E /* LocationService.m in Sources */,
@@ -1165,6 +1163,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1175,6 +1177,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				SDKROOT = iphoneos;
@@ -1186,6 +1189,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1194,6 +1201,7 @@
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				SDKROOT = iphoneos;
@@ -1266,6 +1274,7 @@
 				9BCE870A16B5DB530043048E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

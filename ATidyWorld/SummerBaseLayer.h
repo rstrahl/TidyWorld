@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@class ClockLayer;
+@class ClockFaceView;
 
 @interface SummerBaseLayer : CCLayer
 {
-    ClockLayer          *mClockLayer;
-    NSTimeInterval      clockTime;
+    NSTimeInterval      mClockTime;
+    ClockFaceView       *mClockFaceView;
 }
 
-@property (nonatomic, strong) ClockLayer *clockLayer;
+@property (nonatomic, strong) ClockFaceView *clockFaceView;
 
 // returns a CCScene that contains the SummerBaseLayer as the only child
 +(CCScene *) scene;
