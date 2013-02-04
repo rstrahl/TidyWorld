@@ -44,7 +44,6 @@
     [self initReachability];
     [self initWeatherService];
     [self initLocationService];
-
     
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

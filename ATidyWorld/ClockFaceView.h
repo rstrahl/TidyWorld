@@ -51,12 +51,4 @@
 /// Sets the name of the location used by the clock
 - (void)setLocation:(NSString *)location;
 
-- (void)updateClockFace:(NSTimeInterval)time;
-- (void)updateDateForTimeInterval:(NSTimeInterval)time;
-- (void)updateTemperature:(float)temperature;
-- (void)updateLocation:(NSString *)location;
-- (void)updateUIForSettings;
-//- (void)updateNextAlarm:(Alarm *)alarm;
-- (void)swapTimeTemperatureAnimation;
-
 @end

@@ -8,22 +8,25 @@
 
 #import "SummerBaseLayer.h"
 #import "ClockFaceView.h"
+#import "AdsViewController.h"
 #import "Constants.h"
 #import "WeatherService.h"
 #import "LocationService.h"
+#import "SettingsTableViewController.h"
+#import "ButtonsViewController.h"
 
 @interface SummerBaseLayer()
-
-/// Notification Listener for Location Service
+/** Notification Listener for Location Service */
 - (void)didReceiveLocationSuccessNotification:(NSNotification *)notification;
-/// Notification Listener for Weather Service
+/** Notification Listener for Weather Service */
 - (void)didReceiveWeatherSuccessNotification:(NSNotification *)notification;
-
 @end
 
 @implementation SummerBaseLayer
 
-@synthesize clockFaceView = mClockFaceView;
+@synthesize clockFaceView = mClockFaceView,
+            adsViewController = mAdsViewController,
+            buttonsViewController = mButtonsViewController;
 
 // Helper class method that creates a Scene with the SummerBaseLayer as the only child.
 +(CCScene *) scene
@@ -48,15 +51,23 @@
         [self scheduleUpdate];
         
         // Add Clock Label
+        CGSize screenSize = [[CCDirector sharedDirector] view].frame.size;
         mClockFaceView = [[ClockFaceView alloc] initWithFrame:CGRectZero];
-        CGRect screenBounds = [UIScreen mainScreen].bounds;
-        CGRect clockFaceFrame = CGRectMake((screenBounds.size.width / 2) - (300 / 2),
+        CGRect clockFaceFrame = CGRectMake((screenSize.width / 2) - (300 / 2),
                                            0,
                                            300,
                                            80);
         mClockFaceView.frame = clockFaceFrame;
         DLog(@"Clock width: %f", mClockFaceView.frame.size.width);
         [[[CCDirector sharedDirector] view] addSubview:mClockFaceView];
+        
+        // Add AdsViewController
+        mAdsViewController = [[AdsViewController alloc] initWithNibName:nil bundle:nil];
+        [[[CCDirector sharedDirector] view] addSubview:mAdsViewController.view];
+        
+        // Add ButtonsViewControlller
+        mButtonsViewController = [[ButtonsViewController alloc] initWithNibName:nil bundle:nil];
+        [[[CCDirector sharedDirector] view] addSubview:mButtonsViewController.view];
         
         // Register notification listeners for service
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -73,7 +84,6 @@
     return self;
 }
 
-
 - (void)update:(ccTime)deltaTime
 {
     NSTimeInterval time = [NSDate timeIntervalSinceReferenceDate];
@@ -84,9 +94,7 @@
         mClockTime = floor(time);
         DLog(@"Current time: %f", mClockTime);
         [self.clockFaceView setClockTime:mClockTime];
-        [self.clockFaceView updateDateForTimeInterval:mClockTime];
     }
-    
 }
 
 #pragma mark - Notifications

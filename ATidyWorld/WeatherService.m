@@ -121,9 +121,7 @@ static WeatherService *sharedWeatherService = nil;
     else
         units = 'f';
     NSString *serviceURLString = [NSString stringWithFormat:@"%@?w=%@&u=%c", mWeatherServiceString, woeid, units];
-#ifdef DEBUG
     DLog(@"Fetching weather at URL: %@", serviceURLString);
-#endif
     mWeatherServiceURL = [NSURL URLWithString:serviceURLString];
     NSError *error;
     NSData *data = [NSData dataWithContentsOfURL:mWeatherServiceURL options:NSDataReadingUncached error:&error];
@@ -140,9 +138,7 @@ static WeatherService *sharedWeatherService = nil;
         
         if (![parser parse]) // Parse that data..
         {
-#ifdef DEBUG
             DLog(@"ERROR trying to parse xml: %@", [[parser parserError] localizedDescription]);
-#endif
             mWeatherFeedValid = NO;
             if (ANALYTICS_GOOGLE_ON)
             {
@@ -154,9 +150,7 @@ static WeatherService *sharedWeatherService = nil;
     }
     else
     {
-#ifdef DEBUG
         DLog(@"ERROR fetching weather data: %@", [error localizedDescription]);
-#endif
         if (ANALYTICS_GOOGLE_ON)
         {
             [[[GAI sharedInstance] defaultTracker] trackException:NO withNSError:error];
@@ -177,9 +171,7 @@ static WeatherService *sharedWeatherService = nil;
     }
     else
     {
-#ifdef DEBUG
         DLog(@"ERROR: Weather feed was invalid!");
-#endif
         if (![NSThread isMainThread])
         {
             [self performSelectorOnMainThread:@selector(willSendWeatherFailedNotification) withObject:nil waitUntilDone:NO];

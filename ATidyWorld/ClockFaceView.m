@@ -15,7 +15,13 @@
 #import "Constants.h"
 
 @interface ClockFaceView()
-
+- (void)updateClockFace:(NSTimeInterval)time;
+- (void)updateDateForTimeInterval:(NSTimeInterval)time;
+- (void)updateTemperature:(float)temperature;
+- (void)updateLocation:(NSString *)location;
+- (void)updateUIForSettings;
+//- (void)updateNextAlarm:(Alarm *)alarm;
+- (void)swapTimeTemperatureAnimation;
 @end
 
 @implementation ClockFaceView
@@ -55,6 +61,11 @@
 //        self.nextAlarmLabel.font = [UIFont fontWithName:@"CenturyGothic" size:14];
         [self updateUIForSettings];
         [self addSubview:self.view];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(updateUIForSettings)
+                                                     name:NOTIFICATION_SETTINGS_CHANGED
+                                                   object:nil];
     }
     return self;
 }
@@ -69,6 +80,7 @@
 {
     mClockTime = clockTime;
     [self updateClockFace:mClockTime];
+    [self updateDateForTimeInterval:mClockTime];
 }
 
 - (float)getTemperature
@@ -201,17 +213,16 @@
 {
     if (mShowTemperature)
     {
-        float temp = temperature;
         if (mUseCelsius)
         {
-            temp = (temp - 32) * 5/9;
+            self.temperatureLabel.text = [NSString stringWithFormat:@"%0.0f", [self fahrenheitToCelsius:temperature]];
             self.unitsLabel.text = NSLocalizedString(@"CELSIUS", @"Celsius Abbrevation");
         }
         else
         {
+            self.temperatureLabel.text = [NSString stringWithFormat:@"%0.0f", temperature];
             self.unitsLabel.text = NSLocalizedString(@"FAHRENHEIT", @"Fahrenheit Abbrevation");
         }
-        self.temperatureLabel.text = [NSString stringWithFormat:@"%0.0f", temp];
         
         // Arrange Temp Label
         CGSize expectedTempLabelSize = [self.temperatureLabel.text sizeWithFont:temperatureLabel.font
@@ -278,6 +289,7 @@
     // Start the timer for animating the swap between time and temp
     if (mShowTemperature)
     {
+        [self updateTemperature:mTemperature];
         if (mClockTempAnimationTimer == nil)
         {
             DLog(@"Starting Time/Temp animation timer");
@@ -403,5 +415,9 @@
     }
 }
 
-
+#pragma mark - Helper Methods
+- (float)fahrenheitToCelsius:(float)temperature
+{
+    return (temperature - 32) * 5/9;
+}
 @end

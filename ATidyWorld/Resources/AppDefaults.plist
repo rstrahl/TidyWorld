@@ -5,7 +5,7 @@
 	<key>SYNC_CLOCK_TO_REAL_WORLD</key>
 	<true/>
 	<key>CLOCK_MULTIPLIER</key>
-	<integer>1</integer>
+	<integer>0</integer>
 	<key>USE_CELSIUS</key>
 	<true/>
 	<key>USE_24_HOUR_CLOCK</key>
@@ -19,6 +19,16 @@
 	<key>SHOW_FROST_FRAME</key>
 	<true/>
 	<key>CURRENT_SEASON</key>
+	<integer>0</integer>
+	<key>CURRENT_CLOUDS</key>
+	<integer>0</integer>
+	<key>CURRENT_RAIN</key>
+	<integer>0</integer>
+	<key>CURRENT_SNOW</key>
+	<integer>0</integer>
+	<key>CURRENT_FOG</key>
+	<integer>0</integer>
+	<key>CURRENT_LIGHTNING</key>
 	<integer>0</integer>
 </dict>
 </plist>

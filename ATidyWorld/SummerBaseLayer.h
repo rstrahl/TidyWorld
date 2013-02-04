@@ -10,14 +10,20 @@
 #import "cocos2d.h"
 
 @class ClockFaceView;
+@class AdsViewController;
+@class ButtonsViewController;
 
 @interface SummerBaseLayer : CCLayer
 {
-    NSTimeInterval      mClockTime;
-    ClockFaceView       *mClockFaceView;
+    NSTimeInterval          mClockTime;
+    ClockFaceView           *mClockFaceView;
+    AdsViewController       *mAdsViewController;
+    ButtonsViewController   *mButtonsViewController;
 }
 
-@property (nonatomic, strong) ClockFaceView *clockFaceView;
+@property (nonatomic, strong) ClockFaceView         *clockFaceView;
+@property (nonatomic, strong) AdsViewController     *adsViewController;
+@property (nonatomic, strong) ButtonsViewController *buttonsViewController;
 
 // returns a CCScene that contains the SummerBaseLayer as the only child
 +(CCScene *) scene;

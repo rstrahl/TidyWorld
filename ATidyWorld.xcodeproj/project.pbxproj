@@ -8,6 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		9B96CB8A16B90318009A226B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B96CB8916B90318009A226B /* Localizable.strings */; };
+		9B97CFF716BB695B005BF0FF /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97CFF616BB695B005BF0FF /* AdsViewController.m */; };
+		9B97D00316BB6A72005BF0FF /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00216BB6A72005BF0FF /* libGoogleAdMobAds.a */; };
+		9B97D00B16BB730D005BF0FF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00A16BB730D005BF0FF /* StoreKit.framework */; };
+		9B97D00D16BB7335005BF0FF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00C16BB7335005BF0FF /* AdSupport.framework */; };
+		9B97D00F16BB7374005BF0FF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00E16BB7374005BF0FF /* MessageUI.framework */; };
+		9B97D01116BB73D6005BF0FF /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D01016BB73D6005BF0FF /* iAd.framework */; };
+		9B97D03316BCE5E2005BF0FF /* Icon_Clock_Highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D01B16BCE5E2005BF0FF /* Icon_Clock_Highlight@2x.png */; };
+		9B97D03516BCE5E2005BF0FF /* Icon_Clock_Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D01D16BCE5E2005BF0FF /* Icon_Clock_Highlight.png */; };
+		9B97D03716BCE5E2005BF0FF /* Icon_Clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D01F16BCE5E2005BF0FF /* Icon_Clock@2x.png */; };
+		9B97D03916BCE5E2005BF0FF /* Icon_Clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D02116BCE5E2005BF0FF /* Icon_Clock.png */; };
+		9B97D03B16BCE5E2005BF0FF /* Icon_Settings_Highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D02316BCE5E2005BF0FF /* Icon_Settings_Highlight@2x.png */; };
+		9B97D03D16BCE5E2005BF0FF /* Icon_Settings_Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D02516BCE5E2005BF0FF /* Icon_Settings_Highlight.png */; };
+		9B97D03F16BCE5E2005BF0FF /* Icon_Settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D02716BCE5E2005BF0FF /* Icon_Settings@2x.png */; };
+		9B97D04116BCE5E2005BF0FF /* Icon_Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D02916BCE5E2005BF0FF /* Icon_Settings.png */; };
+		9B97D04316BCE5E2005BF0FF /* Icon_World_Highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D02B16BCE5E2005BF0FF /* Icon_World_Highlight@2x.png */; };
+		9B97D04516BCE5E2005BF0FF /* Icon_World_Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D02D16BCE5E2005BF0FF /* Icon_World_Highlight.png */; };
+		9B97D04716BCE5E2005BF0FF /* Icon_World@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D02F16BCE5E2005BF0FF /* Icon_World@2x.png */; };
+		9B97D04916BCE5E2005BF0FF /* Icon_World.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D03116BCE5E2005BF0FF /* Icon_World.png */; };
+		9B97D05216BF0A4F005BF0FF /* SettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D05016BF0A4F005BF0FF /* SettingsTableViewController.xib */; };
+		9B97D05316BF0C7C005BF0FF /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D04F16BF0A4F005BF0FF /* SettingsTableViewController.m */; };
+		9B97D05816BF0F02005BF0FF /* ButtonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D05716BF0F02005BF0FF /* ButtonsViewController.m */; };
+		9B97D05D16BF1B3A005BF0FF /* WorldOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D05B16BF1B3A005BF0FF /* WorldOptionsViewController.m */; };
+		9B97D05E16BF1B3A005BF0FF /* WorldOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D05C16BF1B3A005BF0FF /* WorldOptionsViewController.xib */; };
+		9B97D06316BF2153005BF0FF /* SelectWeatherOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06116BF2153005BF0FF /* SelectWeatherOptionViewController.m */; };
+		9B97D06416BF2153005BF0FF /* SelectWeatherOptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D06216BF2153005BF0FF /* SelectWeatherOptionViewController.xib */; };
 		9BCE857416B5DB500043048E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857316B5DB500043048E /* QuartzCore.framework */; };
 		9BCE857616B5DB500043048E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857516B5DB500043048E /* OpenGLES.framework */; };
 		9BCE857816B5DB500043048E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857716B5DB500043048E /* OpenAL.framework */; };
@@ -154,6 +179,45 @@
 
 /* Begin PBXFileReference section */
 		9B96CB8916B90318009A226B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Resources/Localizable.strings; sourceTree = "<group>"; };
+		9B97CFF516BB695B005BF0FF /* AdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsViewController.h; sourceTree = "<group>"; };
+		9B97CFF616BB695B005BF0FF /* AdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsViewController.m; sourceTree = "<group>"; };
+		9B97CFF916BB6A72005BF0FF /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
+		9B97CFFA16BB6A72005BF0FF /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
+		9B97CFFB16BB6A72005BF0FF /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
+		9B97CFFC16BB6A72005BF0FF /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
+		9B97CFFD16BB6A72005BF0FF /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
+		9B97CFFE16BB6A72005BF0FF /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
+		9B97CFFF16BB6A72005BF0FF /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
+		9B97D00016BB6A72005BF0FF /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
+		9B97D00116BB6A72005BF0FF /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
+		9B97D00216BB6A72005BF0FF /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		9B97D00A16BB730D005BF0FF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		9B97D00C16BB7335005BF0FF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		9B97D00E16BB7374005BF0FF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		9B97D01016BB73D6005BF0FF /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		9B97D01B16BCE5E2005BF0FF /* Icon_Clock_Highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Clock_Highlight@2x.png"; sourceTree = "<group>"; };
+		9B97D01D16BCE5E2005BF0FF /* Icon_Clock_Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Clock_Highlight.png; sourceTree = "<group>"; };
+		9B97D01F16BCE5E2005BF0FF /* Icon_Clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Clock@2x.png"; sourceTree = "<group>"; };
+		9B97D02116BCE5E2005BF0FF /* Icon_Clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Clock.png; sourceTree = "<group>"; };
+		9B97D02316BCE5E2005BF0FF /* Icon_Settings_Highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Settings_Highlight@2x.png"; sourceTree = "<group>"; };
+		9B97D02516BCE5E2005BF0FF /* Icon_Settings_Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Settings_Highlight.png; sourceTree = "<group>"; };
+		9B97D02716BCE5E2005BF0FF /* Icon_Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Settings@2x.png"; sourceTree = "<group>"; };
+		9B97D02916BCE5E2005BF0FF /* Icon_Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Settings.png; sourceTree = "<group>"; };
+		9B97D02B16BCE5E2005BF0FF /* Icon_World_Highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_World_Highlight@2x.png"; sourceTree = "<group>"; };
+		9B97D02D16BCE5E2005BF0FF /* Icon_World_Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_World_Highlight.png; sourceTree = "<group>"; };
+		9B97D02F16BCE5E2005BF0FF /* Icon_World@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_World@2x.png"; sourceTree = "<group>"; };
+		9B97D03116BCE5E2005BF0FF /* Icon_World.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_World.png; sourceTree = "<group>"; };
+		9B97D04E16BF0A4F005BF0FF /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		9B97D04F16BF0A4F005BF0FF /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		9B97D05016BF0A4F005BF0FF /* SettingsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewController.xib; sourceTree = "<group>"; };
+		9B97D05616BF0F02005BF0FF /* ButtonsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonsViewController.h; sourceTree = "<group>"; };
+		9B97D05716BF0F02005BF0FF /* ButtonsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonsViewController.m; sourceTree = "<group>"; };
+		9B97D05A16BF1B3A005BF0FF /* WorldOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldOptionsViewController.h; sourceTree = "<group>"; };
+		9B97D05B16BF1B3A005BF0FF /* WorldOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldOptionsViewController.m; sourceTree = "<group>"; };
+		9B97D05C16BF1B3A005BF0FF /* WorldOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorldOptionsViewController.xib; sourceTree = "<group>"; };
+		9B97D06016BF2152005BF0FF /* SelectWeatherOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectWeatherOptionViewController.h; sourceTree = "<group>"; };
+		9B97D06116BF2153005BF0FF /* SelectWeatherOptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectWeatherOptionViewController.m; sourceTree = "<group>"; };
+		9B97D06216BF2153005BF0FF /* SelectWeatherOptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectWeatherOptionViewController.xib; sourceTree = "<group>"; };
 		9BCE856F16B5DB500043048E /* ATidyWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATidyWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BCE857316B5DB500043048E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9BCE857516B5DB500043048E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -453,6 +517,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B97D01116BB73D6005BF0FF /* iAd.framework in Frameworks */,
+				9B97D00F16BB7374005BF0FF /* MessageUI.framework in Frameworks */,
+				9B97D00D16BB7335005BF0FF /* AdSupport.framework in Frameworks */,
+				9B97D00B16BB730D005BF0FF /* StoreKit.framework in Frameworks */,
 				9BCE876016B6096E0043048E /* CoreLocation.framework in Frameworks */,
 				9BCE875E16B609560043048E /* SystemConfiguration.framework in Frameworks */,
 				9BCE875C16B6094E0043048E /* CoreData.framework in Frameworks */,
@@ -466,12 +534,204 @@
 				9BCE858216B5DB500043048E /* CoreGraphics.framework in Frameworks */,
 				9BCE858416B5DB500043048E /* GameKit.framework in Frameworks */,
 				9BCE875A16B608D50043048E /* libGoogleAnalytics.a in Frameworks */,
+				9B97D00316BB6A72005BF0FF /* libGoogleAdMobAds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B97CFF316BB68BA005BF0FF /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				9B97CFF516BB695B005BF0FF /* AdsViewController.h */,
+				9B97CFF616BB695B005BF0FF /* AdsViewController.m */,
+			);
+			name = Ads;
+			sourceTree = "<group>";
+		};
+		9B97CFF816BB6A5C005BF0FF /* GoogleAdMob */ = {
+			isa = PBXGroup;
+			children = (
+				9B97CFF916BB6A72005BF0FF /* GADAdMobExtras.h */,
+				9B97CFFA16BB6A72005BF0FF /* GADAdNetworkExtras.h */,
+				9B97CFFB16BB6A72005BF0FF /* GADAdSize.h */,
+				9B97CFFC16BB6A72005BF0FF /* GADBannerView.h */,
+				9B97CFFD16BB6A72005BF0FF /* GADBannerViewDelegate.h */,
+				9B97CFFE16BB6A72005BF0FF /* GADInterstitial.h */,
+				9B97CFFF16BB6A72005BF0FF /* GADInterstitialDelegate.h */,
+				9B97D00016BB6A72005BF0FF /* GADRequest.h */,
+				9B97D00116BB6A72005BF0FF /* GADRequestError.h */,
+				9B97D00216BB6A72005BF0FF /* libGoogleAdMobAds.a */,
+			);
+			name = GoogleAdMob;
+			sourceTree = "<group>";
+		};
+		9B97D01216BB74B2005BF0FF /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				9BCE875F16B6096D0043048E /* CoreLocation.framework */,
+				9BCE875B16B6094E0043048E /* CoreData.framework */,
+				9BCE857316B5DB500043048E /* QuartzCore.framework */,
+				9BCE857516B5DB500043048E /* OpenGLES.framework */,
+				9BCE857716B5DB500043048E /* OpenAL.framework */,
+				9BCE857B16B5DB500043048E /* AVFoundation.framework */,
+				9BCE857D16B5DB500043048E /* UIKit.framework */,
+				9BCE857F16B5DB500043048E /* Foundation.framework */,
+				9BCE858116B5DB500043048E /* CoreGraphics.framework */,
+				9BCE858316B5DB500043048E /* GameKit.framework */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		9B97D01316BB7557005BF0FF /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				9B97D01016BB73D6005BF0FF /* iAd.framework */,
+				9B97D00A16BB730D005BF0FF /* StoreKit.framework */,
+				9BCE857916B5DB500043048E /* AudioToolbox.framework */,
+				9B97D00E16BB7374005BF0FF /* MessageUI.framework */,
+				9BCE875D16B609560043048E /* SystemConfiguration.framework */,
+				9B97D00C16BB7335005BF0FF /* AdSupport.framework */,
+			);
+			name = Ads;
+			sourceTree = "<group>";
+		};
+		9B97D01416BB7CAE005BF0FF /* PLists */ = {
+			isa = PBXGroup;
+			children = (
+				9BCE872216B5FD610043048E /* AppDefaults.plist */,
+				9BCE859D16B5DB500043048E /* Info.plist */,
+				9BCE872016B5FD600043048E /* SoundEffects.plist */,
+				9BCE872116B5FD600043048E /* WorldOptions.plist */,
+			);
+			name = PLists;
+			sourceTree = "<group>";
+		};
+		9B97D01516BB7CC7005BF0FF /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Sound;
+			sourceTree = "<group>";
+		};
+		9B97D01616BB7CCE005BF0FF /* Art */ = {
+			isa = PBXGroup;
+			children = (
+				9B97D01916BCA9C3005BF0FF /* Icons */,
+				9BCE858716B5DB500043048E /* Default.png */,
+				9BCE858916B5DB500043048E /* Default-Landscape~ipad.png */,
+				9BCE858B16B5DB500043048E /* fps_images.png */,
+				9BCE858D16B5DB500043048E /* fps_images-hd.png */,
+				9BCE858F16B5DB500043048E /* fps_images-ipadhd.png */,
+				9BCE859116B5DB500043048E /* Icon-72.png */,
+				9BCE859316B5DB500043048E /* Icon-Small-50.png */,
+				9BCE859516B5DB500043048E /* Icon-Small.png */,
+				9BCE859716B5DB500043048E /* Icon-Small@2x.png */,
+				9BCE859916B5DB500043048E /* Icon.png */,
+				9BCE859B16B5DB500043048E /* Icon@2x.png */,
+				9BCE859E16B5DB500043048E /* iTunesArtwork */,
+			);
+			name = Art;
+			sourceTree = "<group>";
+		};
+		9B97D01716BB7CD4005BF0FF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9BCE871616B5F2F60043048E /* century-gothic.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		9B97D01916BCA9C3005BF0FF /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				9B97D04A16BDF9B1005BF0FF /* 1x */,
+				9B97D04B16BDF9B6005BF0FF /* 2x */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		9B97D04A16BDF9B1005BF0FF /* 1x */ = {
+			isa = PBXGroup;
+			children = (
+				9B97D01D16BCE5E2005BF0FF /* Icon_Clock_Highlight.png */,
+				9B97D02116BCE5E2005BF0FF /* Icon_Clock.png */,
+				9B97D02516BCE5E2005BF0FF /* Icon_Settings_Highlight.png */,
+				9B97D02916BCE5E2005BF0FF /* Icon_Settings.png */,
+				9B97D02D16BCE5E2005BF0FF /* Icon_World_Highlight.png */,
+				9B97D03116BCE5E2005BF0FF /* Icon_World.png */,
+			);
+			name = 1x;
+			sourceTree = "<group>";
+		};
+		9B97D04B16BDF9B6005BF0FF /* 2x */ = {
+			isa = PBXGroup;
+			children = (
+				9B97D01B16BCE5E2005BF0FF /* Icon_Clock_Highlight@2x.png */,
+				9B97D01F16BCE5E2005BF0FF /* Icon_Clock@2x.png */,
+				9B97D02316BCE5E2005BF0FF /* Icon_Settings_Highlight@2x.png */,
+				9B97D02716BCE5E2005BF0FF /* Icon_Settings@2x.png */,
+				9B97D02B16BCE5E2005BF0FF /* Icon_World_Highlight@2x.png */,
+				9B97D02F16BCE5E2005BF0FF /* Icon_World@2x.png */,
+			);
+			name = 2x;
+			sourceTree = "<group>";
+		};
+		9B97D04C16BF09FE005BF0FF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9B97CFF316BB68BA005BF0FF /* Ads */,
+				9B97D05916BF1B11005BF0FF /* Change World */,
+				9B97D06516BF2364005BF0FF /* Main */,
+				9B97D04D16BF0A05005BF0FF /* Settings */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9B97D04D16BF0A05005BF0FF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9B97D04E16BF0A4F005BF0FF /* SettingsTableViewController.h */,
+				9B97D04F16BF0A4F005BF0FF /* SettingsTableViewController.m */,
+				9B97D05016BF0A4F005BF0FF /* SettingsTableViewController.xib */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		9B97D05916BF1B11005BF0FF /* Change World */ = {
+			isa = PBXGroup;
+			children = (
+				9B97D06016BF2152005BF0FF /* SelectWeatherOptionViewController.h */,
+				9B97D06116BF2153005BF0FF /* SelectWeatherOptionViewController.m */,
+				9B97D06216BF2153005BF0FF /* SelectWeatherOptionViewController.xib */,
+				9B97D05A16BF1B3A005BF0FF /* WorldOptionsViewController.h */,
+				9B97D05B16BF1B3A005BF0FF /* WorldOptionsViewController.m */,
+				9B97D05C16BF1B3A005BF0FF /* WorldOptionsViewController.xib */,
+			);
+			name = "Change World";
+			sourceTree = "<group>";
+		};
+		9B97D05F16BF1B5A005BF0FF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9BCE871016B5F2BF0043048E /* Clock */,
+				9BCE874616B6043E0043048E /* Location */,
+				9BCE874D16B6056B0043048E /* Reachability */,
+				9BCE874F16B6079C0043048E /* Weather */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		9B97D06516BF2364005BF0FF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9B97D05616BF0F02005BF0FF /* ButtonsViewController.h */,
+				9B97D05716BF0F02005BF0FF /* ButtonsViewController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
 		9BCE856416B5DB500043048E = {
 			isa = PBXGroup;
 			children = (
@@ -492,18 +752,8 @@
 		9BCE857216B5DB500043048E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9BCE875F16B6096D0043048E /* CoreLocation.framework */,
-				9BCE875D16B609560043048E /* SystemConfiguration.framework */,
-				9BCE875B16B6094E0043048E /* CoreData.framework */,
-				9BCE857316B5DB500043048E /* QuartzCore.framework */,
-				9BCE857516B5DB500043048E /* OpenGLES.framework */,
-				9BCE857716B5DB500043048E /* OpenAL.framework */,
-				9BCE857916B5DB500043048E /* AudioToolbox.framework */,
-				9BCE857B16B5DB500043048E /* AVFoundation.framework */,
-				9BCE857D16B5DB500043048E /* UIKit.framework */,
-				9BCE857F16B5DB500043048E /* Foundation.framework */,
-				9BCE858116B5DB500043048E /* CoreGraphics.framework */,
-				9BCE858316B5DB500043048E /* GameKit.framework */,
+				9B97D01316BB7557005BF0FF /* Ads */,
+				9B97D01216BB74B2005BF0FF /* Core */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -512,11 +762,8 @@
 			isa = PBXGroup;
 			children = (
 				9BCE874E16B6064C0043048E /* Constants */,
-				9BCE875316B608D40043048E /* GoogleAnalytics */,
-				9BCE871016B5F2BF0043048E /* Clock */,
-				9BCE874616B6043E0043048E /* Location */,
-				9BCE874D16B6056B0043048E /* Reachability */,
-				9BCE874F16B6079C0043048E /* Weather */,
+				9B97D05F16BF1B5A005BF0FF /* Services */,
+				9B97D04C16BF09FE005BF0FF /* ViewControllers */,
 				9BCE870B16B5E2570043048E /* DLogMacro.h */,
 				9BCE86FD16B5DB530043048E /* AppDelegate.h */,
 				9BCE86FE16B5DB530043048E /* AppDelegate.m */,
@@ -536,24 +783,11 @@
 		9BCE858616B5DB500043048E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9B97D01716BB7CD4005BF0FF /* Fonts */,
+				9B97D01616BB7CCE005BF0FF /* Art */,
+				9B97D01516BB7CC7005BF0FF /* Sound */,
+				9B97D01416BB7CAE005BF0FF /* PLists */,
 				9B96CB8916B90318009A226B /* Localizable.strings */,
-				9BCE872216B5FD610043048E /* AppDefaults.plist */,
-				9BCE871616B5F2F60043048E /* century-gothic.ttf */,
-				9BCE858716B5DB500043048E /* Default.png */,
-				9BCE858916B5DB500043048E /* Default-Landscape~ipad.png */,
-				9BCE858B16B5DB500043048E /* fps_images.png */,
-				9BCE858D16B5DB500043048E /* fps_images-hd.png */,
-				9BCE858F16B5DB500043048E /* fps_images-ipadhd.png */,
-				9BCE859116B5DB500043048E /* Icon-72.png */,
-				9BCE859316B5DB500043048E /* Icon-Small-50.png */,
-				9BCE859516B5DB500043048E /* Icon-Small.png */,
-				9BCE859716B5DB500043048E /* Icon-Small@2x.png */,
-				9BCE859916B5DB500043048E /* Icon.png */,
-				9BCE859B16B5DB500043048E /* Icon@2x.png */,
-				9BCE859D16B5DB500043048E /* Info.plist */,
-				9BCE859E16B5DB500043048E /* iTunesArtwork */,
-				9BCE872016B5FD600043048E /* SoundEffects.plist */,
-				9BCE872116B5FD600043048E /* WorldOptions.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -567,6 +801,8 @@
 				9BCE85A116B5DB500043048E /* cocos2d */,
 				9BCE86B816B5DB520043048E /* CocosDenshion */,
 				9BCE86C716B5DB520043048E /* kazmath */,
+				9BCE875316B608D40043048E /* GoogleAnalytics */,
+				9B97CFF816BB6A5C005BF0FF /* GoogleAdMob */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -1032,6 +1268,21 @@
 				9BCE872416B5FD610043048E /* WorldOptions.plist in Resources */,
 				9BCE872516B5FD610043048E /* AppDefaults.plist in Resources */,
 				9B96CB8A16B90318009A226B /* Localizable.strings in Resources */,
+				9B97D03316BCE5E2005BF0FF /* Icon_Clock_Highlight@2x.png in Resources */,
+				9B97D03516BCE5E2005BF0FF /* Icon_Clock_Highlight.png in Resources */,
+				9B97D03716BCE5E2005BF0FF /* Icon_Clock@2x.png in Resources */,
+				9B97D03916BCE5E2005BF0FF /* Icon_Clock.png in Resources */,
+				9B97D03B16BCE5E2005BF0FF /* Icon_Settings_Highlight@2x.png in Resources */,
+				9B97D03D16BCE5E2005BF0FF /* Icon_Settings_Highlight.png in Resources */,
+				9B97D03F16BCE5E2005BF0FF /* Icon_Settings@2x.png in Resources */,
+				9B97D04116BCE5E2005BF0FF /* Icon_Settings.png in Resources */,
+				9B97D04316BCE5E2005BF0FF /* Icon_World_Highlight@2x.png in Resources */,
+				9B97D04516BCE5E2005BF0FF /* Icon_World_Highlight.png in Resources */,
+				9B97D04716BCE5E2005BF0FF /* Icon_World@2x.png in Resources */,
+				9B97D04916BCE5E2005BF0FF /* Icon_World.png in Resources */,
+				9B97D05216BF0A4F005BF0FF /* SettingsTableViewController.xib in Resources */,
+				9B97D05E16BF1B3A005BF0FF /* WorldOptionsViewController.xib in Resources */,
+				9B97D06416BF2153005BF0FF /* SelectWeatherOptionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1153,6 +1404,11 @@
 				9BCE874916B604570043048E /* LocationService.m in Sources */,
 				9BCE874C16B605680043048E /* Reachability.m in Sources */,
 				9BCE875216B607BC0043048E /* WeatherService.m in Sources */,
+				9B97CFF716BB695B005BF0FF /* AdsViewController.m in Sources */,
+				9B97D05316BF0C7C005BF0FF /* SettingsTableViewController.m in Sources */,
+				9B97D05816BF0F02005BF0FF /* ButtonsViewController.m in Sources */,
+				9B97D05D16BF1B3A005BF0FF /* WorldOptionsViewController.m in Sources */,
+				9B97D06316BF2153005BF0FF /* SelectWeatherOptionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1219,9 +1475,11 @@
 				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"ATidyWorld/libs/kazmath/include\"";
 				INFOPLIST_FILE = ATidyWorld/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/ATidyWorld/GoogleAnalytics\"",
+					"\"$(SRCROOT)/ATidyWorld\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -1241,9 +1499,11 @@
 				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"ATidyWorld/libs/kazmath/include\"";
 				INFOPLIST_FILE = ATidyWorld/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/ATidyWorld/GoogleAnalytics\"",
+					"\"$(SRCROOT)/ATidyWorld\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",

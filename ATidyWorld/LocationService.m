@@ -102,9 +102,8 @@ static LocationService *sharedLocationController = nil;
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-#ifdef DEBUG
 	DLog(@"ERROR in CLLocationManager: %@", error);
-#endif
+
     switch (error.code)
     {
         case kCLErrorDenied:
@@ -141,9 +140,7 @@ static LocationService *sharedLocationController = nil;
                                   mWoeidServiceGFlags,
                                   mWoeidServiceFlags,
                                   mYahooApplicationID];
-#ifdef DEBUG
     DLog(@"updateWithLocation URL: %@", serviceURLString);
-#endif
     mWoeidServiceURL = [NSURL URLWithString:serviceURLString];
     NSURLRequest *request = [NSURLRequest requestWithURL:mWoeidServiceURL];
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -162,18 +159,14 @@ static LocationService *sharedLocationController = nil;
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-#ifdef DEBUG
 	DLog(@"ERROR connection failed: %@", [error description]);
-#endif
     [self willSendLocationFailedNotification];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSString *responseString = [[NSString alloc] initWithData:mResponseData encoding:NSUTF8StringEncoding];
-#ifdef DEBUG
     DLog(@"Finished loading woeid response: \r %@", responseString);
-#endif
     NSError *error;
     NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:mResponseData options:kNilOptions error:&error];
     
@@ -203,9 +196,7 @@ static LocationService *sharedLocationController = nil;
 {
     if (self.serviceTimer == nil)
     {
-#ifdef DEBUG
         DLog(@"Creating and starting service timer");
-#endif
         self.serviceTimer = [NSTimer timerWithTimeInterval:900
                                                     target:[LocationService sharedInstance]
                                                   selector:@selector(start)
@@ -221,14 +212,10 @@ static LocationService *sharedLocationController = nil;
     {
         if (self.serviceTimer.isValid)
         {
-#ifdef DEBUG
             DLog(@"Invalidating service timer...");
-#endif
             [self.serviceTimer invalidate];
         }
-#ifdef DEBUG
         DLog(@"Service timer being nil'd...");
-#endif
         self.serviceTimer = nil;
     }
 }

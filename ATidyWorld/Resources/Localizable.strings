@@ -66,44 +66,44 @@
 "ALERT_TEXT_ALARM_MEDIA_NOT_FOUND"          = "One or more alarms are missing their sound. This can occur when songs have been removed from your iPod library. You must update any affected alarms before they can be used.";
 
 // Time/Date Strings
-"SOMEDAY" = "Someday";
-"EVERYDAY" = "Every day";
-"WEEKDAYS" = "Weekdays";
-"WEEKENDS" = "Weekends";
-"AM" = "AM";
-"PM" = "PM";
-"12_HOUR_SYMBOL" = "12";
-"24_HOUR_SYMBOL" = "24";
+"SOMEDAY"                                   = "Someday";
+"EVERYDAY"                                  = "Every day";
+"WEEKDAYS"                                  = "Weekdays";
+"WEEKENDS"                                  = "Weekends";
+"AM"                                        = "AM";
+"PM"                                        = "PM";
+"12_HOUR_SYMBOL"                            = "12";
+"24_HOUR_SYMBOL"                            = "24";
 
 // Weather Strings
-"FAHRENHEIT" = "F";
-"CELSIUS" = "C";
+"FAHRENHEIT"                                = "F";
+"CELSIUS"                                   = "C";
 
 // Screen Titles
-"VIEW_TITLE_ALARMS" = "Alarms";
-"VIEW_TITLE_OPTIONS" = "Settings";
-"VIEW_TITLE_WORLD_OPTIONS" = "World";
-"VIEW_TITLE_DEBUG" = "Debug";
-"VIEW_TITLE_DEBUG_DATA" = "Debug 2";
+"VIEW_TITLE_ALARMS"                         = "Alarms";
+"VIEW_TITLE_OPTIONS"                        = "Settings";
+"VIEW_TITLE_WORLD_OPTIONS"                  = "Change World";
+"VIEW_TITLE_DEBUG"                          = "Debug";
+"VIEW_TITLE_DEBUG_DATA"                     = "Debug 2";
 
 // Settings Strings - Section Headers
-"OPTIONS_SECTION_HEADER_TIME" = "Time";
-"OPTIONS_SECTION_HEADER_ALARM" = "Alarm";
-"OPTIONS_SECTION_HEADER_WEATHER" = "Weather";
-"OPTIONS_SECTION_HEADER_GENERAL" = "General";
-"OPTIONS_SECTION_HEADER_DISPLAY" = "Display";
+"OPTIONS_SECTION_HEADER_TIME"               = "Time";
+"OPTIONS_SECTION_HEADER_ALARM"              = "Alarm";
+"OPTIONS_SECTION_HEADER_WEATHER"            = "Weather";
+"OPTIONS_SECTION_HEADER_GENERAL"            = "General";
+"OPTIONS_SECTION_HEADER_DISPLAY"            = "Display";
 
 // Settings Strings - Settings Titles
 // NOTE: The string key MUST match the #defines in OptionsConstants.h
 //"USE_SYSTEM_TIME_FORMAT" = "Use Device Time Format";
-"SYNC_CLOCK_TO_REAL_WORLD" = "Clock is Real";
-"CLOCK_MULTIPLIER" = "Clock Speed";
-"USE_24_HOUR_CLOCK" = "Use Time Format";
-"SHOW_DATE" = "Show Date";
-"SHOW_NEXT_ALARM" = "Show Next Alarm";
-"FADE_IN_MUSIC" = "Fade In Alarm Music";
-"SHOW_TEMPERATURE" = "Show Temperature";
-"USE_CELSIUS" = "Display Temperature In";
-"SHOW_FROST_FRAME" = "Show Frosty Screen";
+"SYNC_CLOCK_TO_REAL_WORLD"                  = "Clock is Real";
+"CLOCK_MULTIPLIER"                          = "Speed";
+"USE_24_HOUR_CLOCK"                         = "Hour Format";
+"SHOW_DATE"                                 = "Show Date";
+"SHOW_NEXT_ALARM"                           = "Show Next Alarm";
+"FADE_IN_MUSIC"                             = "Fade In Alarm Music";
+"SHOW_TEMPERATURE"                          = "Show Temperature";
+"USE_CELSIUS"                               = "Show Temperature In";
+"SHOW_FROST_FRAME"                          = "Show Frosty Screen";
 
 
