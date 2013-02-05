@@ -33,6 +33,26 @@
 		9B97D05E16BF1B3A005BF0FF /* WorldOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D05C16BF1B3A005BF0FF /* WorldOptionsViewController.xib */; };
 		9B97D06316BF2153005BF0FF /* SelectWeatherOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06116BF2153005BF0FF /* SelectWeatherOptionViewController.m */; };
 		9B97D06416BF2153005BF0FF /* SelectWeatherOptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D06216BF2153005BF0FF /* SelectWeatherOptionViewController.xib */; };
+		9B97D06F16BF94A2005BF0FF /* ColorConverter.c in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06916BF949B005BF0FF /* ColorConverter.c */; };
+		9B97D07016BF94A2005BF0FF /* RandomUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06C16BF949E005BF0FF /* RandomUtil.m */; };
+		9B97D07116BF94A2005BF0FF /* RSPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06E16BF94A0005BF0FF /* RSPlist.m */; };
+		9B97D07E16C0A45E005BF0FF /* AlarmCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D07516C0A45E005BF0FF /* AlarmCellView.m */; };
+		9B97D07F16C0A45E005BF0FF /* AlarmCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D07616C0A45E005BF0FF /* AlarmCellView.xib */; };
+		9B97D08016C0A45E005BF0FF /* AlarmListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D07816C0A45E005BF0FF /* AlarmListViewController.m */; };
+		9B97D08116C0A45E005BF0FF /* AlarmListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D07916C0A45E005BF0FF /* AlarmListViewController.xib */; };
+		9B97D08216C0A45E005BF0FF /* EditAlarmElementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D07B16C0A45E005BF0FF /* EditAlarmElementViewController.m */; };
+		9B97D08316C0A45E005BF0FF /* EditAlarmRepeatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D07D16C0A45E005BF0FF /* EditAlarmRepeatViewController.m */; };
+		9B97D09116C0A498005BF0FF /* EditAlarmRepeatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D08416C0A498005BF0FF /* EditAlarmRepeatViewController.xib */; };
+		9B97D09216C0A498005BF0FF /* EditAlarmSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08616C0A498005BF0FF /* EditAlarmSoundViewController.m */; };
+		9B97D09316C0A498005BF0FF /* EditAlarmSoundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D08716C0A498005BF0FF /* EditAlarmSoundViewController.xib */; };
+		9B97D09416C0A498005BF0FF /* EditAlarmTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08916C0A498005BF0FF /* EditAlarmTitleViewController.m */; };
+		9B97D09516C0A498005BF0FF /* EditAlarmTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D08A16C0A498005BF0FF /* EditAlarmTitleViewController.xib */; };
+		9B97D09616C0A498005BF0FF /* EditAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08C16C0A498005BF0FF /* EditAlarmViewController.m */; };
+		9B97D09716C0A498005BF0FF /* EditAlarmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D08D16C0A498005BF0FF /* EditAlarmViewController.xib */; };
+		9B97D09816C0A498005BF0FF /* MediaCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08F16C0A498005BF0FF /* MediaCellView.m */; };
+		9B97D09916C0A498005BF0FF /* MediaCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D09016C0A498005BF0FF /* MediaCellView.xib */; };
+		9B97D09D16C0E403005BF0FF /* Alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D09B16C0E403005BF0FF /* Alarm.xcdatamodeld */; };
+		9B97D0A016C0E43E005BF0FF /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D09F16C0E43E005BF0FF /* Alarm.m */; };
 		9BCE857416B5DB500043048E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857316B5DB500043048E /* QuartzCore.framework */; };
 		9BCE857616B5DB500043048E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857516B5DB500043048E /* OpenGLES.framework */; };
 		9BCE857816B5DB500043048E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857716B5DB500043048E /* OpenAL.framework */; };
@@ -218,6 +238,38 @@
 		9B97D06016BF2152005BF0FF /* SelectWeatherOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectWeatherOptionViewController.h; sourceTree = "<group>"; };
 		9B97D06116BF2153005BF0FF /* SelectWeatherOptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectWeatherOptionViewController.m; sourceTree = "<group>"; };
 		9B97D06216BF2153005BF0FF /* SelectWeatherOptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectWeatherOptionViewController.xib; sourceTree = "<group>"; };
+		9B97D06916BF949B005BF0FF /* ColorConverter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ColorConverter.c; sourceTree = "<group>"; };
+		9B97D06A16BF949C005BF0FF /* ColorConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorConverter.h; sourceTree = "<group>"; };
+		9B97D06B16BF949D005BF0FF /* RandomUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomUtil.h; sourceTree = "<group>"; };
+		9B97D06C16BF949E005BF0FF /* RandomUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomUtil.m; sourceTree = "<group>"; };
+		9B97D06D16BF949F005BF0FF /* RSPlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPlist.h; sourceTree = "<group>"; };
+		9B97D06E16BF94A0005BF0FF /* RSPlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPlist.m; sourceTree = "<group>"; };
+		9B97D07416C0A45E005BF0FF /* AlarmCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmCellView.h; sourceTree = "<group>"; };
+		9B97D07516C0A45E005BF0FF /* AlarmCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmCellView.m; sourceTree = "<group>"; };
+		9B97D07616C0A45E005BF0FF /* AlarmCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmCellView.xib; sourceTree = "<group>"; };
+		9B97D07716C0A45E005BF0FF /* AlarmListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmListViewController.h; sourceTree = "<group>"; };
+		9B97D07816C0A45E005BF0FF /* AlarmListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmListViewController.m; sourceTree = "<group>"; };
+		9B97D07916C0A45E005BF0FF /* AlarmListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmListViewController.xib; sourceTree = "<group>"; };
+		9B97D07A16C0A45E005BF0FF /* EditAlarmElementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAlarmElementViewController.h; sourceTree = "<group>"; };
+		9B97D07B16C0A45E005BF0FF /* EditAlarmElementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAlarmElementViewController.m; sourceTree = "<group>"; };
+		9B97D07C16C0A45E005BF0FF /* EditAlarmRepeatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAlarmRepeatViewController.h; sourceTree = "<group>"; };
+		9B97D07D16C0A45E005BF0FF /* EditAlarmRepeatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAlarmRepeatViewController.m; sourceTree = "<group>"; };
+		9B97D08416C0A498005BF0FF /* EditAlarmRepeatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditAlarmRepeatViewController.xib; sourceTree = "<group>"; };
+		9B97D08516C0A498005BF0FF /* EditAlarmSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAlarmSoundViewController.h; sourceTree = "<group>"; };
+		9B97D08616C0A498005BF0FF /* EditAlarmSoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAlarmSoundViewController.m; sourceTree = "<group>"; };
+		9B97D08716C0A498005BF0FF /* EditAlarmSoundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditAlarmSoundViewController.xib; sourceTree = "<group>"; };
+		9B97D08816C0A498005BF0FF /* EditAlarmTitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAlarmTitleViewController.h; sourceTree = "<group>"; };
+		9B97D08916C0A498005BF0FF /* EditAlarmTitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAlarmTitleViewController.m; sourceTree = "<group>"; };
+		9B97D08A16C0A498005BF0FF /* EditAlarmTitleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditAlarmTitleViewController.xib; sourceTree = "<group>"; };
+		9B97D08B16C0A498005BF0FF /* EditAlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAlarmViewController.h; sourceTree = "<group>"; };
+		9B97D08C16C0A498005BF0FF /* EditAlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAlarmViewController.m; sourceTree = "<group>"; };
+		9B97D08D16C0A498005BF0FF /* EditAlarmViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditAlarmViewController.xib; sourceTree = "<group>"; };
+		9B97D08E16C0A498005BF0FF /* MediaCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaCellView.h; sourceTree = "<group>"; };
+		9B97D08F16C0A498005BF0FF /* MediaCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaCellView.m; sourceTree = "<group>"; };
+		9B97D09016C0A498005BF0FF /* MediaCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaCellView.xib; sourceTree = "<group>"; };
+		9B97D09C16C0E403005BF0FF /* Alarm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Alarm.xcdatamodel; sourceTree = "<group>"; };
+		9B97D09E16C0E43D005BF0FF /* Alarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alarm.h; sourceTree = "<group>"; };
+		9B97D09F16C0E43E005BF0FF /* Alarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarm.m; sourceTree = "<group>"; };
 		9BCE856F16B5DB500043048E /* ATidyWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATidyWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BCE857316B5DB500043048E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9BCE857516B5DB500043048E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -681,6 +733,7 @@
 		9B97D04C16BF09FE005BF0FF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9B97D07316C0A415005BF0FF /* Alarm */,
 				9B97CFF316BB68BA005BF0FF /* Ads */,
 				9B97D05916BF1B11005BF0FF /* Change World */,
 				9B97D06516BF2364005BF0FF /* Main */,
@@ -732,6 +785,58 @@
 			name = Main;
 			sourceTree = "<group>";
 		};
+		9B97D07216BF94A8005BF0FF /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				9B97D06916BF949B005BF0FF /* ColorConverter.c */,
+				9B97D06A16BF949C005BF0FF /* ColorConverter.h */,
+				9BCE870B16B5E2570043048E /* DLogMacro.h */,
+				9B97D06B16BF949D005BF0FF /* RandomUtil.h */,
+				9B97D06C16BF949E005BF0FF /* RandomUtil.m */,
+				9B97D06D16BF949F005BF0FF /* RSPlist.h */,
+				9B97D06E16BF94A0005BF0FF /* RSPlist.m */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		9B97D07316C0A415005BF0FF /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				9B97D09A16C0A49D005BF0FF /* Table Cells */,
+				9B97D07716C0A45E005BF0FF /* AlarmListViewController.h */,
+				9B97D07816C0A45E005BF0FF /* AlarmListViewController.m */,
+				9B97D07916C0A45E005BF0FF /* AlarmListViewController.xib */,
+				9B97D08516C0A498005BF0FF /* EditAlarmSoundViewController.h */,
+				9B97D08616C0A498005BF0FF /* EditAlarmSoundViewController.m */,
+				9B97D08716C0A498005BF0FF /* EditAlarmSoundViewController.xib */,
+				9B97D08816C0A498005BF0FF /* EditAlarmTitleViewController.h */,
+				9B97D08916C0A498005BF0FF /* EditAlarmTitleViewController.m */,
+				9B97D08A16C0A498005BF0FF /* EditAlarmTitleViewController.xib */,
+				9B97D08B16C0A498005BF0FF /* EditAlarmViewController.h */,
+				9B97D08C16C0A498005BF0FF /* EditAlarmViewController.m */,
+				9B97D08D16C0A498005BF0FF /* EditAlarmViewController.xib */,
+				9B97D07A16C0A45E005BF0FF /* EditAlarmElementViewController.h */,
+				9B97D07B16C0A45E005BF0FF /* EditAlarmElementViewController.m */,
+				9B97D07C16C0A45E005BF0FF /* EditAlarmRepeatViewController.h */,
+				9B97D07D16C0A45E005BF0FF /* EditAlarmRepeatViewController.m */,
+				9B97D08416C0A498005BF0FF /* EditAlarmRepeatViewController.xib */,
+			);
+			name = Alarm;
+			sourceTree = "<group>";
+		};
+		9B97D09A16C0A49D005BF0FF /* Table Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9B97D08E16C0A498005BF0FF /* MediaCellView.h */,
+				9B97D08F16C0A498005BF0FF /* MediaCellView.m */,
+				9B97D09016C0A498005BF0FF /* MediaCellView.xib */,
+				9B97D07416C0A45E005BF0FF /* AlarmCellView.h */,
+				9B97D07516C0A45E005BF0FF /* AlarmCellView.m */,
+				9B97D07616C0A45E005BF0FF /* AlarmCellView.xib */,
+			);
+			name = "Table Cells";
+			sourceTree = "<group>";
+		};
 		9BCE856416B5DB500043048E = {
 			isa = PBXGroup;
 			children = (
@@ -761,10 +866,10 @@
 		9BCE858516B5DB500043048E /* ATidyWorld */ = {
 			isa = PBXGroup;
 			children = (
+				9B97D07216BF94A8005BF0FF /* Utility */,
 				9BCE874E16B6064C0043048E /* Constants */,
 				9B97D05F16BF1B5A005BF0FF /* Services */,
 				9B97D04C16BF09FE005BF0FF /* ViewControllers */,
-				9BCE870B16B5E2570043048E /* DLogMacro.h */,
 				9BCE86FD16B5DB530043048E /* AppDelegate.h */,
 				9BCE86FE16B5DB530043048E /* AppDelegate.m */,
 				9BCE870016B5DB530043048E /* HelloWorldLayer.h */,
@@ -787,6 +892,9 @@
 				9B97D01616BB7CCE005BF0FF /* Art */,
 				9B97D01516BB7CC7005BF0FF /* Sound */,
 				9B97D01416BB7CAE005BF0FF /* PLists */,
+				9B97D09B16C0E403005BF0FF /* Alarm.xcdatamodeld */,
+				9B97D09E16C0E43D005BF0FF /* Alarm.h */,
+				9B97D09F16C0E43E005BF0FF /* Alarm.m */,
 				9B96CB8916B90318009A226B /* Localizable.strings */,
 			);
 			name = Resources;
@@ -1283,6 +1391,13 @@
 				9B97D05216BF0A4F005BF0FF /* SettingsTableViewController.xib in Resources */,
 				9B97D05E16BF1B3A005BF0FF /* WorldOptionsViewController.xib in Resources */,
 				9B97D06416BF2153005BF0FF /* SelectWeatherOptionViewController.xib in Resources */,
+				9B97D07F16C0A45E005BF0FF /* AlarmCellView.xib in Resources */,
+				9B97D08116C0A45E005BF0FF /* AlarmListViewController.xib in Resources */,
+				9B97D09116C0A498005BF0FF /* EditAlarmRepeatViewController.xib in Resources */,
+				9B97D09316C0A498005BF0FF /* EditAlarmSoundViewController.xib in Resources */,
+				9B97D09516C0A498005BF0FF /* EditAlarmTitleViewController.xib in Resources */,
+				9B97D09716C0A498005BF0FF /* EditAlarmViewController.xib in Resources */,
+				9B97D09916C0A498005BF0FF /* MediaCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1409,6 +1524,19 @@
 				9B97D05816BF0F02005BF0FF /* ButtonsViewController.m in Sources */,
 				9B97D05D16BF1B3A005BF0FF /* WorldOptionsViewController.m in Sources */,
 				9B97D06316BF2153005BF0FF /* SelectWeatherOptionViewController.m in Sources */,
+				9B97D06F16BF94A2005BF0FF /* ColorConverter.c in Sources */,
+				9B97D07016BF94A2005BF0FF /* RandomUtil.m in Sources */,
+				9B97D07116BF94A2005BF0FF /* RSPlist.m in Sources */,
+				9B97D07E16C0A45E005BF0FF /* AlarmCellView.m in Sources */,
+				9B97D08016C0A45E005BF0FF /* AlarmListViewController.m in Sources */,
+				9B97D08216C0A45E005BF0FF /* EditAlarmElementViewController.m in Sources */,
+				9B97D08316C0A45E005BF0FF /* EditAlarmRepeatViewController.m in Sources */,
+				9B97D09216C0A498005BF0FF /* EditAlarmSoundViewController.m in Sources */,
+				9B97D09416C0A498005BF0FF /* EditAlarmTitleViewController.m in Sources */,
+				9B97D09616C0A498005BF0FF /* EditAlarmViewController.m in Sources */,
+				9B97D09816C0A498005BF0FF /* MediaCellView.m in Sources */,
+				9B97D09D16C0E403005BF0FF /* Alarm.xcdatamodeld in Sources */,
+				9B97D0A016C0E43E005BF0FF /* Alarm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1537,6 +1665,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9B97D09B16C0E403005BF0FF /* Alarm.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9B97D09C16C0E403005BF0FF /* Alarm.xcdatamodel */,
+			);
+			currentVersion = 9B97D09C16C0E403005BF0FF /* Alarm.xcdatamodel */;
+			path = Alarm.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9BCE856616B5DB500043048E /* Project object */;
 }

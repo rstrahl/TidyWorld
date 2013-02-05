@@ -16,6 +16,7 @@
 
 @interface SelectWeatherOptionViewController : UITableViewController
 {
+    @private
     WeatherCategory                 mWeatherCategory;
     NSDictionary                    *mTableData;
     NSInteger                       mCheckedRow;

@@ -23,12 +23,22 @@
     LocationService             *mLocationService;
     Reachability                *mInternetReachability;
     WeatherService              *mWeatherService;
+    id<GAITracker>              mGoogleTracker;
 }
 
-@property (nonatomic, retain) UIWindow          *window;
-@property (readonly) UINavigationController     *navController;
-@property (readonly) CCDirectorIOS              *director;
-@property (nonatomic, strong) LocationService   *locationService;
-@property (nonatomic, strong) Reachability      *internetReachability;
-@property (nonatomic, strong) WeatherService    *weatherService;
+@property (nonatomic, retain) UIWindow                                  *window;
+@property (readonly) UINavigationController                             *navController;
+@property (readonly) CCDirectorIOS                                      *director;
+@property (nonatomic, strong) LocationService                           *locationService;
+@property (nonatomic, strong) Reachability                              *internetReachability;
+@property (nonatomic, strong) WeatherService                            *weatherService;
+
+@property (nonatomic, strong, readonly) NSManagedObjectModel            *managedObjectModel;
+@property (nonatomic, strong, readonly) NSManagedObjectContext          *managedObjectContext;
+@property (nonatomic, strong, readonly) NSPersistentStoreCoordinator    *persistentStoreCoordinator;
+
+// Core Data Methods
+- (void)saveContext;
+- (NSURL *)applicationDocumentsDirectory;
+
 @end

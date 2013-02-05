@@ -18,6 +18,7 @@ typedef enum
 
 @interface SettingsTableViewController : UITableViewController
 {
+    @private
     NSUserDefaults                      *mUserDefaults;
     NSArray                             *mOptionsTableData;
     NSArray                             *mOptionsTableSectionHeaders;

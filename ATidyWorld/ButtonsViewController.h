@@ -14,6 +14,7 @@
  */
 @interface ButtonsViewController : UIViewController
 {
+    @private
     id                  __unsafe_unretained mDelegate; // Intended to be a reference back to the Scene object
     UIButton            *mAlarmClockButton;
     UIButton            *mChangeSeasonButton;
