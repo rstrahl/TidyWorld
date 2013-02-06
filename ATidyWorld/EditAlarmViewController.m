@@ -31,11 +31,8 @@
     if (self = [super init])
     {
         self.context = context;
-        self.alarm = (Alarm *)[NSEntityDescription insertNewObjectForEntityForName:@"Alarm" inManagedObjectContext:self.context];
-        NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:ALARM_DEFAULT_SOUND_FILE];
-        NSURL *assetUrl = [NSURL fileURLWithPath:path];
-        self.alarm.sound_id = [NSString stringWithFormat:@"%@", assetUrl];
         self.title = NSLocalizedString(@"VIEW_TITLE_NEW_ALARM", @"Add Alarm");
+        _isSaved = NO;
     }
     return self;
 }
@@ -82,20 +79,25 @@
     [self.navigationItem setRightBarButtonItem:_saveButton];
     [self.navigationItem setLeftBarButtonItem:_cancelButton];
     
-    if ([_alarm.time intValue] == 0)
+    self.alarm = (Alarm *)[NSEntityDescription insertNewObjectForEntityForName:@"Alarm" inManagedObjectContext:self.context];
+    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:ALARM_DEFAULT_SOUND_FILE];
+    NSURL *assetUrl = [NSURL fileURLWithPath:path];
+    self.alarm.sound_id = [NSString stringWithFormat:@"%@", assetUrl];
+    
+    if ([self.alarm.time intValue] == 0)
     {
         _isNewAlarm = YES;
-        _alarm.title = NSLocalizedString(@"DEFAULT_ALARM_TITLE", @"Alarm");
+        self.alarm.title = NSLocalizedString(@"DEFAULT_ALARM_TITLE", @"Alarm");
         
         NSURL *assetURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
                                                   [[NSBundle mainBundle] resourcePath],
                                                   ALARM_DEFAULT_SOUND_FILE]];
-        _alarm.sound_id = [NSString stringWithFormat:@"%@", assetURL];
-        _alarm.sound_name = ALARM_DEFAULT_SOUND_NAME;
+        self.alarm.sound_id = [NSString stringWithFormat:@"%@", assetURL];
+        self.alarm.sound_name = ALARM_DEFAULT_SOUND_NAME;
     }
     
     // Picker time is today in seconds + the alarm time since midnight of its original day
-    if ([_alarm.time intValue])
+    if ([self.alarm.time intValue])
     {
         NSTimeInterval alarmTimeDay = [_alarm.time doubleValue];// + dayInSeconds;
         [self.timePicker setDate:[NSDate dateWithTimeIntervalSinceReferenceDate:alarmTimeDay]];
@@ -126,6 +128,11 @@
     [super viewWillAppear:animated];
     if (ANALYTICS_GOOGLE_ON)
         [[GAI sharedInstance].defaultTracker trackView:@"Edit Alarm"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -321,13 +328,15 @@
     }
     else
     {
+        _isSaved = YES;
         DLog(@"saveButtonPressed: SUCCESS saving alarm");
     }
     
     [self.delegate didReturnFromEditingAlarm:_alarm];
-    [self dismissModalViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
+// TODO: CODE REVIEW: No longer used, viewWillDisappear now accounts for this as we're using a back button
 - (IBAction)cancelButtonPressed:(id)sender
 {
     [self.context rollback];
@@ -336,7 +345,7 @@
         [self.context deleteObject:_alarm];
     }
     [_delegate didCancelEditingAlarm];
-    [self dismissModalViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)snoozeSwitchToggled:(id)sender

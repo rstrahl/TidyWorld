@@ -20,31 +20,31 @@ extern NSUInteger const kMusicSegmentIndex;
 @interface EditAlarmSoundViewController : EditAlarmElementViewController
     <MPMediaPickerControllerDelegate>
 {
-    AppDelegate *_appDelegate;
-    NSArray *_soundList;
-    NSMutableArray *_musicList;
-    MPMediaItemCollection *_mediaItemCollection;
-    NSIndexPath *_lastSelectedIndexPath;
-    NSString *_selectedMediaID;
-    NSString *_selectedMediaName;
+    AppDelegate                         *_appDelegate;
+    NSArray                             *_soundList;
+    NSMutableArray                      *_musicList;
+    MPMediaItemCollection               *_mediaItemCollection;
+    NSIndexPath                         *_lastSelectedIndexPath;
+    NSString                            *_selectedMediaID;
+    NSString                            *_selectedMediaName;
     
-    UISegmentedControl *_soundTypeControl;
-    MediaCellView *_mediaCell;
+    UISegmentedControl                  *_soundTypeControl;
+    MediaCellView                       *_mediaCell;
 
-    BOOL _audioPlaying;
-    AVPlayer *_audioPlayer;
+    BOOL                                _audioPlaying;
+    AVPlayer                            *_audioPlayer;
 }
 
-@property (nonatomic, strong) NSArray *soundList;
-@property (nonatomic, strong) NSMutableArray *musicList;
-@property (nonatomic, strong) MPMediaItemCollection *mediaItemCollection;
-@property (nonatomic, strong) NSIndexPath *lastSelectedIndexPath;
-@property (nonatomic, strong) NSString *selectedMediaID;
-@property (nonatomic, strong) NSString *selectedMediaName;
-@property (nonatomic, strong) IBOutlet UISegmentedControl *soundTypeControl;
-@property (nonatomic, strong) IBOutlet UIBarButtonItem *editButton;
-@property (nonatomic, strong) IBOutlet MediaCellView *mediaCell;
-@property (nonatomic, strong) AVPlayer *audioPlayer;
+@property (nonatomic, strong) NSArray                       *soundList;
+@property (nonatomic, strong) NSMutableArray                *musicList;
+@property (nonatomic, strong) MPMediaItemCollection         *mediaItemCollection;
+@property (nonatomic, strong) NSIndexPath                   *lastSelectedIndexPath;
+@property (nonatomic, strong) NSString                      *selectedMediaID;
+@property (nonatomic, strong) NSString                      *selectedMediaName;
+@property (nonatomic, strong) IBOutlet UISegmentedControl   *soundTypeControl;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem      *editButton;
+@property (nonatomic, strong) IBOutlet MediaCellView        *mediaCell;
+@property (nonatomic, strong) AVPlayer                      *audioPlayer;
 
 - (UITableViewCell *)configureSoundEffectCellViewForTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath;
 - (UITableViewCell *)configureMusicCellViewForTableView:(UITableView *)tableView atIndexPath:(NSIndexPath *)indexPath;

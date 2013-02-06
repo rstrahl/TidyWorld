@@ -18,6 +18,9 @@
             enabledSwitch,
             problemIcon;
 
+static const uint kHorizontalMarginPadding = 10;
+static const uint kVerticalMarginPadding = 4;
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -44,15 +47,15 @@
     // Set default layout, presuming there is a frequency label set
     if ([self.frequencyLabel.text length] > 0)
     {
-        frequencyLabelRect = CGRectMake(self.contentView.bounds.origin.x,
+        frequencyLabelRect = CGRectMake(self.contentView.bounds.origin.x + kHorizontalMarginPadding,
                                         (self.contentView.bounds.size.height / 2) - (self.frequencyLabel.frame.size.height / 2),
                                         self.frequencyLabel.frame.size.width,
                                         self.frequencyLabel.frame.size.height);
-        timeLabelRect = CGRectMake(self.contentView.bounds.origin.x,
-                                   (frequencyLabelRect.origin.x - timeLabelRect.size.height),
+        timeLabelRect = CGRectMake(frequencyLabelRect.origin.x,
+                                   (frequencyLabelRect.origin.y - self.timeLabel.frame.size.height - self.timeLabel.font.descender),
                                    self.timeLabel.frame.size.width,
                                    self.timeLabel.frame.size.height);
-        titleLabelRect = CGRectMake(self.contentView.bounds.origin.x,
+        titleLabelRect = CGRectMake(frequencyLabelRect.origin.x,
                                     (self.frequencyLabel.frame.origin.y + self.frequencyLabel.frame.size.height),
                                     self.titleLabel.frame.size.width,
                                     self.titleLabel.frame.size.height);
@@ -61,18 +64,18 @@
     else
     {
         // Move time and title to centered
-        timeLabelRect = CGRectMake(self.contentView.bounds.origin.x,
-                                   (self.contentView.bounds.size.height / 2) - (self.timeLabel.frame.size.height),
+        timeLabelRect = CGRectMake(self.contentView.bounds.origin.x + kHorizontalMarginPadding,
+                                   (self.contentView.bounds.size.height / 2) - self.timeLabel.frame.size.height - self.timeLabel.font.descender,
                                    self.timeLabel.frame.size.width,
                                    self.timeLabel.frame.size.height);
-        titleLabelRect = CGRectMake(self.contentView.bounds.origin.x,
-                                    (self.contentView.bounds.size.height / 2),
+        titleLabelRect = CGRectMake(timeLabelRect.origin.x,
+                                    (self.contentView.bounds.size.height / 2) - self.titleLabel.font.descender,
                                     self.titleLabel.frame.size.width,
                                     self.titleLabel.frame.size.height);        
     }
     // AM/PM label appears to the right of timeLabel, aligned with the baseline of timeLabel
     ampmLabelRect = CGRectMake((self.timeLabel.frame.origin.x + self.timeLabel.frame.size.width),
-                               (self.timeLabel.frame.origin.y + self.timeLabel.frame.size.height - self.ampmLabel.frame.size.height),
+                               (timeLabelRect.origin.y + self.timeLabel.frame.size.height + self.timeLabel.font.descender) - (self.ampmLabel.frame.size.height + self.ampmLabel.font.descender),
                                self.ampmLabel.frame.size.width,
                                self.ampmLabel.frame.size.height);
     
@@ -86,6 +89,13 @@
     [self.titleLabel setFrame:titleLabelRect];
     [self.timeLabel setFrame:timeLabelRect];
     [self.problemIcon setFrame:problemIconRect];
+    
+    // FOR DEBUGGING THE LAYOUT
+//    [self.timeLabel setBackgroundColor:[UIColor yellowColor]];
+//    [self.ampmLabel setBackgroundColor:[UIColor orangeColor]];
+//    [self.titleLabel setBackgroundColor:[UIColor cyanColor]];
+//    [self.frequencyLabel setBackgroundColor:[UIColor greenColor]];
+    DLog(@"");
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {

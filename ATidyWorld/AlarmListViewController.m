@@ -503,8 +503,7 @@
 {
     EditAlarmViewController *editAlarmViewController = [[EditAlarmViewController alloc] initWithContext:self.context];
     editAlarmViewController.delegate = self;
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:editAlarmViewController];
-    [self presentModalViewController:navigationController animated:YES];
+    [self.navigationController pushViewController:editAlarmViewController animated:YES];
     [self googleLogAlarmAdd];
 }
 
@@ -512,8 +511,7 @@
 {
     EditAlarmViewController *editAlarmViewController = [[EditAlarmViewController alloc] initWithContext:self.context forAlarm:alarm];
     editAlarmViewController.delegate = self;
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:editAlarmViewController];
-    [self presentModalViewController:navigationController animated:YES];
+    [self.navigationController pushViewController:editAlarmViewController animated:YES];
     [self googleLogAlarmEdit];
 }
 

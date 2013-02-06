@@ -25,16 +25,17 @@
 @interface EditAlarmViewController : UIViewController
     <EditAlarmElementViewDelegate>
 {
-    UITableView *_tableView;
-    UIDatePicker *_timePicker;
-    UIBarButtonItem *_saveButton;
-    UIBarButtonItem *_cancelButton;
-    UISwitch *_snoozeSwitch;
+    UITableView                                     *_tableView;
+    UIDatePicker                                    *_timePicker;
+    UIBarButtonItem                                 *_saveButton;
+    UIBarButtonItem                                 *_cancelButton;
+    UISwitch                                        *_snoozeSwitch;
     
-    Alarm *_alarm;
-    id<EditAlarmViewDelegate> __unsafe_unretained _delegate;
-    NSManagedObjectContext *_context;
-    BOOL _isNewAlarm;
+    Alarm                                           *_alarm;
+    id<EditAlarmViewDelegate> __unsafe_unretained   _delegate;
+    NSManagedObjectContext                          *_context;
+    BOOL                                            _isNewAlarm;
+    BOOL                                            _isSaved;
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;

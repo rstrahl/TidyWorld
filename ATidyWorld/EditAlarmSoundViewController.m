@@ -79,8 +79,6 @@ NSUInteger const kMusicSegmentIndex = 1;
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
     self.soundTypeControl = nil;
 }
 
@@ -331,12 +329,6 @@ NSUInteger const kMusicSegmentIndex = 1;
     {
         [cell setAccessoryType:UITableViewCellAccessoryNone];
     }
-//    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-//    backgroundView.backgroundColor = [UIColor whiteColor];
-//    cell.backgroundView = backgroundView;
-//    cell.contentView.backgroundColor = [UIColor whiteColor];
-//    cell.accessoryView.backgroundColor = [UIColor whiteColor];
-//    cell.textLabel.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 

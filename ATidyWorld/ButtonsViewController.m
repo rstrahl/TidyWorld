@@ -9,6 +9,7 @@
 #import "ButtonsViewController.h"
 #import "SettingsTableViewController.h"
 #import "WorldOptionsViewController.h"
+#import "AlarmListViewController.h"
 
 @interface ButtonsViewController ()
 
@@ -89,8 +90,9 @@
 - (void)alarmClockButtonPressed:(id)sender
 {
     DLog(@"");
-    //    AlarmListViewController *alarmListViewController = [[AlarmListViewController alloc] init];
-    //    [self presentModalForViewController:alarmListViewController animated:YES];
+    AlarmListViewController *alarmListViewController = [[AlarmListViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:alarmListViewController];
+    [self presentModalViewController:navController animated:YES];
 }
 
 - (void)changeSeasonButtonPressed:(id)sender
