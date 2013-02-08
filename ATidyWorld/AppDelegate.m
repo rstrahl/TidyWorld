@@ -11,6 +11,7 @@
 #import "IntroLayer.h"
 #import "LocationService.h"
 #import "WeatherService.h"
+#import "AlarmService.h"
 #import "Constants.h"
 
 @interface AppController()
@@ -128,6 +129,8 @@
 	
     [self googleLogAppLoadingTime:startTime];
     
+    [self initAlarmService];
+    
 	return YES;
 }
 
@@ -190,6 +193,7 @@
     [mInternetReachability release];
     [mLocationService release];
     [mWeatherService release];
+    [mAlarmService release];
     
 	[window_ release];
 	[navController_ release];
@@ -240,6 +244,15 @@
                                                  selector:@selector(didReceiveWeatherSuccessNotification:)
                                                      name:NOTIFICATION_WEATHER_SUCCESS
                                                    object:nil];
+    }
+}
+
+- (void)initAlarmService
+{
+    DLog(@"Initializing alarm service");
+    if (mAlarmService == nil)
+    {
+        mAlarmService = [AlarmService sharedInstance];
     }
 }
 

@@ -25,26 +25,26 @@
 @interface EditAlarmViewController : UIViewController
     <EditAlarmElementViewDelegate>
 {
-    UITableView                                     *_tableView;
-    UIDatePicker                                    *_timePicker;
-    UIBarButtonItem                                 *_saveButton;
-    UIBarButtonItem                                 *_cancelButton;
-    UISwitch                                        *_snoozeSwitch;
+    UITableView                                     *mTableView;
+    UIDatePicker                                    *mTimePicker;
+    UIBarButtonItem                                 *mSaveButton;
+    UIBarButtonItem                                 *mCancelButton;
+    UISwitch                                        *mSnoozeSwitch;
     
-    Alarm                                           *_alarm;
-    id<EditAlarmViewDelegate> __unsafe_unretained   _delegate;
-    NSManagedObjectContext                          *_context;
-    BOOL                                            _isNewAlarm;
-    BOOL                                            _isSaved;
+    Alarm                                           *mAlarm;
+    id<EditAlarmViewDelegate> __unsafe_unretained   mDelegate;
+    NSManagedObjectContext                          *mContext;
+    BOOL                                            mIsNewAlarm;
+    BOOL                                            mIsSaved;
 }
 
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) IBOutlet UIDatePicker *timePicker;
-@property (nonatomic, strong) IBOutlet UIBarButtonItem *saveButton;
-@property (nonatomic, strong) IBOutlet UIBarButtonItem *cancelButton;
-@property (nonatomic, strong) Alarm *alarm;
-@property (nonatomic, unsafe_unretained) id<EditAlarmViewDelegate> delegate;
-@property (nonatomic, strong) NSManagedObjectContext *context;
+@property (nonatomic, strong) IBOutlet UITableView                  *tableView;
+@property (nonatomic, strong) IBOutlet UIDatePicker                 *timePicker;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem              *saveButton;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem              *cancelButton;
+@property (nonatomic, strong) Alarm                                 *alarm;
+@property (nonatomic, unsafe_unretained) id<EditAlarmViewDelegate>  delegate;
+@property (nonatomic, strong) NSManagedObjectContext                *context;
 
 - (id)initWithContext:(NSManagedObjectContext *)context;
 - (id)initWithContext:(NSManagedObjectContext *)context forAlarm:(Alarm *)alarm;

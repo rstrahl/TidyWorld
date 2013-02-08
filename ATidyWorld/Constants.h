@@ -67,10 +67,6 @@ extern CGFloat const kNameTableCellTextFieldYPadding;
 extern CGFloat const kNameTableCellTextFieldHeight;
 
 // Time Constants
-extern NSTimeInterval const kOneDayInSeconds;
-extern NSTimeInterval const kOneDayInMillis;
-extern NSTimeInterval const kOneHourInSeconds;
-extern NSTimeInterval const kHalfHourInSeconds;
 extern NSTimeInterval const kSnoozeIntervalInMinutes;
 
 typedef enum

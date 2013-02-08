@@ -15,16 +15,17 @@
 #import "ClockConstants.h"
 #import "SettingsConstants.h"
 #import "Constants.h"
+#import "TimeUtils.h"
 
 @implementation EditAlarmViewController
 
-@synthesize tableView = _tableView,
-            timePicker = _timePicker,
-            saveButton = _saveButton,
-            cancelButton = _cancelButton,
-            alarm = _alarm,
-            delegate = _delegate,
-            context = _context;
+@synthesize tableView = mTableView,
+            timePicker = mTimePicker,
+            saveButton = mSaveButton,
+            cancelButton = mCancelButton,
+            alarm = mAlarm,
+            delegate = mDelegate,
+            context = mContext;
 
 - (id)initWithContext:(NSManagedObjectContext *)context;
 {
@@ -32,7 +33,7 @@
     {
         self.context = context;
         self.title = NSLocalizedString(@"VIEW_TITLE_NEW_ALARM", @"Add Alarm");
-        _isSaved = NO;
+        mIsSaved = NO;
     }
     return self;
 }
@@ -70,23 +71,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave 
+    mSaveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave 
                                                                 target:self 
                                                                 action:@selector(saveButtonPressed:)];
-    _cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel 
+    mCancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel 
                                                                   target:self 
                                                                   action:@selector(cancelButtonPressed:)];
-    [self.navigationItem setRightBarButtonItem:_saveButton];
-    [self.navigationItem setLeftBarButtonItem:_cancelButton];
+    [self.navigationItem setRightBarButtonItem:mSaveButton];
+    [self.navigationItem setLeftBarButtonItem:mCancelButton];
     
-    self.alarm = (Alarm *)[NSEntityDescription insertNewObjectForEntityForName:@"Alarm" inManagedObjectContext:self.context];
-    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:ALARM_DEFAULT_SOUND_FILE];
-    NSURL *assetUrl = [NSURL fileURLWithPath:path];
-    self.alarm.sound_id = [NSString stringWithFormat:@"%@", assetUrl];
-    
-    if ([self.alarm.time intValue] == 0)
+    if (self.alarm == nil)
     {
-        _isNewAlarm = YES;
+        self.alarm = (Alarm *)[NSEntityDescription insertNewObjectForEntityForName:@"Alarm" inManagedObjectContext:self.context];
+        NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:ALARM_DEFAULT_SOUND_FILE];
+        NSURL *assetUrl = [NSURL fileURLWithPath:path];
+        self.alarm.sound_id = [NSString stringWithFormat:@"%@", assetUrl];
+        mIsNewAlarm = YES;
         self.alarm.title = NSLocalizedString(@"DEFAULT_ALARM_TITLE", @"Alarm");
         
         NSURL *assetURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@",
@@ -97,10 +97,9 @@
     }
     
     // Picker time is today in seconds + the alarm time since midnight of its original day
-    if ([self.alarm.time intValue])
+    if ([self.alarm.time doubleValue])
     {
-        NSTimeInterval alarmTimeDay = [_alarm.time doubleValue];// + dayInSeconds;
-        [self.timePicker setDate:[NSDate dateWithTimeIntervalSinceReferenceDate:alarmTimeDay]];
+        [self.timePicker setDate:[NSDate dateWithTimeIntervalSinceReferenceDate:self.alarm.time.doubleValue]];
     }
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -109,7 +108,6 @@
     {
         [self.timePicker setDatePickerMode:UIDatePickerModeTime];
     }
-    [self.timePicker setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
 }
 
 - (void)viewDidUnload
@@ -186,9 +184,9 @@
             {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                 cell.textLabel.text = NSLocalizedString(@"CELL_TITLE_SNOOZE", @"Snooze");
-                _snoozeSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(224, 9, 0, 0)];
-                [cell addSubview:_snoozeSwitch];
-                [_snoozeSwitch addTarget:self action:@selector(snoozeSwitchToggled:) forControlEvents:UIControlEventValueChanged];
+                mSnoozeSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(224, 9, 0, 0)];
+                [cell addSubview:mSnoozeSwitch];
+                [mSnoozeSwitch addTarget:self action:@selector(snoozeSwitchToggled:) forControlEvents:UIControlEventValueChanged];
                 break;
             }
                 // Label Cell
@@ -210,27 +208,27 @@
             // Repeat Cell
         case 0:
         {
-            cell.detailTextLabel.text = [AlarmListViewController buildFrequencyStringForAlarm:_alarm];
+            cell.detailTextLabel.text = [AlarmListViewController buildFrequencyStringForAlarm:mAlarm];
             break;
         }
             // Sound Cell
         case 1:
         {
-            cell.detailTextLabel.text = _alarm.sound_name;
+            cell.detailTextLabel.text = mAlarm.sound_name;
             break;
         }
             // Snooze Cell
         case 2:
         {
-            [_snoozeSwitch setOn:[_alarm.snooze boolValue]];
+            [mSnoozeSwitch setOn:[mAlarm.snooze boolValue]];
             break;
         }
             // Label Cell
         case 3:
         {
-            if ([_alarm.title length] > 0)
+            if ([mAlarm.title length] > 0)
             {
-                cell.detailTextLabel.text = _alarm.title;
+                cell.detailTextLabel.text = mAlarm.title;
             }
             else
             {
@@ -256,7 +254,7 @@
             EditAlarmRepeatViewController *editAlarmRepeatViewController = 
             [[EditAlarmRepeatViewController alloc] init];
             editAlarmRepeatViewController.delegate = self;
-            editAlarmRepeatViewController.repeatBits = [_alarm.repeat intValue];
+            editAlarmRepeatViewController.repeatBits = [mAlarm.repeat intValue];
             [self.navigationController pushViewController:editAlarmRepeatViewController animated:YES];
             break;
         }   
@@ -265,8 +263,8 @@
             EditAlarmSoundViewController *editAlarmSoundViewController = 
                 [[EditAlarmSoundViewController alloc] init];
             editAlarmSoundViewController.delegate = self;
-            editAlarmSoundViewController.selectedMediaID = _alarm.sound_id;
-            editAlarmSoundViewController.selectedMediaName = _alarm.sound_name;
+            editAlarmSoundViewController.selectedMediaID = mAlarm.sound_id;
+            editAlarmSoundViewController.selectedMediaName = mAlarm.sound_name;
             [self.navigationController pushViewController:editAlarmSoundViewController animated:YES];
             break;
         }
@@ -279,7 +277,7 @@
             EditAlarmTitleViewController *editAlarmTitleViewController = 
                 [[EditAlarmTitleViewController alloc] init];
             editAlarmTitleViewController.delegate = self;
-            editAlarmTitleViewController.alarmTitle = _alarm.title;
+            editAlarmTitleViewController.alarmTitle = mAlarm.title;
             [self.navigationController pushViewController:editAlarmTitleViewController animated:YES];
             break;
         }
@@ -314,25 +312,21 @@
 #pragma mark - IBActions
 - (IBAction)saveButtonPressed:(id)sender
 {
-    NSUInteger pickerTimeInSeconds = (NSUInteger)floor([[_timePicker date] timeIntervalSinceReferenceDate]);
-    NSTimeInterval alarmTimeInSecondsOfDay = (double)((pickerTimeInSeconds % (int)kOneDayInSeconds) / 60) * 60;
-//    NSLog(@"saveButtonPressed: Current date and time: %@", [NSDate date]);
-//    NSLog(@"saveButtonpressed: Alarm time in millis: %f", alarmTimeInSecondsOfDay);
-//    NSLog(@"saveButtonPressed: Alarm date and time: %@", [NSDate dateWithTimeIntervalSinceReferenceDate:pickerTimeInSeconds]);
-    _alarm.time = [NSNumber numberWithDouble:alarmTimeInSecondsOfDay];
-    _alarm.hasProblem = [NSNumber numberWithBool:NO];
+    // We save the time of the alarm as the time during the day - datepicker always includes DATE
+    mAlarm.time = [NSNumber numberWithDouble:floor([TimeUtils timeInDayForTimeIntervalSinceReferenceDate:[self.timePicker.date timeIntervalSinceReferenceDate]])];
+    mAlarm.hasProblem = [NSNumber numberWithBool:NO];
     // Save object in context
     NSError *error;
-    if (![_context save:&error]) {
+    if (![mContext save:&error]) {
         DLog(@"ERROR saving alarm to context: %@", [error localizedDescription]);
     }
     else
     {
-        _isSaved = YES;
+        mIsSaved = YES;
         DLog(@"saveButtonPressed: SUCCESS saving alarm");
     }
     
-    [self.delegate didReturnFromEditingAlarm:_alarm];
+    [self.delegate didReturnFromEditingAlarm:mAlarm];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -340,11 +334,11 @@
 - (IBAction)cancelButtonPressed:(id)sender
 {
     [self.context rollback];
-    if (_isNewAlarm)
+    if (mIsNewAlarm)
     {
-        [self.context deleteObject:_alarm];
+        [self.context deleteObject:mAlarm];
     }
-    [_delegate didCancelEditingAlarm];
+    [mDelegate didCancelEditingAlarm];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -353,10 +347,10 @@
     UISwitch *snoozeSwitch = (UISwitch *)sender;
     if (snoozeSwitch.isOn)
     {
-        _alarm.snooze = [NSNumber numberWithBool:YES];
+        mAlarm.snooze = [NSNumber numberWithBool:YES];
     }
     else {
-        _alarm.snooze = [NSNumber numberWithBool:NO];
+        mAlarm.snooze = [NSNumber numberWithBool:NO];
     }
 }
 
@@ -365,19 +359,19 @@
 {
     if ([key isEqualToString:@"title"])
     {
-        _alarm.title = (NSString *)value;
+        mAlarm.title = (NSString *)value;
     }
     else if ([key isEqualToString:@"repeat"])
     {
-        _alarm.repeat = (NSNumber *)value;
+        mAlarm.repeat = (NSNumber *)value;
     }
     else if ([key isEqualToString:@"sound"])
     {
         NSDictionary *soundDict = (NSDictionary *)value;
-        _alarm.sound_id = [soundDict valueForKey:@"id"];
-        _alarm.sound_name = [soundDict valueForKey:@"name"];
-        NSLog(@"Alarm sound id: %@", _alarm.sound_id);
+        mAlarm.sound_id = [soundDict valueForKey:@"id"];
+        mAlarm.sound_name = [soundDict valueForKey:@"name"];
+        NSLog(@"Alarm sound id: %@", mAlarm.sound_id);
     }
-    [_tableView reloadData];
+    [mTableView reloadData];
 }
 @end

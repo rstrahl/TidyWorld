@@ -32,8 +32,4 @@ CGFloat const kNameTableCellTextFieldXPadding   = 18;
 CGFloat const kNameTableCellTextFieldYPadding   = 12;
 CGFloat const kNameTableCellTextFieldHeight     = 22;
 
-NSTimeInterval const kOneDayInSeconds           = 86400;
-NSTimeInterval const kOneDayInMillis            = 84600000;
-NSTimeInterval const kOneHourInSeconds          = 3600;
-NSTimeInterval const kHalfHourInSeconds         = 1800;
 NSTimeInterval const kSnoozeIntervalInMinutes   = 1;

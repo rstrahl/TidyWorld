@@ -14,6 +14,7 @@
 #import "LocationService.h"
 #import "SettingsTableViewController.h"
 #import "ButtonsViewController.h"
+#import "AlarmService.h"
 
 @interface SummerBaseLayer()
 /** Notification Listener for Location Service */
@@ -92,8 +93,13 @@
     if ((time - mClockTime) > 1)
     {
         mClockTime = floor(time);
-        DLog(@"Current time: %f", mClockTime);
         [self.clockFaceView setClockTime:mClockTime];
+        // If the mClockTime mod 60 equals 0, a minute has turned over, check the alarms
+        if (((NSUInteger)mClockTime % 60) == 0)
+        {
+            [[AlarmService sharedInstance] updateWithTime:mClockTime];
+        }
+        DLog(@"Current time: %f", mClockTime);
     }
 }
 

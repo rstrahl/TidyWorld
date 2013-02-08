@@ -14,6 +14,7 @@
 #import "ClockConstants.h"
 #import "Alarm.h"
 #import "AppDelegate.h"
+#import "AlarmService.h"
 
 @interface AlarmListViewController()
 /** Helper method used to configure the layout of a UITableViewCell based on its contents */
@@ -57,9 +58,9 @@
         } 
         else
         {
-            [mDateFormatter setDateFormat:@"HH:mm"];
+            [mDateFormatter setDateFormat:@"HH:mm:a"];
         }
-        AppController *delegate = [(AppController *)[UIApplication sharedApplication] delegate];
+        AppController *delegate = (AppController *)[[UIApplication sharedApplication] delegate];
         self.context = [delegate managedObjectContext];
     }
     return self;
@@ -348,37 +349,11 @@
 {
     Alarm *alarm = [mFetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
     
-    int hours = [alarm.time doubleValue] / 3600;
-    int minutes = ([alarm.time intValue] % 3600) / 60;
-
-    if (!mUse24HourClock)
-    {
-        if (hours > 12)
-        {
-            hours = hours - 12;
-            [cell.ampmLabel setText:NSLocalizedString(@"PM", @"PM")];
-        }
-        else
-        {
-            if (hours == 0)
-                hours = 12;
-            [cell.ampmLabel setText:NSLocalizedString(@"AM", @"AM")];
-        }
-        [cell.timeLabel setText:[NSString stringWithFormat:@"%d:%.2d", hours, minutes]];
-    }
-    else
-    {
-        [cell.timeLabel setText:[NSString stringWithFormat:@"%.2d:%.2d", hours, minutes]];
-        [cell.ampmLabel setHidden:YES];
-    }
-
-//    CGSize expectedLabelSize = [timeLabel.text sizeWithFont:timeLabel.font 
-//                                      constrainedToSize:CGSizeMake(62, 20)
-//                                          lineBreakMode:timeLabel.lineBreakMode];
-//    [timeLabel setFrame:CGRectMake(timeLabel.frame.origin.x, 
-//                                  timeLabel.frame.origin.y, 
-//                                  expectedLabelSize.width, 
-//                                  timeLabel.frame.size.height)];
+    NSString *timeString = [mDateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:alarm.time.doubleValue]];
+    NSArray *timeComponents = [timeString componentsSeparatedByString:@":"];
+    cell.timeLabel.text = [NSString stringWithFormat:@"%@:%@", [timeComponents objectAtIndex:0], [timeComponents objectAtIndex:1]];
+    cell.ampmLabel.text = [NSString stringWithFormat:@"%@", [timeComponents objectAtIndex:2]];
+    [cell.ampmLabel setHidden:mUse24HourClock];
     
     // FREQUENCY
     [cell.frequencyLabel setText:[AlarmListViewController buildFrequencyStringForAlarm:alarm]];
@@ -399,35 +374,7 @@
     {
         [cell.enabledSwitch setOn:NO];
     }
-    
-//    // Re-center time and title if there is no frequency
-//    if ([frequencyLabel.text length] == 0)
-//    {
-//        // Move time and title to centered
-//        CGRect timeCenteredRect = CGRectMake(timeLabel.frame.origin.x,
-//                                             (cell.frame.size.height / 2) - (timeLabel.frame.size.height + 3),
-//                                             timeLabel.frame.size.width, 
-//                                             timeLabel.frame.size.height);
-//        [timeLabel setFrame:timeCenteredRect];
-//        CGRect titleCenteredRect = CGRectMake(titleLabel.frame.origin.x, 
-//                                              (cell.frame.size.height / 2) + 3,
-//                                              titleLabel.frame.size.width, 
-//                                              titleLabel.frame.size.height);
-//        [titleLabel setFrame:titleCenteredRect];
-//        
-//    }
-//    // Apply default layout
-//    else
-//    {
-//        [timeLabel setFrame:CGRectMake(10, 9, timeLabel.frame.size.width, timeLabel.frame.size.height)];
-//        [titleLabel setFrame:CGRectMake(10, 51, titleLabel.frame.size.width, titleLabel.frame.size.height)];
-//    }
-//    CGRect ampmRect = CGRectMake(timeLabel.frame.origin.x+expectedLabelSize.width, 
-//                                 timeLabel.frame.origin.y+8,
-//                                 ampmLabel.frame.size.width, 
-//                                 ampmLabel.frame.size.height);
-//    [ampmLabel setFrame:ampmRect];
-    
+        
     // PROBLEM ICON
     if ([alarm.hasProblem boolValue] == YES)
     {
@@ -437,10 +384,6 @@
     {
         cell.problemIcon.hidden = YES;
     }
-// DEBUGGING LAYOUT
-//    [timeLabel setBackgroundColor:[UIColor yellowColor]];
-//    [ampmLabel setBackgroundColor:[UIColor orangeColor]];
-//    [titleLabel setBackgroundColor:[UIColor cyanColor]];
 }
 
 #pragma mark - IBActions
@@ -484,13 +427,13 @@
     {
         [self googleLogAlarmEnabled];
     }
-    NSLog(@"Set alarm: %@ to enabled:%@", alarm.title, alarm.enabled);
 }
 
 #pragma mark - EditAlarmViewDelegate Methods
 - (void)didReturnFromEditingAlarm:(Alarm *)alarm
 {
     [self.tableView reloadData];
+    [self googleLogAlarmEnabled];
 }
 
 - (void)didCancelEditingAlarm

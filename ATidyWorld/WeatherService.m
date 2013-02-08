@@ -10,6 +10,7 @@
 #import "ClockConstants.h"
 #import "LocationService.h"
 #import "Constants.h"
+#import "TimeUtils.h"
 
 static WeatherService *sharedWeatherService = nil;
 
@@ -217,12 +218,14 @@ static WeatherService *sharedWeatherService = nil;
 
         NSDate *sunriseDate = [weatherTimeFormatter dateFromString:self.astronomySunrise];
         NSDate *sunsetDate = [weatherTimeFormatter dateFromString:self.astronomySunset];
+        // Yahoo puts sunrise/sunset in localtime format - we deal with GMT time 
         NSInteger gmtOffset = [[NSTimeZone localTimeZone] secondsFromGMT];
-
         if([[NSTimeZone localTimeZone] isDaylightSavingTime])
+        {
             gmtOffset = gmtOffset - 3600;
-        self.sunriseInSeconds = ((uint)[sunriseDate timeIntervalSince1970] + gmtOffset) % (int)kOneDayInSeconds;
-        self.sunsetInSeconds = (uint)([sunsetDate timeIntervalSince1970] + +gmtOffset)  % (int)kOneDayInSeconds;
+        }
+        self.sunriseInSeconds = [TimeUtils timeInDayForTimeIntervalSinceReferenceDate:([sunriseDate timeIntervalSinceReferenceDate] - gmtOffset)];
+        self.sunsetInSeconds = [TimeUtils timeInDayForTimeIntervalSinceReferenceDate:([sunsetDate timeIntervalSinceReferenceDate] - gmtOffset)];
     }
     else if ([elementName isEqualToString:@"wind"])
     {

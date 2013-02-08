@@ -12,6 +12,7 @@
 
 @class LocationService;
 @class WeatherService;
+@class AlarmService;
 
 @interface AppController : NSObject <UIApplicationDelegate, CCDirectorDelegate>
 {
@@ -23,6 +24,7 @@
     LocationService             *mLocationService;
     Reachability                *mInternetReachability;
     WeatherService              *mWeatherService;
+    AlarmService                *mAlarmService;
     id<GAITracker>              mGoogleTracker;
 }
 
@@ -32,6 +34,7 @@
 @property (nonatomic, strong) LocationService                           *locationService;
 @property (nonatomic, strong) Reachability                              *internetReachability;
 @property (nonatomic, strong) WeatherService                            *weatherService;
+@property (nonatomic, strong) AlarmService                              *alarmService;
 
 @property (nonatomic, strong, readonly) NSManagedObjectModel            *managedObjectModel;
 @property (nonatomic, strong, readonly) NSManagedObjectContext          *managedObjectContext;
