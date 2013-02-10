@@ -10,7 +10,7 @@
 #import "ClockConstants.h"
 #import "LocationService.h"
 #import "Constants.h"
-#import "TimeUtils.h"
+#import "TMTimeUtils.h"
 
 static WeatherService *sharedWeatherService = nil;
 
@@ -224,8 +224,8 @@ static WeatherService *sharedWeatherService = nil;
         {
             gmtOffset = gmtOffset - 3600;
         }
-        self.sunriseInSeconds = [TimeUtils timeInDayForTimeIntervalSinceReferenceDate:([sunriseDate timeIntervalSinceReferenceDate] - gmtOffset)];
-        self.sunsetInSeconds = [TimeUtils timeInDayForTimeIntervalSinceReferenceDate:([sunsetDate timeIntervalSinceReferenceDate] - gmtOffset)];
+        self.sunriseInSeconds = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:([sunriseDate timeIntervalSinceReferenceDate] - gmtOffset)];
+        self.sunsetInSeconds = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:([sunsetDate timeIntervalSinceReferenceDate] - gmtOffset)];
     }
     else if ([elementName isEqualToString:@"wind"])
     {

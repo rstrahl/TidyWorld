@@ -15,7 +15,7 @@
 #import "ClockConstants.h"
 #import "SettingsConstants.h"
 #import "Constants.h"
-#import "TimeUtils.h"
+#import "TMTimeUtils.h"
 
 @implementation EditAlarmViewController
 
@@ -313,7 +313,7 @@
 - (IBAction)saveButtonPressed:(id)sender
 {
     // We save the time of the alarm as the time during the day - datepicker always includes DATE
-    mAlarm.time = [NSNumber numberWithDouble:floor([TimeUtils timeInDayForTimeIntervalSinceReferenceDate:[self.timePicker.date timeIntervalSinceReferenceDate]])];
+    mAlarm.time = [NSNumber numberWithDouble:floor([TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:[self.timePicker.date timeIntervalSinceReferenceDate]])];
     mAlarm.hasProblem = [NSNumber numberWithBool:NO];
     // Save object in context
     NSError *error;

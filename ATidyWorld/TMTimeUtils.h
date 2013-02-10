@@ -13,8 +13,9 @@ extern NSTimeInterval const kOneDayInMillis;
 extern NSTimeInterval const kOneHourInSeconds;
 extern NSTimeInterval const kHalfHourInSeconds;
 
-@interface TimeUtils : NSObject
+@interface TMTimeUtils : NSObject
 
++ (NSTimeInterval)timeIntervalOfDayStartForTimeIntervalSinceReferenceDate:(NSTimeInterval)time;
 + (NSTimeInterval)timeInDayForTimeIntervalSinceReferenceDate:(NSTimeInterval)time;
 
 @end

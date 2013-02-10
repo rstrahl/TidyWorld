@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Rudi Strahl. All rights reserved.
 //
 
-#import "RSPlist.h"
+#import "TMPlistUtils.h"
 
-@implementation RSPlist
+@implementation TMPlistUtils
 
 + (NSString *)createPathForPList:(NSString *)fileName
 {

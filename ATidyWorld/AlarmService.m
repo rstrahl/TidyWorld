@@ -11,7 +11,7 @@
 #import "SettingsConstants.h"
 #import "AppDelegate.h"
 #import "Alarm.h"
-#import "TimeUtils.h"
+#import "TMTimeUtils.h"
 #import "ClockConstants.h"
 #import <AVFoundation/AVFoundation.h>
 
@@ -19,20 +19,33 @@ static AlarmService *sharedClockService = nil;
 
 // Begin Private Interface
 @interface AlarmService()
-- (void)setupNewDay;
-- (void)refreshActiveAlarmsBasedOnTime:(NSTimeInterval)time;
-- (void)checkAlarmTriggeredForTime:(NSTimeInterval)time;
-- (void)checkSnoozedAlarmTriggeredForTime:(NSTimeInterval)time;
+/** Resets the end of day countdown and updates the current weekday bitflag used by alarm repeats 
+    @param time the time from which the new day is derived */
+- (void)setupNewDayWithTimeSinceReferenceDate:(NSTimeInterval)time;
+/** Iterates through all enabled alarms and queues all alarms that trigger in the current day 
+    @param time the time that alarms will be compared to for determining whether or not they are active */
+- (void)updateActiveAlarmQueueForTimeSinceReferenceDate:(NSTimeInterval)time;
+/** Checks the next alarm in the queue and triggers it if its due 
+    @param time the time that will be compared to the next alarm to determine if it has been triggered */
+- (void)checkAlarmTriggeredForTimeSinceReferenceDate:(NSTimeInterval)time;
+/** Checks the next alarm in the snoozed queue and triggers it if its due 
+    @param time the time that will be compared to the snoozed alarm to determine if it has been triggered */
+- (void)checkSnoozedAlarmTriggeredForTimeSinceReferenceDate:(NSTimeInterval)time;
+/** Adds an alarm to the snooze queue 
+    @param alarm the alarm to add to the snooze queue */
 - (void)addAlarmToSnoozeList:(Alarm *)alarm;
+/** Removes an alarm from the snooze queue 
+    @param alarm the alarm to remove from the snooze queue */
 - (void)removeAlarmFromSnoozeList:(Alarm *)alarm;
+/** Presents the alertview for an alarm 
+    @param alarm the alarm that will trigger the UIAlertView */
 - (void)presentAlarmAlertViewForAlarm:(Alarm *)alarm;
-- (Alarm *)getNextAlarm;
 @end
 // End Private Interface
 
 @implementation AlarmService
 
-@synthesize todaysAlarms = mTodaysAlarms,
+@synthesize todaysAlarms = mActiveAlarmQueue,
             todaysSnoozedAlarms = mTodaysSnoozedAlarms,
             fetchedResultsController = mFetchedResultsController,
             context = mContext,
@@ -48,7 +61,7 @@ static AlarmService *sharedClockService = nil;
         AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
         self.context = [appDelegate managedObjectContext];
         mLastTimeUpdate = [NSDate timeIntervalSinceReferenceDate];
-        [self refreshActiveAlarmsBasedOnTime:mLastTimeUpdate];
+        [self updateActiveAlarmQueueForTimeSinceReferenceDate:mLastTimeUpdate];
 
         NSError *error;
         if (![[self mFetchedResultsController] performFetch:&error])
@@ -73,41 +86,41 @@ static AlarmService *sharedClockService = nil;
 - (void)updateWithTime:(NSTimeInterval)timeInterval
 {
     DLog(@"Updating alarm service...");
+    mSecondsUntilDayEnds =- timeInterval - mLastTimeUpdate;
     mLastTimeUpdate = timeInterval;
     // 1. Check for end of day
-    mSecondsUntilDayEnds--;
     if (mSecondsUntilDayEnds <= 0)
     {
-        [self setupNewDay];
-        [self refreshActiveAlarmsBasedOnTime:mLastTimeUpdate];
+        [self setupNewDayWithTimeSinceReferenceDate:mLastTimeUpdate];
+        [self updateActiveAlarmQueueForTimeSinceReferenceDate:mLastTimeUpdate];
     }
     // 2. Check for any triggered alarms
-    [self checkAlarmTriggeredForTime:mLastTimeUpdate];
+    [self checkAlarmTriggeredForTimeSinceReferenceDate:mLastTimeUpdate];
     // 3. Check for any snoozed alarms to trigger
-    [self checkSnoozedAlarmTriggeredForTime:mLastTimeUpdate];
+    [self checkSnoozedAlarmTriggeredForTimeSinceReferenceDate:mLastTimeUpdate];
 }
 
 #pragma mark - Private Methods
-- (void)setupNewDay
+- (void)setupNewDayWithTimeSinceReferenceDate:(NSTimeInterval)time
 {
-    NSDate *today = [NSDate date];
+    NSDate *today = [NSDate dateWithTimeIntervalSinceReferenceDate:time];
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:NSWeekdayCalendarUnit fromDate:today];
     mCurrentWeekday = [components weekday]-1;
-    mSecondsUntilDayEnds = [TimeUtils timeInDayForTimeIntervalSinceReferenceDate:[today timeIntervalSinceReferenceDate]];
+    mSecondsUntilDayEnds = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:[today timeIntervalSinceReferenceDate]];
 }
 
-- (void)refreshActiveAlarmsBasedOnTime:(NSTimeInterval)time
+- (void)updateActiveAlarmQueueForTimeSinceReferenceDate:(NSTimeInterval)time
 {
-    NSTimeInterval timeInDay = [TimeUtils timeInDayForTimeIntervalSinceReferenceDate:time];
-    DLog(@"Scheduled Alarms Before Check: %d", [mTodaysAlarms count]);
-    if (mTodaysAlarms == nil)
+    NSTimeInterval timeInDay = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:time];
+    DLog(@"Scheduled Alarms Before Check: %d", [mActiveAlarmQueue count]);
+    if (mActiveAlarmQueue == nil)
     {
-        mTodaysAlarms = [[NSMutableArray alloc] initWithCapacity:0];
+        mActiveAlarmQueue = [[NSMutableArray alloc] initWithCapacity:0];
     }
     else
     {
-        [mTodaysAlarms removeAllObjects];
+        [mActiveAlarmQueue removeAllObjects];
     }
     
     for (Alarm *alarm in [self.fetchedResultsController fetchedObjects])
@@ -121,19 +134,19 @@ static AlarmService *sharedClockService = nil;
             if (([alarm.repeat intValue] == 0) ||
                 ([alarm.repeat intValue] & (1 << mCurrentWeekday)))
             {
-                [mTodaysAlarms addObject:alarm];
+                [mActiveAlarmQueue addObject:alarm];
             }
         }
     }
-    DLog(@"Scheduled Alarms After Check: %d", [mTodaysAlarms count]);
+    DLog(@"Scheduled Alarms After Check: %d", [mActiveAlarmQueue count]);
 }
 
-- (void)checkAlarmTriggeredForTime:(NSTimeInterval)time
+- (void)checkAlarmTriggeredForTimeSinceReferenceDate:(NSTimeInterval)time
 {
-    if ([mTodaysAlarms count] > 0)
+    if ([mActiveAlarmQueue count] > 0)
     {
-        Alarm *nextAlarm = [mTodaysAlarms objectAtIndex:0];
-        NSTimeInterval nextAlarmTime = [TimeUtils timeInDayForTimeIntervalSinceReferenceDate:nextAlarm.time.doubleValue];
+        Alarm *nextAlarm = [mActiveAlarmQueue objectAtIndex:0];
+        NSTimeInterval nextAlarmTime = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:nextAlarm.time.doubleValue];
         
         // Trigger next alarm when the current time passes the alarm time
         if (nextAlarmTime <= time)
@@ -143,7 +156,7 @@ static AlarmService *sharedClockService = nil;
             {
                 nextAlarm.enabled = NO;
             }
-            [mTodaysAlarms removeObject:nextAlarm];
+            [mActiveAlarmQueue removeObject:nextAlarm];
             self.activeAlarm = nextAlarm;
             [self presentAlarmAlertViewForAlarm:self.activeAlarm];
             [self.delegate alarmServiceDidTriggerAlarm:self.activeAlarm];
@@ -151,7 +164,7 @@ static AlarmService *sharedClockService = nil;
     }
 }
 
-- (void)checkSnoozedAlarmTriggeredForTime:(NSTimeInterval)time
+- (void)checkSnoozedAlarmTriggeredForTimeSinceReferenceDate:(NSTimeInterval)time
 {
     if ((self.activeAlarm != nil) && (mSnoozeCount > 0))
     {
@@ -204,7 +217,7 @@ static AlarmService *sharedClockService = nil;
 {
     // The fetch controller has sent all current change notifications, so tell the table view to process all updates.
     DLog(@"Enabled Alarms in results controller: %d", [[controller fetchedObjects] count]);
-    [self refreshActiveAlarmsBasedOnTime:mLastTimeUpdate];
+    [self updateActiveAlarmQueueForTimeSinceReferenceDate:mLastTimeUpdate];
 }
 
 #pragma mark - Alarm AlertView
@@ -268,7 +281,7 @@ static AlarmService *sharedClockService = nil;
 - (Alarm *)getNextAlarm
 {
     if ([self.todaysAlarms count] > 0)
-        return (Alarm *)[mTodaysAlarms objectAtIndex:0];
+        return (Alarm *)[mActiveAlarmQueue objectAtIndex:0];
     else
         return nil;
 }

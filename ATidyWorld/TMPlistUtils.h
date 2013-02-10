@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RSPlist : NSObject
+@interface TMPlistUtils : NSObject
 
 /** Reads from a Plist */
 + (id)readPlist:(NSString *)fileName;

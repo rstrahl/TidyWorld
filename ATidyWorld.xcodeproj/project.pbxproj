@@ -35,7 +35,7 @@
 		9B97D06416BF2153005BF0FF /* SelectWeatherOptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D06216BF2153005BF0FF /* SelectWeatherOptionViewController.xib */; };
 		9B97D06F16BF94A2005BF0FF /* ColorConverter.c in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06916BF949B005BF0FF /* ColorConverter.c */; };
 		9B97D07016BF94A2005BF0FF /* RandomUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06C16BF949E005BF0FF /* RandomUtil.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
-		9B97D07116BF94A2005BF0FF /* RSPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06E16BF94A0005BF0FF /* RSPlist.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
+		9B97D07116BF94A2005BF0FF /* TMPlistUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06E16BF94A0005BF0FF /* TMPlistUtils.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
 		9B97D07E16C0A45E005BF0FF /* AlarmCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D07516C0A45E005BF0FF /* AlarmCellView.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
 		9B97D07F16C0A45E005BF0FF /* AlarmCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D07616C0A45E005BF0FF /* AlarmCellView.xib */; };
 		9B97D08016C0A45E005BF0FF /* AlarmListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D07816C0A45E005BF0FF /* AlarmListViewController.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
@@ -63,7 +63,7 @@
 		9B97D0B916C21DD9005BF0FF /* reveille.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0B216C21DD9005BF0FF /* reveille.mp3 */; };
 		9B97D0BA16C21DD9005BF0FF /* train_whistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0B316C21DD9005BF0FF /* train_whistle.mp3 */; };
 		9BB464AF16C4A0B400BD5BBC /* AlarmService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB464AE16C4A0B400BD5BBC /* AlarmService.m */; };
-		9BB464B216C4E12F00BD5BBC /* TimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB464B116C4E12F00BD5BBC /* TimeUtils.m */; };
+		9BB464B216C4E12F00BD5BBC /* TMTimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB464B116C4E12F00BD5BBC /* TMTimeUtils.m */; };
 		9BCE857416B5DB500043048E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857316B5DB500043048E /* QuartzCore.framework */; };
 		9BCE857616B5DB500043048E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857516B5DB500043048E /* OpenGLES.framework */; };
 		9BCE857816B5DB500043048E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857716B5DB500043048E /* OpenAL.framework */; };
@@ -253,8 +253,8 @@
 		9B97D06A16BF949C005BF0FF /* ColorConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorConverter.h; sourceTree = "<group>"; };
 		9B97D06B16BF949D005BF0FF /* RandomUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomUtil.h; sourceTree = "<group>"; };
 		9B97D06C16BF949E005BF0FF /* RandomUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomUtil.m; sourceTree = "<group>"; };
-		9B97D06D16BF949F005BF0FF /* RSPlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSPlist.h; sourceTree = "<group>"; };
-		9B97D06E16BF94A0005BF0FF /* RSPlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSPlist.m; sourceTree = "<group>"; };
+		9B97D06D16BF949F005BF0FF /* TMPlistUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMPlistUtils.h; sourceTree = "<group>"; };
+		9B97D06E16BF94A0005BF0FF /* TMPlistUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMPlistUtils.m; sourceTree = "<group>"; };
 		9B97D07416C0A45E005BF0FF /* AlarmCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmCellView.h; sourceTree = "<group>"; };
 		9B97D07516C0A45E005BF0FF /* AlarmCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmCellView.m; sourceTree = "<group>"; };
 		9B97D07616C0A45E005BF0FF /* AlarmCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmCellView.xib; sourceTree = "<group>"; };
@@ -293,8 +293,8 @@
 		9B97D0B316C21DD9005BF0FF /* train_whistle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = train_whistle.mp3; sourceTree = "<group>"; };
 		9BB464AD16C4A0B400BD5BBC /* AlarmService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmService.h; sourceTree = "<group>"; };
 		9BB464AE16C4A0B400BD5BBC /* AlarmService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmService.m; sourceTree = "<group>"; };
-		9BB464B016C4E12F00BD5BBC /* TimeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeUtils.h; sourceTree = "<group>"; };
-		9BB464B116C4E12F00BD5BBC /* TimeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeUtils.m; sourceTree = "<group>"; };
+		9BB464B016C4E12F00BD5BBC /* TMTimeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMTimeUtils.h; sourceTree = "<group>"; };
+		9BB464B116C4E12F00BD5BBC /* TMTimeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMTimeUtils.m; sourceTree = "<group>"; };
 		9BCE856F16B5DB500043048E /* ATidyWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATidyWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BCE857316B5DB500043048E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9BCE857516B5DB500043048E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -828,10 +828,10 @@
 				9BCE870B16B5E2570043048E /* DLogMacro.h */,
 				9B97D06B16BF949D005BF0FF /* RandomUtil.h */,
 				9B97D06C16BF949E005BF0FF /* RandomUtil.m */,
-				9B97D06D16BF949F005BF0FF /* RSPlist.h */,
-				9B97D06E16BF94A0005BF0FF /* RSPlist.m */,
-				9BB464B016C4E12F00BD5BBC /* TimeUtils.h */,
-				9BB464B116C4E12F00BD5BBC /* TimeUtils.m */,
+				9B97D06D16BF949F005BF0FF /* TMPlistUtils.h */,
+				9B97D06E16BF94A0005BF0FF /* TMPlistUtils.m */,
+				9BB464B016C4E12F00BD5BBC /* TMTimeUtils.h */,
+				9BB464B116C4E12F00BD5BBC /* TMTimeUtils.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1613,7 +1613,7 @@
 				9B97D06316BF2153005BF0FF /* SelectWeatherOptionViewController.m in Sources */,
 				9B97D06F16BF94A2005BF0FF /* ColorConverter.c in Sources */,
 				9B97D07016BF94A2005BF0FF /* RandomUtil.m in Sources */,
-				9B97D07116BF94A2005BF0FF /* RSPlist.m in Sources */,
+				9B97D07116BF94A2005BF0FF /* TMPlistUtils.m in Sources */,
 				9B97D07E16C0A45E005BF0FF /* AlarmCellView.m in Sources */,
 				9B97D08016C0A45E005BF0FF /* AlarmListViewController.m in Sources */,
 				9B97D08216C0A45E005BF0FF /* EditAlarmElementViewController.m in Sources */,
@@ -1626,7 +1626,7 @@
 				9B97D0A016C0E43E005BF0FF /* Alarm.m in Sources */,
 				9B97D0AC16C21C3D005BF0FF /* AddItemRowTableView.m in Sources */,
 				9BB464AF16C4A0B400BD5BBC /* AlarmService.m in Sources */,
-				9BB464B216C4E12F00BD5BBC /* TimeUtils.m in Sources */,
+				9BB464B216C4E12F00BD5BBC /* TMTimeUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

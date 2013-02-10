@@ -8,7 +8,7 @@
 
 #import "EditAlarmSoundViewController.h"
 #import "MediaCellView.h"
-#import "RSPlist.h"
+#import "TMPlistUtils.h"
 #import "ClockConstants.h"
 #import "AppDelegate.h"
 #import "Constants.h"
@@ -35,9 +35,9 @@ NSUInteger const kMusicSegmentIndex = 1;
     if (self) {
         _musicList = [[NSMutableArray alloc] initWithCapacity:0];
         DLog(@"Reading Alarm Sound Effects PList");
-        self.soundList = (NSArray *)[RSPlist readPlist:kAlarmSoundEffectPList];
+        self.soundList = (NSArray *)[TMPlistUtils readPlist:kAlarmSoundEffectPList];
         DLog(@"Reading Alarm Music PList");
-        NSArray *mediaIDArray = (NSArray *)[RSPlist readPlist:kAlarmMediaPList];
+        NSArray *mediaIDArray = (NSArray *)[TMPlistUtils readPlist:kAlarmMediaPList];
         [self loadMediaWithIDs:mediaIDArray];
         
         self.lastSelectedIndexPath = [NSIndexPath indexPathForRow:9999 inSection:9999];
@@ -512,7 +512,7 @@ NSUInteger const kMusicSegmentIndex = 1;
     {
         [mediaIDArray addObject:[item valueForProperty:MPMediaItemPropertyPersistentID]];
     }
-    [RSPlist writePlist:mediaIDArray fileName:kAlarmMediaPList];
+    [TMPlistUtils writePlist:mediaIDArray fileName:kAlarmMediaPList];
 }
 
 - (void)removeDuplicateIds
