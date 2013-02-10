@@ -230,10 +230,10 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     NSString *key = [[mOptionsTableData objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ (%d)", NSLocalizedString([[mOptionsTableData objectAtIndex:indexPath.section] objectAtIndex:indexPath.row], @"String for key matching OptionsConstant entry"), value];
-    [mUserDefaults setBool:NO forKey:SETTINGS_KEY_SYNC_CLOCK_TO_REAL_WORLD];
-    if (value == TMClockMultiplierNone)
+    [mUserDefaults setBool:NO forKey:SETTINGS_KEY_CLOCK_IS_TIME_LAPSE];
+    if (value != TMClockTimeLapseNormal)
     {
-        [mUserDefaults setBool:YES forKey:SETTINGS_KEY_SYNC_CLOCK_TO_REAL_WORLD];
+        [mUserDefaults setBool:YES forKey:SETTINGS_KEY_CLOCK_IS_TIME_LAPSE];
     }
     [mUserDefaults setInteger:value forKey:key];
     DLog(@"Changed value of option: %@ to %d", key, value);

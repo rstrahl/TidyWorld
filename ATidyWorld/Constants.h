@@ -71,11 +71,11 @@ extern NSTimeInterval const kSnoozeIntervalInMinutes;
 
 typedef enum
 {
-    TMClockMultiplierNone,
-    TMClockMultiplierFast,
-    TMClockMultiplierFaster,
-    TMClockMultiplierFastest
-} TMClockMultiplier;
+    TMClockTimeLapseNormal,
+    TMClockTimeLapseFast,
+    TMClockTimeLapseFaster,
+    TMClockTimeLapseFastest
+} TMClockTimeLapse;
 
 // Advertising
 #define ADMOB_PUBLISHER_ID                  @"a150de0742840ec"

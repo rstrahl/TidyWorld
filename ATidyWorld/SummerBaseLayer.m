@@ -15,12 +15,18 @@
 #import "SettingsTableViewController.h"
 #import "ButtonsViewController.h"
 #import "AlarmService.h"
+#import "SettingsConstants.h"
+#import "ClockConstants.h"
 
 @interface SummerBaseLayer()
 /** Notification Listener for Location Service */
 - (void)didReceiveLocationSuccessNotification:(NSNotification *)notification;
 /** Notification Listener for Weather Service */
 - (void)didReceiveWeatherSuccessNotification:(NSNotification *)notification;
+/** Notification Listener for change in Settings */
+- (void)didReceiveSettingsChangedNotification:(NSNotification *)notification;
+/** Updates the settings relevant to the scene from the NSUserDefaults */
+- (void)loadApplicationSettings;
 @end
 
 @implementation SummerBaseLayer
@@ -50,6 +56,7 @@
     if (self = [super init])
     {
         [self scheduleUpdate];
+        [self loadApplicationSettings];
         
         // Add Clock Label
         CGSize screenSize = [[CCDirector sharedDirector] view].frame.size;
@@ -80,6 +87,12 @@
                                                  selector:@selector(didReceiveWeatherSuccessNotification:)
                                                      name:NOTIFICATION_WEATHER_SUCCESS
                                                    object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didReceiveSettingsChangedNotification:)
+                                                     name:NOTIFICATION_SETTINGS_CHANGED
+                                                   object:nil];
+        
         [[LocationService sharedInstance] startServiceTimer];
     }
     return self;
@@ -87,19 +100,29 @@
 
 - (void)update:(ccTime)deltaTime
 {
-    NSTimeInterval time = [NSDate timeIntervalSinceReferenceDate];
-    
-    // Detect increments of one second and update the clock face accordingly
-    if ((time - mClockTime) > 1)
+    NSTimeInterval time;
+    // If the time-lapse flag is set, process time as a delta and do not process alarms
+    if (mIsTimeLapse)
     {
-        mClockTime = floor(time);
+        mClockTime += deltaTime * mTimeLapseMultiplier;
         [self.clockFaceView setClockTime:mClockTime];
-        // If the mClockTime mod 60 equals 0, a minute has turned over, check the alarms
-        if (((NSUInteger)mClockTime % 60) == 0)
+        DLog(@"Time-lapsed current time: %f", mClockTime);
+    }
+    else // Process time as normal, in per-second updates to the system
+    {
+        time = [NSDate timeIntervalSinceReferenceDate];
+        // Detect increments of one second and update the clock face accordingly
+        if ((time - mClockTime) > 1)
         {
-            [[AlarmService sharedInstance] updateWithTime:mClockTime];
+            mClockTime = floor(time);
+            [self.clockFaceView setClockTime:mClockTime];
+            // If the mClockTime mod 60 equals 0, a minute has turned over, check the alarms
+            if (((NSUInteger)mClockTime % 60) == 0)
+            {
+                [[AlarmService sharedInstance] updateWithTime:mClockTime];
+            }
+            DLog(@"Current time: %f", mClockTime);
         }
-        DLog(@"Current time: %f", mClockTime);
     }
 }
 
@@ -115,6 +138,42 @@
 {
     WeatherService *weatherService = [WeatherService sharedInstance];
     [self.clockFaceView setTemperature:[weatherService.conditionTemp floatValue]];
+}
+
+- (void)didReceiveSettingsChangedNotification:(NSNotification *)notification
+{
+    [self loadApplicationSettings];
+}
+
+#pragma mark - Application Settings
+- (void)loadApplicationSettings
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    mIsTimeLapse = [userDefaults boolForKey:SETTINGS_KEY_CLOCK_IS_TIME_LAPSE];
+    NSInteger timeLapseMultiplier = [userDefaults integerForKey:SETTINGS_KEY_CLOCK_MULTIPLIER];
+    switch (timeLapseMultiplier) {
+        case TMClockTimeLapseFastest:
+        {
+            mTimeLapseMultiplier = CLOCK_MULTIPLIER_FASTEST;
+            break;
+        }
+        case TMClockTimeLapseFaster:
+        {
+            mTimeLapseMultiplier = CLOCK_MULTIPLIER_FASTER;
+            break;
+        }
+        case TMClockTimeLapseFast:
+        {
+            mTimeLapseMultiplier = CLOCK_MULTIPLIER_FAST;
+            break;
+        }
+        default: // Normal
+        {
+            mTimeLapseMultiplier = CLOCK_MULTIPLIER_NORMAL;
+            break;
+        }
+    }
+    mClockTime = [NSDate timeIntervalSinceReferenceDate];
 }
 
 @end

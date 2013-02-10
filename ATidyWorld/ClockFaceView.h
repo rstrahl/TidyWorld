@@ -25,7 +25,7 @@
     BOOL            mShowNextAlarm;
     BOOL            mShowDate;
     BOOL            mShowTemperature;
-    BOOL            mSyncWithRealTime;
+    BOOL            mClockIsTimeLapse;
 }
 
 @property (nonatomic, strong) IBOutlet UIView       *view;

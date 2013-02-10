@@ -19,6 +19,8 @@
     ClockFaceView           *mClockFaceView;
     AdsViewController       *mAdsViewController;
     ButtonsViewController   *mButtonsViewController;
+    NSInteger               mTimeLapseMultiplier;
+    BOOL                    mIsTimeLapse;
 }
 
 @property (nonatomic, strong) ClockFaceView         *clockFaceView;

@@ -183,7 +183,7 @@
     // Arrange Date Label
     if (mShowDate)
     {
-        if (!mSyncWithRealTime)
+        if (mClockIsTimeLapse)
         {
             self.dateLabel.text = NSLocalizedString(@"SOMEDAY", @"Someday");
         }
@@ -275,7 +275,7 @@
     mShowDate = [defaults boolForKey:SETTINGS_KEY_SHOW_DATE];
     self.dateLabel.hidden = !mShowDate;
     
-    mSyncWithRealTime = [defaults boolForKey:SETTINGS_KEY_SYNC_CLOCK_TO_REAL_WORLD];    
+    mClockIsTimeLapse = [defaults boolForKey:SETTINGS_KEY_CLOCK_IS_TIME_LAPSE];    
     mUse24HourClock = [defaults boolForKey:SETTINGS_KEY_USE_24_HOUR_CLOCK];
     if (!mUse24HourClock)
     {

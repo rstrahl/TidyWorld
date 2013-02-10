@@ -3,7 +3,7 @@
 //  A Tidy World
 //
 //  Created by Rudi Strahl on 11-09-10.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Rudi Strahl. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -19,11 +19,9 @@
 	id __unsafe_unretained                      mDelegate;
     NSTimer                                     *mServiceTimer;
     BOOL                                        mRunning;
-    
     NSMutableData                               *mResponseData;
     NSNumber                                    *mWoeid;
     NSURL                                       *mWoeidServiceURL;
-    
     NSString                                    *mWoeidServiceString;
     NSString                                    *mWoeidServiceGFlags;
     NSString                                    *mWoeidServiceFlags;
@@ -31,7 +29,6 @@
     NSString                                    *mCity;
     NSString                                    *mState;
     NSString                                    *mCountry;
-    
     BOOL                                        mInternetReachable;
 }
 

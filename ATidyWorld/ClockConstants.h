@@ -21,6 +21,7 @@
 #define CLOCK_EVENT_KEY_SECONDS             @"ClockEventSeconds"
 #define CLOCK_EVENT_KEY_DATE                @"ClockEventDate"
 
+#define CLOCK_MULTIPLIER_NORMAL             1
 #define CLOCK_MULTIPLIER_FAST               60
 #define CLOCK_MULTIPLIER_FASTER             1800
 #define CLOCK_MULTIPLIER_FASTEST            3600

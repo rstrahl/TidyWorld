@@ -93,6 +93,12 @@
 "OPTIONS_SECTION_HEADER_GENERAL"            = "General";
 "OPTIONS_SECTION_HEADER_DISPLAY"            = "Display";
 
+// Settings Strings - Values
+"OPTIONS_VALUE_TIMELAPSE_NORMAL"            = "Normal";
+"OPTIONS_VALUE_TIMELAPSE_FAST"              = "Fast";
+"OPTIONS_VALUE_TIMELAPSE_FASTER"            = "Faster";
+"OPTIONS_VALUE_TIMELAPSE_FASTEST"           = "Fastest";
+
 // Settings Strings - Settings Titles
 // NOTE: The string key MUST match the #defines in OptionsConstants.h
 //"USE_SYSTEM_TIME_FORMAT" = "Use Device Time Format";
