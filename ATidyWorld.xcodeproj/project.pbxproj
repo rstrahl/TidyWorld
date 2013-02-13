@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B1881C116CB1D0B00E68930 /* SkyLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881C016CB1D0B00E68930 /* SkyLayer.m */; };
 		9B96CB8A16B90318009A226B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B96CB8916B90318009A226B /* Localizable.strings */; };
 		9B97CFF716BB695B005BF0FF /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97CFF616BB695B005BF0FF /* AdsViewController.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
 		9B97D00316BB6A72005BF0FF /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00216BB6A72005BF0FF /* libGoogleAdMobAds.a */; };
@@ -209,6 +210,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B1881BF16CB1D0B00E68930 /* SkyLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyLayer.h; sourceTree = "<group>"; };
+		9B1881C016CB1D0B00E68930 /* SkyLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkyLayer.m; sourceTree = "<group>"; };
 		9B96CB8916B90318009A226B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Resources/Localizable.strings; sourceTree = "<group>"; };
 		9B97CFF516BB695B005BF0FF /* AdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsViewController.h; sourceTree = "<group>"; };
 		9B97CFF616BB695B005BF0FF /* AdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsViewController.m; sourceTree = "<group>"; };
@@ -619,6 +622,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B1881C216CB27DA00E68930 /* Sky */ = {
+			isa = PBXGroup;
+			children = (
+				9B1881BF16CB1D0B00E68930 /* SkyLayer.h */,
+				9B1881C016CB1D0B00E68930 /* SkyLayer.m */,
+			);
+			name = Sky;
+			sourceTree = "<group>";
+		};
 		9B97CFF316BB68BA005BF0FF /* Ads */ = {
 			isa = PBXGroup;
 			children = (
@@ -956,6 +968,7 @@
 				9BCE870116B5DB530043048E /* HelloWorldLayer.m */,
 				9BCE870C16B5E6240043048E /* SummerBaseLayer.h */,
 				9BCE870D16B5E6240043048E /* SummerBaseLayer.m */,
+				9B1881C216CB27DA00E68930 /* Sky */,
 				9BCE870316B5DB530043048E /* IntroLayer.h */,
 				9BCE870416B5DB530043048E /* IntroLayer.m */,
 				9BCE858616B5DB500043048E /* Resources */,
@@ -1627,6 +1640,7 @@
 				9B97D0AC16C21C3D005BF0FF /* AddItemRowTableView.m in Sources */,
 				9BB464AF16C4A0B400BD5BBC /* AlarmService.m in Sources */,
 				9BB464B216C4E12F00BD5BBC /* TMTimeUtils.m in Sources */,
+				9B1881C116CB1D0B00E68930 /* SkyLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,9 @@
 
 static WeatherService *sharedWeatherService = nil;
 
+const NSTimeInterval kDefaultSunriseTime    = 25200.0f;
+const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
+
 // Start Private Interface -------------------------------------------------------------------------------
 @interface WeatherService()
 
@@ -57,6 +60,10 @@ static WeatherService *sharedWeatherService = nil;
     if (self) {        
         mWeatherServiceString = kYahooWeatherServiceURL;
         mWeatherServiceURL = [NSURL URLWithString:mWeatherServiceString];
+        self.sunriseInSeconds = kDefaultSunriseTime;
+        self.sunsetInSeconds = kDefaultSunsetTime;
+        self.conditionTemp = [NSNumber numberWithFloat:59];
+        self.weatherCode = [self buildWeatherCode:[NSNumber numberWithInt:30]];
     }
     return self;
 }
@@ -128,9 +135,6 @@ static WeatherService *sharedWeatherService = nil;
     NSData *data = [NSData dataWithContentsOfURL:mWeatherServiceURL options:NSDataReadingUncached error:&error];
     if (data != nil)
     {
-        //    NSLog(@"Data length: %d", [data length]);
-        //    NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        //    DLog(@"Finished loading weather response: \n\r %@", responseString);
         NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
         [parser setDelegate:self]; // The parser calls methods in this class
         [parser setShouldProcessNamespaces:YES]; // We don't care about namespaces
@@ -218,14 +222,29 @@ static WeatherService *sharedWeatherService = nil;
 
         NSDate *sunriseDate = [weatherTimeFormatter dateFromString:self.astronomySunrise];
         NSDate *sunsetDate = [weatherTimeFormatter dateFromString:self.astronomySunset];
+        
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        NSDateComponents *dateComponents = [calendar components:( NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit ) fromDate:[NSDate date]];
+        NSDateComponents *sunriseTimeComponents = [calendar components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate: sunriseDate ];
+        NSDateComponents *sunsetTimeComponents = [calendar components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate: sunsetDate ];
+        
+        [dateComponents setHour:[sunriseTimeComponents hour]];
+        [dateComponents setMinute:[sunriseTimeComponents minute]];
+        [dateComponents setSecond:[sunriseTimeComponents second]];
+        NSDate *sunriseTimeToday = [calendar dateFromComponents:dateComponents];
+        [dateComponents setHour:[sunsetTimeComponents hour]];
+        [dateComponents setMinute:[sunsetTimeComponents minute]];
+        [dateComponents setSecond:[sunsetTimeComponents second]];
+        NSDate *sunsetTimeToday = [calendar dateFromComponents:dateComponents];
+        
         // Yahoo puts sunrise/sunset in localtime format - we deal with GMT time 
         NSInteger gmtOffset = [[NSTimeZone localTimeZone] secondsFromGMT];
         if([[NSTimeZone localTimeZone] isDaylightSavingTime])
         {
             gmtOffset = gmtOffset - 3600;
         }
-        self.sunriseInSeconds = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:([sunriseDate timeIntervalSinceReferenceDate] - gmtOffset)];
-        self.sunsetInSeconds = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:([sunsetDate timeIntervalSinceReferenceDate] - gmtOffset)];
+        self.sunriseInSeconds = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:([sunriseTimeToday timeIntervalSinceReferenceDate] + gmtOffset)];
+        self.sunsetInSeconds = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:([sunsetTimeToday timeIntervalSinceReferenceDate] + gmtOffset)];
     }
     else if ([elementName isEqualToString:@"wind"])
     {

@@ -84,9 +84,9 @@ typedef enum {
     NSNumber                *mConditionTemp;
     NSNumber                *mConditionCode;
     NSString                *mAstronomySunrise;
-    uint                    mSunriseInSeconds;
     NSString                *mAstronomySunset;
-    uint                    mSunsetInSeconds;
+    NSTimeInterval          mSunriseInSeconds;
+    NSTimeInterval          mSunsetInSeconds;
     NSString                *mWindChill;
     NSString                *mWindDirection;
     NSString                *mWindPressure;
@@ -106,8 +106,8 @@ typedef enum {
 @property (nonatomic, strong) NSNumber              *conditionCode;
 @property (nonatomic, strong) NSString              *astronomySunrise;
 @property (nonatomic, strong) NSString              *astronomySunset;
-@property (nonatomic, assign) uint                  sunriseInSeconds;
-@property (nonatomic, assign) uint                  sunsetInSeconds;
+@property (nonatomic, assign) NSTimeInterval        sunriseInSeconds;
+@property (nonatomic, assign) NSTimeInterval        sunsetInSeconds;
 @property (nonatomic, strong) NSString              *windChill;
 @property (nonatomic, strong) NSString              *windDirection;
 @property (nonatomic, strong) NSString              *windPressure;

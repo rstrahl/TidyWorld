@@ -24,9 +24,6 @@
 #define TINT_MINIMUM_VALUE                  0.2f
 #define TINT_OVERCAST_MAX_VALUE             0.5f
 
-#define DEFAULT_SUNRISE_TIME_IN_SECONDS     3600*6
-#define DEFAULT_SUNSET_TIME_IN_SECONDS      3600*20
-
 #define WEATHER_SERVICE_CHECK_TIMER         900
 
 #define PARTICLE_FILE_RAIN_LIGHT            @"RainEmitterLight.pex"

@@ -11,8 +11,8 @@
 #import "SettingsConstants.h"
 // TODO: DEPRECATED: Remove if no longer using the next-alarm feature
 //#import "Alarm.h"
-//#import "CoreLocationController.h"
 #import "Constants.h"
+#import "TMTimeUtils.h"
 
 @interface ClockFaceView()
 - (void)updateClockFace:(NSTimeInterval)time;
@@ -133,6 +133,7 @@
 //    }
     // TIME Label
     time += [[NSTimeZone localTimeZone] secondsFromGMT];
+    time = (uint)time % (uint)kOneDayInSeconds;
     int hours = time / 3600;
     int minutes = ((int)time % 3600) / 60;
     

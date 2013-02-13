@@ -12,6 +12,7 @@
 @class ClockFaceView;
 @class AdsViewController;
 @class ButtonsViewController;
+@class SkyLayer;
 
 @interface SummerBaseLayer : CCLayer
 {
@@ -21,6 +22,21 @@
     ButtonsViewController   *mButtonsViewController;
     NSInteger               mTimeLapseMultiplier;
     BOOL                    mIsTimeLapse;
+    NSTimeInterval          mTimeOfSunriseInSeconds;
+    NSTimeInterval          mTimeOfSunsetInSeconds;
+    NSTimeInterval          mDaylightDuration;
+    NSTimeInterval          mSunriseEffectStartTime;
+    NSTimeInterval          mSunriseGlowStartTime;
+    NSTimeInterval          mSunsetEffectStartTime;
+    NSTimeInterval          mSunsetGlowStartTime;
+    NSTimeInterval          mSunriseDuration;
+    NSTimeInterval          mSunsetDuration;
+    NSTimeInterval          mLastDaylightTintValue;
+    NSTimeInterval          mLastSunriseProgress;
+    NSTimeInterval          mLastSunsetProgress;
+    // Layers
+    SkyLayer                *mSkyLayer;
+
 }
 
 @property (nonatomic, strong) ClockFaceView         *clockFaceView;
