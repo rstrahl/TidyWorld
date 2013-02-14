@@ -248,15 +248,15 @@
             /*  If the current time is between the start time of sunrise OR sunset and its calculated end time or render the corresponding effect
              */
             if (time > mSunriseGlowStartTime &&
-                time < (mSunriseEffectStartTime + mSunriseDuration))
+                time < (mSunriseGlowStartTime + mSunriseDuration))
             {
-                sunriseProgress = ((time - mSunriseEffectStartTime) / mSunriseDuration);
+                sunriseProgress = ((time - mSunriseGlowStartTime) / mSunriseDuration);
                 
             }
             else if (time > mSunsetGlowStartTime &&
-                     time < (mSunsetEffectStartTime + mSunsetDuration))
+                     time < (mSunsetGlowStartTime + mSunsetDuration))
             {
-                sunsetProgress = ((time - mSunsetEffectStartTime) / mSunsetDuration);
+                sunsetProgress = ((time - mSunsetGlowStartTime) / mSunsetDuration);
             }
             
             /*  If the current time is after the sunset has started, begin to fade out the sky colours
@@ -269,8 +269,6 @@
             }
         }
         
-        //        DLog(@"daylightTintValue = %d", daylightTintValue);
-        
         /*  Only send out day/night cycle updates to managers if there is a "visible" difference from the last clock tick -
          because we rely on 255 values for RGB we need 1/255 threshold for visible difference.
          */
@@ -278,8 +276,7 @@
         {
             mLastDaylightTintValue = daylightTintValue;
             // TODO: update the daylightTint of all layers
-//            [mSkyManager setDaylightTint:daylightTintValue];
-            [mSkyLayer setDaylightTint:daylightTintValue];
+            [mSkyLayer updateDaylightTint:daylightTintValue];
 //            [mLandscapeManager setDaylightTint:daylightTintValue];
 //            [mWeatherManager setDaylightTint:daylightTintValue];
         }
@@ -290,13 +287,14 @@
             mLastSunriseProgress = sunriseProgress;
             // TODO: Update sunrise progress in skyLayer
 //            [self.skyManager renderDawnForProgress:sunriseProgress];
+            [mSkyLayer updateSunriseProgress:sunriseProgress];
         }
         // Send out the tint for sunset
         if (fabsf(sunsetProgress - mLastSunsetProgress) >= 0.01)
         {
             mLastSunsetProgress = sunsetProgress;
             // TODO: Update sunset progress in skyLayer
-//            [self.skyManager renderDuskForProgress:sunsetProgress];
+            [mSkyLayer updateSunsetProgress:sunsetProgress];
         }
     }
 }

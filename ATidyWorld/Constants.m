@@ -7,9 +7,7 @@
 
 #import "Constants.h"
 
-float const kMinDaytimeTintValue         = 0.2;
 float const kMinDaytimeEntityTintValue   = 0.3;
-float const kMaxOvercastTintValue        = 0.6;
 
 float const kTemperatureMinimumValue     = -60.0f;
 float const kTemperatureFreezingValue    = 32.0f;

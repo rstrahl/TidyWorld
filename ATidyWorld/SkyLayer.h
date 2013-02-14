@@ -9,21 +9,27 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class SkyGradient;
+@class SkyDawnDuskGradient;
+
 @interface SkyLayer : CCLayer
 {
-    CCLayerGradient     *mSkyBase;
+    @private
+    SkyGradient         *mSkyGradient;
+    SkyDawnDuskGradient *mDuskDawnGradient;
     CCSprite            *mSun;
     CCSprite            *mMoon;
     // TODO: Add stars
-    
-    
-    // Sky Colors
-    ccColor4B           mSkyColorDaylight;
-    ccColor4B           mHorizonColorDaylight;
-    ccColor4B           mSkyColorStorm;
-    ccColor4B           mHorizonColorStorm;
+    BOOL                mOvercast;
 }
 
-- (void)setDaylightTint:(int)tintValue;
+@property (nonatomic, assign, getter = isOvercast) BOOL overcast;
 
+/** Updates the daylight tint value of all child nodes of this layer 
+    @param tintValue the new tint value */
+- (void)updateDaylightTint:(int)tintValue;
+/** Updates the progress of all child nodes involved in sunrise effects */
+- (void)updateSunriseProgress:(float)progress;
+/** Updates the progress of all child nodes involved in sunset effects */
+- (void)updateSunsetProgress:(float)progress;
 @end

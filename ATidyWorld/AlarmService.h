@@ -36,9 +36,7 @@
     int                             mCurrentWeekday; /**< the current weekday (0 = sunday, 6 = saturday) */
     NSFetchedResultsController      *mFetchedResultsController; /**< the results controller containing all alarms with the enabled flag set */
     NSManagedObjectContext          *mContext; /**< the reference to the application delegate's NSManagedObjectContext */
-    NSUserDefaults                  *mUserDefaults; /**< the user defaults for the application */
     id<AlarmServiceDelegate>        __unsafe_unretained mDelegate; /**< the delegate intended to respond to alarm service events */
-
 }
 
 @property (nonatomic, strong) NSArray                               *todaysAlarms;

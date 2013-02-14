@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		9B1881C116CB1D0B00E68930 /* SkyLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881C016CB1D0B00E68930 /* SkyLayer.m */; };
+		9B1881C616CB6C1100E68930 /* SunSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881C516CB6C1100E68930 /* SunSprite.m */; };
+		9B1881C916CB6C1A00E68930 /* MoonSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881C816CB6C1900E68930 /* MoonSprite.m */; };
+		9B1881CC16CB6C2F00E68930 /* SkyGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881CB16CB6C2F00E68930 /* SkyGradient.m */; };
+		9B1881CF16CC8A4800E68930 /* SkyDawnDuskGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881CE16CC8A4700E68930 /* SkyDawnDuskGradient.m */; };
 		9B96CB8A16B90318009A226B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B96CB8916B90318009A226B /* Localizable.strings */; };
-		9B97CFF716BB695B005BF0FF /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97CFF616BB695B005BF0FF /* AdsViewController.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
+		9B97CFF716BB695B005BF0FF /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97CFF616BB695B005BF0FF /* AdsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D00316BB6A72005BF0FF /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00216BB6A72005BF0FF /* libGoogleAdMobAds.a */; };
 		9B97D00B16BB730D005BF0FF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00A16BB730D005BF0FF /* StoreKit.framework */; };
 		9B97D00D16BB7335005BF0FF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00C16BB7335005BF0FF /* AdSupport.framework */; };
@@ -28,34 +32,34 @@
 		9B97D04716BCE5E2005BF0FF /* Icon_World@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D02F16BCE5E2005BF0FF /* Icon_World@2x.png */; };
 		9B97D04916BCE5E2005BF0FF /* Icon_World.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D03116BCE5E2005BF0FF /* Icon_World.png */; };
 		9B97D05216BF0A4F005BF0FF /* SettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D05016BF0A4F005BF0FF /* SettingsTableViewController.xib */; };
-		9B97D05316BF0C7C005BF0FF /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D04F16BF0A4F005BF0FF /* SettingsTableViewController.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
-		9B97D05816BF0F02005BF0FF /* ButtonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D05716BF0F02005BF0FF /* ButtonsViewController.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
-		9B97D05D16BF1B3A005BF0FF /* WorldOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D05B16BF1B3A005BF0FF /* WorldOptionsViewController.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
+		9B97D05316BF0C7C005BF0FF /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D04F16BF0A4F005BF0FF /* SettingsTableViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		9B97D05816BF0F02005BF0FF /* ButtonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D05716BF0F02005BF0FF /* ButtonsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		9B97D05D16BF1B3A005BF0FF /* WorldOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D05B16BF1B3A005BF0FF /* WorldOptionsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D05E16BF1B3A005BF0FF /* WorldOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D05C16BF1B3A005BF0FF /* WorldOptionsViewController.xib */; };
-		9B97D06316BF2153005BF0FF /* SelectWeatherOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06116BF2153005BF0FF /* SelectWeatherOptionViewController.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
+		9B97D06316BF2153005BF0FF /* SelectWeatherOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06116BF2153005BF0FF /* SelectWeatherOptionViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D06416BF2153005BF0FF /* SelectWeatherOptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D06216BF2153005BF0FF /* SelectWeatherOptionViewController.xib */; };
 		9B97D06F16BF94A2005BF0FF /* ColorConverter.c in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06916BF949B005BF0FF /* ColorConverter.c */; };
-		9B97D07016BF94A2005BF0FF /* RandomUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06C16BF949E005BF0FF /* RandomUtil.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
-		9B97D07116BF94A2005BF0FF /* TMPlistUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06E16BF94A0005BF0FF /* TMPlistUtils.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
-		9B97D07E16C0A45E005BF0FF /* AlarmCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D07516C0A45E005BF0FF /* AlarmCellView.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
+		9B97D07016BF94A2005BF0FF /* RandomUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06C16BF949E005BF0FF /* RandomUtil.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		9B97D07116BF94A2005BF0FF /* TMPlistUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06E16BF94A0005BF0FF /* TMPlistUtils.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		9B97D07E16C0A45E005BF0FF /* AlarmCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D07516C0A45E005BF0FF /* AlarmCellView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D07F16C0A45E005BF0FF /* AlarmCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D07616C0A45E005BF0FF /* AlarmCellView.xib */; };
-		9B97D08016C0A45E005BF0FF /* AlarmListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D07816C0A45E005BF0FF /* AlarmListViewController.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
+		9B97D08016C0A45E005BF0FF /* AlarmListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D07816C0A45E005BF0FF /* AlarmListViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D08116C0A45E005BF0FF /* AlarmListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D07916C0A45E005BF0FF /* AlarmListViewController.xib */; };
-		9B97D08216C0A45E005BF0FF /* EditAlarmElementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D07B16C0A45E005BF0FF /* EditAlarmElementViewController.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
-		9B97D08316C0A45E005BF0FF /* EditAlarmRepeatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D07D16C0A45E005BF0FF /* EditAlarmRepeatViewController.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
+		9B97D08216C0A45E005BF0FF /* EditAlarmElementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D07B16C0A45E005BF0FF /* EditAlarmElementViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		9B97D08316C0A45E005BF0FF /* EditAlarmRepeatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D07D16C0A45E005BF0FF /* EditAlarmRepeatViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D09116C0A498005BF0FF /* EditAlarmRepeatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D08416C0A498005BF0FF /* EditAlarmRepeatViewController.xib */; };
-		9B97D09216C0A498005BF0FF /* EditAlarmSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08616C0A498005BF0FF /* EditAlarmSoundViewController.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
+		9B97D09216C0A498005BF0FF /* EditAlarmSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08616C0A498005BF0FF /* EditAlarmSoundViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D09316C0A498005BF0FF /* EditAlarmSoundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D08716C0A498005BF0FF /* EditAlarmSoundViewController.xib */; };
-		9B97D09416C0A498005BF0FF /* EditAlarmTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08916C0A498005BF0FF /* EditAlarmTitleViewController.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
+		9B97D09416C0A498005BF0FF /* EditAlarmTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08916C0A498005BF0FF /* EditAlarmTitleViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D09516C0A498005BF0FF /* EditAlarmTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D08A16C0A498005BF0FF /* EditAlarmTitleViewController.xib */; };
-		9B97D09616C0A498005BF0FF /* EditAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08C16C0A498005BF0FF /* EditAlarmViewController.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
+		9B97D09616C0A498005BF0FF /* EditAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08C16C0A498005BF0FF /* EditAlarmViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D09716C0A498005BF0FF /* EditAlarmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D08D16C0A498005BF0FF /* EditAlarmViewController.xib */; };
-		9B97D09816C0A498005BF0FF /* MediaCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08F16C0A498005BF0FF /* MediaCellView.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
+		9B97D09816C0A498005BF0FF /* MediaCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08F16C0A498005BF0FF /* MediaCellView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D09916C0A498005BF0FF /* MediaCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D09016C0A498005BF0FF /* MediaCellView.xib */; };
 		9B97D09D16C0E403005BF0FF /* Alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D09B16C0E403005BF0FF /* Alarm.xcdatamodeld */; };
 		9B97D0A016C0E43E005BF0FF /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D09F16C0E43E005BF0FF /* Alarm.m */; };
 		9B97D0A616C20178005BF0FF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D0A516C20177005BF0FF /* MediaPlayer.framework */; };
-		9B97D0AC16C21C3D005BF0FF /* AddItemRowTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D0AB16C21C3D005BF0FF /* AddItemRowTableView.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
+		9B97D0AC16C21C3D005BF0FF /* AddItemRowTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D0AB16C21C3D005BF0FF /* AddItemRowTableView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D0B416C21DD9005BF0FF /* air_raid_siren.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0AD16C21DD9005BF0FF /* air_raid_siren.mp3 */; };
 		9B97D0B516C21DD9005BF0FF /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0AE16C21DD9005BF0FF /* beep.mp3 */; };
 		9B97D0B616C21DD9005BF0FF /* gong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0AF16C21DD9005BF0FF /* gong.mp3 */; };
@@ -63,7 +67,7 @@
 		9B97D0B816C21DD9005BF0FF /* ranz_des_vaches.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0B116C21DD9005BF0FF /* ranz_des_vaches.mp3 */; };
 		9B97D0B916C21DD9005BF0FF /* reveille.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0B216C21DD9005BF0FF /* reveille.mp3 */; };
 		9B97D0BA16C21DD9005BF0FF /* train_whistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0B316C21DD9005BF0FF /* train_whistle.mp3 */; };
-		9BB464AF16C4A0B400BD5BBC /* AlarmService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB464AE16C4A0B400BD5BBC /* AlarmService.m */; };
+		9BB464AF16C4A0B400BD5BBC /* AlarmService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB464AE16C4A0B400BD5BBC /* AlarmService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BB464B216C4E12F00BD5BBC /* TMTimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB464B116C4E12F00BD5BBC /* TMTimeUtils.m */; };
 		9BCE857416B5DB500043048E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857316B5DB500043048E /* QuartzCore.framework */; };
 		9BCE857616B5DB500043048E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857516B5DB500043048E /* OpenGLES.framework */; };
@@ -188,21 +192,20 @@
 		9BCE86F516B5DB530043048E /* vec3.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86F416B5DB530043048E /* vec3.c */; };
 		9BCE86F716B5DB530043048E /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86F616B5DB530043048E /* vec4.c */; };
 		9BCE86FC16B5DB530043048E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86FB16B5DB530043048E /* main.m */; };
-		9BCE86FF16B5DB530043048E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86FE16B5DB530043048E /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
-		9BCE870216B5DB530043048E /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE870116B5DB530043048E /* HelloWorldLayer.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
-		9BCE870516B5DB530043048E /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE870416B5DB530043048E /* IntroLayer.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
-		9BCE870E16B5E6240043048E /* SummerBaseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE870D16B5E6240043048E /* SummerBaseLayer.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
-		9BCE871416B5F2D20043048E /* ClockFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE871216B5F2D20043048E /* ClockFaceView.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
+		9BCE86FF16B5DB530043048E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86FE16B5DB530043048E /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		9BCE870516B5DB530043048E /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE870416B5DB530043048E /* IntroLayer.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		9BCE870E16B5E6240043048E /* SummerBaseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE870D16B5E6240043048E /* SummerBaseLayer.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		9BCE871416B5F2D20043048E /* ClockFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE871216B5F2D20043048E /* ClockFaceView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BCE871516B5F2D20043048E /* ClockFaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE871316B5F2D20043048E /* ClockFaceView.xib */; };
 		9BCE871716B5F2F70043048E /* century-gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE871616B5F2F60043048E /* century-gothic.ttf */; };
-		9BCE871D16B5F81A0043048E /* ClockConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE871C16B5F81A0043048E /* ClockConstants.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
+		9BCE871D16B5F81A0043048E /* ClockConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE871C16B5F81A0043048E /* ClockConstants.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BCE872316B5FD610043048E /* SoundEffects.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE872016B5FD600043048E /* SoundEffects.plist */; };
 		9BCE872416B5FD610043048E /* WorldOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE872116B5FD600043048E /* WorldOptions.plist */; };
 		9BCE872516B5FD610043048E /* AppDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE872216B5FD610043048E /* AppDefaults.plist */; };
-		9BCE874516B5FE060043048E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874416B5FE050043048E /* Constants.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
-		9BCE874916B604570043048E /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874816B604570043048E /* LocationService.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
-		9BCE874C16B605680043048E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874B16B605670043048E /* Reachability.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
-		9BCE875216B607BC0043048E /* WeatherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE875116B607BC0043048E /* WeatherService.m */; settings = {COMPILER_FLAGS = "-fobj-arc"; }; };
+		9BCE874516B5FE060043048E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874416B5FE050043048E /* Constants.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		9BCE874916B604570043048E /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874816B604570043048E /* LocationService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		9BCE874C16B605680043048E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874B16B605670043048E /* Reachability.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		9BCE875216B607BC0043048E /* WeatherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE875116B607BC0043048E /* WeatherService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BCE875A16B608D50043048E /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875916B608D50043048E /* libGoogleAnalytics.a */; };
 		9BCE875C16B6094E0043048E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875B16B6094E0043048E /* CoreData.framework */; };
 		9BCE875E16B609560043048E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875D16B609560043048E /* SystemConfiguration.framework */; };
@@ -212,6 +215,14 @@
 /* Begin PBXFileReference section */
 		9B1881BF16CB1D0B00E68930 /* SkyLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyLayer.h; sourceTree = "<group>"; };
 		9B1881C016CB1D0B00E68930 /* SkyLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkyLayer.m; sourceTree = "<group>"; };
+		9B1881C416CB6C1100E68930 /* SunSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SunSprite.h; sourceTree = "<group>"; };
+		9B1881C516CB6C1100E68930 /* SunSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SunSprite.m; sourceTree = "<group>"; };
+		9B1881C716CB6C1900E68930 /* MoonSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonSprite.h; sourceTree = "<group>"; };
+		9B1881C816CB6C1900E68930 /* MoonSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoonSprite.m; sourceTree = "<group>"; };
+		9B1881CA16CB6C2F00E68930 /* SkyGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyGradient.h; sourceTree = "<group>"; };
+		9B1881CB16CB6C2F00E68930 /* SkyGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkyGradient.m; sourceTree = "<group>"; };
+		9B1881CD16CC8A4700E68930 /* SkyDawnDuskGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyDawnDuskGradient.h; sourceTree = "<group>"; };
+		9B1881CE16CC8A4700E68930 /* SkyDawnDuskGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkyDawnDuskGradient.m; sourceTree = "<group>"; };
 		9B96CB8916B90318009A226B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Resources/Localizable.strings; sourceTree = "<group>"; };
 		9B97CFF516BB695B005BF0FF /* AdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsViewController.h; sourceTree = "<group>"; };
 		9B97CFF616BB695B005BF0FF /* AdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsViewController.m; sourceTree = "<group>"; };
@@ -556,8 +567,6 @@
 		9BCE86FB16B5DB530043048E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9BCE86FD16B5DB530043048E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9BCE86FE16B5DB530043048E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9BCE870016B5DB530043048E /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		9BCE870116B5DB530043048E /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		9BCE870316B5DB530043048E /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		9BCE870416B5DB530043048E /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		9BCE870B16B5E2570043048E /* DLogMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLogMacro.h; sourceTree = "<group>"; };
@@ -627,6 +636,14 @@
 			children = (
 				9B1881BF16CB1D0B00E68930 /* SkyLayer.h */,
 				9B1881C016CB1D0B00E68930 /* SkyLayer.m */,
+				9B1881C416CB6C1100E68930 /* SunSprite.h */,
+				9B1881C516CB6C1100E68930 /* SunSprite.m */,
+				9B1881C716CB6C1900E68930 /* MoonSprite.h */,
+				9B1881C816CB6C1900E68930 /* MoonSprite.m */,
+				9B1881CA16CB6C2F00E68930 /* SkyGradient.h */,
+				9B1881CB16CB6C2F00E68930 /* SkyGradient.m */,
+				9B1881CD16CC8A4700E68930 /* SkyDawnDuskGradient.h */,
+				9B1881CE16CC8A4700E68930 /* SkyDawnDuskGradient.m */,
 			);
 			name = Sky;
 			sourceTree = "<group>";
@@ -964,8 +981,6 @@
 				9B97D04C16BF09FE005BF0FF /* ViewControllers */,
 				9BCE86FD16B5DB530043048E /* AppDelegate.h */,
 				9BCE86FE16B5DB530043048E /* AppDelegate.m */,
-				9BCE870016B5DB530043048E /* HelloWorldLayer.h */,
-				9BCE870116B5DB530043048E /* HelloWorldLayer.m */,
 				9BCE870C16B5E6240043048E /* SummerBaseLayer.h */,
 				9BCE870D16B5E6240043048E /* SummerBaseLayer.m */,
 				9B1881C216CB27DA00E68930 /* Sky */,
@@ -1610,7 +1625,6 @@
 				9BCE86F716B5DB530043048E /* vec4.c in Sources */,
 				9BCE86FC16B5DB530043048E /* main.m in Sources */,
 				9BCE86FF16B5DB530043048E /* AppDelegate.m in Sources */,
-				9BCE870216B5DB530043048E /* HelloWorldLayer.m in Sources */,
 				9BCE870516B5DB530043048E /* IntroLayer.m in Sources */,
 				9BCE870E16B5E6240043048E /* SummerBaseLayer.m in Sources */,
 				9BCE871416B5F2D20043048E /* ClockFaceView.m in Sources */,
@@ -1641,6 +1655,10 @@
 				9BB464AF16C4A0B400BD5BBC /* AlarmService.m in Sources */,
 				9BB464B216C4E12F00BD5BBC /* TMTimeUtils.m in Sources */,
 				9B1881C116CB1D0B00E68930 /* SkyLayer.m in Sources */,
+				9B1881C616CB6C1100E68930 /* SunSprite.m in Sources */,
+				9B1881C916CB6C1A00E68930 /* MoonSprite.m in Sources */,
+				9B1881CC16CB6C2F00E68930 /* SkyGradient.m in Sources */,
+				9B1881CF16CC8A4800E68930 /* SkyDawnDuskGradient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -53,7 +53,6 @@
         view.backgroundColor = [UIColor whiteColor];
         view.alpha = 0.25f;
         self.view = view;
-        [view release];
     }
     return self;
 }
@@ -68,13 +67,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-}
-
-- (void)dealloc
-{
-    [mIadBannerView release];
-    [mAdMobBannerView release];
-    [super dealloc];
 }
 
 #pragma mark - AdBannerViewDelegate (iAd) Implementation

@@ -39,7 +39,7 @@ static LocationService *sharedLocationController = nil;
 {
     if (self = [super init])
     {
-        self.locationManager = [[CLLocationManager alloc] init]; // Create new instance of locMgr
+        mLocationManager = [[CLLocationManager alloc] init]; // Create new instance of locMgr
         mLocationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
         self.locationManager.delegate = self;
         const double testLatitude = 40.714224;

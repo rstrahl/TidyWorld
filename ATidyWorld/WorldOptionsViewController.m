@@ -168,7 +168,7 @@
     [cellSwitch setOn:[self currentValueForWeatherOptionKey:key]];
     if ([key isEqualToString:@"Lightning"])
     {
-        if ([mUserDefaults valueForKey:@"CURRENT_CLOUDS"] == WeatherCloudsNone)
+        if ([mUserDefaults integerForKey:@"CURRENT_CLOUDS"] == WeatherCloudsNone)
         {
             cellSwitch.enabled = NO;
             cellSwitch.hidden = YES;

@@ -185,22 +185,6 @@
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 }
 
-- (void) dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NOTIFICATION_LOCATION_SUCCESS object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NOTIFICATION_WEATHER_SUCCESS object:nil];
-    
-    [mInternetReachability release];
-    [mLocationService release];
-    [mWeatherService release];
-    [mAlarmService release];
-    
-	[window_ release];
-	[navController_ release];
-
-	[super dealloc];
-}
-
 #pragma mark - Application Defaults
 - (void)loadApplicationDefaults
 {
