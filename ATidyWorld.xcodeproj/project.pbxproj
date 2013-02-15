@@ -12,6 +12,10 @@
 		9B1881C916CB6C1A00E68930 /* MoonSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881C816CB6C1900E68930 /* MoonSprite.m */; };
 		9B1881CC16CB6C2F00E68930 /* SkyGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881CB16CB6C2F00E68930 /* SkyGradient.m */; };
 		9B1881CF16CC8A4800E68930 /* SkyDawnDuskGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881CE16CC8A4700E68930 /* SkyDawnDuskGradient.m */; };
+		9B1881DB16CD635500E68930 /* SpriteSheet-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B1881D716CD635500E68930 /* SpriteSheet-hd.plist */; };
+		9B1881DC16CD635500E68930 /* SpriteSheet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B1881D816CD635500E68930 /* SpriteSheet-hd.png */; };
+		9B1881DD16CD635500E68930 /* SpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B1881D916CD635500E68930 /* SpriteSheet.plist */; };
+		9B1881DE16CD635500E68930 /* SpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B1881DA16CD635500E68930 /* SpriteSheet.png */; };
 		9B96CB8A16B90318009A226B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B96CB8916B90318009A226B /* Localizable.strings */; };
 		9B97CFF716BB695B005BF0FF /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97CFF616BB695B005BF0FF /* AdsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D00316BB6A72005BF0FF /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00216BB6A72005BF0FF /* libGoogleAdMobAds.a */; };
@@ -212,6 +216,16 @@
 		9BCE876016B6096E0043048E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875F16B6096D0043048E /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9B1881D416CD62BE00E68930 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BCE856616B5DB500043048E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B1881D016CD626B00E68930;
+			remoteInfo = SpriteSheet;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		9B1881BF16CB1D0B00E68930 /* SkyLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyLayer.h; sourceTree = "<group>"; };
 		9B1881C016CB1D0B00E68930 /* SkyLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkyLayer.m; sourceTree = "<group>"; };
@@ -223,6 +237,10 @@
 		9B1881CB16CB6C2F00E68930 /* SkyGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkyGradient.m; sourceTree = "<group>"; };
 		9B1881CD16CC8A4700E68930 /* SkyDawnDuskGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyDawnDuskGradient.h; sourceTree = "<group>"; };
 		9B1881CE16CC8A4700E68930 /* SkyDawnDuskGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkyDawnDuskGradient.m; sourceTree = "<group>"; };
+		9B1881D716CD635500E68930 /* SpriteSheet-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SpriteSheet-hd.plist"; sourceTree = "<group>"; };
+		9B1881D816CD635500E68930 /* SpriteSheet-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SpriteSheet-hd.png"; sourceTree = "<group>"; };
+		9B1881D916CD635500E68930 /* SpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SpriteSheet.plist; sourceTree = "<group>"; };
+		9B1881DA16CD635500E68930 /* SpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpriteSheet.png; sourceTree = "<group>"; };
 		9B96CB8916B90318009A226B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Resources/Localizable.strings; sourceTree = "<group>"; };
 		9B97CFF516BB695B005BF0FF /* AdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsViewController.h; sourceTree = "<group>"; };
 		9B97CFF616BB695B005BF0FF /* AdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsViewController.m; sourceTree = "<group>"; };
@@ -648,6 +666,17 @@
 			name = Sky;
 			sourceTree = "<group>";
 		};
+		9B1881D616CD631D00E68930 /* SpriteSheet */ = {
+			isa = PBXGroup;
+			children = (
+				9B1881D716CD635500E68930 /* SpriteSheet-hd.plist */,
+				9B1881D816CD635500E68930 /* SpriteSheet-hd.png */,
+				9B1881D916CD635500E68930 /* SpriteSheet.plist */,
+				9B1881DA16CD635500E68930 /* SpriteSheet.png */,
+			);
+			name = SpriteSheet;
+			sourceTree = "<group>";
+		};
 		9B97CFF316BB68BA005BF0FF /* Ads */ = {
 			isa = PBXGroup;
 			children = (
@@ -733,6 +762,7 @@
 		9B97D01616BB7CCE005BF0FF /* Art */ = {
 			isa = PBXGroup;
 			children = (
+				9B1881D616CD631D00E68930 /* SpriteSheet */,
 				9B97D01916BCA9C3005BF0FF /* Icons */,
 				9BCE858716B5DB500043048E /* Default.png */,
 				9BCE858916B5DB500043048E /* Default-Landscape~ipad.png */,
@@ -1417,6 +1447,23 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		9B1881D016CD626B00E68930 /* SpriteSheet */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "${SRCROOT}/ATidyWorld/makeassets.sh";
+			buildConfigurationList = 9B1881D116CD626B00E68930 /* Build configuration list for PBXLegacyTarget "SpriteSheet" */;
+			buildPhases = (
+			);
+			buildToolPath = /bin/bash;
+			buildWorkingDirectory = "${SRCROOT}/Assets/SpriteSheet/";
+			dependencies = (
+			);
+			name = SpriteSheet;
+			passBuildSettingsInEnvironment = 1;
+			productName = SpriteSheet;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		9BCE856E16B5DB500043048E /* ATidyWorld */ = {
 			isa = PBXNativeTarget;
@@ -1429,6 +1476,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9B1881D516CD62BE00E68930 /* PBXTargetDependency */,
 			);
 			name = ATidyWorld;
 			productName = ATidyWorld;
@@ -1456,6 +1504,7 @@
 			projectRoot = "";
 			targets = (
 				9BCE856E16B5DB500043048E /* ATidyWorld */,
+				9B1881D016CD626B00E68930 /* SpriteSheet */,
 			);
 		};
 /* End PBXProject section */
@@ -1513,6 +1562,10 @@
 				9B97D0B816C21DD9005BF0FF /* ranz_des_vaches.mp3 in Resources */,
 				9B97D0B916C21DD9005BF0FF /* reveille.mp3 in Resources */,
 				9B97D0BA16C21DD9005BF0FF /* train_whistle.mp3 in Resources */,
+				9B1881DB16CD635500E68930 /* SpriteSheet-hd.plist in Resources */,
+				9B1881DC16CD635500E68930 /* SpriteSheet-hd.png in Resources */,
+				9B1881DD16CD635500E68930 /* SpriteSheet.plist in Resources */,
+				9B1881DE16CD635500E68930 /* SpriteSheet.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1664,7 +1717,65 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9B1881D516CD62BE00E68930 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B1881D016CD626B00E68930 /* SpriteSheet */;
+			targetProxy = 9B1881D416CD62BE00E68930 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		9B1881D216CD626B00E68930 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		9B1881D316CD626B00E68930 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		9BCE870616B5DB530043048E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1768,6 +1879,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9B1881D116CD626B00E68930 /* Build configuration list for PBXLegacyTarget "SpriteSheet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B1881D216CD626B00E68930 /* Debug */,
+				9B1881D316CD626B00E68930 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		9BCE856916B5DB500043048E /* Build configuration list for PBXProject "ATidyWorld" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

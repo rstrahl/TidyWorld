@@ -73,6 +73,8 @@
         mLastSunriseProgress = 0;
         mLastSunsetProgress = 0;
         
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"SpriteSheet.plist"];
+        
         // Add Clock Label
         CGSize screenSize = [[CCDirector sharedDirector] view].frame.size;
         mClockFaceView = [[ClockFaceView alloc] initWithFrame:CGRectZero];
@@ -117,55 +119,6 @@
     return self;
 }
 
-- (void)update:(ccTime)deltaTime
-{
-    NSTimeInterval time;
-    // If the time-lapse flag is set, process time as a delta and do not process alarms
-    if (mIsTimeLapse)
-    {
-        mClockTime += deltaTime * mTimeLapseMultiplier;
-        [self.clockFaceView setClockTime:mClockTime];
-        DLog(@"Time-lapsed current time: %f", mClockTime);
-    }
-    else // Process time as normal, in per-second updates to the system
-    {
-        time = [NSDate timeIntervalSinceReferenceDate];
-        // Detect increments of one second and update the clock face accordingly
-        if ((time - mClockTime) > 1)
-        {
-            mClockTime = floor(time);
-            [self.clockFaceView setClockTime:mClockTime];
-            // If the mClockTime mod 60 equals 0, a minute has turned over, check the alarms
-            if (((NSUInteger)mClockTime % 60) == 0)
-            {
-                [[AlarmService sharedInstance] updateWithTime:mClockTime];
-            }
-            DLog(@"Current time: %f", mClockTime);
-        }
-    }
-    [self updateDayNightCycleForTime:[TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:(mClockTime + [[NSTimeZone localTimeZone] secondsFromGMT])]];
-}
-
-#pragma mark - Notifications
-- (void)didReceiveLocationSuccessNotification:(NSNotification *)notification
-{
-    LocationService *locationService = [LocationService sharedInstance];
-    NSString *locationString = [NSString stringWithFormat:@"%@, %@, %@", locationService.city, locationService.state, locationService.country];
-    [self.clockFaceView setLocation:locationString];
-}
-
-- (void)didReceiveWeatherSuccessNotification:(NSNotification *)notification
-{
-    WeatherService *weatherService = [WeatherService sharedInstance];
-    [self initDayNightCycleWithWeatherService:weatherService];
-    [self.clockFaceView setTemperature:[weatherService.conditionTemp floatValue]];
-}
-
-- (void)didReceiveSettingsChangedNotification:(NSNotification *)notification
-{
-    [self loadApplicationSettings];
-}
-
 #pragma mark - Application Settings
 - (void)loadApplicationSettings
 {
@@ -197,6 +150,38 @@
     mClockTime = [NSDate timeIntervalSinceReferenceDate];
 }
 
+#pragma mark - Game Loop Update
+- (void)update:(ccTime)deltaTime
+{
+    NSTimeInterval time;
+    // If the time-lapse flag is set, process time as a delta and do not process alarms
+    if (mIsTimeLapse)
+    {
+        mClockTime += deltaTime * mTimeLapseMultiplier;
+        [self.clockFaceView setClockTime:mClockTime];
+        DLog(@"Time-lapsed current time: %f", mClockTime);
+    }
+    else // Process time as normal, in per-second updates to the system
+    {
+        time = [NSDate timeIntervalSinceReferenceDate];
+        // Detect increments of one second and update the clock face accordingly
+        if ((time - mClockTime) > 1)
+        {
+            mClockTime = floor(time);
+            [self.clockFaceView setClockTime:mClockTime];
+            // If the mClockTime mod 60 equals 0, a minute has turned over, check the alarms
+            if (((NSUInteger)mClockTime % 60) == 0)
+            {
+                [[AlarmService sharedInstance] updateWithTime:mClockTime];
+            }
+            DLog(@"Current time: %f", mClockTime);
+        }
+    }
+    [self updateDayNightCycleForTime:[TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:(mClockTime + [[NSTimeZone localTimeZone] secondsFromGMT])]];
+}
+
+
+
 #pragma mark - Day/Night Cycle
 - (void)initDayNightCycleWithWeatherService:(WeatherService *)weatherService
 {
@@ -216,8 +201,6 @@
     // Only ever process the cycle if there is actual daylight time
     if (mDaylightDuration > 0)
     {
-        // There should be two layers: one for the base sky colour (day/night) one for sunrise/sunset glows
-        
         /*  All objects should be given a daylightTint - ranges from 0-255 based on the time of day. (255 due to how RGB is handled)
              The sky should start to lighten a period of time before sunrise (a factor of daylight duration).
              The sky should be fully bright shortly after the sunrise is finished.
@@ -275,28 +258,47 @@
         if (abs(daylightTintValue - mLastDaylightTintValue) >= 1)
         {
             mLastDaylightTintValue = daylightTintValue;
-            // TODO: update the daylightTint of all layers
             [mSkyLayer updateDaylightTint:daylightTintValue];
-//            [mLandscapeManager setDaylightTint:daylightTintValue];
-//            [mWeatherManager setDaylightTint:daylightTintValue];
+            // TODO: Update daylight tinting in all layers
         }
         
         // Send out the tint for sunrise
         if (fabsf(sunriseProgress - mLastSunriseProgress) >= 0.01)
         {
             mLastSunriseProgress = sunriseProgress;
-            // TODO: Update sunrise progress in skyLayer
-//            [self.skyManager renderDawnForProgress:sunriseProgress];
             [mSkyLayer updateSunriseProgress:sunriseProgress];
         }
         // Send out the tint for sunset
         if (fabsf(sunsetProgress - mLastSunsetProgress) >= 0.01)
         {
             mLastSunsetProgress = sunsetProgress;
-            // TODO: Update sunset progress in skyLayer
             [mSkyLayer updateSunsetProgress:sunsetProgress];
         }
     }
+    
+    // Update positions of day/night affected children
+    [mSkyLayer updateChildPositionsForTime:time sunriseTime:mSunriseGlowStartTime sunsetTime:mSunsetEffectStartTime];
 }
+
+#pragma mark - Notifications
+- (void)didReceiveLocationSuccessNotification:(NSNotification *)notification
+{
+    LocationService *locationService = [LocationService sharedInstance];
+    NSString *locationString = [NSString stringWithFormat:@"%@, %@, %@", locationService.city, locationService.state, locationService.country];
+    [self.clockFaceView setLocation:locationString];
+}
+
+- (void)didReceiveWeatherSuccessNotification:(NSNotification *)notification
+{
+    WeatherService *weatherService = [WeatherService sharedInstance];
+    [self initDayNightCycleWithWeatherService:weatherService];
+    [self.clockFaceView setTemperature:[weatherService.conditionTemp floatValue]];
+}
+
+- (void)didReceiveSettingsChangedNotification:(NSNotification *)notification
+{
+    [self loadApplicationSettings];
+}
+
 
 @end
