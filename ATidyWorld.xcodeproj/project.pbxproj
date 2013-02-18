@@ -8,14 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		9B1881C116CB1D0B00E68930 /* SkyLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881C016CB1D0B00E68930 /* SkyLayer.m */; };
-		9B1881C616CB6C1100E68930 /* SunSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881C516CB6C1100E68930 /* SunSprite.m */; };
-		9B1881C916CB6C1A00E68930 /* MoonSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881C816CB6C1900E68930 /* MoonSprite.m */; };
+		9B1881C616CB6C1100E68930 /* SunMoonSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881C516CB6C1100E68930 /* SunMoonSprite.m */; };
 		9B1881CC16CB6C2F00E68930 /* SkyGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881CB16CB6C2F00E68930 /* SkyGradient.m */; };
 		9B1881CF16CC8A4800E68930 /* SkyDawnDuskGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881CE16CC8A4700E68930 /* SkyDawnDuskGradient.m */; };
-		9B1881DB16CD635500E68930 /* SpriteSheet-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B1881D716CD635500E68930 /* SpriteSheet-hd.plist */; };
-		9B1881DC16CD635500E68930 /* SpriteSheet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B1881D816CD635500E68930 /* SpriteSheet-hd.png */; };
-		9B1881DD16CD635500E68930 /* SpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B1881D916CD635500E68930 /* SpriteSheet.plist */; };
-		9B1881DE16CD635500E68930 /* SpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B1881DA16CD635500E68930 /* SpriteSheet.png */; };
+		9B3B2B9516D1B8A500179904 /* SpriteSheet-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2B9116D1B8A500179904 /* SpriteSheet-hd.plist */; };
+		9B3B2B9616D1B8A500179904 /* SpriteSheet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2B9216D1B8A500179904 /* SpriteSheet-hd.png */; };
+		9B3B2B9716D1B8A500179904 /* SpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2B9316D1B8A500179904 /* SpriteSheet.plist */; };
+		9B3B2B9816D1B8A500179904 /* SpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2B9416D1B8A500179904 /* SpriteSheet.png */; };
 		9B96CB8A16B90318009A226B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B96CB8916B90318009A226B /* Localizable.strings */; };
 		9B97CFF716BB695B005BF0FF /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97CFF616BB695B005BF0FF /* AdsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D00316BB6A72005BF0FF /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00216BB6A72005BF0FF /* libGoogleAdMobAds.a */; };
@@ -229,18 +228,16 @@
 /* Begin PBXFileReference section */
 		9B1881BF16CB1D0B00E68930 /* SkyLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyLayer.h; sourceTree = "<group>"; };
 		9B1881C016CB1D0B00E68930 /* SkyLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkyLayer.m; sourceTree = "<group>"; };
-		9B1881C416CB6C1100E68930 /* SunSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SunSprite.h; sourceTree = "<group>"; };
-		9B1881C516CB6C1100E68930 /* SunSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SunSprite.m; sourceTree = "<group>"; };
-		9B1881C716CB6C1900E68930 /* MoonSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonSprite.h; sourceTree = "<group>"; };
-		9B1881C816CB6C1900E68930 /* MoonSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoonSprite.m; sourceTree = "<group>"; };
+		9B1881C416CB6C1100E68930 /* SunMoonSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SunMoonSprite.h; sourceTree = "<group>"; };
+		9B1881C516CB6C1100E68930 /* SunMoonSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SunMoonSprite.m; sourceTree = "<group>"; };
 		9B1881CA16CB6C2F00E68930 /* SkyGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyGradient.h; sourceTree = "<group>"; };
 		9B1881CB16CB6C2F00E68930 /* SkyGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkyGradient.m; sourceTree = "<group>"; };
 		9B1881CD16CC8A4700E68930 /* SkyDawnDuskGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyDawnDuskGradient.h; sourceTree = "<group>"; };
 		9B1881CE16CC8A4700E68930 /* SkyDawnDuskGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkyDawnDuskGradient.m; sourceTree = "<group>"; };
-		9B1881D716CD635500E68930 /* SpriteSheet-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SpriteSheet-hd.plist"; sourceTree = "<group>"; };
-		9B1881D816CD635500E68930 /* SpriteSheet-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SpriteSheet-hd.png"; sourceTree = "<group>"; };
-		9B1881D916CD635500E68930 /* SpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SpriteSheet.plist; sourceTree = "<group>"; };
-		9B1881DA16CD635500E68930 /* SpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpriteSheet.png; sourceTree = "<group>"; };
+		9B3B2B9116D1B8A500179904 /* SpriteSheet-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SpriteSheet-hd.plist"; path = "Assets/SpriteSheet/SpriteSheet-hd.plist"; sourceTree = SOURCE_ROOT; };
+		9B3B2B9216D1B8A500179904 /* SpriteSheet-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SpriteSheet-hd.png"; path = "Assets/SpriteSheet/SpriteSheet-hd.png"; sourceTree = SOURCE_ROOT; };
+		9B3B2B9316D1B8A500179904 /* SpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SpriteSheet.plist; path = Assets/SpriteSheet/SpriteSheet.plist; sourceTree = SOURCE_ROOT; };
+		9B3B2B9416D1B8A500179904 /* SpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SpriteSheet.png; path = Assets/SpriteSheet/SpriteSheet.png; sourceTree = SOURCE_ROOT; };
 		9B96CB8916B90318009A226B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Resources/Localizable.strings; sourceTree = "<group>"; };
 		9B97CFF516BB695B005BF0FF /* AdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsViewController.h; sourceTree = "<group>"; };
 		9B97CFF616BB695B005BF0FF /* AdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsViewController.m; sourceTree = "<group>"; };
@@ -654,10 +651,8 @@
 			children = (
 				9B1881BF16CB1D0B00E68930 /* SkyLayer.h */,
 				9B1881C016CB1D0B00E68930 /* SkyLayer.m */,
-				9B1881C416CB6C1100E68930 /* SunSprite.h */,
-				9B1881C516CB6C1100E68930 /* SunSprite.m */,
-				9B1881C716CB6C1900E68930 /* MoonSprite.h */,
-				9B1881C816CB6C1900E68930 /* MoonSprite.m */,
+				9B1881C416CB6C1100E68930 /* SunMoonSprite.h */,
+				9B1881C516CB6C1100E68930 /* SunMoonSprite.m */,
 				9B1881CA16CB6C2F00E68930 /* SkyGradient.h */,
 				9B1881CB16CB6C2F00E68930 /* SkyGradient.m */,
 				9B1881CD16CC8A4700E68930 /* SkyDawnDuskGradient.h */,
@@ -669,10 +664,10 @@
 		9B1881D616CD631D00E68930 /* SpriteSheet */ = {
 			isa = PBXGroup;
 			children = (
-				9B1881D716CD635500E68930 /* SpriteSheet-hd.plist */,
-				9B1881D816CD635500E68930 /* SpriteSheet-hd.png */,
-				9B1881D916CD635500E68930 /* SpriteSheet.plist */,
-				9B1881DA16CD635500E68930 /* SpriteSheet.png */,
+				9B3B2B9116D1B8A500179904 /* SpriteSheet-hd.plist */,
+				9B3B2B9216D1B8A500179904 /* SpriteSheet-hd.png */,
+				9B3B2B9316D1B8A500179904 /* SpriteSheet.plist */,
+				9B3B2B9416D1B8A500179904 /* SpriteSheet.png */,
 			);
 			name = SpriteSheet;
 			sourceTree = "<group>";
@@ -1562,10 +1557,10 @@
 				9B97D0B816C21DD9005BF0FF /* ranz_des_vaches.mp3 in Resources */,
 				9B97D0B916C21DD9005BF0FF /* reveille.mp3 in Resources */,
 				9B97D0BA16C21DD9005BF0FF /* train_whistle.mp3 in Resources */,
-				9B1881DB16CD635500E68930 /* SpriteSheet-hd.plist in Resources */,
-				9B1881DC16CD635500E68930 /* SpriteSheet-hd.png in Resources */,
-				9B1881DD16CD635500E68930 /* SpriteSheet.plist in Resources */,
-				9B1881DE16CD635500E68930 /* SpriteSheet.png in Resources */,
+				9B3B2B9516D1B8A500179904 /* SpriteSheet-hd.plist in Resources */,
+				9B3B2B9616D1B8A500179904 /* SpriteSheet-hd.png in Resources */,
+				9B3B2B9716D1B8A500179904 /* SpriteSheet.plist in Resources */,
+				9B3B2B9816D1B8A500179904 /* SpriteSheet.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1708,8 +1703,7 @@
 				9BB464AF16C4A0B400BD5BBC /* AlarmService.m in Sources */,
 				9BB464B216C4E12F00BD5BBC /* TMTimeUtils.m in Sources */,
 				9B1881C116CB1D0B00E68930 /* SkyLayer.m in Sources */,
-				9B1881C616CB6C1100E68930 /* SunSprite.m in Sources */,
-				9B1881C916CB6C1A00E68930 /* MoonSprite.m in Sources */,
+				9B1881C616CB6C1100E68930 /* SunMoonSprite.m in Sources */,
 				9B1881CC16CB6C2F00E68930 /* SkyGradient.m in Sources */,
 				9B1881CF16CC8A4800E68930 /* SkyDawnDuskGradient.m in Sources */,
 			);
@@ -1886,6 +1880,7 @@
 				9B1881D316CD626B00E68930 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9BCE856916B5DB500043048E /* Build configuration list for PBXProject "ATidyWorld" */ = {
 			isa = XCConfigurationList;

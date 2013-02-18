@@ -73,7 +73,7 @@
         mLastSunriseProgress = 0;
         mLastSunsetProgress = 0;
         
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"SpriteSheet.plist"];
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:SPRITESHEET_PLIST];
         
         // Add Clock Label
         CGSize screenSize = [[CCDirector sharedDirector] view].frame.size;
@@ -276,8 +276,8 @@
         }
     }
     
-    // Update positions of day/night affected children
-    [mSkyLayer updateChildPositionsForTime:time sunriseTime:mSunriseGlowStartTime sunsetTime:mSunsetEffectStartTime];
+    // Update day/night affected children
+    [mSkyLayer updateForTime:time sunriseTime:mSunriseGlowStartTime sunsetTime:mSunsetEffectStartTime];
 }
 
 #pragma mark - Notifications

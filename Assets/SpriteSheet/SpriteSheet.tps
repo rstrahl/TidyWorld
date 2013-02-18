@@ -159,6 +159,7 @@
         <array>
             <filename>../Art/Sprites 2x/Moon.png</filename>
             <filename>../Art/Sprites 2x/Sun.png</filename>
+            <filename>../Art/Sprites 2x/Star.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

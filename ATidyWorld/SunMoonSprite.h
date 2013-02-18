@@ -12,7 +12,7 @@
 /** A game object containing both sun and moon sprites, able to rotate around a given point in coordinate space based on the 
     time of day in a given day.  The sun and moon rotate on opposite coordinates, and their location is updated synchronously.
  */
-@interface SunSprite : CCNode
+@interface SunMoonSprite : CCNode
 {
     CCSprite        *mSunSprite;                //< Sprite object representing the sun
     CCSprite        *mMoonSprite;               //< Sprite object representing the moon

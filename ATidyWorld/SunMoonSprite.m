@@ -6,11 +6,11 @@
 //  Copyright 2013 __MyCompanyName__. All rights reserved.
 //
 
-#import "SunSprite.h"
+#import "SunMoonSprite.h"
 #import "Constants.h"
 #import "TMTimeUtils.h"
 
-@implementation SunSprite
+@implementation SunMoonSprite
 
 @synthesize sprite = mSunSprite;
 

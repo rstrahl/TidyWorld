@@ -17,6 +17,19 @@
                 <key>sourceSize</key>
                 <string>{74,74}</string>
             </dict>
+            <key>Star.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{78,2},{6,6}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{1,1},{6,6}}</string>
+                <key>sourceSize</key>
+                <string>{8,8}</string>
+            </dict>
             <key>Sun.png</key>
             <dict>
                 <key>frame</key>
@@ -40,7 +53,7 @@
             <key>size</key>
             <string>{128,256}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:6b9b55b69c919d26528fd9917255f1ab$</string>
+            <string>$TexturePacker:SmartUpdate:5883034ae4c05df30476365233db9686$</string>
             <key>textureFileName</key>
             <string>SpriteSheet.png</string>
         </dict>
