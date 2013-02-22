@@ -88,14 +88,12 @@
         mSpriteBatchNode = [[CCSpriteBatchNode alloc] initWithFile:SPRITESHEET_IMAGE capacity:100];
         
         // Add Clock Label
-        CGSize screenSize = [[CCDirector sharedDirector] view].frame.size;
-        mClockFaceView = [[ClockFaceView alloc] initWithFrame:CGRectZero];
+        CGSize screenSize = [[CCDirector sharedDirector] winSize];
         CGRect clockFaceFrame = CGRectMake((screenSize.width / 2) - (300 / 2),
                                            0,
                                            300,
                                            80);
-        mClockFaceView.frame = clockFaceFrame;
-        DLog(@"Clock width: %f", mClockFaceView.frame.size.width);
+        mClockFaceView = [[ClockFaceView alloc] initWithFrame:clockFaceFrame];
         [[[CCDirector sharedDirector] view] addSubview:mClockFaceView];
         
         // Add AdsViewController
