@@ -10,26 +10,34 @@
 #import "cocos2d.h"
 
 /** A game object containing both sun and moon sprites, able to rotate around a given point in coordinate space based on the 
-    time of day in a given day.  The sun and moon rotate on opposite coordinates, and their location is updated synchronously.
+ *  time of day in a given day.  The sun and moon rotate on opposite coordinates, and their location is updated synchronously.
  */
 @interface SunMoonSprite : CCNode
 {
+    @private
     CCSprite        *mSunSprite;                //< Sprite object representing the sun
     CCSprite        *mMoonSprite;               //< Sprite object representing the moon
     double          mSpriteRotationRadius;      //< Rotation radius of the sun
     double          mSpriteRotationSpeed;       //< Rotation speed of the sun
     double          mSpriteRotationAngle;       //< Rotation angle of the sun
     CGPoint         mRotationPoint;             //< the point in coordinate space the sun rotates around
+    BOOL            mOvercast;
 }
-
-- (id)initAtPoint:(CGPoint)point;
 
 @property (nonatomic, strong) CCSprite *sprite;
 
+/** Initializes the sprite for rotation around a given point
+ *  @param point the point of rotation for the sprite 
+ */
+- (id)initAtPoint:(CGPoint)point batchNode:(CCSpriteBatchNode *)batchNode;
+
+- (void)setOvercast:(BOOL)overcast;
+
 /** Updates the position of the sun and moon based on the current time within a given day
-    @param time the current time for the given day
-    @param sunriseTime the time of sunrise for a given day 
-    @param sunsetTime the time of sunset for a given day */
+ *  @param time the current time for the given day
+ *  @param sunriseTime the time of sunrise for a given day
+ *  @param sunsetTime the time of sunset for a given day
+ */
 - (void)updatePositionForTime:(NSTimeInterval)time sunriseTime:(NSTimeInterval)sunriseTime sunsetTime:(NSTimeInterval)sunsetTime;
 
 @end

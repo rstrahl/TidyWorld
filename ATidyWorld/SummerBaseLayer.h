@@ -8,20 +8,25 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "WorldOptionsViewController.h"
 
 @class ClockFaceView;
 @class AdsViewController;
 @class ButtonsViewController;
 @class SkyLayer;
+@class WeatherLayer;
 
-@interface SummerBaseLayer : CCLayer
+@interface SummerBaseLayer : CCLayer <WorldOptionsViewControllerDelegate>
 {
     NSTimeInterval          mClockTime;
     ClockFaceView           *mClockFaceView;
     AdsViewController       *mAdsViewController;
     ButtonsViewController   *mButtonsViewController;
     NSInteger               mTimeLapseMultiplier;
-    BOOL                    mIsTimeLapse;
+    BOOL                    mUsingTimeLapse;
+    BOOL                    mUsingLocationBasedWeather;
+    BOOL                    mOvercast;
+    int                     mNight;
     NSTimeInterval          mTimeOfSunriseInSeconds;
     NSTimeInterval          mTimeOfSunsetInSeconds;
     NSTimeInterval          mDaylightDuration;
@@ -36,12 +41,23 @@
     NSTimeInterval          mLastSunsetProgress;
     // Layers
     SkyLayer                *mSkyLayer;
+    WeatherLayer            *mWeatherLayer;
+    
+    // Sprite Batch Nodes
+    CCSpriteBatchNode       *mSpriteBatchNode;
+    CCParticleBatchNode     *mParticleBatchNode;
 
 }
 
 @property (nonatomic, strong) ClockFaceView         *clockFaceView;
 @property (nonatomic, strong) AdsViewController     *adsViewController;
 @property (nonatomic, strong) ButtonsViewController *buttonsViewController;
+@property (nonatomic, strong) CCSpriteBatchNode     *spriteBatchNode;
+@property (nonatomic, strong) CCParticleBatchNode   *particleBatchNode;
+
+@property (nonatomic, assign, getter = isUsingTimeLapse) BOOL usingTimeLapse;
+@property (nonatomic, assign, getter = isUsingLocationBasedWeather) BOOL usingLocationBasedWeather;
+@property (nonatomic, assign, getter = isOvercast) BOOL overcast;
 
 // returns a CCScene that contains the SummerBaseLayer as the only child
 +(CCScene *) scene;

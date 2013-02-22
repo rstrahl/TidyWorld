@@ -9,27 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-/*
- WeatherCode Bitmask:
- 
-  00000000000
-   |   | |`--Clouds
-    `   ` `--Fog
-     `   `---Rain
-      `------Snow
- */
-
-#define WEATHER_BITMASK_OFFSET_CLOUDS       0
-#define WEATHER_BITMASK_OFFSET_FOG          3
-#define WEATHER_BITMASK_OFFSET_RAIN         4
-#define WEATHER_BITMASK_OFFSET_SNOW         6
-#define WEATHER_BITMASK_OFFSET_LIGHTNING    9
-#define WEATHER_CLOUDS_TYPE_MAX             3
-#define WEATHER_FOG_TYPE_MAX                1
-#define WEATHER_RAIN_TYPE_MAX               3
-#define WEATHER_SNOW_TYPE_MAX               4
-#define WEATHER_LIGHTNING_TYPE_MAX          1
-
 typedef enum
 {
     WeatherCategorySeason,
@@ -45,32 +24,64 @@ typedef enum
 {
     WeatherSeasonSummer,
     WeatherSeasonWinter
-} WeatherSeason;
+} WeatherConditionSeason;
 
-typedef enum {
+typedef enum
+{
     WeatherCloudsNone       = 0,
     WeatherCloudsPartial    = 1,
     WeatherCloudsMostly     = 2,
-    WeatherCloudsOvercast   = 3,
-    
-    WeatherFogNone          = 0 << WEATHER_BITMASK_OFFSET_FOG,
-    WeatherFog              = 1 << WEATHER_BITMASK_OFFSET_FOG,
-    
-    WeatherRainNone         = 0 << WEATHER_BITMASK_OFFSET_RAIN,
-    WeatherRainLight        = 1 << WEATHER_BITMASK_OFFSET_RAIN,
-    WeatherRainMedium       = 2 << WEATHER_BITMASK_OFFSET_RAIN,
-    WeatherRainHeavy        = 3 << WEATHER_BITMASK_OFFSET_RAIN,
-    
-    WeatherSnowNone         = 0 << WEATHER_BITMASK_OFFSET_SNOW,
-    WeatherSnowLight        = 1 << WEATHER_BITMASK_OFFSET_SNOW,
-    WeatherSnowMedium       = 2 << WEATHER_BITMASK_OFFSET_SNOW,
-    WeatherSnowBlizzard     = 3 << WEATHER_BITMASK_OFFSET_SNOW,
-    WeatherSnowBlowing      = 4 << WEATHER_BITMASK_OFFSET_SNOW,
-    
-    WeatherLightningNone    = 0 << WEATHER_BITMASK_OFFSET_LIGHTNING,
-    WeatherLightning        = 1 << WEATHER_BITMASK_OFFSET_LIGHTNING
-} WeatherServiceCode;
+    WeatherCloudsOvercast   = 3
+} WeatherConditionClouds;
 
+typedef enum
+{
+    WeatherFogNone          = 0,
+    WeatherFog              = 1
+} WeatherConditionFog;
+
+typedef enum
+{
+    WeatherRainNone         = 0,
+    WeatherRainLight        = 1,
+    WeatherRainMedium       = 2,
+    WeatherRainHeavy        = 3
+} WeatherConditionRain;
+
+typedef enum
+{
+    WeatherSnowNone         = 0,
+    WeatherSnowLight        = 1,
+    WeatherSnowMedium       = 2,
+    WeatherSnowBlowing      = 3,
+    WeatherSnowBlizzard     = 4
+} WeatherConditionSnow;
+
+typedef enum
+{
+    WeatherLightningNone    = 0,
+    WeatherLightning        = 1
+} WeatherConditionLightning;
+
+typedef struct
+{
+    WeatherConditionClouds      clouds;
+    WeatherConditionFog         fog;
+    WeatherConditionRain        rain;
+    WeatherConditionSnow        snow;
+    WeatherConditionLightning   lightning;
+    WeatherConditionSeason      season;
+} WeatherCondition;
+
+/** A singleton class that manages weather data retrieved from Yahoo! Weather Service (YWS). For data to be retrieved,
+    a location must be specified to the YWS using their location identifier known as "WOEID".  The Reachability class
+    determines whether the YWS is accessible, enabling this class to gracefully respond to weather data requests 
+    while YWS is unavailable.
+    The YWS returns a weather code defined <a href="http://developer.yahoo.com/weather/#codes">here</a>. This code is parsed
+    into a WeatherCondition struct and stored for reference by consumer objects.
+    {@see LocationService}
+    {@see Reachability}
+ */
 @interface WeatherService : NSObject <UIAlertViewDelegate, NSURLConnectionDelegate, NSXMLParserDelegate>
 {
     NSURL                   *mWeatherServiceURL;
@@ -95,7 +106,7 @@ typedef enum {
     NSNumber                *mAtmosphereVisibility;
     NSNumber                *mAtmospherePressure;
     NSNumber                *mAtmosphereRising;
-    WeatherServiceCode      mWeatherCode;
+    WeatherCondition        mWeatherCode;
     
     id __unsafe_unretained  mDelegate;
 }
@@ -116,7 +127,7 @@ typedef enum {
 @property (nonatomic, strong) NSNumber              *atmosphereVisibility;
 @property (nonatomic, strong) NSNumber              *atmospherePressure;
 @property (nonatomic, strong) NSNumber              *atmosphereRising;
-@property (nonatomic, assign) WeatherServiceCode    weatherCode;
+@property (nonatomic, assign) WeatherCondition      weatherCode;
 @property (nonatomic, assign, getter = isInternetReachable) BOOL internetReachable;
 
 /// Returns a reference to the singleton instance
@@ -128,7 +139,8 @@ typedef enum {
 /// Checks if the temperature is below the freezing point of water
 - (BOOL)isSubZero;
 
-
 - (void)setTemperature:(float)temperature;
+
+- (WeatherCondition)weatherConditionsFromUserDefaults:(NSUserDefaults *)userDefaults;
 
 @end

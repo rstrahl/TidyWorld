@@ -11,6 +11,7 @@
 #import "LocationService.h"
 #import "Constants.h"
 #import "TMTimeUtils.h"
+#import "SettingsConstants.h"
 
 static WeatherService *sharedWeatherService = nil;
 
@@ -20,7 +21,7 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
 // Start Private Interface -------------------------------------------------------------------------------
 @interface WeatherService()
 
-- (WeatherServiceCode)buildWeatherCode:(NSNumber *)yahooCode;
+- (WeatherCondition)buildWeatherCode:(NSNumber *)yahooCode;
 - (void)getWeatherFeedForWOEID:(NSNumber *)woeid;
 
 // Notifications
@@ -272,10 +273,9 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
 }
 
 #pragma mark - Weather Code
-- (WeatherServiceCode)buildWeatherCode:(NSNumber *)yahooCode
+- (WeatherCondition)buildWeatherCode:(NSNumber *)yahooCode
 {
-    WeatherServiceCode code = 0;
-    // http://developer.yahoo.com/weather/#codes
+    WeatherCondition code;
     switch ([yahooCode intValue]) {
 //        case 0:     // Tornado
         case 3:     // Severe Thunderstorms
@@ -286,9 +286,9 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
         case 45:    // Thundershowers
         case 47:    // Isolated Thundershowers
         {
-            code |= WeatherCloudsOvercast;
-            code |= WeatherRainHeavy;
-            code |= WeatherLightning;
+            code.clouds = WeatherCloudsOvercast;
+            code.rain = WeatherRainHeavy;
+            code.lightning = WeatherLightning;
             break;
         }
         case 5:     // Mixed Rain and Snow
@@ -301,31 +301,31 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
         case 12:    // Showers
         case 40:    // Scattered Showers
         {
-            code |= WeatherCloudsOvercast;
-            code |= WeatherRainMedium;
+            code.clouds = WeatherCloudsOvercast;
+            code.rain = WeatherRainMedium;
             break;
         }
 
         case 13:    // Snow Flurries
         case 15:    // Blowing Snow
         {
-            code |= WeatherCloudsMostly;
-            code |= WeatherSnowBlowing;
+            code.clouds = WeatherCloudsOvercast;
+            code.snow = WeatherSnowBlowing;
             break;
         }
         case 14:    // Light Snow Showers
         case 16:    // Snow
         case 46:    // Snow Showers
         {
-            code |= WeatherCloudsMostly;
-            code |= WeatherSnowMedium;
+            code.clouds = WeatherCloudsOvercast;
+            code.snow = WeatherSnowMedium;
             break;
         }
         case 17:    // Hail
         case 18:    // Sleet
         {
-            code |= WeatherCloudsOvercast;
-            code |= WeatherRainMedium;
+            code.clouds = WeatherCloudsOvercast;
+            code.rain = WeatherRainMedium;
             break;
         }
         case 19:    // Dust
@@ -334,67 +334,76 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
         case 22:    // Smoky
         case 23:    // Blustery
         {
-            // TODO: Finish Weather Implementation: Fog/Haze/Smoke
-            code |= WeatherFog;
+            code.fog = WeatherFog;
             break;
         }
         case 24:    // Windy
         case 25:    // Cold
         {
             // TODO: Finish Weather Implementation: Windy/Cold
-            code = 0;
             break;
         }
         case 26:    // Cloudy
         case 27:    // Mostly Cloudy (Night)
         case 28:    // Mostly Cloudy (Day)
         {
-            code |= WeatherCloudsMostly;
+            code.clouds = WeatherCloudsMostly;
             break;
         }
         case 29:    // Partly Cloudy (Night)
         case 30:    // Partly Cloudy (Day)
         case 44:    // Partly Cloudy
         {
-            code |= WeatherCloudsPartial;
+            code.clouds = WeatherCloudsPartial;
             break;
         }
         case 31:    // Clear
         case 32:    // Sunny
+        {
+            break;
+        }
         case 33:    // Fair (Night)
         case 34:    // Fair (Day)
         {
-            code = 0;
+            code.clouds = WeatherCloudsPartial;
             break;
         }
         case 35:    // Mixed Rain and Hail
         {
-            // TODO: Finish Weather Implementation: Hail
-            code |= WeatherCloudsOvercast;
-            code |= WeatherRainMedium;
+            code.clouds = WeatherCloudsOvercast;
+            code.rain = WeatherRainMedium;
             break;
         }
         case 36:    // Hot
         {
-            code = 0;
             break;
         }
         case 41:    // Heavy Snow
         case 42:    // Scattered Snow Showers
         case 43:    // Heavy Snow
         {
-            code |= WeatherCloudsOvercast;
-            code |= WeatherSnowBlizzard;
+            code.clouds = WeatherCloudsOvercast;
+            code.snow = WeatherSnowBlizzard;
             break;
         }
         case 3200:  // Not Available
         default:
         {
-            code = 0;
             break;
         }
     }
     return code;
+}
+
+- (WeatherCondition)weatherConditionsFromUserDefaults:(NSUserDefaults *)userDefaults
+{
+    WeatherCondition weatherCondition;
+    weatherCondition.clouds = [userDefaults integerForKey:SETTINGS_KEY_CURRENT_CLOUDS];
+    weatherCondition.rain = [userDefaults integerForKey:SETTINGS_KEY_CURRENT_RAIN];
+    weatherCondition.snow = [userDefaults integerForKey:SETTINGS_KEY_CURRENT_SNOW];
+    weatherCondition.fog = [userDefaults boolForKey:SETTINGS_KEY_CURRENT_FOG];
+    weatherCondition.lightning = [userDefaults boolForKey:SETTINGS_KEY_CURRENT_LIGHTNING];
+    return weatherCondition;
 }
 
 #pragma mark - Weather Notification

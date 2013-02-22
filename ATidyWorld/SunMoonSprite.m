@@ -14,7 +14,7 @@
 
 @synthesize sprite = mSunSprite;
 
-- (id)initAtPoint:(CGPoint)point
+- (id)initAtPoint:(CGPoint)point batchNode:(CCSpriteBatchNode *)batchNode
 {
     if (self = [super init])
     {
@@ -22,10 +22,25 @@
         mMoonSprite = [CCSprite spriteWithSpriteFrameName:@"Moon.png"];
         mRotationPoint = point;
         mSpriteRotationRadius = mRotationPoint.x;
-        [self addChild:mSunSprite];
-        [self addChild:mMoonSprite];
+        [batchNode addChild:mSunSprite];
+        [batchNode addChild:mMoonSprite];
     }
     return self;
+}
+
+- (void)setOvercast:(BOOL)overcast
+{
+    mOvercast = overcast;
+    if (overcast)
+    {
+        [mSunSprite setVisible:NO];
+        [mMoonSprite setVisible:NO];
+    }
+    else
+    {
+        [mSunSprite setVisible:YES];
+        [mMoonSprite setVisible:YES];
+    }
 }
 
 - (void)updatePositionForTime:(NSTimeInterval)time sunriseTime:(NSTimeInterval)sunriseTime sunsetTime:(NSTimeInterval)sunsetTime

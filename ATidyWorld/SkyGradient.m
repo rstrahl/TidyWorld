@@ -8,29 +8,47 @@
 
 #import "SkyGradient.h"
 #import "ColorConverter.h"
+#import "Constants.h"
 
 // Sky Colors
-const ccColor4B kSkyColorStorm          = {153, 153, 153, 255};
-const ccColor4B kHorizonColorStorm      = {130, 130, 130, 255};
+const ccColor4B kSkyColorStorm          = {50, 50, 50, 255};
+const ccColor4B kHorizonColorStorm      = {153, 153, 153, 255};
 const ccColor4B kSkyColorDaylight       = {0, 142, 255, 255};
 const ccColor4B kHorizonColorDaylight   = {218, 234, 255, 255};
 
-// Tint Value (the V in HSV) limits
-const float kMinOvercastTintValue = 0.3f;
-const float kMaxOvercastTintValue = 0.6f;
+@interface SkyGradient()
+/** Updates the tint value for the sky, causing the sky colours to change. Colour changes are
+ *  done via manipulation of Value (V in HSV). 
+ */
+- (void)updateDaylightTint;
+@end
+
 
 @implementation SkyGradient
-
-@synthesize overcast = mOvercast;
 
 - (id)init
 {
     if (self = [super initWithColor:kSkyColorDaylight fadingTo:kHorizonColorDaylight])
     {
         [self scheduleUpdate];
+        [self setBlendFunc:(ccBlendFunc){GL_ONE, GL_ZERO}];
     }
     return self;
 }
+
+#pragma mark - Properties
+- (BOOL)isOvercast
+{
+    return mOvercast;
+}
+
+- (void)setOvercast:(BOOL)overcast
+{
+    mOvercast = overcast;
+    [self updateDaylightTint];
+}
+
+#pragma mark - Game Loop Update
 
 - (void)setDaylightTintValue:(GLubyte)tintValue
 {

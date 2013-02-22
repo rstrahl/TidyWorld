@@ -16,11 +16,13 @@
     NSUserDefaults                      *mUserDefaults;
     id                                  __unsafe_unretained mDelegate;
     BOOL                                mOptionsChanged;
+    WeatherCondition                    mCurrentWeatherCondition;
 }
 
 @property (nonatomic, strong) NSArray                               *tableData;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem              *doneButton;
 @property (nonatomic, unsafe_unretained) id                         delegate;
+@property (nonatomic, strong) IBOutlet UISwitch                     *lightningSwitch;
 
 /** Saves the changes to the world and dismisses itself */
 - (IBAction)doneButtonPressed:(id)sender;
@@ -32,18 +34,13 @@
  any changes will result in the delegate being informed.
  */
 @protocol WorldOptionsViewControllerDelegate <NSObject>
-/** Notifies the delegate that the app will use location-based weather */
+/** Notifies the delegate that the weather conditions have changed 
+ */
+- (void)controller:(WorldOptionsViewController *)controller didChangeWeatherConditions:(WeatherCondition)condition;
+/** Notifies the delegate that the app will use location-based weather 
+ */
 - (void)controller:(WorldOptionsViewController *)controller didChangeLocationBased:(BOOL)isLocationBased;
-/** Notifies the delegate that the season has been changed */
+/** Notifies the delegate that the season has been changed 
+ */
 - (void)controller:(WorldOptionsViewController *)controller didChangeSeason:(NSUInteger)season;
-/** Notifies the delegate that the clouds state has been changed */
-- (void)controller:(WorldOptionsViewController *)controller didChangeCloudsState:(NSUInteger)cloudState;
-/** Notifies the delegate that the rain state has been changed */
-- (void)controller:(WorldOptionsViewController *)controller didChangeRainState:(NSUInteger)rainState;
-/** Notifies the delegate that the snow state has been changed */
-- (void)controller:(WorldOptionsViewController *)controller didChangeSnowState:(NSUInteger)snowState;
-/** Notifies the delegate that the fog state has been changed */
-- (void)controller:(WorldOptionsViewController *)controller didChangeFogState:(NSUInteger)fogState;
-/** Notifies the delegate that the lightning state has been changed */
-- (void)controller:(WorldOptionsViewController *)controller didChangeLightningState:(NSUInteger)lightningState;
 @end

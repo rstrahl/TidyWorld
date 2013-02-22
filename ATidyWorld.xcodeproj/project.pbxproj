@@ -10,16 +10,26 @@
 		9B1881C116CB1D0B00E68930 /* SkyLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881C016CB1D0B00E68930 /* SkyLayer.m */; };
 		9B1881C616CB6C1100E68930 /* SunMoonSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881C516CB6C1100E68930 /* SunMoonSprite.m */; };
 		9B1881CC16CB6C2F00E68930 /* SkyGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881CB16CB6C2F00E68930 /* SkyGradient.m */; };
-		9B1881CF16CC8A4800E68930 /* SkyDawnDuskGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881CE16CC8A4700E68930 /* SkyDawnDuskGradient.m */; };
+		9B1881CF16CC8A4800E68930 /* DawnDuskGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881CE16CC8A4700E68930 /* DawnDuskGradient.m */; };
 		9B3B2B9516D1B8A500179904 /* SpriteSheet-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2B9116D1B8A500179904 /* SpriteSheet-hd.plist */; };
 		9B3B2B9616D1B8A500179904 /* SpriteSheet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2B9216D1B8A500179904 /* SpriteSheet-hd.png */; };
 		9B3B2B9716D1B8A500179904 /* SpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2B9316D1B8A500179904 /* SpriteSheet.plist */; };
 		9B3B2B9816D1B8A500179904 /* SpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2B9416D1B8A500179904 /* SpriteSheet.png */; };
+		9B3B2BA316D2BABD00179904 /* RainHeavy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2B9B16D2BABD00179904 /* RainHeavy.plist */; };
+		9B3B2BA416D2BABD00179904 /* RainLight.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2B9C16D2BABD00179904 /* RainLight.plist */; };
+		9B3B2BA516D2BABD00179904 /* RainMedium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2B9D16D2BABD00179904 /* RainMedium.plist */; };
+		9B3B2BA616D2BABD00179904 /* SnowBlizzard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2B9E16D2BABD00179904 /* SnowBlizzard.plist */; };
+		9B3B2BA716D2BABD00179904 /* SnowBlowing.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2B9F16D2BABD00179904 /* SnowBlowing.plist */; };
+		9B3B2BA816D2BABD00179904 /* SnowHeavy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2BA016D2BABD00179904 /* SnowHeavy.plist */; };
+		9B3B2BA916D2BABD00179904 /* SnowLight.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2BA116D2BABD00179904 /* SnowLight.plist */; };
+		9B3B2BAA16D2BABD00179904 /* SnowMedium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2BA216D2BABD00179904 /* SnowMedium.plist */; };
+		9B3B2BAF16D2BCA000179904 /* WeatherLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B2BAE16D2BCA000179904 /* WeatherLayer.m */; };
+		9B3B2BC316D4227C00179904 /* Cloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B2BBD16D4227900179904 /* Cloud.m */; };
 		9B96CB8A16B90318009A226B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B96CB8916B90318009A226B /* Localizable.strings */; };
 		9B97CFF716BB695B005BF0FF /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97CFF616BB695B005BF0FF /* AdsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D00316BB6A72005BF0FF /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00216BB6A72005BF0FF /* libGoogleAdMobAds.a */; };
 		9B97D00B16BB730D005BF0FF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00A16BB730D005BF0FF /* StoreKit.framework */; };
-		9B97D00D16BB7335005BF0FF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00C16BB7335005BF0FF /* AdSupport.framework */; };
+		9B97D00D16BB7335005BF0FF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00C16BB7335005BF0FF /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		9B97D00F16BB7374005BF0FF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00E16BB7374005BF0FF /* MessageUI.framework */; };
 		9B97D01116BB73D6005BF0FF /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D01016BB73D6005BF0FF /* iAd.framework */; };
 		9B97D03316BCE5E2005BF0FF /* Icon_Clock_Highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D01B16BCE5E2005BF0FF /* Icon_Clock_Highlight@2x.png */; };
@@ -213,6 +223,7 @@
 		9BCE875C16B6094E0043048E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875B16B6094E0043048E /* CoreData.framework */; };
 		9BCE875E16B609560043048E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875D16B609560043048E /* SystemConfiguration.framework */; };
 		9BCE876016B6096E0043048E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875F16B6096D0043048E /* CoreLocation.framework */; };
+		9BE2CC9016D7E5F700936709 /* Stars.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BE2CC8F16D7E5F600936709 /* Stars.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,12 +243,24 @@
 		9B1881C516CB6C1100E68930 /* SunMoonSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SunMoonSprite.m; sourceTree = "<group>"; };
 		9B1881CA16CB6C2F00E68930 /* SkyGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyGradient.h; sourceTree = "<group>"; };
 		9B1881CB16CB6C2F00E68930 /* SkyGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkyGradient.m; sourceTree = "<group>"; };
-		9B1881CD16CC8A4700E68930 /* SkyDawnDuskGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyDawnDuskGradient.h; sourceTree = "<group>"; };
-		9B1881CE16CC8A4700E68930 /* SkyDawnDuskGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkyDawnDuskGradient.m; sourceTree = "<group>"; };
+		9B1881CD16CC8A4700E68930 /* DawnDuskGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DawnDuskGradient.h; sourceTree = "<group>"; };
+		9B1881CE16CC8A4700E68930 /* DawnDuskGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DawnDuskGradient.m; sourceTree = "<group>"; };
 		9B3B2B9116D1B8A500179904 /* SpriteSheet-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SpriteSheet-hd.plist"; path = "Assets/SpriteSheet/SpriteSheet-hd.plist"; sourceTree = SOURCE_ROOT; };
 		9B3B2B9216D1B8A500179904 /* SpriteSheet-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SpriteSheet-hd.png"; path = "Assets/SpriteSheet/SpriteSheet-hd.png"; sourceTree = SOURCE_ROOT; };
 		9B3B2B9316D1B8A500179904 /* SpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SpriteSheet.plist; path = Assets/SpriteSheet/SpriteSheet.plist; sourceTree = SOURCE_ROOT; };
 		9B3B2B9416D1B8A500179904 /* SpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SpriteSheet.png; path = Assets/SpriteSheet/SpriteSheet.png; sourceTree = SOURCE_ROOT; };
+		9B3B2B9B16D2BABD00179904 /* RainHeavy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RainHeavy.plist; path = Assets/ParticleEffects/RainHeavy.plist; sourceTree = SOURCE_ROOT; };
+		9B3B2B9C16D2BABD00179904 /* RainLight.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RainLight.plist; path = Assets/ParticleEffects/RainLight.plist; sourceTree = SOURCE_ROOT; };
+		9B3B2B9D16D2BABD00179904 /* RainMedium.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RainMedium.plist; path = Assets/ParticleEffects/RainMedium.plist; sourceTree = SOURCE_ROOT; };
+		9B3B2B9E16D2BABD00179904 /* SnowBlizzard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SnowBlizzard.plist; path = Assets/ParticleEffects/SnowBlizzard.plist; sourceTree = SOURCE_ROOT; };
+		9B3B2B9F16D2BABD00179904 /* SnowBlowing.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SnowBlowing.plist; path = Assets/ParticleEffects/SnowBlowing.plist; sourceTree = SOURCE_ROOT; };
+		9B3B2BA016D2BABD00179904 /* SnowHeavy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SnowHeavy.plist; path = Assets/ParticleEffects/SnowHeavy.plist; sourceTree = SOURCE_ROOT; };
+		9B3B2BA116D2BABD00179904 /* SnowLight.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SnowLight.plist; path = Assets/ParticleEffects/SnowLight.plist; sourceTree = SOURCE_ROOT; };
+		9B3B2BA216D2BABD00179904 /* SnowMedium.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SnowMedium.plist; path = Assets/ParticleEffects/SnowMedium.plist; sourceTree = SOURCE_ROOT; };
+		9B3B2BAD16D2BCA000179904 /* WeatherLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherLayer.h; sourceTree = "<group>"; };
+		9B3B2BAE16D2BCA000179904 /* WeatherLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherLayer.m; sourceTree = "<group>"; };
+		9B3B2BBC16D4227900179904 /* Cloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cloud.h; sourceTree = "<group>"; };
+		9B3B2BBD16D4227900179904 /* Cloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cloud.m; sourceTree = "<group>"; };
 		9B96CB8916B90318009A226B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Resources/Localizable.strings; sourceTree = "<group>"; };
 		9B97CFF516BB695B005BF0FF /* AdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsViewController.h; sourceTree = "<group>"; };
 		9B97CFF616BB695B005BF0FF /* AdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsViewController.m; sourceTree = "<group>"; };
@@ -614,6 +637,7 @@
 		9BCE875B16B6094E0043048E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9BCE875D16B609560043048E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9BCE875F16B6096D0043048E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9BE2CC8F16D7E5F600936709 /* Stars.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Stars.plist; path = Assets/ParticleEffects/Stars.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -649,14 +673,14 @@
 		9B1881C216CB27DA00E68930 /* Sky */ = {
 			isa = PBXGroup;
 			children = (
+				9B1881CD16CC8A4700E68930 /* DawnDuskGradient.h */,
+				9B1881CE16CC8A4700E68930 /* DawnDuskGradient.m */,
+				9B1881CA16CB6C2F00E68930 /* SkyGradient.h */,
+				9B1881CB16CB6C2F00E68930 /* SkyGradient.m */,
 				9B1881BF16CB1D0B00E68930 /* SkyLayer.h */,
 				9B1881C016CB1D0B00E68930 /* SkyLayer.m */,
 				9B1881C416CB6C1100E68930 /* SunMoonSprite.h */,
 				9B1881C516CB6C1100E68930 /* SunMoonSprite.m */,
-				9B1881CA16CB6C2F00E68930 /* SkyGradient.h */,
-				9B1881CB16CB6C2F00E68930 /* SkyGradient.m */,
-				9B1881CD16CC8A4700E68930 /* SkyDawnDuskGradient.h */,
-				9B1881CE16CC8A4700E68930 /* SkyDawnDuskGradient.m */,
 			);
 			name = Sky;
 			sourceTree = "<group>";
@@ -670,6 +694,61 @@
 				9B3B2B9416D1B8A500179904 /* SpriteSheet.png */,
 			);
 			name = SpriteSheet;
+			sourceTree = "<group>";
+		};
+		9B3B2B9916D2B9AB00179904 /* ParticleEffects */ = {
+			isa = PBXGroup;
+			children = (
+				9BE2CC8F16D7E5F600936709 /* Stars.plist */,
+				9B3B2B9B16D2BABD00179904 /* RainHeavy.plist */,
+				9B3B2B9C16D2BABD00179904 /* RainLight.plist */,
+				9B3B2B9D16D2BABD00179904 /* RainMedium.plist */,
+				9B3B2B9E16D2BABD00179904 /* SnowBlizzard.plist */,
+				9B3B2B9F16D2BABD00179904 /* SnowBlowing.plist */,
+				9B3B2BA016D2BABD00179904 /* SnowHeavy.plist */,
+				9B3B2BA116D2BABD00179904 /* SnowLight.plist */,
+				9B3B2BA216D2BABD00179904 /* SnowMedium.plist */,
+			);
+			name = ParticleEffects;
+			sourceTree = "<group>";
+		};
+		9B3B2B9A16D2B9D200179904 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				9B97D09B16C0E403005BF0FF /* Alarm.xcdatamodeld */,
+				9B97D09E16C0E43D005BF0FF /* Alarm.h */,
+				9B97D09F16C0E43E005BF0FF /* Alarm.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		9B3B2BAB16D2BB8000179904 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				9B3B2BBC16D4227900179904 /* Cloud.h */,
+				9B3B2BBD16D4227900179904 /* Cloud.m */,
+				9B3B2BAD16D2BCA000179904 /* WeatherLayer.h */,
+				9B3B2BAE16D2BCA000179904 /* WeatherLayer.m */,
+			);
+			name = Weather;
+			sourceTree = "<group>";
+		};
+		9B3B2BAC16D2BB9100179904 /* World */ = {
+			isa = PBXGroup;
+			children = (
+				9BCE870C16B5E6240043048E /* SummerBaseLayer.h */,
+				9BCE870D16B5E6240043048E /* SummerBaseLayer.m */,
+				9B1881C216CB27DA00E68930 /* Sky */,
+				9B3B2BAB16D2BB8000179904 /* Weather */,
+			);
+			name = World;
+			sourceTree = "<group>";
+		};
+		9B3B2BB016D41AE200179904 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Strings;
 			sourceTree = "<group>";
 		};
 		9B97CFF316BB68BA005BF0FF /* Ads */ = {
@@ -1000,17 +1079,15 @@
 		9BCE858516B5DB500043048E /* ATidyWorld */ = {
 			isa = PBXGroup;
 			children = (
-				9B97D07216BF94A8005BF0FF /* Utility */,
-				9BCE874E16B6064C0043048E /* Constants */,
-				9B97D05F16BF1B5A005BF0FF /* Services */,
-				9B97D04C16BF09FE005BF0FF /* ViewControllers */,
 				9BCE86FD16B5DB530043048E /* AppDelegate.h */,
 				9BCE86FE16B5DB530043048E /* AppDelegate.m */,
-				9BCE870C16B5E6240043048E /* SummerBaseLayer.h */,
-				9BCE870D16B5E6240043048E /* SummerBaseLayer.m */,
-				9B1881C216CB27DA00E68930 /* Sky */,
 				9BCE870316B5DB530043048E /* IntroLayer.h */,
 				9BCE870416B5DB530043048E /* IntroLayer.m */,
+				9BCE874E16B6064C0043048E /* Constants */,
+				9B97D05F16BF1B5A005BF0FF /* Services */,
+				9B97D07216BF94A8005BF0FF /* Utility */,
+				9B97D04C16BF09FE005BF0FF /* ViewControllers */,
+				9B3B2BAC16D2BB9100179904 /* World */,
 				9BCE858616B5DB500043048E /* Resources */,
 				9BCE85A016B5DB500043048E /* libs */,
 				9BCE86F916B5DB530043048E /* Supporting Files */,
@@ -1021,13 +1098,13 @@
 		9BCE858616B5DB500043048E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9B97D01716BB7CD4005BF0FF /* Fonts */,
+				9B3B2BB016D41AE200179904 /* Strings */,
+				9B3B2B9A16D2B9D200179904 /* CoreData */,
 				9B97D01616BB7CCE005BF0FF /* Art */,
-				9B97D01516BB7CC7005BF0FF /* Sound */,
+				9B97D01716BB7CD4005BF0FF /* Fonts */,
+				9B3B2B9916D2B9AB00179904 /* ParticleEffects */,
 				9B97D01416BB7CAE005BF0FF /* PLists */,
-				9B97D09B16C0E403005BF0FF /* Alarm.xcdatamodeld */,
-				9B97D09E16C0E43D005BF0FF /* Alarm.h */,
-				9B97D09F16C0E43E005BF0FF /* Alarm.m */,
+				9B97D01516BB7CC7005BF0FF /* Sound */,
 				9B96CB8916B90318009A226B /* Localizable.strings */,
 			);
 			name = Resources;
@@ -1561,6 +1638,15 @@
 				9B3B2B9616D1B8A500179904 /* SpriteSheet-hd.png in Resources */,
 				9B3B2B9716D1B8A500179904 /* SpriteSheet.plist in Resources */,
 				9B3B2B9816D1B8A500179904 /* SpriteSheet.png in Resources */,
+				9B3B2BA316D2BABD00179904 /* RainHeavy.plist in Resources */,
+				9B3B2BA416D2BABD00179904 /* RainLight.plist in Resources */,
+				9B3B2BA516D2BABD00179904 /* RainMedium.plist in Resources */,
+				9B3B2BA616D2BABD00179904 /* SnowBlizzard.plist in Resources */,
+				9B3B2BA716D2BABD00179904 /* SnowBlowing.plist in Resources */,
+				9B3B2BA816D2BABD00179904 /* SnowHeavy.plist in Resources */,
+				9B3B2BA916D2BABD00179904 /* SnowLight.plist in Resources */,
+				9B3B2BAA16D2BABD00179904 /* SnowMedium.plist in Resources */,
+				9BE2CC9016D7E5F700936709 /* Stars.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1705,7 +1791,9 @@
 				9B1881C116CB1D0B00E68930 /* SkyLayer.m in Sources */,
 				9B1881C616CB6C1100E68930 /* SunMoonSprite.m in Sources */,
 				9B1881CC16CB6C2F00E68930 /* SkyGradient.m in Sources */,
-				9B1881CF16CC8A4800E68930 /* SkyDawnDuskGradient.m in Sources */,
+				9B1881CF16CC8A4800E68930 /* DawnDuskGradient.m in Sources */,
+				9B3B2BAF16D2BCA000179904 /* WeatherLayer.m in Sources */,
+				9B3B2BC316D4227C00179904 /* Cloud.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1778,6 +1866,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: E. Rudi Strahl (XY6E75NEFU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1791,6 +1880,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PROVISIONING_PROFILE = "CA94BDE8-BD4D-42B0-9177-D4AAD13E3438";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1804,6 +1894,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: E. Rudi Strahl (XY6E75NEFU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1815,6 +1906,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PROVISIONING_PROFILE = "CA94BDE8-BD4D-42B0-9177-D4AAD13E3438";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

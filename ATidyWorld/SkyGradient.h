@@ -9,27 +9,26 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-/** Displays a coloured gradient representing the sky. This object does not draw itself on every update call,
-    instead only doing a draw when the {@link SkyLayer} object calculates an update in the daylight tint value.
+/** Displays a coloured gradient representing the sky. This object only performs an update call when the 
+ *  {@link SkyLayer} object calculates an update in the daylight tint value.
+ *  Manipulation of the daylight tint is done by changing the Value component of the HSV value for the gradient.
+ *  Changing the Value (V) component changes the presence of the color; a value of 0 is black, a value of 255 is
+ *  full-presence color - in the case of the sky gradient this is blue.
  */
 @interface SkyGradient : CCLayerGradient
 {
-    // Sky Colors
-    ccColor4B           mSkyColorDaylight;
-    ccColor4B           mHorizonColorDaylight;
-    ccColor4B           mSkyColorStorm;
-    ccColor4B           mHorizonColorStorm;
+    @private
     BOOL                mOvercast;
     BOOL                mNeedsRedraw;
     GLubyte             mDaylightTintValue;
 }
 
-@property (nonatomic, assign, getter = isOvercast) BOOL overcast;
+- (BOOL)isOvercast;
+- (void)setOvercast:(BOOL)overcast;
 
-/** Updates the tint value for the sky, causing the sky colours to change. Colour changes are 
-    done via manipulation of Value (V in HSV). */
-- (void)updateDaylightTint;
-
+/** Sets the daylight tint value used when the sky is drawn. 
+ *  @param tintValue value for the daylight tint ranging from 0-255 
+ */
 - (void)setDaylightTintValue:(GLubyte)tintValue;
 
 @end

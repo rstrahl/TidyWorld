@@ -18,27 +18,22 @@
 #define NOTIFICATION_LOCATION_SUCCESS       @"NotifyLocationUpdate"
 #define NOTIFICATION_LOCATION_FAILED        @"NotifyLocationFailed"
 
-#define COLOR_SKY_OVERCAST                  0x666666
-#define COLOR_HORIZON_OVERCAST              0x999999
-
-#define TINT_MINIMUM_VALUE                  0.2f
-#define TINT_OVERCAST_MAX_VALUE             0.5f
-
 #define WEATHER_SERVICE_CHECK_TIMER         900
 
-#define PARTICLE_FILE_RAIN_LIGHT            @"RainEmitterLight.pex"
-#define PARTICLE_FILE_RAIN_MEDIUM           @"RainEmitterMedium.pex"
-#define PARTICLE_FILE_RAIN_HEAVY            @"RainEmitterHeavy.pex"
-#define PARTICLE_FILE_SNOW_LIGHT            @"SnowEmitterLight.pex"
-#define PARTICLE_FILE_SNOW_MEDIUM           @"SnowEmitterMedium.pex"
-#define PARTICLE_FILE_SNOW_BLIZZARD         @"SnowEmitterBlizzard.pex"
-#define PARTICLE_FILE_SNOW_BLOWING          @"SnowEmitterBlowing.pex"
-#define PARTICLE_FILE_LIGHTNING             @"Lightning.pex"
+#define PARTICLE_FILE_RAIN_LIGHT            @"RainLight.plist"
+#define PARTICLE_FILE_RAIN_MEDIUM           @"RainMedium.plist"
+#define PARTICLE_FILE_RAIN_HEAVY            @"RainHeavy.plist"
+#define PARTICLE_FILE_SNOW_LIGHT            @"SnowLight.plist"
+#define PARTICLE_FILE_SNOW_MEDIUM           @"SnowMedium.plist"
+#define PARTICLE_FILE_SNOW_HEAVY            @"SnowHeavy.plist"
+#define PARTICLE_FILE_SNOW_BLIZZARD         @"SnowBlizzard.plist"
+#define PARTICLE_FILE_SNOW_BLOWING          @"SnowBlowing.plist"
+#define PARTICLE_FILE_STARS                 @"Stars.plist"
 
 #define FILE_SCENERY                        @"Landscape"
 
 extern float const kMinDaytimeTintValue;
-extern float const kMinDaytimeEntityTintValue;
+extern float const kMinOvercastTintValue;
 extern float const kMaxOvercastTintValue;
 
 extern float const kTemperatureMinimumValue;
@@ -65,6 +60,7 @@ extern CGFloat const kNameTableCellTextFieldHeight;
 
 // Time Constants
 extern NSTimeInterval const kSnoozeIntervalInMinutes;
+extern CGFloat const kLightningThreshold;
 
 typedef enum
 {
@@ -78,6 +74,8 @@ typedef enum
 #define SPRITESHEET_PLIST                   @"SpriteSheet.plist"
 #define SPRITESHEET_IMAGE                   @"SpriteSheet.png"
 
+// Coordinate Constants
+extern CGPoint const kOffscreenSpritePoint;
 
 // Advertising
 #define ADMOB_PUBLISHER_ID                  @"a150de0742840ec"

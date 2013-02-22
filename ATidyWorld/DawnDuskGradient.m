@@ -6,7 +6,7 @@
 //  Copyright 2013 __MyCompanyName__. All rights reserved.
 //
 
-#import "SkyDawnDuskGradient.h"
+#import "DawnDuskGradient.h"
 #import "ColorConverter.h"
 
 const ccColor4B kSkyColorDusk           = {255, 255, 255, 0};
@@ -15,15 +15,17 @@ const ccColor4B kSkyColorDawn           = {255, 255, 255, 0};
 const ccColor4B kHorizonColorDawn       = {255, 255, 255, 0};
 
 // Private Interface
-@interface SkyDawnDuskGradient()
-/** Updates the opacity of the sky effect, if the progress value has changed */
+@interface DawnDuskGradient()
+/** Updates the opacity of the sky effect, if the progress value has changed 
+ */
 - (void)updateEffectOpacity;
-/** Updates the hue of the sky effect, if the progress value has changed */
+/** Updates the hue of the sky effect, if the progress value has changed 
+ */
 - (void)updateEffectHue;
 @end
 // -----------------------------
 
-@implementation SkyDawnDuskGradient
+@implementation DawnDuskGradient
 
 @synthesize skyEffectType = mSkyEffectType;
 
@@ -32,6 +34,7 @@ const ccColor4B kHorizonColorDawn       = {255, 255, 255, 0};
     if (self = [super initWithColor:kSkyColorDawn fadingTo:kHorizonColorDawn])
     {
         [self scheduleUpdate];
+//        [self setBlendFunc:(ccBlendFunc){GL_ONE, GL_ZERO}];
         mSkyEffectType = SkyEffectTypeDawn;
     }
     return self;
@@ -58,8 +61,8 @@ const ccColor4B kHorizonColorDawn       = {255, 255, 255, 0};
 - (void)updateEffectOpacity
 {
     /*  Rather than pass in the current time, pass in a 0..1 value for "completion" percentage of dawn or dusk.
-     Set the alpha of the sunrise/sunset glow from 0..1 during the first half.
-     Set the alpha of the sunrise/sunset glow from 1..0 for the second half.
+     *  Set the alpha of the sunrise/sunset glow from 0..1 during the first half.
+     *  Set the alpha of the sunrise/sunset glow from 1..0 for the second half.
      */
     GLubyte alpha = 255;
     
@@ -67,14 +70,22 @@ const ccColor4B kHorizonColorDawn       = {255, 255, 255, 0};
     {
         // As progress -> 0.5, alpha -> 255
         alpha = (mEffectProgress / 0.3) * 255;
+        if (alpha < 1)
+        {
+            [self setVisible:NO];
+        }
+        else if (self.visible == NO)
+        {
+            [self setVisible:YES];
+        }
     }
     else if (mEffectProgress > 0.7)
     {
         // As progress <- 0.5, alpha -> 0
         alpha = 255 - (((mEffectProgress - 0.7)/ 0.3) * 255);
+        
     }
     [self setEndOpacity:alpha];
-    DLog(@"PROGRESS = %f ALPHA = %d", mEffectProgress, alpha);
     }
 
 - (void)updateEffectHue

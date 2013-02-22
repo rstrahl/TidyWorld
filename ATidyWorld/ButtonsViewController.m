@@ -103,7 +103,8 @@
 - (void)changeWorldButtonPressed:(id)sender
 {
     DLog(@"");
-    WorldOptionsViewController * worldOptionsViewController = [[WorldOptionsViewController alloc] initWithNibName:@"WorldOptionsViewController" bundle:nil];
+    WorldOptionsViewController *worldOptionsViewController = [[WorldOptionsViewController alloc] initWithNibName:@"WorldOptionsViewController" bundle:nil];
+    worldOptionsViewController.delegate = self.delegate;
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:worldOptionsViewController];
     [self presentModalViewController:navController animated:YES];
 }

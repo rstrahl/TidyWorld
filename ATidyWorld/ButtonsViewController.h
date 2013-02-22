@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 
 /** View Controller that manages the buttons for changing the state of the app or its contents. 
- Acts as delegate for any modal view controllers.  Should be considered the root (and "only") 
- view controller in the app.
+ *  Acts as delegate for any modal view controllers.  Should be considered the root (and "only")
+ *  view controller in the app.
  */
 @interface ButtonsViewController : UIViewController
 {
     @private
-    id                  __unsafe_unretained mDelegate; // Intended to be a reference back to the Scene object
+    id                  __unsafe_unretained mDelegate; //< Intended to be a reference back to the Scene object
     UIButton            *mAlarmClockButton;
     UIButton            *mChangeSeasonButton;
     UIButton            *mChangeWorldButton;

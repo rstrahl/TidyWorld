@@ -7,11 +7,13 @@
 
 #import "Constants.h"
 
-float const kMinDaytimeEntityTintValue   = 0.3;
+float const kMinDaytimeTintValue                = 0.2f;
+float const kMinOvercastTintValue               = 0.2f;
+float const kMaxOvercastTintValue               = 0.6f;
 
-float const kTemperatureMinimumValue     = -60.0f;
-float const kTemperatureFreezingValue    = 32.0f;
-float const kTemperatureMaximumValue     = 120.0f;
+float const kTemperatureMinimumValue            = -60.0f;
+float const kTemperatureFreezingValue           = 32.0f;
+float const kTemperatureMaximumValue            = 120.0f;
 
 // URL Constants
 NSString *const kYahooWeatherServiceURL         = @"http://weather.yahooapis.com/forecastrss";
@@ -31,3 +33,7 @@ CGFloat const kNameTableCellTextFieldYPadding   = 12;
 CGFloat const kNameTableCellTextFieldHeight     = 22;
 
 NSTimeInterval const kSnoozeIntervalInMinutes   = 1;
+CGFloat const kLightningThreshold               = 3.0f;
+
+// Coordinate constants
+CGPoint const kOffscreenSpritePoint             = {-1024, -1024};

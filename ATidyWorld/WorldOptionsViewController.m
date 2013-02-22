@@ -70,19 +70,18 @@
 
     [self.navigationItem setRightBarButtonItem:self.doneButton];
  
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     NSString *filePath = [[NSBundle mainBundle] bundlePath];
     NSString *dataPath = [filePath stringByAppendingPathComponent:@"WorldOptions.plist"];
-    
-#ifdef TESTING
-    UIBarButtonItem *feedbackButton = [[UIBarButtonItem alloc] initWithTitle:@"Feedback!" style:UIBarButtonItemStyleBordered target:self action:@selector(feedbackButtonPressed:)];
-    self.navigationItem.leftBarButtonItem = feedbackButton;
-#endif
     
     mTableData = [[NSArray alloc] initWithContentsOfFile:dataPath];
     
     mUserDefaults = [NSUserDefaults standardUserDefaults];
+    mCurrentWeatherCondition.clouds = [mUserDefaults integerForKey:SETTINGS_KEY_CURRENT_CLOUDS];
+    mCurrentWeatherCondition.rain = [mUserDefaults integerForKey:SETTINGS_KEY_CURRENT_RAIN];
+    mCurrentWeatherCondition.snow = [mUserDefaults integerForKey:SETTINGS_KEY_CURRENT_SNOW];
+    mCurrentWeatherCondition.fog = [mUserDefaults boolForKey:SETTINGS_KEY_CURRENT_FOG];
+    mCurrentWeatherCondition.lightning = [mUserDefaults boolForKey:SETTINGS_KEY_CURRENT_LIGHTNING];
+    mCurrentWeatherCondition.season = [mUserDefaults integerForKey:SETTINGS_KEY_CURRENT_SEASON];
 }
 
 - (void)didReceiveMemoryWarning
@@ -168,7 +167,8 @@
     [cellSwitch setOn:[self currentValueForWeatherOptionKey:key]];
     if ([key isEqualToString:@"Lightning"])
     {
-        if ([mUserDefaults integerForKey:@"CURRENT_CLOUDS"] == WeatherCloudsNone)
+        self.lightningSwitch = cellSwitch;
+        if (mCurrentWeatherCondition.clouds == WeatherCloudsNone)
         {
             cellSwitch.enabled = NO;
             cellSwitch.hidden = YES;
@@ -181,27 +181,27 @@
     NSInteger returnValue = 0;
     if ([key isEqualToString:@"Clouds"])
     {
-        returnValue = [mUserDefaults integerForKey:SETTINGS_KEY_CURRENT_CLOUDS];
+        returnValue = mCurrentWeatherCondition.clouds;
     }
     else if ([key isEqualToString:@"Rain"])
     {
-        returnValue = [mUserDefaults integerForKey:SETTINGS_KEY_CURRENT_RAIN];
+        returnValue = mCurrentWeatherCondition.rain;
     }
     else if ([key isEqualToString:@"Snow"])
     {
-        returnValue = [mUserDefaults integerForKey:SETTINGS_KEY_CURRENT_SNOW];
+        returnValue = mCurrentWeatherCondition.snow;
     }
     else if ([key isEqualToString:@"Lightning"])
     {
-        returnValue = [mUserDefaults boolForKey:SETTINGS_KEY_CURRENT_LIGHTNING];
+        returnValue = mCurrentWeatherCondition.lightning;
     }
     else if ([key isEqualToString:@"Fog"])
     {
-        returnValue = [mUserDefaults boolForKey:SETTINGS_KEY_CURRENT_FOG];
+        returnValue = mCurrentWeatherCondition.fog;
     }
     else if ([key isEqualToString:@"Season"])
     {
-        returnValue = [mUserDefaults integerForKey:SETTINGS_KEY_CURRENT_SEASON];
+        returnValue = mCurrentWeatherCondition.season;
     }
     return returnValue;
 }
@@ -216,6 +216,13 @@
 {
     if (mOptionsChanged)
     {
+        [mUserDefaults setInteger:mCurrentWeatherCondition.clouds forKey:SETTINGS_KEY_CURRENT_CLOUDS];
+        [mUserDefaults setInteger:mCurrentWeatherCondition.rain forKey:SETTINGS_KEY_CURRENT_RAIN];
+        [mUserDefaults setInteger:mCurrentWeatherCondition.snow forKey:SETTINGS_KEY_CURRENT_SNOW];
+        [mUserDefaults setBool:mCurrentWeatherCondition.fog forKey:SETTINGS_KEY_CURRENT_FOG];
+        [mUserDefaults setBool:mCurrentWeatherCondition.lightning forKey:SETTINGS_KEY_CURRENT_LIGHTNING];
+        [mUserDefaults setInteger:mCurrentWeatherCondition.season forKey:SETTINGS_KEY_CURRENT_SEASON];
+        
         BOOL saveResults = [mUserDefaults synchronize];
         
         if (!saveResults)
@@ -246,52 +253,69 @@
     
     if ([key isEqualToString:@"Location Based"])
     {
-        [self locationBasedValueChanged:cellSwitch.isOn];
+        [mUserDefaults setBool:cellSwitch.isOn forKey:SETTINGS_KEY_LOCATION_BASED_WEATHER];
     }
     else if ([key isEqualToString:@"Fog"])
     {
-        // Send message to Game class with weather code for Fog
-        [self fogValueChanged:cellSwitch.isOn];
+        mCurrentWeatherCondition.fog = cellSwitch.isOn;
     }
     else if ([key isEqualToString:@"Lightning"])
     {
-        // Send message to Game class with weather code for Lightning
-        [self lightningValueChanged:cellSwitch.isOn];
+        mCurrentWeatherCondition.lightning = cellSwitch.isOn;
     }
-//    DLog(@"Changed value of option: %@ to %d", key, cellSwitch.isOn);
+    [self didChangeWeatherCondition:key];
 }
 
 #pragma mark - SelectWeatherOptionsDelegate Implementation
 - (void)willChangeValue:(NSInteger)value forCategory:(WeatherCategory)weatherCategory
 {
+    NSString *category = nil;
     switch (weatherCategory) {
         case WeatherCategoryClouds:
         {
-            [self cloudsValueChangedRowValue:value];
+            mCurrentWeatherCondition.clouds = value;
+            if (mCurrentWeatherCondition.clouds == WeatherCloudsNone)
+            {
+                [self.lightningSwitch setOn:NO];
+                mCurrentWeatherCondition.lightning = WeatherLightningNone;
+            }
+            category = @"Clouds";
             break;
         }
         case WeatherCategoryRain:
         {
-            [self rainValueChangedWithRowValue:value];
+            mCurrentWeatherCondition.rain = value;
+            category = @"Rain";
             break;
         }
         case WeatherCategorySnow:
         {
-            [self snowValueChangedRowValue:value];
+            mCurrentWeatherCondition.snow = value;
+            category = @"Snow";
             break;
         }
         case WeatherCategorySeason:
         {
-            [self seasonValueChanged:value];
+            mCurrentWeatherCondition.season = value;
+            category = @"Season";
             break;
         }
         default:
             break;
     }
+    [self didChangeWeatherCondition:category];
     [self.tableView reloadData];
 }
 
 #pragma mark - Private Methods
+- (void)didChangeWeatherCondition:(NSString *)weatherConditionKey
+{
+    mOptionsChanged = YES;
+    [self.delegate controller:self didChangeWeatherConditions:mCurrentWeatherCondition];
+    [self googleLogWorldOptionChanged:weatherConditionKey];
+}
+
+// TODO: REMOVE OLD CODE
 - (void)locationBasedValueChanged:(BOOL)value
 {
     [self.delegate controller:self didChangeLocationBased:value];
@@ -301,36 +325,36 @@
 
 - (void)rainValueChangedWithRowValue:(NSUInteger)value
 {
-    [self.delegate controller:self didChangeRainState:value];
-    [mUserDefaults setInteger:value forKey:SETTINGS_KEY_CURRENT_RAIN];
+    mCurrentWeatherCondition.rain = value;
+    [self.delegate controller:self didChangeWeatherConditions:mCurrentWeatherCondition];
     [self googleLogWorldOptionChanged:@"Rain"];
 }
 
 - (void)snowValueChangedRowValue:(NSUInteger)value
 {
-    [self.delegate controller:self didChangeSnowState:value];
-    [mUserDefaults setInteger:value forKey:SETTINGS_KEY_CURRENT_SNOW];
+    mCurrentWeatherCondition.snow = value;
+    [self.delegate controller:self didChangeWeatherConditions:mCurrentWeatherCondition];
     [self googleLogWorldOptionChanged:@"Snow"];
 }
 
 - (void)cloudsValueChangedRowValue:(NSUInteger)value
 {
-    [self.delegate controller:self didChangeCloudsState:value];
-    [mUserDefaults setInteger:value forKey:SETTINGS_KEY_CURRENT_CLOUDS];
+    mCurrentWeatherCondition.clouds = value;
+    [self.delegate controller:self didChangeWeatherConditions:mCurrentWeatherCondition];
     [self googleLogWorldOptionChanged:@"Clouds"];
 }
 
 - (void)lightningValueChanged:(BOOL)value
 {
-    [self.delegate controller:self didChangeLightningState:value];
-    [mUserDefaults setBool:value forKey:SETTINGS_KEY_CURRENT_LIGHTNING];
+    mCurrentWeatherCondition.lightning = value;
+    [self.delegate controller:self didChangeWeatherConditions:mCurrentWeatherCondition];
     [self googleLogWorldOptionChanged:@"Lightning"];
 }
 
 - (void)fogValueChanged:(BOOL)value
 {
-    [self.delegate controller:self didChangeFogState:value];
-    [mUserDefaults setBool:value forKey:SETTINGS_KEY_CURRENT_FOG];
+    mCurrentWeatherCondition.fog = value;
+    [self.delegate controller:self didChangeWeatherConditions:mCurrentWeatherCondition];
     [self googleLogWorldOptionChanged:@"Fog"];
 }
 
@@ -338,7 +362,6 @@
 {
     [self.delegate controller:self didChangeSeason:value];
     [mUserDefaults setInteger:value forKey:SETTINGS_KEY_CURRENT_SEASON];
-    
     [self googleLogWorldOptionChanged:@"Season"];
 }
 

@@ -18,12 +18,17 @@
 #import "SettingsConstants.h"
 #import "ClockConstants.h"
 #import "SkyLayer.h"
+#import "WeatherLayer.h"
 #import "TMTimeUtils.h"
 
 @interface SummerBaseLayer()
 /** Initializes the variables needed for calculating day/night cycle effects. Should be called whenever weather updates
     are triggered */
 - (void)initDayNightCycleWithWeatherService:(WeatherService *)weatherService;
+/** Updates the weather conditions given the data provided
+ *  @param conditions the WeatherCondition struct containing current conditions data
+ */
+- (void)updateWeatherConditions:(WeatherCondition)conditions;
 /** Calculates the color tinting for all sprites based on the time of day 
     @param time the time in seconds within the span of a single day */
 - (void)updateDayNightCycleForTime:(NSTimeInterval)time;
@@ -44,7 +49,12 @@
 
 @synthesize clockFaceView = mClockFaceView,
             adsViewController = mAdsViewController,
-            buttonsViewController = mButtonsViewController;
+            buttonsViewController = mButtonsViewController,
+            spriteBatchNode = mSpriteBatchNode,
+            particleBatchNode = mParticleBatchNode,
+            usingTimeLapse = mUsingTimeLapse,
+            usingLocationBasedWeather = mUsingLocationBasedWeather,
+            overcast = mOvercast;
 
 // Helper class method that creates a Scene with the SummerBaseLayer as the only child.
 +(CCScene *) scene
@@ -67,13 +77,15 @@
     if (self = [super init])
     {
         [self scheduleUpdate];
-        [self loadApplicationSettings];
         [self initDayNightCycleWithWeatherService:[WeatherService sharedInstance]];
         mLastDaylightTintValue = -1;
         mLastSunriseProgress = 0;
         mLastSunsetProgress = 0;
+        mNight = -1;
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:SPRITESHEET_PLIST];
+        
+        mSpriteBatchNode = [[CCSpriteBatchNode alloc] initWithFile:SPRITESHEET_IMAGE capacity:100];
         
         // Add Clock Label
         CGSize screenSize = [[CCDirector sharedDirector] view].frame.size;
@@ -92,6 +104,7 @@
         
         // Add ButtonsViewControlller
         mButtonsViewController = [[ButtonsViewController alloc] initWithNibName:nil bundle:nil];
+        mButtonsViewController.delegate = self;
         [[[CCDirector sharedDirector] view] addSubview:mButtonsViewController.view];
         
         // Register notification listeners for service
@@ -111,10 +124,23 @@
                                                    object:nil];
         
         [[LocationService sharedInstance] startServiceTimer];
+
+        // Add sky layer
+        mSkyLayer = [[SkyLayer alloc] initWithSceneDelegate:self];
         
-        mSkyLayer = [[SkyLayer alloc] init];
+        // Add weather layer
+        mWeatherLayer = [[WeatherLayer alloc] initWithSceneDelegate:self];
+
+        // TODO: Add landscape layer
+        
+        
+        // Add layers in order
         [self addChild:mSkyLayer];
+        [self addChild:mSpriteBatchNode];
+        [self addChild:mWeatherLayer];
         
+        // Load scene settings from user defaults
+        [self loadApplicationSettings];
     }
     return self;
 }
@@ -123,7 +149,7 @@
 - (void)loadApplicationSettings
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    mIsTimeLapse = [userDefaults boolForKey:SETTINGS_KEY_CLOCK_IS_TIME_LAPSE];
+    mUsingTimeLapse = [userDefaults boolForKey:SETTINGS_KEY_CLOCK_IS_TIME_LAPSE];
     NSInteger timeLapseMultiplier = [userDefaults integerForKey:SETTINGS_KEY_CLOCK_MULTIPLIER];
     switch (timeLapseMultiplier) {
         case TMClockTimeLapseFastest:
@@ -148,6 +174,9 @@
         }
     }
     mClockTime = [NSDate timeIntervalSinceReferenceDate];
+    
+    WeatherCondition conditions = [[WeatherService sharedInstance] weatherConditionsFromUserDefaults:userDefaults];
+    [self controller:nil didChangeWeatherConditions:conditions];
 }
 
 #pragma mark - Game Loop Update
@@ -155,11 +184,11 @@
 {
     NSTimeInterval time;
     // If the time-lapse flag is set, process time as a delta and do not process alarms
-    if (mIsTimeLapse)
+    if (mUsingTimeLapse)
     {
         mClockTime += deltaTime * mTimeLapseMultiplier;
         [self.clockFaceView setClockTime:mClockTime];
-        DLog(@"Time-lapsed current time: %f", mClockTime);
+//        DLog(@"Time-lapsed current time: %f", mClockTime);
     }
     else // Process time as normal, in per-second updates to the system
     {
@@ -174,13 +203,20 @@
             {
                 [[AlarmService sharedInstance] updateWithTime:mClockTime];
             }
-            DLog(@"Current time: %f", mClockTime);
+//            DLog(@"Current time: %f", mClockTime);
         }
     }
     [self updateDayNightCycleForTime:[TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:(mClockTime + [[NSTimeZone localTimeZone] secondsFromGMT])]];
 }
 
-
+#pragma mark - Weather 
+- (void)updateWeatherConditions:(WeatherCondition)conditions
+{
+    mOvercast = (conditions.clouds == WeatherCloudsOvercast) ? YES : NO;
+    [mSkyLayer setOvercast:mOvercast];
+    [mWeatherLayer setOvercast:mOvercast];
+    [mWeatherLayer setWeatherCondition:conditions];
+}
 
 #pragma mark - Day/Night Cycle
 - (void)initDayNightCycleWithWeatherService:(WeatherService *)weatherService
@@ -252,6 +288,14 @@
             }
         }
         
+        // Update whether or not its considered night
+        BOOL nightCheck = (daylightTintValue > 128) ? NO : YES;
+        if (mNight != nightCheck)
+        {
+            mNight = nightCheck;
+            [mSkyLayer setNightTime:mNight];
+        }
+        
         /*  Only send out day/night cycle updates to managers if there is a "visible" difference from the last clock tick -
          because we rely on 255 values for RGB we need 1/255 threshold for visible difference.
          */
@@ -259,6 +303,7 @@
         {
             mLastDaylightTintValue = daylightTintValue;
             [mSkyLayer updateDaylightTint:daylightTintValue];
+            [mWeatherLayer updateDaylightTint:daylightTintValue];
             // TODO: Update daylight tinting in all layers
         }
         
@@ -293,6 +338,10 @@
     WeatherService *weatherService = [WeatherService sharedInstance];
     [self initDayNightCycleWithWeatherService:weatherService];
     [self.clockFaceView setTemperature:[weatherService.conditionTemp floatValue]];
+    if (mUsingLocationBasedWeather)
+    {
+        [mWeatherLayer setWeatherCondition:weatherService.weatherCode];
+    }
 }
 
 - (void)didReceiveSettingsChangedNotification:(NSNotification *)notification
@@ -300,5 +349,21 @@
     [self loadApplicationSettings];
 }
 
+#pragma mark - WorldOptionViewControllerDelegate Implementation
+- (void)controller:(WorldOptionsViewController *)controller didChangeWeatherConditions:(WeatherCondition)condition
+{
+    [self updateWeatherConditions:condition];
+}
+
+- (void)controller:(WorldOptionsViewController *)controller didChangeLocationBased:(BOOL)isLocationBased
+{
+    DLog(@"");
+    mUsingLocationBasedWeather = isLocationBased;
+}
+
+- (void)controller:(WorldOptionsViewController *)controller didChangeSeason:(NSUInteger)season
+{
+    DLog(@"");
+}
 
 @end

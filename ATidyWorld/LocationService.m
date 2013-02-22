@@ -143,13 +143,20 @@ static LocationService *sharedLocationController = nil;
     DLog(@"updateWithLocation URL: %@", serviceURLString);
     mWoeidServiceURL = [NSURL URLWithString:serviceURLString];
     NSURLRequest *request = [NSURLRequest requestWithURL:mWoeidServiceURL];
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    if (connection)
+    {
+        mResponseData = [[NSMutableData alloc] init];
+    }
+    else
+    {
+        DLog(@"ERROR initializing connection for location service");
+    }
 }
 
 #pragma mark - NSURLConnectionDelegate Implementation
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    mResponseData = [[NSMutableData alloc] init];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data

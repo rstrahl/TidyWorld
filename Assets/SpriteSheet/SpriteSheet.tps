@@ -42,7 +42,7 @@
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
-        <enum type="SettingsBase::DitherType">NearestNeighbour</enum>
+        <enum type="SettingsBase::DitherType">FloydSteinbergAlpha</enum>
         <key>backgroundColor</key>
         <uint>0</uint>
         <key>libGdx</key>
@@ -160,6 +160,21 @@
             <filename>../Art/Sprites 2x/Moon.png</filename>
             <filename>../Art/Sprites 2x/Sun.png</filename>
             <filename>../Art/Sprites 2x/Star.png</filename>
+            <filename>../Art/Sprites 2x/Cloud1Base.png</filename>
+            <filename>../Art/Sprites 2x/Cloud1Highlight.png</filename>
+            <filename>../Art/Sprites 2x/Cloud1Lightning.png</filename>
+            <filename>../Art/Sprites 2x/Cloud2Base.png</filename>
+            <filename>../Art/Sprites 2x/Cloud2Highlight.png</filename>
+            <filename>../Art/Sprites 2x/Cloud2Lightning.png</filename>
+            <filename>../Art/Sprites 2x/Cloud3Base.png</filename>
+            <filename>../Art/Sprites 2x/Cloud3Highlight.png</filename>
+            <filename>../Art/Sprites 2x/Cloud3Lightning.png</filename>
+            <filename>../Art/Sprites 2x/Cloud4Base.png</filename>
+            <filename>../Art/Sprites 2x/Cloud4Highlight.png</filename>
+            <filename>../Art/Sprites 2x/Cloud4Lightning.png</filename>
+            <filename>../Art/Sprites 2x/LightningBolt.png</filename>
+            <filename>../Art/Sprites 2x/ParticleRaindrop.png</filename>
+            <filename>../Art/Sprites 2x/ParticleSnow.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
