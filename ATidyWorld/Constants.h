@@ -73,6 +73,7 @@ typedef enum
 // SpriteSheet Constants
 #define SPRITESHEET_PLIST                   @"SpriteSheet.plist"
 #define SPRITESHEET_IMAGE                   @"SpriteSheet.png"
+extern uint const kLandscapeCount;
 
 // Coordinate Constants
 extern CGPoint const kOffscreenSpritePoint;

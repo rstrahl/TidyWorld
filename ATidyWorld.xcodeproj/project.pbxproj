@@ -25,6 +25,11 @@
 		9B3B2BAA16D2BABD00179904 /* SnowMedium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2BA216D2BABD00179904 /* SnowMedium.plist */; };
 		9B3B2BAF16D2BCA000179904 /* WeatherLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B2BAE16D2BCA000179904 /* WeatherLayer.m */; };
 		9B3B2BC316D4227C00179904 /* Cloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B2BBD16D4227900179904 /* Cloud.m */; };
+		9B67A8B716D85D9F00659006 /* LandscapeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B67A8B616D85D9F00659006 /* LandscapeLayer.m */; };
+		9B67A8BC16D8A65600659006 /* LandscapeSheet-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B67A8B816D8A65600659006 /* LandscapeSheet-hd.plist */; };
+		9B67A8BD16D8A65600659006 /* LandscapeSheet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67A8B916D8A65600659006 /* LandscapeSheet-hd.png */; };
+		9B67A8BE16D8A65600659006 /* LandscapeSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B67A8BA16D8A65600659006 /* LandscapeSheet.plist */; };
+		9B67A8BF16D8A65600659006 /* LandscapeSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67A8BB16D8A65600659006 /* LandscapeSheet.png */; };
 		9B96CB8A16B90318009A226B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B96CB8916B90318009A226B /* Localizable.strings */; };
 		9B97CFF716BB695B005BF0FF /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97CFF616BB695B005BF0FF /* AdsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D00316BB6A72005BF0FF /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00216BB6A72005BF0FF /* libGoogleAdMobAds.a */; };
@@ -261,6 +266,12 @@
 		9B3B2BAE16D2BCA000179904 /* WeatherLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherLayer.m; sourceTree = "<group>"; };
 		9B3B2BBC16D4227900179904 /* Cloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cloud.h; sourceTree = "<group>"; };
 		9B3B2BBD16D4227900179904 /* Cloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cloud.m; sourceTree = "<group>"; };
+		9B67A8B516D85D9F00659006 /* LandscapeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandscapeLayer.h; sourceTree = "<group>"; };
+		9B67A8B616D85D9F00659006 /* LandscapeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandscapeLayer.m; sourceTree = "<group>"; };
+		9B67A8B816D8A65600659006 /* LandscapeSheet-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "LandscapeSheet-hd.plist"; path = "Assets/SpriteSheet/LandscapeSheet-hd.plist"; sourceTree = SOURCE_ROOT; };
+		9B67A8B916D8A65600659006 /* LandscapeSheet-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LandscapeSheet-hd.png"; path = "Assets/SpriteSheet/LandscapeSheet-hd.png"; sourceTree = SOURCE_ROOT; };
+		9B67A8BA16D8A65600659006 /* LandscapeSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = LandscapeSheet.plist; path = Assets/SpriteSheet/LandscapeSheet.plist; sourceTree = SOURCE_ROOT; };
+		9B67A8BB16D8A65600659006 /* LandscapeSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LandscapeSheet.png; path = Assets/SpriteSheet/LandscapeSheet.png; sourceTree = SOURCE_ROOT; };
 		9B96CB8916B90318009A226B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Resources/Localizable.strings; sourceTree = "<group>"; };
 		9B97CFF516BB695B005BF0FF /* AdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsViewController.h; sourceTree = "<group>"; };
 		9B97CFF616BB695B005BF0FF /* AdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsViewController.m; sourceTree = "<group>"; };
@@ -688,6 +699,10 @@
 		9B1881D616CD631D00E68930 /* SpriteSheet */ = {
 			isa = PBXGroup;
 			children = (
+				9B67A8B816D8A65600659006 /* LandscapeSheet-hd.plist */,
+				9B67A8B916D8A65600659006 /* LandscapeSheet-hd.png */,
+				9B67A8BA16D8A65600659006 /* LandscapeSheet.plist */,
+				9B67A8BB16D8A65600659006 /* LandscapeSheet.png */,
 				9B3B2B9116D1B8A500179904 /* SpriteSheet-hd.plist */,
 				9B3B2B9216D1B8A500179904 /* SpriteSheet-hd.png */,
 				9B3B2B9316D1B8A500179904 /* SpriteSheet.plist */,
@@ -738,6 +753,7 @@
 			children = (
 				9BCE870C16B5E6240043048E /* SummerBaseLayer.h */,
 				9BCE870D16B5E6240043048E /* SummerBaseLayer.m */,
+				9B67A8B416D85D6500659006 /* Landscape */,
 				9B1881C216CB27DA00E68930 /* Sky */,
 				9B3B2BAB16D2BB8000179904 /* Weather */,
 			);
@@ -749,6 +765,15 @@
 			children = (
 			);
 			name = Strings;
+			sourceTree = "<group>";
+		};
+		9B67A8B416D85D6500659006 /* Landscape */ = {
+			isa = PBXGroup;
+			children = (
+				9B67A8B516D85D9F00659006 /* LandscapeLayer.h */,
+				9B67A8B616D85D9F00659006 /* LandscapeLayer.m */,
+			);
+			name = Landscape;
 			sourceTree = "<group>";
 		};
 		9B97CFF316BB68BA005BF0FF /* Ads */ = {
@@ -1647,6 +1672,10 @@
 				9B3B2BA916D2BABD00179904 /* SnowLight.plist in Resources */,
 				9B3B2BAA16D2BABD00179904 /* SnowMedium.plist in Resources */,
 				9BE2CC9016D7E5F700936709 /* Stars.plist in Resources */,
+				9B67A8BC16D8A65600659006 /* LandscapeSheet-hd.plist in Resources */,
+				9B67A8BD16D8A65600659006 /* LandscapeSheet-hd.png in Resources */,
+				9B67A8BE16D8A65600659006 /* LandscapeSheet.plist in Resources */,
+				9B67A8BF16D8A65600659006 /* LandscapeSheet.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1794,6 +1823,7 @@
 				9B1881CF16CC8A4800E68930 /* DawnDuskGradient.m in Sources */,
 				9B3B2BAF16D2BCA000179904 /* WeatherLayer.m in Sources */,
 				9B3B2BC316D4227C00179904 /* Cloud.m in Sources */,
+				9B67A8B716D85D9F00659006 /* LandscapeLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

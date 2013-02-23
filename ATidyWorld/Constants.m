@@ -35,5 +35,7 @@ CGFloat const kNameTableCellTextFieldHeight     = 22;
 NSTimeInterval const kSnoozeIntervalInMinutes   = 1;
 CGFloat const kLightningThreshold               = 3.0f;
 
+uint const kLandscapeCount                      = 2;
+
 // Coordinate constants
 CGPoint const kOffscreenSpritePoint             = {-1024, -1024};

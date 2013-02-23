@@ -15,6 +15,7 @@
 @class ButtonsViewController;
 @class SkyLayer;
 @class WeatherLayer;
+@class LandscapeLayer;
 
 @interface SummerBaseLayer : CCLayer <WorldOptionsViewControllerDelegate>
 {
@@ -42,10 +43,12 @@
     // Layers
     SkyLayer                *mSkyLayer;
     WeatherLayer            *mWeatherLayer;
+    LandscapeLayer          *mLandscapeLayer;
     
     // Sprite Batch Nodes
     CCSpriteBatchNode       *mSpriteBatchNode;
     CCParticleBatchNode     *mParticleBatchNode;
+    CCSpriteBatchNode       *mLandscapeBatchNode;
 
 }
 
@@ -54,6 +57,7 @@
 @property (nonatomic, strong) ButtonsViewController *buttonsViewController;
 @property (nonatomic, strong) CCSpriteBatchNode     *spriteBatchNode;
 @property (nonatomic, strong) CCParticleBatchNode   *particleBatchNode;
+@property (nonatomic, strong) CCSpriteBatchNode     *landscapeBatchNode;
 
 @property (nonatomic, assign, getter = isUsingTimeLapse) BOOL usingTimeLapse;
 @property (nonatomic, assign, getter = isUsingLocationBasedWeather) BOOL usingLocationBasedWeather;

@@ -19,6 +19,7 @@
 #import "ClockConstants.h"
 #import "SkyLayer.h"
 #import "WeatherLayer.h"
+#import "LandscapeLayer.h"
 #import "TMTimeUtils.h"
 
 @interface SummerBaseLayer()
@@ -52,6 +53,7 @@
             buttonsViewController = mButtonsViewController,
             spriteBatchNode = mSpriteBatchNode,
             particleBatchNode = mParticleBatchNode,
+            landscapeBatchNode = mLandscapeBatchNode,
             usingTimeLapse = mUsingTimeLapse,
             usingLocationBasedWeather = mUsingLocationBasedWeather,
             overcast = mOvercast;
@@ -84,8 +86,10 @@
         mNight = -1;
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:SPRITESHEET_PLIST];
-        
         mSpriteBatchNode = [[CCSpriteBatchNode alloc] initWithFile:SPRITESHEET_IMAGE capacity:100];
+        
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"LandscapeSheet.plist"];
+        mLandscapeBatchNode = [[CCSpriteBatchNode alloc] initWithFile:@"LandscapeSheet.png" capacity:kLandscapeCount*2];
         
         // Add Clock Label
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
@@ -130,11 +134,13 @@
         mWeatherLayer = [[WeatherLayer alloc] initWithSceneDelegate:self];
 
         // TODO: Add landscape layer
-        
+        mLandscapeLayer = [[LandscapeLayer alloc] initWithSceneDelegate:self];
         
         // Add layers in order
         [self addChild:mSkyLayer];
         [self addChild:mSpriteBatchNode];
+        [self addChild:mLandscapeLayer];
+        [self addChild:mLandscapeBatchNode];
         [self addChild:mWeatherLayer];
         
         // Load scene settings from user defaults
