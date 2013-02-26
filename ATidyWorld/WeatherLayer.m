@@ -341,7 +341,6 @@
 - (void)willFireLightningAnimation
 {
     float rand = [RandomUtil getRandom0and1];
-    DLog(@"Random test value for strike = %.2f", rand);
     if (rand < 0.25)
     {
         // Find a random cloud and trigger the lightning

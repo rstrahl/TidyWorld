@@ -171,7 +171,6 @@
             int opacityDecay = (mLightningDecayRate * deltaTime);
             mCloudLightning.opacity = (opacityDecay > mCloudLightning.opacity) ? 0 : mCloudLightning.opacity - opacityDecay;
             mLightningBolt.opacity = mCloudLightning.opacity;
-            DLog(@"opacity: %d", mCloudLightning.opacity);
         }
         else
         {

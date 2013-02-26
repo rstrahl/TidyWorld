@@ -11,7 +11,7 @@
 
 @class SummerBaseLayer;
 
-@interface LandscapeLayer : CCLayer
+@interface LandscapeLayer : CCLayer <UIGestureRecognizerDelegate>
 {    
     BOOL                    mOvercast;
     BOOL                    mNightTime;
@@ -19,7 +19,11 @@
     CCArray                 *mLandscapeForegroundArray;
     CCArray                 *mLandscapeBackgroundArray;
     CGFloat                 mVelocity;
+    CGFloat                 mVelocityStep;
+    CGPoint                 mLastPosition;
+    UIPanGestureRecognizer  *mPanGestureRecognizer;
     CGSize                  mScreenSize;
+    CGFloat                 mLandscapeSpriteWidth;       
 }
 
 @property (nonatomic, assign) id sceneDelegate;
