@@ -99,6 +99,15 @@ const uint kSwipeDeltaAverageSampleNumber = 10;
         CCSprite *foregroundLandscape = (CCSprite *)[mLandscapeForegroundArray objectAtIndex:i];
         CCSprite *backgroundLandscape = (CCSprite *)[mLandscapeBackgroundArray objectAtIndex:i];
         
+        foregroundLandscape.position = ccp((foregroundLandscape.position.x + dx), foregroundLandscape.position.y);
+        backgroundLandscape.position = ccp((backgroundLandscape.position.x + (dx / 2)), backgroundLandscape.position.y);
+    }
+    
+    for (int i = 0; i < kLandscapeCount; i++)
+    {
+        CCSprite *foregroundLandscape = (CCSprite *)[mLandscapeForegroundArray objectAtIndex:i];
+        CCSprite *backgroundLandscape = (CCSprite *)[mLandscapeBackgroundArray objectAtIndex:i];
+        
         [self updateParallaxEffectForLandscapeSprite:foregroundLandscape
                                              atIndex:i
                                            fromArray:mLandscapeForegroundArray
@@ -107,9 +116,6 @@ const uint kSwipeDeltaAverageSampleNumber = 10;
                                              atIndex:i
                                            fromArray:mLandscapeBackgroundArray
                                            withDelta:dx];
-        
-        foregroundLandscape.position = ccp((foregroundLandscape.position.x + dx), foregroundLandscape.position.y);
-        backgroundLandscape.position = ccp((backgroundLandscape.position.x + (dx / 2)), backgroundLandscape.position.y);
     }
 }
 
@@ -138,6 +144,11 @@ const uint kSwipeDeltaAverageSampleNumber = 10;
 }
 
 #pragma mark - Gesture Recognition
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    mVelocity = 0;
+}
+
 - (void)handlePanGesture:(UIPanGestureRecognizer*)panGestureRecognizer
 {
     if (panGestureRecognizer.state == UIGestureRecognizerStateBegan ||
