@@ -6,31 +6,30 @@
 //
 //
 
-#import "ButtonsViewController.h"
+#import "ButtonTrayView.h"
 #import "SettingsTableViewController.h"
 #import "WorldOptionsViewController.h"
 #import "AlarmListViewController.h"
 
-@interface ButtonsViewController ()
-
+@interface ButtonTrayView ()
+- (void)setupButtons;
 @end
 
-@implementation ButtonsViewController
+@implementation ButtonTrayView
 
-@synthesize delegate = mDelegate;
+@synthesize sceneDelegate = mSceneDelegate;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (self = [super initWithFrame:frame])
+    {
+        [self setupButtons];
     }
     return self;
 }
 
-- (void)viewDidLoad
+- (void)setupButtons
 {
-    [super viewDidLoad];
     // Add Buttons
     // Grab a sample image for a button to obtain the dimensions
     UIImage *weatherImage = [UIImage imageNamed:@"Icon_World.png"];
@@ -49,7 +48,7 @@
     [mChangeWorldButton setImage:weatherImage forState:UIControlStateNormal];
     [mChangeWorldButton setImage:weatherImageHighlight forState:UIControlStateHighlighted];
     [mChangeWorldButton addTarget:self action:@selector(changeWorldButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:mChangeWorldButton];
+    [self addSubview:mChangeWorldButton];
     buttonCount++;
     
     UIImage *clockImage = [UIImage imageNamed:@"Icon_Clock.png"];
@@ -63,7 +62,7 @@
     [mAlarmClockButton setImage:clockImage forState:UIControlStateNormal];
     [mAlarmClockButton setImage:clockHighlightImage forState:UIControlStateHighlighted];
     [mAlarmClockButton addTarget:self action:@selector(alarmClockButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:mAlarmClockButton];
+    [self addSubview:mAlarmClockButton];
     buttonCount++;
     
     UIImage *settingsImage = [UIImage imageNamed:@"Icon_Settings.png"];
@@ -77,13 +76,7 @@
     [mSettingsButton setImage:settingsImage forState:UIControlStateNormal];
     [mSettingsButton setImage:settingsHighlightImage forState:UIControlStateHighlighted];
     [mSettingsButton addTarget:self action:@selector(settingsButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:mSettingsButton];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self addSubview:mSettingsButton];
 }
 
 #pragma mark - Button Actions
@@ -92,7 +85,7 @@
     DLog(@"");
     AlarmListViewController *alarmListViewController = [[AlarmListViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:alarmListViewController];
-    [self presentModalViewController:navController animated:YES];
+    [self.parentViewController presentModalViewController:navController animated:YES];
 }
 
 - (void)changeSeasonButtonPressed:(id)sender
@@ -104,9 +97,9 @@
 {
     DLog(@"");
     WorldOptionsViewController *worldOptionsViewController = [[WorldOptionsViewController alloc] initWithNibName:@"WorldOptionsViewController" bundle:nil];
-    worldOptionsViewController.delegate = self.delegate;
+    worldOptionsViewController.delegate = self.sceneDelegate;
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:worldOptionsViewController];
-    [self presentModalViewController:navController animated:YES];
+    [self.parentViewController presentModalViewController:navController animated:YES];
 }
 
 - (void)settingsButtonPressed:(id)sender
@@ -114,7 +107,7 @@
     DLog(@"");
     SettingsTableViewController *settingsViewController = [[SettingsTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
-    [self presentModalViewController:navController animated:YES];
+    [self.parentViewController presentModalViewController:navController animated:YES];
 }
 
 @end

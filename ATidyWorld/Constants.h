@@ -35,6 +35,7 @@
 extern float const kMinDaytimeTintValue;
 extern float const kMinOvercastTintValue;
 extern float const kMaxOvercastTintValue;
+extern float const kLandscapeNightTintValue;
 
 extern float const kTemperatureMinimumValue;
 extern float const kTemperatureFreezingValue;

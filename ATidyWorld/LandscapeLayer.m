@@ -10,13 +10,23 @@
 #import "SummerBaseLayer.h"
 #import "Constants.h"
 #import "CCNode+SFGestureRecognizers.h"
+#import "ColorConverter.h"
 
 @interface LandscapeLayer()
+/** Updates the positions for all landscapes based on a delta in the X position, where a value
+ *  greater than 0 means the landscapes are moving towards the right and a value less than
+ *  0 means the landscapes are moving towards the left
+ *  @param dx the delta in the x coordinate
+ */
 - (void)updateLandscapePositionsWithDelta:(CGFloat)dx;
+/** Updates the parallax effect for a given landscape based on the direction of the delta
+ *  @param sprite the landscape sprite being adjusted
+ *  @param i the index of that sprite within its container array
+ *  @param array the container array holding the landscape sprite
+ *  @param dx the delta in the x coordinate as experienced by the update positions method
+ */
 - (void)updateParallaxEffectForLandscapeSprite:(CCSprite *)sprite atIndex:(int)i fromArray:(CCArray *)array withDelta:(CGFloat)dx;
 @end
-
-const uint kSwipeDeltaAverageSampleNumber = 10;
 
 @implementation LandscapeLayer
 
@@ -29,7 +39,6 @@ const uint kSwipeDeltaAverageSampleNumber = 10;
         self.sceneDelegate = sceneDelegate;
         mScreenSize = [[CCDirector sharedDirector] winSize];
         mVelocity = 0;
-        mLastPosition = CGPointMake(0, 0);
         
         // Configure panning gesture recognition
         self.isTouchEnabled= YES;
@@ -143,6 +152,29 @@ const uint kSwipeDeltaAverageSampleNumber = 10;
     }
 }
 
+#pragma mark - Day/Night Cycle
+- (void)updateDaylightTint:(int)tintValue
+{
+    float h = 0, s = 0, v = 0;
+    int r = 0, g = 0, b = 0;
+    v = (float)tintValue / 255;
+    v = (v < kLandscapeNightTintValue) ? kLandscapeNightTintValue : v;
+    if (mOvercast)
+    {
+        v = (v > kMaxOvercastTintValue) ? kMaxOvercastTintValue : v;
+    }
+    hsv_to_rgb(h, s, v, &r, &g, &b);
+    
+    for (CCSprite *landscapeSprite in mLandscapeForegroundArray)
+    {
+        landscapeSprite.color = ccc3(r, g, b);
+    }
+    for (CCSprite *landscapeSprite in mLandscapeBackgroundArray)
+    {
+        landscapeSprite.color = ccc3(r, g, b);
+    }
+}
+
 #pragma mark - Gesture Recognition
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -158,7 +190,6 @@ const uint kSwipeDeltaAverageSampleNumber = 10;
         translation.y *= -1;
         [panGestureRecognizer setTranslation:CGPointZero inView:panGestureRecognizer.view];
         [self updateLandscapePositionsWithDelta:translation.x];
-        mLastPosition = translation;
         mVelocity = 0;
     }
     else if (panGestureRecognizer.state == UIGestureRecognizerStateEnded)
@@ -174,7 +205,7 @@ const uint kSwipeDeltaAverageSampleNumber = 10;
 #pragma mark - GestureRecognizer delegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
-    return YES;
+    return NO;
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch

@@ -12,7 +12,8 @@
 
 @class ClockFaceView;
 @class AdsViewController;
-@class ButtonsViewController;
+@class ButtonTrayView;
+@class MainViewController;
 @class SkyLayer;
 @class WeatherLayer;
 @class LandscapeLayer;
@@ -22,7 +23,8 @@
     NSTimeInterval          mClockTime;
     ClockFaceView           *mClockFaceView;
     AdsViewController       *mAdsViewController;
-    ButtonsViewController   *mButtonsViewController;
+    ButtonTrayView          *mButtonsViewController;
+    MainViewController      *mMainViewController;
     NSInteger               mTimeLapseMultiplier;
     BOOL                    mUsingTimeLapse;
     BOOL                    mUsingLocationBasedWeather;
@@ -54,7 +56,8 @@
 
 @property (nonatomic, strong) ClockFaceView         *clockFaceView;
 @property (nonatomic, strong) AdsViewController     *adsViewController;
-@property (nonatomic, strong) ButtonsViewController *buttonsViewController;
+@property (nonatomic, strong) ButtonTrayView        *buttonsViewController;
+@property (nonatomic, strong) MainViewController    *mainViewController;
 @property (nonatomic, strong) CCSpriteBatchNode     *spriteBatchNode;
 @property (nonatomic, strong) CCParticleBatchNode   *particleBatchNode;
 @property (nonatomic, strong) CCSpriteBatchNode     *landscapeBatchNode;

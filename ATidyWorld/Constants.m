@@ -10,6 +10,7 @@
 float const kMinDaytimeTintValue                = 0.2f;
 float const kMinOvercastTintValue               = 0.2f;
 float const kMaxOvercastTintValue               = 0.6f;
+float const kLandscapeNightTintValue            = 0.1f;
 
 float const kTemperatureMinimumValue            = -60.0f;
 float const kTemperatureFreezingValue           = 32.0f;

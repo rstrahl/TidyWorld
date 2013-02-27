@@ -12,17 +12,19 @@
  *  Acts as delegate for any modal view controllers.  Should be considered the root (and "only")
  *  view controller in the app.
  */
-@interface ButtonsViewController : UIViewController
+@interface ButtonTrayView : UIView
 {
     @private
-    id                  __unsafe_unretained mDelegate; //< Intended to be a reference back to the Scene object
+    id                  __unsafe_unretained mSceneDelegate; //< Intended to be a reference back to the Scene object
     UIButton            *mAlarmClockButton;
     UIButton            *mChangeSeasonButton;
     UIButton            *mChangeWorldButton;
     UIButton            *mSettingsButton;
+    UIViewController    *mParentViewController;
 }
 
-@property (nonatomic, assign) id delegate;
+@property (nonatomic, assign) id sceneDelegate;
+@property (nonatomic, strong) UIViewController *parentViewController;
 
 - (IBAction)alarmClockButtonPressed:(id)sender;
 - (IBAction)changeSeasonButtonPressed:(id)sender;

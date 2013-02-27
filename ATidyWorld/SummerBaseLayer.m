@@ -13,7 +13,8 @@
 #import "WeatherService.h"
 #import "LocationService.h"
 #import "SettingsTableViewController.h"
-#import "ButtonsViewController.h"
+#import "ButtonTrayView.h"
+#import "MainViewController.h"
 #import "AlarmService.h"
 #import "SettingsConstants.h"
 #import "ClockConstants.h"
@@ -50,6 +51,7 @@
 
 @synthesize clockFaceView = mClockFaceView,
             adsViewController = mAdsViewController,
+            mainViewController = mMainViewController,
             buttonsViewController = mButtonsViewController,
             spriteBatchNode = mSpriteBatchNode,
             particleBatchNode = mParticleBatchNode,
@@ -91,23 +93,27 @@
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"LandscapeSheet.plist"];
         mLandscapeBatchNode = [[CCSpriteBatchNode alloc] initWithFile:@"LandscapeSheet.png" capacity:kLandscapeCount*2];
         
-        // Add Clock Label
-        CGSize screenSize = [[CCDirector sharedDirector] winSize];
-        CGRect clockFaceFrame = CGRectMake((screenSize.width / 2) - (300 / 2),
-                                           0,
-                                           300,
-                                           80);
-        mClockFaceView = [[ClockFaceView alloc] initWithFrame:clockFaceFrame];
-        [[[CCDirector sharedDirector] view] addSubview:mClockFaceView];
+        // Add UI Panel
+        mMainViewController = [[MainViewController alloc] initWithNibName:nil bundle:nil];
+        [[[CCDirector sharedDirector] view] addSubview:mMainViewController.view];
+        
+//        // Add Clock Label
+//        CGSize screenSize = [[CCDirector sharedDirector] winSize];
+//        CGRect clockFaceFrame = CGRectMake((screenSize.width / 2) - (300 / 2),
+//                                           0,
+//                                           300,
+//                                           80);
+//        mClockFaceView = [[ClockFaceView alloc] initWithFrame:clockFaceFrame];
+//        [[[CCDirector sharedDirector] view] addSubview:mClockFaceView];
         
         // Add AdsViewController
         mAdsViewController = [[AdsViewController alloc] initWithNibName:nil bundle:nil];
         [[[CCDirector sharedDirector] view] addSubview:mAdsViewController.view];
         
-        // Add ButtonsViewControlller
-        mButtonsViewController = [[ButtonsViewController alloc] initWithNibName:nil bundle:nil];
-        mButtonsViewController.delegate = self;
-        [[[CCDirector sharedDirector] view] addSubview:mButtonsViewController.view];
+//        // Add ButtonsViewControlller
+//        mButtonsViewController = [[ButtonsViewController alloc] initWithNibName:nil bundle:nil];
+//        mButtonsViewController.delegate = self;
+//        [[[CCDirector sharedDirector] view] addSubview:mButtonsViewController.view];
         
         // Register notification listeners for service
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -191,7 +197,7 @@
     if (mUsingTimeLapse)
     {
         mClockTime += deltaTime * mTimeLapseMultiplier;
-        [self.clockFaceView setClockTime:mClockTime];
+        [self.mainViewController.clockView setClockTime:mClockTime];
 //        DLog(@"Time-lapsed current time: %f", mClockTime);
     }
     else // Process time as normal, in per-second updates to the system
@@ -201,7 +207,7 @@
         if ((time - mClockTime) > 1)
         {
             mClockTime = floor(time);
-            [self.clockFaceView setClockTime:mClockTime];
+            [self.mainViewController.clockView setClockTime:mClockTime];
             // If the mClockTime mod 60 equals 0, a minute has turned over, check the alarms
             if (((NSUInteger)mClockTime % 60) == 0)
             {
@@ -308,6 +314,7 @@
             mLastDaylightTintValue = daylightTintValue;
             [mSkyLayer updateDaylightTint:daylightTintValue];
             [mWeatherLayer updateDaylightTint:daylightTintValue];
+            [mLandscapeLayer updateDaylightTint:daylightTintValue];
             // TODO: Update daylight tinting in all layers
         }
         
