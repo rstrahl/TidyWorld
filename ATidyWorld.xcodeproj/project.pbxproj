@@ -785,6 +785,15 @@
 			name = Landscape;
 			sourceTree = "<group>";
 		};
+		9B69800D16DECACB0052C0BB /* Button Tray */ = {
+			isa = PBXGroup;
+			children = (
+				9B97D05616BF0F02005BF0FF /* ButtonTrayView.h */,
+				9B97D05716BF0F02005BF0FF /* ButtonTrayView.m */,
+			);
+			name = "Button Tray";
+			sourceTree = "<group>";
+		};
 		9B97CFF316BB68BA005BF0FF /* Ads */ = {
 			isa = PBXGroup;
 			children = (
@@ -934,12 +943,13 @@
 		9B97D04C16BF09FE005BF0FF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9B97D07316C0A415005BF0FF /* Alarm */,
-				9BCE871016B5F2BF0043048E /* Clock */,
 				9B97CFF316BB68BA005BF0FF /* Ads */,
-				9B97D05916BF1B11005BF0FF /* Change World */,
+				9B97D07316C0A415005BF0FF /* Alarm */,
+				9B69800D16DECACB0052C0BB /* Button Tray */,
+				9BCE871016B5F2BF0043048E /* Clock */,
 				9B97D06516BF2364005BF0FF /* Main */,
 				9B97D04D16BF0A05005BF0FF /* Settings */,
+				9B97D05916BF1B11005BF0FF /* World Options */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -954,7 +964,7 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
-		9B97D05916BF1B11005BF0FF /* Change World */ = {
+		9B97D05916BF1B11005BF0FF /* World Options */ = {
 			isa = PBXGroup;
 			children = (
 				9B97D06016BF2152005BF0FF /* SelectWeatherOptionViewController.h */,
@@ -964,7 +974,7 @@
 				9B97D05B16BF1B3A005BF0FF /* WorldOptionsViewController.m */,
 				9B97D05C16BF1B3A005BF0FF /* WorldOptionsViewController.xib */,
 			);
-			name = "Change World";
+			name = "World Options";
 			sourceTree = "<group>";
 		};
 		9B97D05F16BF1B5A005BF0FF /* Services */ = {
@@ -981,8 +991,6 @@
 		9B97D06516BF2364005BF0FF /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				9B97D05616BF0F02005BF0FF /* ButtonTrayView.h */,
-				9B97D05716BF0F02005BF0FF /* ButtonTrayView.m */,
 				9B69800A16DDC5220052C0BB /* MainViewController.h */,
 				9B69800B16DDC5220052C0BB /* MainViewController.m */,
 			);

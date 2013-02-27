@@ -94,14 +94,14 @@
         }
         if (mVelocityStep < -1)
         {
-            mVelocityStep += ceilf(mVelocityStep);
+            mVelocityStep += floorf(mVelocityStep);
         }
     }
 }
 
 - (void)updateLandscapePositionsWithDelta:(CGFloat)dx
 {
-    dx = (dx > 0) ? floorf(dx) : ceilf(dx);
+    dx = (dx > 0) ? floorf(dx) : floorf(dx);
     
     for (int i = 0; i < kLandscapeCount; i++)
     {
@@ -137,7 +137,7 @@
             // Set x to the x of the i+1 neighbor minus sprite width
             int n = (i+1 == kLandscapeCount) ? 0 : (i + 1);
             CCSprite *neighborLandscape = (CCSprite *)[array objectAtIndex:n];
-            sprite.position = ccp(floorf(neighborLandscape.position.x - mLandscapeSpriteWidth), floorf(sprite.position.y));
+            sprite.position = ccp(ceilf(neighborLandscape.position.x - mLandscapeSpriteWidth), floorf(sprite.position.y));
         }
     }
     else if (dx < 0) // We're moving towards the left
