@@ -129,7 +129,6 @@
                                            scale:1.0f
                                        batchNode:spriteBatchNode];
         [mCloudArray addObject:cloud];
-        cloud.cloudDelegate = self.sceneDelegate.landscapeLayer;
     }
 }
 
@@ -347,6 +346,10 @@
         // Find a random cloud and trigger the lightning
         int cloudIndex = arc4random_uniform(mActiveCloudArray.count - 1);
         Cloud *cloud = (Cloud *)[mActiveCloudArray objectAtIndex:cloudIndex];
+        if (cloud.cloudDelegate == nil)
+        {
+            cloud.cloudDelegate = self.sceneDelegate.landscapeLayer;
+        }
         [cloud fireLightningAnimationWithBolt:[RandomUtil getYesOrNo]];
         mLightningTimerThreshold = 0;
     }

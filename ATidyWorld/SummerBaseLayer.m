@@ -121,12 +121,12 @@
 
         // Init sky
         mSkyLayer = [[SkyLayer alloc] initWithSceneDelegate:self];
-        // Init landscape
-        mLandscapeLayer = [[LandscapeLayer alloc] initWithSceneDelegate:self];
         // Init weather
         mWeatherLayer = [[WeatherLayer alloc] initWithSceneDelegate:self];
-        
-        // Add layers in order
+        // Init landscape
+        mLandscapeLayer = [[LandscapeLayer alloc] initWithSceneDelegate:self];
+
+        // Add layers in order - this only affects layers, not the sprite children (those are batched)
         [self addChild:mSkyLayer];
         [self addChild:mSpriteBatchNode];
         [self addChild:mLandscapeLayer];

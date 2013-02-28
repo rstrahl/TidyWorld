@@ -181,7 +181,7 @@
         tintValue = mLastDaylightTint;
     }
     v = (float)tintValue / 255;
-    v = (v < kLandscapeNightTintValue) ? kLandscapeNightTintValue : v;
+    v = (v < kMinLandscapeNightTintValue) ? kMinLandscapeNightTintValue : v;
     if (mOvercast)
     {
         if (mLastLightningTint > 0)
@@ -190,7 +190,7 @@
         }
         else
         {
-            v = (v > kMaxOvercastTintValue) ? kMaxOvercastTintValue : v;
+            v = (v > kMaxLandscapeOvercastTintValue) ? kMaxLandscapeOvercastTintValue : v;
         }
         
     }
