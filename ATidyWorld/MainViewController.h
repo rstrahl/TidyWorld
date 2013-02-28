@@ -21,7 +21,7 @@
 
 @property (nonatomic, strong) ButtonTrayView *buttonsView;
 @property (nonatomic, strong) ClockFaceView *clockView;
-@property (nonatomic, assign) id sceneDelegate;
 
+- (void)setSceneDelegate:(id)sceneDelegate;
 
 @end

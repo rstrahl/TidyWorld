@@ -49,13 +49,12 @@
 
 @implementation SummerBaseLayer
 
-@synthesize clockFaceView = mClockFaceView,
-            adsViewController = mAdsViewController,
+@synthesize adsViewController = mAdsViewController,
             mainViewController = mMainViewController,
-            buttonsViewController = mButtonsViewController,
             spriteBatchNode = mSpriteBatchNode,
             particleBatchNode = mParticleBatchNode,
             landscapeBatchNode = mLandscapeBatchNode,
+            landscapeLayer = mLandscapeLayer,
             usingTimeLapse = mUsingTimeLapse,
             usingLocationBasedWeather = mUsingLocationBasedWeather,
             overcast = mOvercast;
@@ -95,25 +94,12 @@
         
         // Add UI Panel
         mMainViewController = [[MainViewController alloc] initWithNibName:nil bundle:nil];
+        [mMainViewController setSceneDelegate:self];
         [[[CCDirector sharedDirector] view] addSubview:mMainViewController.view];
-        
-//        // Add Clock Label
-//        CGSize screenSize = [[CCDirector sharedDirector] winSize];
-//        CGRect clockFaceFrame = CGRectMake((screenSize.width / 2) - (300 / 2),
-//                                           0,
-//                                           300,
-//                                           80);
-//        mClockFaceView = [[ClockFaceView alloc] initWithFrame:clockFaceFrame];
-//        [[[CCDirector sharedDirector] view] addSubview:mClockFaceView];
         
         // Add AdsViewController
         mAdsViewController = [[AdsViewController alloc] initWithNibName:nil bundle:nil];
         [[[CCDirector sharedDirector] view] addSubview:mAdsViewController.view];
-        
-//        // Add ButtonsViewControlller
-//        mButtonsViewController = [[ButtonsViewController alloc] initWithNibName:nil bundle:nil];
-//        mButtonsViewController.delegate = self;
-//        [[[CCDirector sharedDirector] view] addSubview:mButtonsViewController.view];
         
         // Register notification listeners for service
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -133,14 +119,12 @@
         
         [[LocationService sharedInstance] startServiceTimer];
 
-        // Add sky layer
+        // Init sky
         mSkyLayer = [[SkyLayer alloc] initWithSceneDelegate:self];
-        
-        // Add weather layer
-        mWeatherLayer = [[WeatherLayer alloc] initWithSceneDelegate:self];
-
-        // TODO: Add landscape layer
+        // Init landscape
         mLandscapeLayer = [[LandscapeLayer alloc] initWithSceneDelegate:self];
+        // Init weather
+        mWeatherLayer = [[WeatherLayer alloc] initWithSceneDelegate:self];
         
         // Add layers in order
         [self addChild:mSkyLayer];
@@ -219,13 +203,19 @@
     [self updateDayNightCycleForTime:[TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:(mClockTime + [[NSTimeZone localTimeZone] secondsFromGMT])]];
 }
 
-#pragma mark - Weather 
+#pragma mark - Weather Effects
 - (void)updateWeatherConditions:(WeatherCondition)conditions
 {
     mOvercast = (conditions.clouds == WeatherCloudsOvercast) ? YES : NO;
     [mSkyLayer setOvercast:mOvercast];
     [mWeatherLayer setOvercast:mOvercast];
+    mLandscapeLayer.overcast = mOvercast;
     [mWeatherLayer setWeatherCondition:conditions];
+}
+
+- (void)cloudWillFireLightningEffectWithDecay:(int)lightningDecay
+{
+
 }
 
 #pragma mark - Day/Night Cycle
@@ -341,14 +331,14 @@
 {
     LocationService *locationService = [LocationService sharedInstance];
     NSString *locationString = [NSString stringWithFormat:@"%@, %@, %@", locationService.city, locationService.state, locationService.country];
-    [self.clockFaceView setLocation:locationString];
+    [self.mainViewController.clockView setLocation:locationString];
 }
 
 - (void)didReceiveWeatherSuccessNotification:(NSNotification *)notification
 {
     WeatherService *weatherService = [WeatherService sharedInstance];
     [self initDayNightCycleWithWeatherService:weatherService];
-    [self.clockFaceView setTemperature:[weatherService.conditionTemp floatValue]];
+    [self.mainViewController.clockView setTemperature:[weatherService.conditionTemp floatValue]];
     if (mUsingLocationBasedWeather)
     {
         [mWeatherLayer setWeatherCondition:weatherService.weatherCode];

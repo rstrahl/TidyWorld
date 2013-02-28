@@ -18,7 +18,8 @@
 @synthesize moving = mMoving,
             cloudBase = mCloudBase,
             cloudHighlight = mCloudHighlight,
-            cloudLightning = mCloudLightning;
+            cloudLightning = mCloudLightning,
+            cloudDelegate = mCloudDelegate;
 
 - (id)initWithTextureID:(uint)textureID batchNode:(CCSpriteBatchNode *)node
 {
@@ -188,6 +189,7 @@
                     }
                     mStrikeCounter--;
                     mLightningDecayRate = [RandomUtil getRandomMin:512 max:8096];
+                    [self.cloudDelegate cloudWillFireLightningEffectWithDecayRate:mLightningDecayRate];
                     mCloudLightning.opacity = 255;
                     mLightningBolt.opacity = 255;
                 }
@@ -229,6 +231,7 @@
                 mLightningBolt.opacity = 255;
             }
             mLightningFiring = YES;
+            [self.cloudDelegate cloudWillFireLightningEffectWithDecayRate:mLightningDecayRate];
         }
     }
 }

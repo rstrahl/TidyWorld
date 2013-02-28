@@ -129,6 +129,7 @@
                                            scale:1.0f
                                        batchNode:spriteBatchNode];
         [mCloudArray addObject:cloud];
+        cloud.cloudDelegate = self.sceneDelegate.landscapeLayer;
     }
 }
 

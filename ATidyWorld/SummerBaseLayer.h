@@ -10,9 +10,7 @@
 #import "cocos2d.h"
 #import "WorldOptionsViewController.h"
 
-@class ClockFaceView;
 @class AdsViewController;
-@class ButtonTrayView;
 @class MainViewController;
 @class SkyLayer;
 @class WeatherLayer;
@@ -21,9 +19,7 @@
 @interface SummerBaseLayer : CCLayer <WorldOptionsViewControllerDelegate>
 {
     NSTimeInterval          mClockTime;
-    ClockFaceView           *mClockFaceView;
     AdsViewController       *mAdsViewController;
-    ButtonTrayView          *mButtonsViewController;
     MainViewController      *mMainViewController;
     NSInteger               mTimeLapseMultiplier;
     BOOL                    mUsingTimeLapse;
@@ -42,6 +38,7 @@
     NSTimeInterval          mLastDaylightTintValue;
     NSTimeInterval          mLastSunriseProgress;
     NSTimeInterval          mLastSunsetProgress;
+    
     // Layers
     SkyLayer                *mSkyLayer;
     WeatherLayer            *mWeatherLayer;
@@ -54,13 +51,12 @@
 
 }
 
-@property (nonatomic, strong) ClockFaceView         *clockFaceView;
 @property (nonatomic, strong) AdsViewController     *adsViewController;
-@property (nonatomic, strong) ButtonTrayView        *buttonsViewController;
 @property (nonatomic, strong) MainViewController    *mainViewController;
 @property (nonatomic, strong) CCSpriteBatchNode     *spriteBatchNode;
 @property (nonatomic, strong) CCParticleBatchNode   *particleBatchNode;
 @property (nonatomic, strong) CCSpriteBatchNode     *landscapeBatchNode;
+@property (nonatomic, strong) LandscapeLayer        *landscapeLayer;
 
 @property (nonatomic, assign, getter = isUsingTimeLapse) BOOL usingTimeLapse;
 @property (nonatomic, assign, getter = isUsingLocationBasedWeather) BOOL usingLocationBasedWeather;

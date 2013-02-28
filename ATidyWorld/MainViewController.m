@@ -17,8 +17,7 @@
 @implementation MainViewController
 
 @synthesize buttonsView = mButtonsView,
-            clockView = mClockView,
-            sceneDelegate = mSceneDelegate;
+            clockView = mClockView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,7 +38,6 @@
                                                                         0,
                                                                         screenSize.width,
                                                                         80)];
-        mButtonsView.sceneDelegate = self.sceneDelegate;
         mButtonsView.parentViewController = self;
         
         mScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,
@@ -66,6 +64,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setSceneDelegate:(id)sceneDelegate
+{
+    mSceneDelegate = sceneDelegate;
+    mButtonsView.sceneDelegate = sceneDelegate;
 }
 
 #pragma mark - Test

@@ -30,7 +30,6 @@
 		9B67A8BD16D8A65600659006 /* LandscapeSheet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67A8B916D8A65600659006 /* LandscapeSheet-hd.png */; };
 		9B67A8BE16D8A65600659006 /* LandscapeSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B67A8BA16D8A65600659006 /* LandscapeSheet.plist */; };
 		9B67A8BF16D8A65600659006 /* LandscapeSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67A8BB16D8A65600659006 /* LandscapeSheet.png */; };
-		9B69800516DC60B70052C0BB /* NSMutableArray+Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69800416DC60B70052C0BB /* NSMutableArray+Queue.m */; };
 		9B69800816DC6D990052C0BB /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69800716DC6D990052C0BB /* CCNode+SFGestureRecognizers.m */; };
 		9B69800C16DDC5220052C0BB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69800B16DDC5220052C0BB /* MainViewController.m */; };
 		9B96CB8A16B90318009A226B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B96CB8916B90318009A226B /* Localizable.strings */; };
@@ -275,8 +274,6 @@
 		9B67A8B916D8A65600659006 /* LandscapeSheet-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LandscapeSheet-hd.png"; path = "Assets/SpriteSheet/LandscapeSheet-hd.png"; sourceTree = SOURCE_ROOT; };
 		9B67A8BA16D8A65600659006 /* LandscapeSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = LandscapeSheet.plist; path = Assets/SpriteSheet/LandscapeSheet.plist; sourceTree = SOURCE_ROOT; };
 		9B67A8BB16D8A65600659006 /* LandscapeSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LandscapeSheet.png; path = Assets/SpriteSheet/LandscapeSheet.png; sourceTree = SOURCE_ROOT; };
-		9B69800316DC60B70052C0BB /* NSMutableArray+Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Queue.h"; sourceTree = "<group>"; };
-		9B69800416DC60B70052C0BB /* NSMutableArray+Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Queue.m"; sourceTree = "<group>"; };
 		9B69800616DC6D990052C0BB /* CCNode+SFGestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+SFGestureRecognizers.h"; sourceTree = "<group>"; };
 		9B69800716DC6D990052C0BB /* CCNode+SFGestureRecognizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+SFGestureRecognizers.m"; sourceTree = "<group>"; };
 		9B69800A16DDC5220052C0BB /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -1011,8 +1008,6 @@
 				9B97D06E16BF94A0005BF0FF /* TMPlistUtils.m */,
 				9BB464B016C4E12F00BD5BBC /* TMTimeUtils.h */,
 				9BB464B116C4E12F00BD5BBC /* TMTimeUtils.m */,
-				9B69800316DC60B70052C0BB /* NSMutableArray+Queue.h */,
-				9B69800416DC60B70052C0BB /* NSMutableArray+Queue.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1847,7 +1842,6 @@
 				9B3B2BAF16D2BCA000179904 /* WeatherLayer.m in Sources */,
 				9B3B2BC316D4227C00179904 /* Cloud.m in Sources */,
 				9B67A8B716D85D9F00659006 /* LandscapeLayer.m in Sources */,
-				9B69800516DC60B70052C0BB /* NSMutableArray+Queue.m in Sources */,
 				9B69800816DC6D990052C0BB /* CCNode+SFGestureRecognizers.m in Sources */,
 				9B69800C16DDC5220052C0BB /* MainViewController.m in Sources */,
 			);

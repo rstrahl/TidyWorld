@@ -30,7 +30,8 @@
 
 @implementation LandscapeLayer
 
-@synthesize sceneDelegate = mSceneDelegate;
+@synthesize sceneDelegate = mSceneDelegate,
+            overcast = mOvercast;
 
 - (id)initWithSceneDelegate:(SummerBaseLayer *)sceneDelegate
 {
@@ -80,12 +81,9 @@
 #pragma mark - Game Loop Update
 - (void)update:(ccTime)deltaTime
 {
+    // Update position
     mVelocityStep = (mVelocity * deltaTime);
-    if (fabsf(mVelocityStep) < 1)
-    {
-        return;
-    }
-    else
+    if (fabsf(mVelocityStep) >= 1)
     {
         [self updateLandscapePositionsWithDelta:mVelocityStep];
         if (mVelocityStep > 1)
@@ -95,6 +93,21 @@
         if (mVelocityStep < -1)
         {
             mVelocityStep += floorf(mVelocityStep);
+        }
+    }
+    
+    // Update weather effect - lightning illumination
+    if (mLightningDecayRate > 0)
+    {
+        mLastLightningTint -= (mLightningDecayRate * deltaTime);
+        if (mLastLightningTint < 0)
+        {
+            mLastLightningTint = 0;
+            [self setLandscapeIllumination:mLastDaylightTint];
+        }
+        else
+        {
+            [self setLandscapeIllumination:mLastLightningTint];
         }
     }
 }
@@ -155,13 +168,31 @@
 #pragma mark - Day/Night Cycle
 - (void)updateDaylightTint:(int)tintValue
 {
+    mLastDaylightTint = tintValue;
+    [self setLandscapeIllumination:mLastDaylightTint];
+}
+
+- (void)setLandscapeIllumination:(int)tintValue
+{
     float h = 0, s = 0, v = 0;
     int r = 0, g = 0, b = 0;
+    if (tintValue < mLastDaylightTint)
+    {
+        tintValue = mLastDaylightTint;
+    }
     v = (float)tintValue / 255;
     v = (v < kLandscapeNightTintValue) ? kLandscapeNightTintValue : v;
     if (mOvercast)
     {
-        v = (v > kMaxOvercastTintValue) ? kMaxOvercastTintValue : v;
+        if (mLastLightningTint > 0)
+        {
+            v = (mLastLightningTint/2 > kMaxOvercastTintValue) ? v : kMaxOvercastTintValue;
+        }
+        else
+        {
+            v = (v > kMaxOvercastTintValue) ? kMaxOvercastTintValue : v;
+        }
+        
     }
     hsv_to_rgb(h, s, v, &r, &g, &b);
     
@@ -173,6 +204,15 @@
     {
         landscapeSprite.color = ccc3(r, g, b);
     }
+
+}
+
+#pragma mark - Weather Effects
+- (void)cloudWillFireLightningEffectWithDecayRate:(int)lightningDecayRate
+{
+    // set the decay rate, and let the update method do the rest
+    mLastLightningTint = 255;
+    mLightningDecayRate = lightningDecayRate;
 }
 
 #pragma mark - Gesture Recognition

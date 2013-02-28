@@ -23,9 +23,13 @@
     UIPanGestureRecognizer  *mPanGestureRecognizer;         //< Pan gesture recognizer for handling user interaction
     CGSize                  mScreenSize;                    //< Size of the screen as reported by the director
     CGFloat                 mLandscapeSpriteWidth;          //< Width of a landscape sprite
+    int                     mLastDaylightTint;
+    int                     mLightningDecayRate;
+    int                     mLastLightningTint;
 }
 
 @property (nonatomic, assign) id sceneDelegate;
+@property (nonatomic, assign, getter = isOvercast) BOOL overcast;
 
 - (id)initWithSceneDelegate:(SummerBaseLayer *)sceneDelegate;
 
@@ -33,5 +37,7 @@
  *  @param tintValue the new tint value
  */
 - (void)updateDaylightTint:(int)tintValue;
+
+- (void)cloudWillFireLightningEffectWithDecayRate:(int)lightningDecayRate;
 
 @end
