@@ -39,16 +39,12 @@
     NSTimeInterval          mLastSunriseProgress;
     NSTimeInterval          mLastSunsetProgress;
     
+    WeatherCondition        mCurrentWeatherCondition;   
+    
     // Layers
     SkyLayer                *mSkyLayer;
     WeatherLayer            *mWeatherLayer;
     LandscapeLayer          *mLandscapeLayer;
-    
-    // Sprite Batch Nodes
-    CCSpriteBatchNode       *mSpriteBatchNode;
-    CCParticleBatchNode     *mParticleBatchNode;
-    CCSpriteBatchNode       *mLandscapeBatchNode;
-
 }
 
 @property (nonatomic, strong) AdsViewController     *adsViewController;
@@ -57,6 +53,7 @@
 @property (nonatomic, strong) CCParticleBatchNode   *particleBatchNode;
 @property (nonatomic, strong) CCSpriteBatchNode     *landscapeBatchNode;
 @property (nonatomic, strong) LandscapeLayer        *landscapeLayer;
+@property (nonatomic, assign) WeatherCondition      currentWeatherCondition;
 
 @property (nonatomic, assign, getter = isUsingTimeLapse) BOOL usingTimeLapse;
 @property (nonatomic, assign, getter = isUsingLocationBasedWeather) BOOL usingLocationBasedWeather;

@@ -25,7 +25,7 @@
     SkyGradient             *mSkyGradient;
     DawnDuskGradient        *mDuskDawnGradient;
     SunMoonSprite           *mSunMoonSprite;
-    CCSpriteBatchNode       *mStarsNode;
+    CCSpriteBatchNode       *mSkyBatchNode;
     CCParticleSystemQuad    *mStarsParticleSystem;
     CCSprite                *mBlinkingStar;
     NSTimeInterval          mBlinkTimeCounter;

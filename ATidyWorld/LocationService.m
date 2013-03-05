@@ -209,6 +209,7 @@ static LocationService *sharedLocationController = nil;
                                                   selector:@selector(start)
                                                   userInfo:nil
                                                    repeats:YES];
+        [self start];
     }
 }
 

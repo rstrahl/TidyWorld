@@ -5,7 +5,7 @@
 	<key>angle</key>
 	<real>270</real>
 	<key>angleVariance</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>blendFuncDestination</key>
 	<integer>1</integer>
 	<key>blendFuncSource</key>
@@ -13,7 +13,7 @@
 	<key>duration</key>
 	<real>-1</real>
 	<key>emitterType</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>finishColorAlpha</key>
 	<real>1</real>
 	<key>finishColorBlue</key>
@@ -23,19 +23,19 @@
 	<key>finishColorRed</key>
 	<real>0.5</real>
 	<key>finishColorVarianceAlpha</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>finishColorVarianceBlue</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>finishColorVarianceGreen</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>finishColorVarianceRed</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>finishParticleSize</key>
 	<real>12</real>
 	<key>finishParticleSizeVariance</key>
 	<real>8</real>
 	<key>gravityx</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>gravityy</key>
 	<real>-1000</real>
 	<key>maxParticles</key>
@@ -43,29 +43,29 @@
 	<key>maxRadius</key>
 	<real>100</real>
 	<key>maxRadiusVariance</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>minRadius</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>particleLifespan</key>
 	<real>0.75</real>
 	<key>particleLifespanVariance</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>radialAccelVariance</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>radialAcceleration</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>rotatePerSecond</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>rotatePerSecondVariance</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>rotationEnd</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>rotationEndVariance</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>rotationStart</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>rotationStartVariance</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>sourcePositionVariancex</key>
 	<real>192</real>
 	<key>sourcePositionVariancey</key>
@@ -87,23 +87,23 @@
 	<key>startColorRed</key>
 	<real>0.5</real>
 	<key>startColorVarianceAlpha</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>startColorVarianceBlue</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>startColorVarianceGreen</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>startColorVarianceRed</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>startParticleSize</key>
 	<real>12</real>
 	<key>startParticleSizeVariance</key>
 	<real>8</real>
 	<key>tangentialAccelVariance</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>tangentialAcceleration</key>
-	<real>0.0</real>
+	<real>0</real>
 	<key>textureFileName</key>
-	<string>particleTexture.png</string>
+	<string>ParticleRain.png</string>
 	<key>textureImageData</key>
 	<string>H4sIAAAAAAAAA+sM8HPn5ZLiYmBg4PX0cAkC0gIgzMEGJOU//08EUlGeLo4hFoLJf/7/t2dWbehsSDNbYMPxmEXHIlVBSCbgZ/yOK4JFjOYBykCxlpiGcOMTIU5sHx5skdJyPMEQ58X7YPEVhq5Yh42MzO9ZuxZPfNTispFxw5kWY0sGhrBnLG9SFpplAm1h8HT1c1nnlNAEAJ9//7+TAAAA</string>
 </dict>

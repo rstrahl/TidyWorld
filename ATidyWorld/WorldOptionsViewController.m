@@ -15,7 +15,7 @@
 /** Helper method for configuring table view cell based on its contents */
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 /** Adds switch to cell and configures it based on the key of the cell */
-- (void)addSwitchToCell:(UITableViewCell *)cell forKey:(NSString *)key;
+- (void)addSwitchToCell:(UITableViewCell *)cell forKey:(NSString *)key enabled:(BOOL)enabled;
 /** Identifies the world option to use for a cell based on the index path */
 - (NSDictionary *)worldOptionForIndexPath:(NSIndexPath *)indexPath;
 /** Indicates the location-based value is about to be changed after a UI interaction */
@@ -82,6 +82,7 @@
     mCurrentWeatherCondition.fog = [mUserDefaults boolForKey:SETTINGS_KEY_CURRENT_FOG];
     mCurrentWeatherCondition.lightning = [mUserDefaults boolForKey:SETTINGS_KEY_CURRENT_LIGHTNING];
     mCurrentWeatherCondition.season = [mUserDefaults integerForKey:SETTINGS_KEY_CURRENT_SEASON];
+    mLocationBasedWeather = [mUserDefaults boolForKey:SETTINGS_KEY_LOCATION_BASED_WEATHER];
 }
 
 - (void)didReceiveMemoryWarning
@@ -144,34 +145,60 @@
     cell.textLabel.text = key;
 
     // Handle switch-oriented World Options
-    if ([key isEqualToString:@"Location Based"] ||
-        [key isEqualToString:@"Fog"] ||
-        [key isEqualToString:@"Lightning"] ||
-        [key isEqualToString:@"Use Real-World Time"])
+    if ([key isEqualToString:@"Location Based"])
     {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [self addSwitchToCell:cell forKey:key];
+        [self addSwitchToCell:cell forKey:key enabled:YES];
+    }
+    else if ([key isEqualToString:@"Fog"] ||
+             [key isEqualToString:@"Lightning"])
+    {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        if (mLocationBasedWeather)
+        {
+            cell.textLabel.enabled = NO;
+            [self addSwitchToCell:cell forKey:key enabled:NO];
+        }
+        else
+        {
+            cell.textLabel.enabled = YES;
+            [self addSwitchToCell:cell forKey:key enabled:YES];
+        }
     }
     // Handle multiple-choice World Options
     else
     {
         cell.detailTextLabel.text = [[cellDict valueForKey:@"Rows"] objectAtIndex:[self currentValueForWeatherOptionKey:key]];
-        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        if (mLocationBasedWeather)
+        {
+            [cell setAccessoryType:UITableViewCellAccessoryNone];
+            cell.userInteractionEnabled = NO;
+            cell.textLabel.enabled = NO;
+            cell.detailTextLabel.enabled = NO;
+        }
+        else
+        {
+            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+            cell.userInteractionEnabled = YES;
+            cell.textLabel.enabled = YES;
+            cell.detailTextLabel.enabled = YES;
+        }
+    
     }
 }
-- (void)addSwitchToCell:(UITableViewCell *)cell forKey:(NSString *)key
+- (void)addSwitchToCell:(UITableViewCell *)cell forKey:(NSString *)key enabled:(BOOL)enabled
 {
     UISwitch *cellSwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
     [cellSwitch addTarget:self action:@selector(switchToggled:) forControlEvents:UIControlEventValueChanged];
     [cell setAccessoryView:cellSwitch];
     [cellSwitch setOn:[self currentValueForWeatherOptionKey:key]];
+    cellSwitch.enabled = enabled;
     if ([key isEqualToString:@"Lightning"])
     {
         self.lightningSwitch = cellSwitch;
         if (mCurrentWeatherCondition.clouds == WeatherCloudsNone)
         {
             cellSwitch.enabled = NO;
-            cellSwitch.hidden = YES;
         }
     }
 }
@@ -203,6 +230,10 @@
     {
         returnValue = mCurrentWeatherCondition.season;
     }
+    else if ([key isEqualToString:@"Location Based"])
+    {
+        returnValue = mLocationBasedWeather;
+    }
     return returnValue;
 }
 
@@ -216,6 +247,7 @@
 {
     if (mOptionsChanged)
     {
+        [mUserDefaults setBool:mLocationBasedWeather forKey:SETTINGS_KEY_LOCATION_BASED_WEATHER];
         [mUserDefaults setInteger:mCurrentWeatherCondition.clouds forKey:SETTINGS_KEY_CURRENT_CLOUDS];
         [mUserDefaults setInteger:mCurrentWeatherCondition.rain forKey:SETTINGS_KEY_CURRENT_RAIN];
         [mUserDefaults setInteger:mCurrentWeatherCondition.snow forKey:SETTINGS_KEY_CURRENT_SNOW];
@@ -253,17 +285,18 @@
     
     if ([key isEqualToString:@"Location Based"])
     {
-        [mUserDefaults setBool:cellSwitch.isOn forKey:SETTINGS_KEY_LOCATION_BASED_WEATHER];
+        [self locationBasedValueChanged:cellSwitch.isOn];
     }
     else if ([key isEqualToString:@"Fog"])
     {
         mCurrentWeatherCondition.fog = cellSwitch.isOn;
+        [self didChangeWeatherCondition:key];
     }
     else if ([key isEqualToString:@"Lightning"])
     {
         mCurrentWeatherCondition.lightning = cellSwitch.isOn;
+        [self didChangeWeatherCondition:key];
     }
-    [self didChangeWeatherCondition:key];
 }
 
 #pragma mark - SelectWeatherOptionsDelegate Implementation
@@ -311,16 +344,10 @@
 - (void)didChangeWeatherCondition:(NSString *)weatherConditionKey
 {
     mOptionsChanged = YES;
+    [self locationBasedValueChanged:NO];
+    [self.tableView reloadData];
     [self.delegate controller:self didChangeWeatherConditions:mCurrentWeatherCondition];
     [self googleLogWorldOptionChanged:weatherConditionKey];
-}
-
-// TODO: REMOVE OLD CODE
-- (void)locationBasedValueChanged:(BOOL)value
-{
-    [self.delegate controller:self didChangeLocationBased:value];
-    [mUserDefaults setBool:value forKey:SETTINGS_KEY_LOCATION_BASED_WEATHER];
-    [self googleLogWorldOptionChanged:@"LocationBasedWeather"];
 }
 
 - (void)rainValueChangedWithRowValue:(NSUInteger)value
@@ -363,6 +390,15 @@
     [self.delegate controller:self didChangeSeason:value];
     [mUserDefaults setInteger:value forKey:SETTINGS_KEY_CURRENT_SEASON];
     [self googleLogWorldOptionChanged:@"Season"];
+}
+
+- (void)locationBasedValueChanged:(BOOL)value
+{
+    mOptionsChanged = YES;
+    mLocationBasedWeather = value;
+    [self.tableView reloadData];
+    [self.delegate controller:self didChangeLocationBased:mLocationBasedWeather];
+    [self googleLogWorldOptionChanged:@"Location Based Weather"];
 }
 
 #pragma mark - Analytics Logging Methods

@@ -275,7 +275,7 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
 #pragma mark - Weather Code
 - (WeatherCondition)buildWeatherCode:(NSNumber *)yahooCode
 {
-    WeatherCondition code;
+    WeatherCondition code = {0,0,0,0,0};
     switch ([yahooCode intValue]) {
 //        case 0:     // Tornado
         case 3:     // Severe Thunderstorms

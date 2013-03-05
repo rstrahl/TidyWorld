@@ -24,9 +24,12 @@
 #import "TMTimeUtils.h"
 
 @interface SummerBaseLayer()
+// Layer Setup ----------------------------------------------------------------
 /** Initializes the variables needed for calculating day/night cycle effects. Should be called whenever weather updates
     are triggered */
 - (void)initDayNightCycleWithWeatherService:(WeatherService *)weatherService;
+
+// Game Loop Update -----------------------------------------------------------
 /** Updates the weather conditions given the data provided
  *  @param conditions the WeatherCondition struct containing current conditions data
  */
@@ -34,6 +37,8 @@
 /** Calculates the color tinting for all sprites based on the time of day 
     @param time the time in seconds within the span of a single day */
 - (void)updateDayNightCycleForTime:(NSTimeInterval)time;
+
+// Notification Handlers ------------------------------------------------------
 /** Notification Listener for Location Service 
     @param notification the originating notification object */
 - (void)didReceiveLocationSuccessNotification:(NSNotification *)notification;
@@ -43,6 +48,8 @@
 /** Notification Listener for change in Settings
     @param notification the originating notification object */
 - (void)didReceiveSettingsChangedNotification:(NSNotification *)notification;
+
+// User Defaults --------------------------------------------------------------
 /** Updates the settings relevant to the scene from the NSUserDefaults */
 - (void)loadApplicationSettings;
 @end
@@ -57,7 +64,8 @@
             landscapeLayer = mLandscapeLayer,
             usingTimeLapse = mUsingTimeLapse,
             usingLocationBasedWeather = mUsingLocationBasedWeather,
-            overcast = mOvercast;
+            overcast = mOvercast,
+            currentWeatherCondition = mCurrentWeatherCondition;
 
 // Helper class method that creates a Scene with the SummerBaseLayer as the only child.
 +(CCScene *) scene
@@ -85,12 +93,6 @@
         mLastSunriseProgress = 0;
         mLastSunsetProgress = 0;
         mNight = -1;
-        
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:SPRITESHEET_PLIST];
-        mSpriteBatchNode = [[CCSpriteBatchNode alloc] initWithFile:SPRITESHEET_IMAGE capacity:100];
-        
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"LandscapeSheet.plist"];
-        mLandscapeBatchNode = [[CCSpriteBatchNode alloc] initWithFile:@"LandscapeSheet.png" capacity:kLandscapeCount*2];
         
         // Add UI Panel
         mMainViewController = [[MainViewController alloc] initWithNibName:nil bundle:nil];
@@ -128,9 +130,7 @@
 
         // Add layers in order - this only affects layers, not the sprite children (those are batched)
         [self addChild:mSkyLayer];
-        [self addChild:mSpriteBatchNode];
         [self addChild:mLandscapeLayer];
-        [self addChild:mLandscapeBatchNode];
         [self addChild:mWeatherLayer];
         
         // Load scene settings from user defaults
@@ -144,6 +144,7 @@
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     mUsingTimeLapse = [userDefaults boolForKey:SETTINGS_KEY_CLOCK_IS_TIME_LAPSE];
+    mUsingLocationBasedWeather = [userDefaults boolForKey:SETTINGS_KEY_LOCATION_BASED_WEATHER];
     NSInteger timeLapseMultiplier = [userDefaults integerForKey:SETTINGS_KEY_CLOCK_MULTIPLIER];
     switch (timeLapseMultiplier) {
         case TMClockTimeLapseFastest:
@@ -168,9 +169,17 @@
         }
     }
     mClockTime = [NSDate timeIntervalSinceReferenceDate];
-    
-    WeatherCondition conditions = [[WeatherService sharedInstance] weatherConditionsFromUserDefaults:userDefaults];
-    [self controller:nil didChangeWeatherConditions:conditions];
+    if (mUsingLocationBasedWeather)
+    {
+        // Pop an activity indicator stating weather data is loading
+        // activity indicator is dismissed when weather conditions are done loading or
+        //     cannot be loaded
+    }
+    else
+    {
+        WeatherCondition conditions = [[WeatherService sharedInstance] weatherConditionsFromUserDefaults:userDefaults];
+        [self controller:nil didChangeWeatherConditions:conditions];        
+    }
 }
 
 #pragma mark - Game Loop Update
@@ -211,6 +220,7 @@
     [mWeatherLayer setOvercast:mOvercast];
     mLandscapeLayer.overcast = mOvercast;
     [mWeatherLayer setWeatherCondition:conditions];
+    mCurrentWeatherCondition = conditions;
 }
 
 - (void)cloudWillFireLightningEffectWithDecay:(int)lightningDecay
@@ -305,7 +315,6 @@
             [mSkyLayer updateDaylightTint:daylightTintValue];
             [mWeatherLayer updateDaylightTint:daylightTintValue];
             [mLandscapeLayer updateDaylightTint:daylightTintValue];
-            // TODO: Update daylight tinting in all layers
         }
         
         // Send out the tint for sunrise
@@ -331,18 +340,17 @@
 {
     LocationService *locationService = [LocationService sharedInstance];
     NSString *locationString = [NSString stringWithFormat:@"%@, %@, %@", locationService.city, locationService.state, locationService.country];
+    DLog(@"received location: %@", locationString);
     [self.mainViewController.clockView setLocation:locationString];
 }
 
 - (void)didReceiveWeatherSuccessNotification:(NSNotification *)notification
 {
+    DLog(@"");
     WeatherService *weatherService = [WeatherService sharedInstance];
     [self initDayNightCycleWithWeatherService:weatherService];
     [self.mainViewController.clockView setTemperature:[weatherService.conditionTemp floatValue]];
-    if (mUsingLocationBasedWeather)
-    {
-        [mWeatherLayer setWeatherCondition:weatherService.weatherCode];
-    }
+    [self updateWeatherConditions:weatherService.weatherCode];
 }
 
 - (void)didReceiveSettingsChangedNotification:(NSNotification *)notification
@@ -360,6 +368,14 @@
 {
     DLog(@"");
     mUsingLocationBasedWeather = isLocationBased;
+    if (mUsingLocationBasedWeather)
+    {
+        [[LocationService sharedInstance] startServiceTimer];
+    }
+    else
+    {
+        [[LocationService sharedInstance] stopServiceTimer];
+    }
 }
 
 - (void)controller:(WorldOptionsViewController *)controller didChangeSeason:(NSUInteger)season

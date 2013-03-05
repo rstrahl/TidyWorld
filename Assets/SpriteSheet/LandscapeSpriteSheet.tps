@@ -38,7 +38,7 @@
         <key>dataFormat</key>
         <string>cocos2d</string>
         <key>textureFileName</key>
-        <filename>LandscapeSheet-hd.png</filename>
+        <filename>LandscapeSpriteSheet-hd.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
@@ -127,7 +127,7 @@
             <enum type="AndEngine::MagFilter">MagLinear</enum>
         </struct>
         <key>dataFileName</key>
-        <filename>LandscapeSheet-hd.plist</filename>
+        <filename>LandscapeSpriteSheet-hd.plist</filename>
         <key>mainExtension</key>
         <string>-hd.</string>
         <key>forceIdenticalLayout</key>

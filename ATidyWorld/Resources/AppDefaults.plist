@@ -30,5 +30,7 @@
 	<integer>0</integer>
 	<key>CURRENT_LIGHTNING</key>
 	<integer>0</integer>
+	<key>LOCATION_BASED_WEATHER</key>
+	<string>YES</string>
 </dict>
 </plist>

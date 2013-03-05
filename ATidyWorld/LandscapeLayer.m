@@ -11,8 +11,10 @@
 #import "Constants.h"
 #import "CCNode+SFGestureRecognizers.h"
 #import "ColorConverter.h"
+#import "SummerBaseLayer.h"
 
 @interface LandscapeLayer()
+// Weather Effects-------------------------------------------------------------
 /** Updates the positions for all landscapes based on a delta in the X position, where a value
  *  greater than 0 means the landscapes are moving towards the right and a value less than
  *  0 means the landscapes are moving towards the left
@@ -26,6 +28,7 @@
  *  @param dx the delta in the x coordinate as experienced by the update positions method
  */
 - (void)updateParallaxEffectForLandscapeSprite:(CCSprite *)sprite atIndex:(int)i fromArray:(CCArray *)array withDelta:(CGFloat)dx;
+
 @end
 
 @implementation LandscapeLayer
@@ -41,16 +44,22 @@
         mScreenSize = [[CCDirector sharedDirector] winSize];
         mVelocity = 0;
         
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:SPRITESHEET_LANDSCAPE_PLIST];
+        mLandscapeBatchNode = [[CCSpriteBatchNode alloc] initWithFile:SPRITESHEET_LANDSCAPE_IMAGE capacity:kLandscapeCount*2];
+        [self addChild:mLandscapeBatchNode];
+        
         // Configure panning gesture recognition
-        self.isTouchEnabled= YES;
         mPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
         mPanGestureRecognizer.delegate = self;
+//        mPanGestureRecognizer.cancelsTouchesInView = NO;
+//        mPanGestureRecognizer.delaysTouchesEnded = NO;
         [self addGestureRecognizer:mPanGestureRecognizer];
+        self.isTouchEnabled = YES;
         
         // Configure landscape sprites
         mLandscapeForegroundArray = [[CCArray alloc] initWithCapacity:kLandscapeCount];
         mLandscapeBackgroundArray = [[CCArray alloc] initWithCapacity:kLandscapeCount];
-        
+                
         for (int i = 0; i < kLandscapeCount; i++)
         {
             CCSprite *landscapeForegroundSprite = [[CCSprite alloc] initWithSpriteFrameName:[NSString stringWithFormat:@"LandscapeForeground%dTest.png", i+1]];
@@ -58,7 +67,7 @@
                                                      landscapeForegroundSprite.boundingBox.size.height);
             landscapeForegroundSprite.anchorPoint = ccp(0,1);
             [mLandscapeForegroundArray addObject:landscapeForegroundSprite];
-            [sceneDelegate.landscapeBatchNode addChild:landscapeForegroundSprite];
+            [mLandscapeBatchNode addChild:landscapeForegroundSprite];
             // Store the landscape sprite width so we don't have to constantly delve properties
             if (mLandscapeSpriteWidth == 0)
             {
@@ -70,7 +79,7 @@
                                                      (landscapeForegroundSprite.boundingBox.size.height + landscapeBackgroundSprite.boundingBox.size.height));
             landscapeBackgroundSprite.anchorPoint = ccp(0,1);
             [mLandscapeBackgroundArray addObject:landscapeBackgroundSprite];
-            [sceneDelegate.landscapeBatchNode addChild:landscapeBackgroundSprite];
+            [mLandscapeBatchNode addChild:landscapeBackgroundSprite];
         }
         
         [self scheduleUpdate];
@@ -82,7 +91,7 @@
 - (void)update:(ccTime)deltaTime
 {
     // Update position
-    mVelocityStep = (mVelocity * deltaTime);
+    mVelocityStep += (mVelocity * deltaTime);
     if (fabsf(mVelocityStep) >= 1)
     {
         [self updateLandscapePositionsWithDelta:mVelocityStep];
@@ -95,6 +104,7 @@
             mVelocityStep += floorf(mVelocityStep);
         }
     }
+    mVelocityStep -= floor(mVelocityStep);
     
     // Update weather effect - lightning illumination
     if (mLightningDecayRate > 0)
@@ -260,6 +270,11 @@
                 return NO;
             }
         }
+    }
+    
+    if ([touch.view isKindOfClass:[UISlider class]])
+    {
+        return NO;
     }
     
     return YES;

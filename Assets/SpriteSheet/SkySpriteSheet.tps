@@ -26,7 +26,7 @@
             </struct>
         </array>
         <key>allowRotation</key>
-        <false/>
+        <true/>
         <key>quiet</key>
         <false/>
         <key>premultiplyAlpha</key>
@@ -38,11 +38,11 @@
         <key>dataFormat</key>
         <string>cocos2d</string>
         <key>textureFileName</key>
-        <filename>SpriteSheet-hd.png</filename>
+        <filename>SkySpriteSheet-hd.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
-        <enum type="SettingsBase::DitherType">FloydSteinbergAlpha</enum>
+        <enum type="SettingsBase::DitherType">NearestNeighbour</enum>
         <key>backgroundColor</key>
         <uint>0</uint>
         <key>libGdx</key>
@@ -60,7 +60,7 @@
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
-        <uint>2</uint>
+        <uint>0</uint>
         <key>textureSubPath</key>
         <string></string>
         <key>textureFormat</key>
@@ -115,7 +115,7 @@
             <key>packageName</key>
             <string>Texture</string>
             <key>javaFileName</key>
-            <filename>../atlas.java</filename>
+            <filename>SkySpriteSheet.java</filename>
             <key>wrap</key>
             <struct type="AndEngineWrap">
                 <key>s</key>
@@ -127,7 +127,7 @@
             <enum type="AndEngine::MagFilter">MagLinear</enum>
         </struct>
         <key>dataFileName</key>
-        <filename>SpriteSheet-hd.plist</filename>
+        <filename>SkySpriteSheet-hd.plist</filename>
         <key>mainExtension</key>
         <string>-hd.</string>
         <key>forceIdenticalLayout</key>
@@ -157,24 +157,9 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>../Art/Sprites 2x/Moon.png</filename>
-            <filename>../Art/Sprites 2x/Sun.png</filename>
-            <filename>../Art/Sprites 2x/Star.png</filename>
-            <filename>../Art/Sprites 2x/Cloud1Base.png</filename>
-            <filename>../Art/Sprites 2x/Cloud1Highlight.png</filename>
-            <filename>../Art/Sprites 2x/Cloud1Lightning.png</filename>
-            <filename>../Art/Sprites 2x/Cloud2Base.png</filename>
-            <filename>../Art/Sprites 2x/Cloud2Highlight.png</filename>
-            <filename>../Art/Sprites 2x/Cloud2Lightning.png</filename>
-            <filename>../Art/Sprites 2x/Cloud3Base.png</filename>
-            <filename>../Art/Sprites 2x/Cloud3Highlight.png</filename>
-            <filename>../Art/Sprites 2x/Cloud3Lightning.png</filename>
-            <filename>../Art/Sprites 2x/Cloud4Base.png</filename>
-            <filename>../Art/Sprites 2x/Cloud4Highlight.png</filename>
-            <filename>../Art/Sprites 2x/Cloud4Lightning.png</filename>
-            <filename>../Art/Sprites 2x/LightningBolt.png</filename>
-            <filename>../Art/Sprites 2x/ParticleRaindrop.png</filename>
-            <filename>../Art/Sprites 2x/ParticleSnow.png</filename>
+            <filename>../Art/Sky/Moon.png</filename>
+            <filename>../Art/Sky/Star.png</filename>
+            <filename>../Art/Sky/Sun.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

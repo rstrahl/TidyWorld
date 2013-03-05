@@ -29,6 +29,7 @@
 #define PARTICLE_FILE_SNOW_BLIZZARD         @"SnowBlizzard.plist"
 #define PARTICLE_FILE_SNOW_BLOWING          @"SnowBlowing.plist"
 #define PARTICLE_FILE_STARS                 @"Stars.plist"
+#define PARTICLE_FILE_FOG                   @"Fog.plist"
 
 #define FILE_SCENERY                        @"Landscape"
 
@@ -75,8 +76,13 @@ typedef enum
 } TMClockTimeLapse;
 
 // SpriteSheet Constants
-#define SPRITESHEET_PLIST                   @"SpriteSheet.plist"
-#define SPRITESHEET_IMAGE                   @"SpriteSheet.png"
+#define SPRITESHEET_WEATHER_PLIST           @"WeatherSpriteSheet.plist"
+#define SPRITESHEET_WEATHER_IMAGE           @"WeatherSpriteSheet.png"
+#define SPRITESHEET_SKY_PLIST               @"SkySpriteSheet.plist"
+#define SPRITESHEET_SKY_IMAGE               @"SkySpriteSheet.png"
+#define SPRITESHEET_LANDSCAPE_PLIST         @"LandscapeSpriteSheet.plist"
+#define SPRITESHEET_LANDSCAPE_IMAGE         @"LandscapeSpriteSheet.png"
+
 extern uint const kLandscapeCount;
 
 // Coordinate Constants

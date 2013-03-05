@@ -11,9 +11,11 @@
 #import "WeatherService.h"
 
 @class SummerBaseLayer;
+@class FogLayer;
 
 @interface WeatherLayer : CCLayer
 {
+    CCSpriteBatchNode       *mWeatherBatchNode;
     CCParticleSystemQuad    *mSnowLightParticleSystem;
     CCParticleSystemQuad    *mSnowHeavyParticleSystem;
     CCParticleSystemQuad    *mSnowBlowingParticleSystem;
@@ -21,11 +23,10 @@
     CCParticleSystemQuad    *mRainLightParticleSystem;
     CCParticleSystemQuad    *mRainMediumParticleSystem;
     CCParticleSystemQuad    *mRainHeavyParticleSystem;
-    CCParticleSystemQuad    *mWeatherParticleSystem;
     CCSpriteBatchNode       *mCloudSpriteBatchNode;
-    WeatherCondition        mCurrentWeatherCondition;
     CCArray                 *mCloudArray;
     CCArray                 *mActiveCloudArray;
+    FogLayer                *mFogLayer;
     SummerBaseLayer         *mSceneDelegate;
     BOOL                    mLightningActive;
     float                   mLightningTimerThreshold;
@@ -43,6 +44,7 @@
  *  @param condition the weather conditions to display
  */
 - (void)setWeatherCondition:(WeatherCondition)effect;
+
 /** Updates the daylight tint value of all child nodes of this layer
  *  @param tintValue the new tint value
  */

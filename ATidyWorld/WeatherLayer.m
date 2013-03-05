@@ -12,6 +12,7 @@
 #import "RandomUtil.h"
 #import "ColorConverter.h"
 #import "SummerBaseLayer.h"
+#import "FogLayer.h"
 
 @interface WeatherLayer()
 /** Initializes cloud sprites for the layer and adds them to the specified CCSpriteBatchNode,
@@ -31,15 +32,19 @@
  */
 - (void)setCloudsState:(WeatherConditionClouds)cloudsState;
 /** Sets the current state of rain particles
- * @param rainState the type of rain to display if any
+ *  @param rainState the type of rain to display if any
  */
 - (void)setRainState:(WeatherConditionRain)rainState;
 /** Sets the current state of snow particles
- * @param snowState the type of snow to display if any
+ *  @param snowState the type of snow to display if any
  */
 - (void)setSnowState:(WeatherConditionSnow)snowState;
-/** Sets the current state of lightning effects if any
- * @param lightningState the type of lightning to display if any
+/** Sets the current state of the fog effect
+ *  @param fogState flag indicating whether or not fog is active
+ */
+- (void)setFogState:(WeatherConditionFog)fogState;
+/** Sets the current state of the lightning effect
+ * @param lightningState flag indicate whether or not lightning is active
  */
 - (void)setLightningState:(WeatherConditionLightning)lightningState;
 @end
@@ -55,8 +60,12 @@
     {
         self.sceneDelegate = sceneDelegate;
         
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:SPRITESHEET_WEATHER_PLIST];
+        mWeatherBatchNode = [[CCSpriteBatchNode alloc] initWithFile:SPRITESHEET_WEATHER_IMAGE capacity:10];
+        [self addChild:mWeatherBatchNode];
+        
         // Init clouds
-        [self setupCloudsWithSpriteBatchNode:sceneDelegate.spriteBatchNode];
+        [self setupCloudsWithSpriteBatchNode:mWeatherBatchNode];
         
         // Init particle systems for weather effects
         mSnowLightParticleSystem = [[CCParticleSystemQuad alloc] initWithFile:PARTICLE_FILE_SNOW_MEDIUM];
@@ -82,6 +91,10 @@
         [self addChild:mRainLightParticleSystem];
         [self addChild:mRainMediumParticleSystem];
         [self addChild:mRainHeavyParticleSystem];
+        
+        mFogLayer = [[FogLayer alloc] initWithSpriteBatchNode:mWeatherBatchNode];
+        [mFogLayer setVisible:NO];
+        [self addChild:mFogLayer];
         
         [self scheduleUpdate];
     }
@@ -115,7 +128,7 @@
     mOvercast = overcast;
 }
 
-#pragma mark - Clouds
+#pragma mark - Clouds Setup
 
 - (void)setupCloudsWithSpriteBatchNode:(CCSpriteBatchNode *)spriteBatchNode
 {
@@ -196,13 +209,12 @@
     [self setRainState:condition.rain];
     [self setSnowState:condition.snow];
     [self setCloudsState:condition.clouds];
-//    [self setFogState:condition.fog];
-    mCurrentWeatherCondition = condition;
+    [self setFogState:condition.fog];
 }
 
 - (void)setCloudsState:(WeatherConditionClouds)cloudsState
 {
-    if (cloudsState != mCurrentWeatherCondition.clouds)
+    if (cloudsState != self.sceneDelegate.currentWeatherCondition.clouds)
     {
         [self removeCloudsFromScene];
         switch (cloudsState)
@@ -233,7 +245,7 @@
 
 - (void)setRainState:(WeatherConditionRain)rainState
 {
-    if (rainState != mCurrentWeatherCondition.rain)
+    if (rainState != self.sceneDelegate.currentWeatherCondition.rain)
     {
         [mRainLightParticleSystem setVisible:NO];
         [mRainMediumParticleSystem setVisible:NO];
@@ -272,7 +284,7 @@
 
 - (void)setSnowState:(WeatherConditionSnow)snowState
 {
-    if (snowState != mCurrentWeatherCondition.snow)
+    if (snowState != self.sceneDelegate.currentWeatherCondition.snow)
     {
         [mSnowLightParticleSystem setVisible:NO];
         [mSnowHeavyParticleSystem setVisible:NO];
@@ -317,9 +329,30 @@
     }
 }
 
+- (void)setFogState:(WeatherConditionFog)fogState
+{
+    if (fogState != self.sceneDelegate.currentWeatherCondition.fog)
+    {
+        switch (fogState)
+        {
+            case WeatherFog:
+            {
+                [mFogLayer setVisible:YES];
+                break;
+            }
+            case WeatherFogNone:
+            default:
+            {
+                [mFogLayer setVisible:NO];
+                break;
+            }
+        }
+    }
+}
+
 - (void)setLightningState:(WeatherConditionLightning)lightningState
 {
-    if (lightningState != mCurrentWeatherCondition.lightning)
+    if (lightningState != self.sceneDelegate.currentWeatherCondition.lightning)
     {
         switch (lightningState)
         {

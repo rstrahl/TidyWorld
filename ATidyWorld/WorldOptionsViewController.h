@@ -16,6 +16,7 @@
     NSUserDefaults                      *mUserDefaults;
     id                                  __unsafe_unretained mDelegate;
     BOOL                                mOptionsChanged;
+    BOOL                                mLocationBasedWeather;
     WeatherCondition                    mCurrentWeatherCondition;
 }
 
