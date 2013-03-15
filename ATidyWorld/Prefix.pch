@@ -14,4 +14,5 @@
 #import <CoreData/CoreData.h>
 #import "GAI.h"
 #import "DLogMacro.h"
+#import "TestFlight.h"
 #endif

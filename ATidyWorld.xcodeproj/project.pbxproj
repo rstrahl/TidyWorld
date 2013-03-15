@@ -12,6 +12,9 @@
 		9B141EA516F2C54E002B5EB6 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B141EA016F2C54D002B5EB6 /* Icon-Small@2x.png */; };
 		9B141EA616F2C54E002B5EB6 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B141EA116F2C54D002B5EB6 /* Icon.png */; };
 		9B141EA716F2C54E002B5EB6 /* Icon@2x in Resources */ = {isa = PBXBuildFile; fileRef = 9B141EA216F2C54E002B5EB6 /* Icon@2x */; };
+		9B141EAD16F2D006002B5EB6 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B141EA916F2D006002B5EB6 /* libTestFlight.a */; };
+		9B141EAE16F2D006002B5EB6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B141EAA16F2D006002B5EB6 /* README.md */; };
+		9B141EAF16F2D006002B5EB6 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B141EAB16F2D006002B5EB6 /* release_notes.md */; };
 		9B1881C116CB1D0B00E68930 /* SkyLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881C016CB1D0B00E68930 /* SkyLayer.m */; };
 		9B1881C616CB6C1100E68930 /* SunMoonSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881C516CB6C1100E68930 /* SunMoonSprite.m */; };
 		9B1881CC16CB6C2F00E68930 /* SkyGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881CB16CB6C2F00E68930 /* SkyGradient.m */; };
@@ -254,6 +257,10 @@
 		9B141EA016F2C54D002B5EB6 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Assets/Art/App/Icon-Small@2x.png"; sourceTree = SOURCE_ROOT; };
 		9B141EA116F2C54D002B5EB6 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Assets/Art/App/Icon.png; sourceTree = SOURCE_ROOT; };
 		9B141EA216F2C54E002B5EB6 /* Icon@2x */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Icon@2x"; path = "Assets/Art/App/Icon@2x"; sourceTree = SOURCE_ROOT; };
+		9B141EA916F2D006002B5EB6 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		9B141EAA16F2D006002B5EB6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		9B141EAB16F2D006002B5EB6 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		9B141EAC16F2D006002B5EB6 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		9B1881BF16CB1D0B00E68930 /* SkyLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyLayer.h; sourceTree = "<group>"; };
 		9B1881C016CB1D0B00E68930 /* SkyLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkyLayer.m; sourceTree = "<group>"; };
 		9B1881C416CB6C1100E68930 /* SunMoonSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SunMoonSprite.h; sourceTree = "<group>"; };
@@ -694,12 +701,24 @@
 				9BCE858416B5DB500043048E /* GameKit.framework in Frameworks */,
 				9BCE875A16B608D50043048E /* libGoogleAnalytics.a in Frameworks */,
 				9B97D00316BB6A72005BF0FF /* libGoogleAdMobAds.a in Frameworks */,
+				9B141EAD16F2D006002B5EB6 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B141EA816F2D006002B5EB6 /* TestFlightSDK1 */ = {
+			isa = PBXGroup;
+			children = (
+				9B141EA916F2D006002B5EB6 /* libTestFlight.a */,
+				9B141EAA16F2D006002B5EB6 /* README.md */,
+				9B141EAB16F2D006002B5EB6 /* release_notes.md */,
+				9B141EAC16F2D006002B5EB6 /* TestFlight.h */,
+			);
+			path = TestFlightSDK1;
+			sourceTree = "<group>";
+		};
 		9B1881C216CB27DA00E68930 /* Sky */ = {
 			isa = PBXGroup;
 			children = (
@@ -1146,6 +1165,7 @@
 				9B3B2BAC16D2BB9100179904 /* World */,
 				9BCE858616B5DB500043048E /* Resources */,
 				9BCE85A016B5DB500043048E /* libs */,
+				9B141EA816F2D006002B5EB6 /* TestFlightSDK1 */,
 				9BCE86F916B5DB530043048E /* Supporting Files */,
 			);
 			path = ATidyWorld;
@@ -1725,6 +1745,8 @@
 				9B141EA516F2C54E002B5EB6 /* Icon-Small@2x.png in Resources */,
 				9B141EA616F2C54E002B5EB6 /* Icon.png in Resources */,
 				9B141EA716F2C54E002B5EB6 /* Icon@2x in Resources */,
+				9B141EAE16F2D006002B5EB6 /* README.md in Resources */,
+				9B141EAF16F2D006002B5EB6 /* release_notes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1950,13 +1972,14 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: E. Rudi Strahl (XY6E75NEFU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
 					"COCOS2D_DEBUG=1",
+					TESTING,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1964,7 +1987,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PROVISIONING_PROFILE = "CA94BDE8-BD4D-42B0-9177-D4AAD13E3438";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1978,7 +2001,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: E. Rudi Strahl (XY6E75NEFU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1990,7 +2013,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PROVISIONING_PROFILE = "CA94BDE8-BD4D-42B0-9177-D4AAD13E3438";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2011,6 +2034,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/ATidyWorld/GoogleAnalytics\"",
 					"\"$(SRCROOT)/ATidyWorld\"",
+					"\"$(SRCROOT)/ATidyWorld/TestFlightSDK1\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -2035,6 +2059,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/ATidyWorld/GoogleAnalytics\"",
 					"\"$(SRCROOT)/ATidyWorld\"",
+					"\"$(SRCROOT)/ATidyWorld/TestFlightSDK1\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",

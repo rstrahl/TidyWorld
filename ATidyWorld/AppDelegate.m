@@ -23,6 +23,8 @@
 - (void)initWeatherService;
 /// Initialize Google Analytics
 - (void)initGoogleAnalytics;
+/// Initialize TestFlight
+- (void)initTestFlight;
 /// Notification Listener for Location Service
 - (void)didReceiveLocationSuccessNotification:(NSNotification *)notification;
 - (void)didReceiveLocationFailedNotification:(NSNotification *)notification;
@@ -252,6 +254,16 @@
     [GAI sharedInstance].defaultTracker = mGoogleTracker;
 }
 
+#pragma mark - TestFlight Initialization
+- (void)initTestFlight
+{
+    // Initialize TestFlight
+#ifdef TESTING
+    NSLog(@"TestFlight initialization...");
+    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+    [TestFlight takeOff:@"bf713a672a32730f0c641e783f1b6ddf_NTEwNjkyMDEyLTAxLTAzIDE1OjEwOjE2LjE2NDQ0NA"];
+#endif
+}
 
 #pragma mark - Reachability Delegate
 - (void)didReceiveReachabilityChangedNotification:(NSNotification *)notification

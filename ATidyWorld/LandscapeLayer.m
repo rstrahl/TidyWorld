@@ -276,7 +276,7 @@
         CGPoint translation = [panGestureRecognizer translationInView:panGestureRecognizer.view];
         translation.y *= -1;
         [panGestureRecognizer setTranslation:CGPointZero inView:panGestureRecognizer.view];
-        DLog(@" %f %f", translation.x, translation.x/2);
+//        DLog(@" %f %f", translation.x, translation.x/2);
         [self updateLandscapePositionsWithForegroundDelta:translation.x backgroundDelta:translation.x/2];
         mVelocity = 0;
     }
