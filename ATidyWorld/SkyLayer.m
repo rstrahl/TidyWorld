@@ -50,7 +50,7 @@
         mSkyBatchNode = [[CCSpriteBatchNode alloc] initWithFile:SPRITESHEET_SKY_IMAGE capacity:4];
         [self addChild:mSkyBatchNode];
 
-        CGPoint sunMoonPoint = CGPointMake((screenSize.width / 2), (screenSize.height / 2));
+        CGPoint sunMoonPoint = CGPointMake((screenSize.width / 2), 55);
         mSunMoonSprite = [[SunMoonSprite alloc] initAtPoint:sunMoonPoint batchNode:mSkyBatchNode];
         
 //        [self scheduleUpdate];

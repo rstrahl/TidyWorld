@@ -20,8 +20,10 @@
     CCSpriteBatchNode       *mLandscapeBatchNode;           //< Batch node for landscape sprites
     CCArray                 *mLandscapeForegroundArray;     //< Container array for all foreground landscape sprites
     CCArray                 *mLandscapeBackgroundArray;     //< Container array for all background landscape sprites
+    CCArray                 *mLandscapeUndergroundArray;    //< Container array for all underground landscape sprites
     CGFloat                 mVelocity;                      //< The horizontal velocity applied to sprites
-    CGFloat                 mVelocityStep;                  //< The actual change in position applied to sprite.position
+    CGFloat                 mVelocityStep;                  //< The actual change in position applied to foreground sprites
+    CGFloat                 mBackgroundVelocityStep;        //< The actual change in position applied to background sprites
     UIPanGestureRecognizer  *mPanGestureRecognizer;         //< Pan gesture recognizer for handling user interaction
     CGSize                  mScreenSize;                    //< Size of the screen as reported by the director
     CGFloat                 mLandscapeSpriteWidth;          //< Width of a landscape sprite

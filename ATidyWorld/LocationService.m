@@ -134,23 +134,33 @@ static LocationService *sharedLocationController = nil;
 #pragma mark - Yahoo Geocoding Service
 - (void)findWOEIDByLocation:(CLLocation *)location
 {
-    NSString *serviceURLString = [NSString stringWithFormat:@"%@?q=%f,+%f&gflags=%@&flags=%@&appid=%@",
-                                  mWoeidServiceString, 
-                                  location.coordinate.latitude, location.coordinate.longitude,
-                                  mWoeidServiceGFlags,
-                                  mWoeidServiceFlags,
-                                  mYahooApplicationID];
-    DLog(@"updateWithLocation URL: %@", serviceURLString);
-    mWoeidServiceURL = [NSURL URLWithString:serviceURLString];
-    NSURLRequest *request = [NSURLRequest requestWithURL:mWoeidServiceURL];
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    if (connection)
+    NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
+    if ((now - mLastLocationUpdateTime) > 120)
     {
-        mResponseData = [[NSMutableData alloc] init];
+        mLastLocationUpdateTime = now;
+        NSString *serviceURLString = [NSString stringWithFormat:@"%@?q=%f,+%f&gflags=%@&flags=%@&appid=%@",
+                                      mWoeidServiceString,
+                                      location.coordinate.latitude, location.coordinate.longitude,
+                                      mWoeidServiceGFlags,
+                                      mWoeidServiceFlags,
+                                      mYahooApplicationID];
+        DLog(@"updateWithLocation URL: %@", serviceURLString);
+        mWoeidServiceURL = [NSURL URLWithString:serviceURLString];
+        NSURLRequest *request = [NSURLRequest requestWithURL:mWoeidServiceURL];
+        NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+        if (connection)
+        {
+            mResponseData = [[NSMutableData alloc] init];
+        }
+        else
+        {
+            DLog(@"ERROR initializing connection for location service");
+        }
+
     }
     else
     {
-        DLog(@"ERROR initializing connection for location service");
+        DLog(@"IGNORING repeat call to locationDidUpdate within 2 minutes");
     }
 }
 

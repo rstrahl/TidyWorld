@@ -20,7 +20,7 @@
  *  0 means the landscapes are moving towards the left
  *  @param dx the delta in the x coordinate
  */
-- (void)updateLandscapePositionsWithDelta:(CGFloat)dx;
+- (void)updateLandscapePositionsWithForegroundDelta:(CGFloat)dx backgroundDelta:(CGFloat)bdx;
 /** Updates the parallax effect for a given landscape based on the direction of the delta
  *  @param sprite the landscape sprite being adjusted
  *  @param i the index of that sprite within its container array
@@ -45,7 +45,7 @@
         mVelocity = 0;
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:SPRITESHEET_LANDSCAPE_PLIST];
-        mLandscapeBatchNode = [[CCSpriteBatchNode alloc] initWithFile:SPRITESHEET_LANDSCAPE_IMAGE capacity:kLandscapeCount*2];
+        mLandscapeBatchNode = [[CCSpriteBatchNode alloc] initWithFile:SPRITESHEET_LANDSCAPE_IMAGE capacity:13];
         [self addChild:mLandscapeBatchNode];
         
         // Configure panning gesture recognition
@@ -57,29 +57,42 @@
         self.isTouchEnabled = YES;
         
         // Configure landscape sprites
-        mLandscapeForegroundArray = [[CCArray alloc] initWithCapacity:kLandscapeCount];
-        mLandscapeBackgroundArray = [[CCArray alloc] initWithCapacity:kLandscapeCount];
-                
-        for (int i = 0; i < kLandscapeCount; i++)
+        mLandscapeForegroundArray = [[CCArray alloc] initWithCapacity:kLandscapeForegroundCount];
+        mLandscapeBackgroundArray = [[CCArray alloc] initWithCapacity:kLandscapeBackgroundCount];
+        mLandscapeUndergroundArray = [[CCArray alloc] initWithCapacity:(mScreenSize.width / 64)+1];
+
+        CCSprite *foregroundSprite = [[CCSprite alloc] initWithSpriteFrameName:@"LandscapeForeground1.png"];
+        
+        
+        for (int i = 0; i < kLandscapeBackgroundCount; i++)
         {
-            CCSprite *landscapeForegroundSprite = [[CCSprite alloc] initWithSpriteFrameName:[NSString stringWithFormat:@"LandscapeForeground%dTest.png", i+1]];
-            landscapeForegroundSprite.position = ccp((i * landscapeForegroundSprite.boundingBox.size.width),
-                                                     landscapeForegroundSprite.boundingBox.size.height);
-            landscapeForegroundSprite.anchorPoint = ccp(0,1);
-            [mLandscapeForegroundArray addObject:landscapeForegroundSprite];
-            [mLandscapeBatchNode addChild:landscapeForegroundSprite];
-            // Store the landscape sprite width so we don't have to constantly delve properties
-            if (mLandscapeSpriteWidth == 0)
-            {
-                mLandscapeSpriteWidth = landscapeForegroundSprite.boundingBox.size.width;
-            }
-            
-            CCSprite *landscapeBackgroundSprite = [[CCSprite alloc] initWithSpriteFrameName:[NSString stringWithFormat:@"LandscapeBackground%dTest.png", i+1]];
-            landscapeBackgroundSprite.position = ccp((i * landscapeForegroundSprite.boundingBox.size.width),
-                                                     (landscapeForegroundSprite.boundingBox.size.height + landscapeBackgroundSprite.boundingBox.size.height));
+            CCSprite *landscapeBackgroundSprite = [[CCSprite alloc] initWithSpriteFrameName:[NSString stringWithFormat:@"LandscapeBackground%d.png", i+1]];
+            landscapeBackgroundSprite.position = ccp((i * landscapeBackgroundSprite.boundingBox.size.width),
+                                                     (55 + (foregroundSprite.boundingBox.size.height * 0.4) + landscapeBackgroundSprite.boundingBox.size.height));
             landscapeBackgroundSprite.anchorPoint = ccp(0,1);
             [mLandscapeBackgroundArray addObject:landscapeBackgroundSprite];
             [mLandscapeBatchNode addChild:landscapeBackgroundSprite];
+        }
+        
+        for (int i = 0; i < kLandscapeForegroundCount; i++)
+        {
+            CCSprite *landscapeForegroundSprite = [[CCSprite alloc] initWithSpriteFrameName:[NSString stringWithFormat:@"LandscapeForeground%d.png", i+1]];
+            landscapeForegroundSprite.position = ccp((i * landscapeForegroundSprite.boundingBox.size.width),
+                                                     55 + landscapeForegroundSprite.boundingBox.size.height);
+            landscapeForegroundSprite.anchorPoint = ccp(0,1);
+            [mLandscapeForegroundArray addObject:landscapeForegroundSprite];
+            [mLandscapeBatchNode addChild:landscapeForegroundSprite];
+            mLandscapeSpriteWidth = landscapeForegroundSprite.boundingBox.size.width;
+        }
+        
+        for (int i = 0; i < (mScreenSize.width/64)+1; i++)
+        {
+            CCSprite *undergroundSprite = [[CCSprite alloc] initWithSpriteFrameName:@"LandscapeUnderground.png"];
+            undergroundSprite.position = ccp((i * undergroundSprite.boundingBox.size.width),
+                                             55);
+            undergroundSprite.anchorPoint = ccp(0,1);
+            [mLandscapeUndergroundArray addObject:undergroundSprite];
+            [mLandscapeBatchNode addChild:undergroundSprite];
         }
         
         [self scheduleUpdate];
@@ -90,21 +103,23 @@
 #pragma mark - Game Loop Update
 - (void)update:(ccTime)deltaTime
 {
-    // Update position
-    mVelocityStep += (mVelocity * deltaTime);
-    if (fabsf(mVelocityStep) >= 1)
+    if (mVelocity != 0)
     {
-        [self updateLandscapePositionsWithDelta:mVelocityStep];
-        if (mVelocityStep > 1)
+        // Update position
+        mVelocityStep += (mVelocity * deltaTime);
+        mBackgroundVelocityStep += (mVelocity * deltaTime) / 2;
+        if (fabsf(mVelocityStep) >= 1)
         {
-            mVelocityStep -= floorf(mVelocityStep);
-        }
-        if (mVelocityStep < -1)
-        {
-            mVelocityStep += floorf(mVelocityStep);
+            [self updateLandscapePositionsWithForegroundDelta:mVelocityStep backgroundDelta:mBackgroundVelocityStep];
+            mVelocityStep = (mVelocityStep > 0) ? mVelocityStep - floorf(mVelocityStep) : mVelocityStep - ceilf(mVelocityStep);
+    //        mVelocityStep -= floorf(mVelocityStep);
+            if (fabsf(mBackgroundVelocityStep) >= 1)
+            {
+                mBackgroundVelocityStep = (mBackgroundVelocityStep > 0) ? mBackgroundVelocityStep - floorf(mBackgroundVelocityStep) : mBackgroundVelocityStep - ceilf(mBackgroundVelocityStep);
+    //            mBackgroundVelocityStep -= floorf(mBackgroundVelocityStep);
+            }
         }
     }
-    mVelocityStep -= floor(mVelocityStep);
     
     // Update weather effect - lightning illumination
     if (mLightningDecayRate > 0)
@@ -122,55 +137,74 @@
     }
 }
 
-- (void)updateLandscapePositionsWithDelta:(CGFloat)dx
+- (void)updateLandscapePositionsWithForegroundDelta:(CGFloat)dx backgroundDelta:(CGFloat)bdx
 {
-    dx = (dx > 0) ? floorf(dx) : floorf(dx);
+    dx = (dx > 0) ? floorf(dx) : ceilf(dx);
+    bdx = (bdx > 0)? floorf(bdx) : ceilf(bdx);
     
-    for (int i = 0; i < kLandscapeCount; i++)
+    for (CCSprite *foregroundLandscape in mLandscapeForegroundArray)
     {
-        CCSprite *foregroundLandscape = (CCSprite *)[mLandscapeForegroundArray objectAtIndex:i];
-        CCSprite *backgroundLandscape = (CCSprite *)[mLandscapeBackgroundArray objectAtIndex:i];
-        
         foregroundLandscape.position = ccp((foregroundLandscape.position.x + dx), foregroundLandscape.position.y);
-        backgroundLandscape.position = ccp((backgroundLandscape.position.x + (dx / 2)), backgroundLandscape.position.y);
+    }
+    for (CCSprite *undergroundLandscape in mLandscapeUndergroundArray)
+    {
+        undergroundLandscape.position = ccp((undergroundLandscape.position.x + dx), undergroundLandscape.position.y);
+    }
+    for (CCSprite *backgroundLandscape in mLandscapeBackgroundArray)
+    {
+        backgroundLandscape.position = ccp((backgroundLandscape.position.x + bdx), backgroundLandscape.position.y);
     }
     
-    for (int i = 0; i < kLandscapeCount; i++)
+    for (int i = 0; i < kLandscapeForegroundCount; i++)
     {
         CCSprite *foregroundLandscape = (CCSprite *)[mLandscapeForegroundArray objectAtIndex:i];
-        CCSprite *backgroundLandscape = (CCSprite *)[mLandscapeBackgroundArray objectAtIndex:i];
+
         
         [self updateParallaxEffectForLandscapeSprite:foregroundLandscape
                                              atIndex:i
                                            fromArray:mLandscapeForegroundArray
                                            withDelta:dx];
-        [self updateParallaxEffectForLandscapeSprite:backgroundLandscape
+    }
+    for (int i = 0; i < mLandscapeUndergroundArray.count; i++)
+    {
+        CCSprite *undergroundLandscape = (CCSprite *)[mLandscapeUndergroundArray objectAtIndex:i];
+        [self updateParallaxEffectForLandscapeSprite:undergroundLandscape
                                              atIndex:i
-                                           fromArray:mLandscapeBackgroundArray
+                                           fromArray:mLandscapeUndergroundArray
                                            withDelta:dx];
+    }
+    
+    for (int i = 0; i < kLandscapeBackgroundCount; i++)
+    {
+            CCSprite *backgroundLandscape = (CCSprite *)[mLandscapeBackgroundArray objectAtIndex:i];
+            [self updateParallaxEffectForLandscapeSprite:backgroundLandscape
+                                                 atIndex:i
+                                               fromArray:mLandscapeBackgroundArray
+                                               withDelta:bdx];
     }
 }
 
 - (void)updateParallaxEffectForLandscapeSprite:(CCSprite *)sprite atIndex:(int)i fromArray:(CCArray *)array withDelta:(CGFloat)dx
 {
+    CGFloat spriteWidth = sprite.boundingBox.size.width;
     if (dx > 0) // We're moving towards the right
     {
         if (sprite.position.x >= mScreenSize.width) // Landscape moving offscreen towards right
         {
             // Set x to the x of the i+1 neighbor minus sprite width
-            int n = (i+1 == kLandscapeCount) ? 0 : (i + 1);
+            int n = (i+1 == array.count) ? 0 : (i + 1);
             CCSprite *neighborLandscape = (CCSprite *)[array objectAtIndex:n];
-            sprite.position = ccp(ceilf(neighborLandscape.position.x - mLandscapeSpriteWidth), floorf(sprite.position.y));
+            sprite.position = ccp(ceilf(neighborLandscape.position.x - spriteWidth), floorf(sprite.position.y));
         }
     }
     else if (dx < 0) // We're moving towards the left
     {
-        if ((sprite.position.x + mLandscapeSpriteWidth) <= 0) // Landscape moving offscreen towards left
+        if ((sprite.position.x + spriteWidth) <= 0) // Landscape moving offscreen towards left
         {
             // Set x to the x of the i-1 neighbor plus sprite width
-            int n = (i-1 < 0) ? (kLandscapeCount-1) : i-1;
+            int n = (i-1 < 0) ? (array.count-1) : i-1;
             CCSprite *neighborLandscape = (CCSprite *)[array objectAtIndex:n];
-            sprite.position = ccp(floorf(neighborLandscape.position.x + mLandscapeSpriteWidth), floorf(sprite.position.y));
+            sprite.position = ccp(floorf(neighborLandscape.position.x + spriteWidth), floorf(sprite.position.y));
         }
     }
 }
@@ -206,6 +240,10 @@
     }
     hsv_to_rgb(h, s, v, &r, &g, &b);
     
+    for (CCSprite *landscapeSprite in mLandscapeUndergroundArray)
+    {
+        landscapeSprite.color = ccc3(r, g, b);
+    }
     for (CCSprite *landscapeSprite in mLandscapeForegroundArray)
     {
         landscapeSprite.color = ccc3(r, g, b);
@@ -214,7 +252,6 @@
     {
         landscapeSprite.color = ccc3(r, g, b);
     }
-
 }
 
 #pragma mark - Weather Effects
@@ -239,7 +276,8 @@
         CGPoint translation = [panGestureRecognizer translationInView:panGestureRecognizer.view];
         translation.y *= -1;
         [panGestureRecognizer setTranslation:CGPointZero inView:panGestureRecognizer.view];
-        [self updateLandscapePositionsWithDelta:translation.x];
+        DLog(@" %f %f", translation.x, translation.x/2);
+        [self updateLandscapePositionsWithForegroundDelta:translation.x backgroundDelta:translation.x/2];
         mVelocity = 0;
     }
     else if (panGestureRecognizer.state == UIGestureRecognizerStateEnded)

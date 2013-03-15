@@ -157,9 +157,13 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>../Art/Sky/Moon.png</filename>
             <filename>../Art/Sky/Star.png</filename>
             <filename>../Art/Sky/Sun.png</filename>
+            <filename>../Art/Sky/Moon.png</filename>
+            <filename>../Art/Sky/Moon3Quarter.png</filename>
+            <filename>../Art/Sky/MoonFull.png</filename>
+            <filename>../Art/Sky/MoonHalf.png</filename>
+            <filename>../Art/Sky/MoonQuarter.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

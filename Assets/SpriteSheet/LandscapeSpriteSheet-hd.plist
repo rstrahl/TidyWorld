@@ -4,57 +4,187 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>LandscapeBackground1Test.png</key>
+            <key>LandscapeBackground1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,390},{640,128}}</string>
+                <string>{{2,944},{512,96}}</string>
+                <key>offset</key>
+                <string>{0,-80}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,160},{512,96}}</string>
+                <key>sourceSize</key>
+                <string>{512,256}</string>
+            </dict>
+            <key>LandscapeBackground2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{516,138},{512,246}}</string>
+                <key>offset</key>
+                <string>{0,-5}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,10},{512,246}}</string>
+                <key>sourceSize</key>
+                <string>{512,256}</string>
+            </dict>
+            <key>LandscapeBackground3.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,260},{512,178}}</string>
+                <key>offset</key>
+                <string>{0,-39}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,78},{512,178}}</string>
+                <key>sourceSize</key>
+                <string>{512,256}</string>
+            </dict>
+            <key>LandscapeBackground4.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{512,256}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{640,128}}</string>
+                <string>{{0,0},{512,256}}</string>
                 <key>sourceSize</key>
-                <string>{640,128}</string>
+                <string>{512,256}</string>
             </dict>
-            <key>LandscapeBackground2Test.png</key>
+            <key>LandscapeBackground5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,260},{640,128}}</string>
+                <string>{{516,2},{452,134}}</string>
                 <key>offset</key>
-                <string>{0,0}</string>
+                <string>{-30,-61}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{640,128}}</string>
+                <string>{{0,122},{452,134}}</string>
                 <key>sourceSize</key>
-                <string>{640,128}</string>
+                <string>{512,256}</string>
             </dict>
-            <key>LandscapeForeground1Test.png</key>
+            <key>LandscapeForeground1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{644,2},{640,256}}</string>
+                <string>{{894,138},{512,128}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{640,256}}</string>
+                <string>{{0,0},{512,128}}</string>
                 <key>sourceSize</key>
-                <string>{640,256}</string>
+                <string>{512,128}</string>
             </dict>
-            <key>LandscapeForeground2Test.png</key>
+            <key>LandscapeForeground2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{640,256}}</string>
+                <string>{{764,138},{512,128}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{512,128}}</string>
+                <key>sourceSize</key>
+                <string>{512,128}</string>
+            </dict>
+            <key>LandscapeForeground3.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,570},{512,128}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{640,256}}</string>
+                <string>{{0,0},{512,128}}</string>
                 <key>sourceSize</key>
-                <string>{640,256}</string>
+                <string>{512,128}</string>
+            </dict>
+            <key>LandscapeForeground4.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,828},{512,114}}</string>
+                <key>offset</key>
+                <string>{0,-7}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,14},{512,114}}</string>
+                <key>sourceSize</key>
+                <string>{512,128}</string>
+            </dict>
+            <key>LandscapeForeground5.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{646,652},{512,118}}</string>
+                <key>offset</key>
+                <string>{0,-5}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,10},{512,118}}</string>
+                <key>sourceSize</key>
+                <string>{512,128}</string>
+            </dict>
+            <key>LandscapeForeground6.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,440},{512,128}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{512,128}}</string>
+                <key>sourceSize</key>
+                <string>{512,128}</string>
+            </dict>
+            <key>LandscapeForeground7.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{516,782},{512,116}}</string>
+                <key>offset</key>
+                <string>{0,-6}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,12},{512,116}}</string>
+                <key>sourceSize</key>
+                <string>{512,128}</string>
+            </dict>
+            <key>LandscapeForeground8.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,700},{512,126}}</string>
+                <key>offset</key>
+                <string>{0,-1}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,2},{512,126}}</string>
+                <key>sourceSize</key>
+                <string>{512,128}</string>
+            </dict>
+            <key>LandscapeUnderground.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{516,652},{128,128}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{128,128}}</string>
+                <key>sourceSize</key>
+                <string>{128,128}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -64,9 +194,9 @@
             <key>realTextureFileName</key>
             <string>LandscapeSpriteSheet-hd.png</string>
             <key>size</key>
-            <string>{1024,1024}</string>
+            <string>{1024,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:3fadb7c96e168b1797e0393c897ef368$</string>
+            <string>$TexturePacker:SmartUpdate:4919fbe2d0b4254a8d425ff9733a0069$</string>
             <key>textureFileName</key>
             <string>LandscapeSpriteSheet-hd.png</string>
         </dict>

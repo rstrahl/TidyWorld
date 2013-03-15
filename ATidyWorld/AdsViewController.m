@@ -50,8 +50,8 @@
                                    50);            
         }
         UIView *view = [[UIView alloc] initWithFrame:viewFrame];
-        view.backgroundColor = [UIColor whiteColor];
-        view.alpha = 0.25f;
+        view.backgroundColor = [UIColor clearColor];
+//        view.alpha = 0.25f;
         self.view = view;
     }
     return self;

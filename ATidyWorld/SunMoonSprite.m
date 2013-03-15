@@ -64,7 +64,7 @@
         mSpriteRotationAngle /= (mSpriteRotationSpeed / M_PI);
     }
     CGFloat x = (mSpriteRotationRadius * (0.85*cos(mSpriteRotationAngle)) + mRotationPoint.x);
-    CGFloat y = (mSpriteRotationRadius * sin(mSpriteRotationAngle) + mRotationPoint.y);
+    CGFloat y = (mSpriteRotationRadius * (2*sin(mSpriteRotationAngle)) + mRotationPoint.y);
     
     mSunSprite.position = ccp(x, y);
     mMoonSprite.position = ccp(mRotationPoint.x + (mRotationPoint.x - x), (mRotationPoint.y + (mRotationPoint.y - y)));

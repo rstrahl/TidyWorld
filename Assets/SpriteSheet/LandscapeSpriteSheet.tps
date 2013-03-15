@@ -157,10 +157,20 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>../Art/Landscape 2x/LandscapeBackground2Test.png</filename>
-            <filename>../Art/Landscape 2x/LandscapeBackground1Test.png</filename>
-            <filename>../Art/Landscape 2x/LandscapeForeground2Test.png</filename>
-            <filename>../Art/Landscape 2x/LandscapeForeground1Test.png</filename>
+            <filename>../Art/Landscape 2x/LandscapeBackground1.png</filename>
+            <filename>../Art/Landscape 2x/LandscapeBackground2.png</filename>
+            <filename>../Art/Landscape 2x/LandscapeBackground3.png</filename>
+            <filename>../Art/Landscape 2x/LandscapeBackground4.png</filename>
+            <filename>../Art/Landscape 2x/LandscapeBackground5.png</filename>
+            <filename>../Art/Landscape 2x/LandscapeForeground1.png</filename>
+            <filename>../Art/Landscape 2x/LandscapeForeground2.png</filename>
+            <filename>../Art/Landscape 2x/LandscapeForeground3.png</filename>
+            <filename>../Art/Landscape 2x/LandscapeForeground4.png</filename>
+            <filename>../Art/Landscape 2x/LandscapeForeground5.png</filename>
+            <filename>../Art/Landscape 2x/LandscapeForeground6.png</filename>
+            <filename>../Art/Landscape 2x/LandscapeForeground7.png</filename>
+            <filename>../Art/Landscape 2x/LandscapeForeground8.png</filename>
+            <filename>../Art/Landscape 2x/LandscapeUnderground.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

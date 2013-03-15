@@ -29,6 +29,7 @@
     NSString                                    *mCity;
     NSString                                    *mState;
     NSString                                    *mCountry;
+    NSTimeInterval                              mLastLocationUpdateTime;
     BOOL                                        mInternetReachable;
 }
 
