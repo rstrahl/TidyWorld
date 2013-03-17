@@ -42,6 +42,7 @@
         
         // Stars
         mStarsParticleSystem = [[CCParticleSystemQuad alloc] initWithFile:PARTICLE_FILE_STARS];
+        
         [mStarsParticleSystem setVisible:NO];
         [self addChild:mStarsParticleSystem];
         

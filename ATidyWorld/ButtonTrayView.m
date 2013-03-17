@@ -36,11 +36,12 @@
     UIImage *weatherImageHighlight = [UIImage imageNamed:@"Icon_World_Highlight.png"];
     // Calculate the cell dimensions and padding
     int buttonCount = 0;
-    float buttonCellWidth = [[UIScreen mainScreen] bounds].size.width / 4; // width divided by number of buttons
-    float buttonCellPadding = (buttonCellWidth - weatherImage.size.width) / 2;
+    float buttonCellWidth = [[UIScreen mainScreen] bounds].size.width / 3; // width divided by number of buttons
+    float buttonCellHorizontalPadding = (buttonCellWidth - weatherImage.size.width) / 2;
+    float buttonCellVerticalPadding = (self.frame.size.height / 2) - (weatherImage.size.height / 2);
     CGRect buttonFrame;
-    buttonFrame = CGRectMake((buttonCount * buttonCellWidth) + buttonCellPadding,
-                             buttonCellPadding,
+    buttonFrame = CGRectMake((buttonCount * buttonCellWidth) + buttonCellHorizontalPadding,
+                             buttonCellVerticalPadding,
                              weatherImage.size.width,
                              weatherImage.size.height);
     mChangeWorldButton = [[UIButton alloc] initWithFrame:buttonFrame];
@@ -53,8 +54,8 @@
     
     UIImage *clockImage = [UIImage imageNamed:@"Icon_Clock.png"];
     UIImage *clockHighlightImage = [UIImage imageNamed:@"Icon_Clock_Highlight.png"];
-    buttonFrame = CGRectMake((buttonCount * buttonCellWidth) + buttonCellPadding,
-                             buttonCellPadding,
+    buttonFrame = CGRectMake((buttonCount * buttonCellWidth) + buttonCellHorizontalPadding,
+                             buttonCellVerticalPadding,
                              clockImage.size.width,
                              clockImage.size.height);
     mAlarmClockButton = [[UIButton alloc] initWithFrame:buttonFrame];
@@ -67,8 +68,8 @@
     
     UIImage *settingsImage = [UIImage imageNamed:@"Icon_Settings.png"];
     UIImage *settingsHighlightImage = [UIImage imageNamed:@"Icon_Settings_Highlight.png"];
-    buttonFrame = CGRectMake((buttonCount * buttonCellWidth) + buttonCellPadding,
-                             buttonCellPadding,
+    buttonFrame = CGRectMake((buttonCount * buttonCellWidth) + buttonCellHorizontalPadding,
+                             buttonCellVerticalPadding,
                              clockImage.size.width,
                              clockImage.size.height);
     mSettingsButton = [[UIButton alloc] initWithFrame:buttonFrame];

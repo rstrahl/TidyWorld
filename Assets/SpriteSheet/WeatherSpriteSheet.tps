@@ -11,6 +11,21 @@
         <array>
             <struct type="AutoSDSettings">
                 <key>scale</key>
+                <double>1</double>
+                <key>extension</key>
+                <string>-hd.</string>
+                <key>acceptFractionalValues</key>
+                <false/>
+                <key>maxTextureSize</key>
+                <QSize>
+                    <key>width</key>
+                    <int>2048</int>
+                    <key>height</key>
+                    <int>2048</int>
+                </QSize>
+            </struct>
+            <struct type="AutoSDSettings">
+                <key>scale</key>
                 <double>0.5</double>
                 <key>extension</key>
                 <string>.</string>
@@ -38,7 +53,7 @@
         <key>dataFormat</key>
         <string>cocos2d</string>
         <key>textureFileName</key>
-        <filename>WeatherSpriteSheet-hd.png</filename>
+        <filename>WeatherSpriteSheet-ipad.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
@@ -127,9 +142,9 @@
             <enum type="AndEngine::MagFilter">MagLinear</enum>
         </struct>
         <key>dataFileName</key>
-        <filename>WeatherSpriteSheet-hd.plist</filename>
+        <filename>WeatherSpriteSheet-ipad.plist</filename>
         <key>mainExtension</key>
-        <string>-hd.</string>
+        <string>-ipad.</string>
         <key>forceIdenticalLayout</key>
         <false/>
         <key>outputFormat</key>

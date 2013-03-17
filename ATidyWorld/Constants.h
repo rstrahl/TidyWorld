@@ -29,7 +29,6 @@
 #define PARTICLE_FILE_SNOW_BLIZZARD         @"SnowBlizzard.plist"
 #define PARTICLE_FILE_SNOW_BLOWING          @"SnowBlowing.plist"
 #define PARTICLE_FILE_STARS                 @"Stars.plist"
-#define PARTICLE_FILE_FOG                   @"Fog.plist"
 
 #define FILE_SCENERY                        @"Landscape"
 

@@ -19,6 +19,7 @@
     NSTimeInterval  mClockTime;
     float           mTemperature;
     NSString        *mLocation;
+    CGFloat         mFontSizeMultiplier;
     
     BOOL            mUse24HourClock;
     BOOL            mUseCelsius;

@@ -2,9 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>SYNC_CLOCK_TO_REAL_WORLD</key>
-	<true/>
-	<key>CLOCK_MULTIPLIER</key>
+	<key>CLOCK_IS_TIME_LAPSE</key>
+	<false/>
+	<key>TIME_LAPSE_MULTIPLIER</key>
 	<integer>0</integer>
 	<key>USE_CELSIUS</key>
 	<true/>

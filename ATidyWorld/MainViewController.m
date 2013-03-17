@@ -26,27 +26,27 @@
     {
         // Add Clock Label
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
-
-        CGRect clockFaceFrame = CGRectMake((screenSize.width / 2) - (300 / 2),
+        CGFloat sizeMultiplier = ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) ? 2.0 : 1.0;
+        CGRect clockFaceFrame = CGRectMake(0,
                                            0,
-                                           300,
-                                           80);
+                                           screenSize.width,
+                                           80*sizeMultiplier);
         mClockView = [[ClockFaceView alloc] initWithFrame:clockFaceFrame];
         
         // Add ButtonsViewControlller
         mButtonsView = [[ButtonTrayView alloc] initWithFrame:CGRectMake(screenSize.width,
                                                                         0,
                                                                         screenSize.width,
-                                                                        80)];
+                                                                        80*sizeMultiplier)];
         mButtonsView.parentViewController = self;
         
         mScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,
                                                                      0,
                                                                      [UIScreen mainScreen].bounds.size.width,
-                                                                     80)];
+                                                                     80*sizeMultiplier)];
         [mScrollView addSubview:mClockView];
         [mScrollView addSubview:mButtonsView];
-        [mScrollView setContentSize:CGSizeMake(mScrollView.frame.size.width * 2, 80)];
+        [mScrollView setContentSize:CGSizeMake(mScrollView.frame.size.width * 2, 80*sizeMultiplier)];
         [mScrollView setPagingEnabled:YES];
         
         [self.view addSubview:mScrollView];

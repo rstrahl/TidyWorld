@@ -40,25 +40,46 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        mFontSizeMultiplier = ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) ? 2.0 : 1.0;
         [[NSBundle mainBundle] loadNibNamed:@"ClockFaceView" owner:self options:nil];
         self.timeLabel.text = @"";
-        self.timeLabel.font = [UIFont fontWithName:@"CenturyGothic" size:64];
+        self.timeLabel.font = [UIFont fontWithName:@"CenturyGothic" size:64*mFontSizeMultiplier];
+        CGRect timeLabelFrame = self.timeLabel.frame;
+        timeLabelFrame.size.height *= mFontSizeMultiplier;
+        self.timeLabel.frame = timeLabelFrame;
         self.dateLabel.text = @"";
-        self.dateLabel.font = [UIFont fontWithName:@"CenturyGothic" size:16];
-        self.ampmLabel.text = @"";
-        self.ampmLabel.font = [UIFont fontWithName:@"CenturyGothic" size:22];
+        self.dateLabel.font = [UIFont fontWithName:@"CenturyGothic" size:16*mFontSizeMultiplier];
+        CGRect dateLabelFrame = self.dateLabel.frame;
+        dateLabelFrame.size.height *= mFontSizeMultiplier;
+        self.dateLabel.frame = dateLabelFrame;
+        self.ampmLabel.text = @"XX";
+        self.ampmLabel.font = [UIFont fontWithName:@"CenturyGothic" size:22*mFontSizeMultiplier];
+        CGSize expectedAMPMLabelSize = [ampmLabel.text sizeWithFont:ampmLabel.font];
+        CGRect ampmLabelFrame = self.ampmLabel.frame;
+        ampmLabelFrame.size.width = expectedAMPMLabelSize.width;
+        ampmLabelFrame.size.height *= mFontSizeMultiplier;
+        self.ampmLabel.frame = ampmLabelFrame;
         self.temperatureLabel.text = @"";
-        self.temperatureLabel.font = [UIFont fontWithName:@"CenturyGothic" size:64];
+        self.temperatureLabel.font = [UIFont fontWithName:@"CenturyGothic" size:64*mFontSizeMultiplier];
+        CGRect temperatureLabelFrame = self.temperatureLabel.frame;
+        temperatureLabelFrame.size.height *= mFontSizeMultiplier;
+        self.temperatureLabel.frame = temperatureLabelFrame;
         self.temperatureLabel.alpha = 0;
         self.unitsLabel.text = @"";
-        self.unitsLabel.font = [UIFont fontWithName:@"CenturyGothic" size:22];
+        self.unitsLabel.font = [UIFont fontWithName:@"CenturyGothic" size:22*mFontSizeMultiplier];
+        CGRect unitsLabelFrame = self.unitsLabel.frame;
+        unitsLabelFrame.size.height *= mFontSizeMultiplier;
+        self.unitsLabel.frame = unitsLabelFrame;
         self.unitsLabel.alpha = 0;
-        self.locationLabel.text = @"";
-        self.locationLabel.font = [UIFont fontWithName:@"CenturyGothic" size:16];
+        self.locationLabel.text = @"Somewhere";
+        self.locationLabel.font = [UIFont fontWithName:@"CenturyGothic" size:16*mFontSizeMultiplier];
+        CGRect locationLabelFrame = self.locationLabel.frame;
+        locationLabelFrame.size.height *= mFontSizeMultiplier;
+        self.locationLabel.frame = locationLabelFrame;
         self.locationLabel.alpha = 0;
 //        self.alarmImageView.hidden = YES;
 //        self.nextAlarmLabel.text = @"";
-//        self.nextAlarmLabel.font = [UIFont fontWithName:@"CenturyGothic" size:14];
+//        self.nextAlarmLabel.font = [UIFont fontWithName:@"CenturyGothic" size:14*mFontSizeMultiplier];
         [self updateUIForSettings];
         [self addSubview:self.view];
         
@@ -109,28 +130,6 @@
 #pragma mark - UI Updates
 - (void)updateClockFace:(NSTimeInterval)time
 {
-    // TODO: CODE REVIEW: Determine if required and delete if obsolete
-//    NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:time];
-//    NSString *timeString = [mTimeFormatter stringFromDate:date];
-//    self.timeLabel.text = [NSString stringWithFormat:@"%@:%@",
-//                           [[timeString componentsSeparatedByString:@":"] objectAtIndex:4],
-//                           [[timeString componentsSeparatedByString:@":"] objectAtIndex:5] ];
-//    if (!mUse24HourClock)
-//    {
-//        NSString *ampmString =  (NSString *)[[timeString componentsSeparatedByString:@":"] objectAtIndex:6];
-//        if([ampmString isEqualToString:@"PM"]){
-//            [ampmLabel setText:NSLocalizedString(@"PM", @"PM")];
-//        }
-//        else
-//        {
-//            [ampmLabel setText:NSLocalizedString(@"AM", @"AM")];
-//        }
-//        [self.ampmLabel setHidden:NO];
-//    }
-//    else
-//    {
-//        [self.ampmLabel setHidden:YES];
-//    }
     // TIME Label
     time += [[NSTimeZone localTimeZone] secondsFromGMT];
     time = (uint)time % (uint)kOneDayInSeconds;
@@ -157,26 +156,23 @@
     }
 
     // Arrange Time Label
-    CGSize expectedTimeLabelSize = [timeLabel.text sizeWithFont:timeLabel.font
-                                                       forWidth:200
-                                                  lineBreakMode:timeLabel.lineBreakMode];
-    CGRect timeLabelFrame = CGRectMake((self.frame.size.width / 2) - (expectedTimeLabelSize.width / 2) - (self.ampmLabel.frame.size.width / 2),
-                                        self.frame.origin.y,
+    CGSize expectedTimeLabelSize = [timeLabel.text sizeWithFont:timeLabel.font];
+    CGRect timeLabelFrame = CGRectMake((self.frame.size.width / 2) - (expectedTimeLabelSize.width / 2) - (ampmLabel.frame.size.width / 2),
+                                        0,
                                         expectedTimeLabelSize.width,
-                                        self.timeLabel.frame.size.height);
+                                        timeLabel.frame.size.height);
     if (mUse24HourClock)
     {
-        timeLabelFrame.origin.x += (self.ampmLabel.frame.size.width / 2);
+        timeLabelFrame.origin.x += (ampmLabel.frame.size.width / 2);
     }
     [self.timeLabel setFrame:timeLabelFrame];
     
     // Arrange am/pm Label
     CGRect ampmRect = CGRectMake((timeLabel.frame.origin.x + expectedTimeLabelSize.width),
                                  (timeLabel.frame.size.height - ampmLabel.frame.size.height),
-                                 ampmLabel.frame.size.width, 
+                                 ampmLabel.frame.size.width,
                                  ampmLabel.frame.size.height);
-    [self.ampmLabel setFrame:ampmRect];
-    
+    [self.ampmLabel setFrame:ampmRect];    
 }
 
 - (void)updateDateForTimeInterval:(NSTimeInterval)time
@@ -200,10 +196,10 @@
         }
         
         CGSize expectedDateLabelSize = [dateLabel.text sizeWithFont:dateLabel.font
-                                                  constrainedToSize:CGSizeMake(260, 24)
+                                                  constrainedToSize:CGSizeMake(260*mFontSizeMultiplier, 24*mFontSizeMultiplier)
                                                       lineBreakMode:dateLabel.lineBreakMode];
         CGRect dateLabelFrame = CGRectMake((self.frame.size.width / 2) - (expectedDateLabelSize.width / 2),
-                                           self.timeLabel.frame.origin.y + self.timeLabel.frame.size.height,
+                                           timeLabel.frame.origin.y + timeLabel.frame.size.height,
                                            expectedDateLabelSize.width,
                                            dateLabel.frame.size.height);
         [self.dateLabel setFrame:dateLabelFrame];
@@ -227,7 +223,7 @@
         
         // Arrange Temp Label
         CGSize expectedTempLabelSize = [self.temperatureLabel.text sizeWithFont:temperatureLabel.font
-                                                           forWidth:100
+                                                           forWidth:(100*mFontSizeMultiplier)
                                                       lineBreakMode:timeLabel.lineBreakMode];
         CGRect tempLabelFrame = CGRectMake((self.frame.size.width / 2) - (expectedTempLabelSize.width / 2),
                                            self.frame.origin.y,
@@ -248,7 +244,7 @@
 - (void)updateLocation:(NSString *)location
 {
     CGSize expectedLabelSize = [location sizeWithFont:self.locationLabel.font
-                                    constrainedToSize:CGSizeMake(300, 24)
+                                    constrainedToSize:CGSizeMake(300*mFontSizeMultiplier, 24*mFontSizeMultiplier)
                                         lineBreakMode:locationLabel.lineBreakMode];
     CGRect locationLabelFrame = CGRectMake((self.frame.size.width / 2) - (expectedLabelSize.width / 2),
                                            self.temperatureLabel.frame.origin.y + self.temperatureLabel.frame.size.height,

@@ -8,7 +8,7 @@
 
 #import "FogLayer.h"
 
-const int kFogSpriteCount = 3; // Fog is 256 wide, we need at least 3 to cover parallaxing
+const int kFogSpriteCount = 6; // Fog is 256 wide, we need at least 3 to cover parallaxing
 
 @implementation FogLayer
 

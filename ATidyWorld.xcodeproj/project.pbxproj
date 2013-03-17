@@ -19,14 +19,6 @@
 		9B1881C616CB6C1100E68930 /* SunMoonSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881C516CB6C1100E68930 /* SunMoonSprite.m */; };
 		9B1881CC16CB6C2F00E68930 /* SkyGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881CB16CB6C2F00E68930 /* SkyGradient.m */; };
 		9B1881CF16CC8A4800E68930 /* DawnDuskGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881CE16CC8A4700E68930 /* DawnDuskGradient.m */; };
-		9B3B2BA316D2BABD00179904 /* RainHeavy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2B9B16D2BABD00179904 /* RainHeavy.plist */; };
-		9B3B2BA416D2BABD00179904 /* RainLight.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2B9C16D2BABD00179904 /* RainLight.plist */; };
-		9B3B2BA516D2BABD00179904 /* RainMedium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2B9D16D2BABD00179904 /* RainMedium.plist */; };
-		9B3B2BA616D2BABD00179904 /* SnowBlizzard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2B9E16D2BABD00179904 /* SnowBlizzard.plist */; };
-		9B3B2BA716D2BABD00179904 /* SnowBlowing.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2B9F16D2BABD00179904 /* SnowBlowing.plist */; };
-		9B3B2BA816D2BABD00179904 /* SnowHeavy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2BA016D2BABD00179904 /* SnowHeavy.plist */; };
-		9B3B2BA916D2BABD00179904 /* SnowLight.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2BA116D2BABD00179904 /* SnowLight.plist */; };
-		9B3B2BAA16D2BABD00179904 /* SnowMedium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B2BA216D2BABD00179904 /* SnowMedium.plist */; };
 		9B3B2BAF16D2BCA000179904 /* WeatherLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B2BAE16D2BCA000179904 /* WeatherLayer.m */; };
 		9B3B2BC316D4227C00179904 /* Cloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B2BBD16D4227900179904 /* Cloud.m */; };
 		9B67A8B716D85D9F00659006 /* LandscapeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B67A8B616D85D9F00659006 /* LandscapeLayer.m */; };
@@ -53,18 +45,6 @@
 		9B97D00D16BB7335005BF0FF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00C16BB7335005BF0FF /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		9B97D00F16BB7374005BF0FF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00E16BB7374005BF0FF /* MessageUI.framework */; };
 		9B97D01116BB73D6005BF0FF /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D01016BB73D6005BF0FF /* iAd.framework */; };
-		9B97D03316BCE5E2005BF0FF /* Icon_Clock_Highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D01B16BCE5E2005BF0FF /* Icon_Clock_Highlight@2x.png */; };
-		9B97D03516BCE5E2005BF0FF /* Icon_Clock_Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D01D16BCE5E2005BF0FF /* Icon_Clock_Highlight.png */; };
-		9B97D03716BCE5E2005BF0FF /* Icon_Clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D01F16BCE5E2005BF0FF /* Icon_Clock@2x.png */; };
-		9B97D03916BCE5E2005BF0FF /* Icon_Clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D02116BCE5E2005BF0FF /* Icon_Clock.png */; };
-		9B97D03B16BCE5E2005BF0FF /* Icon_Settings_Highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D02316BCE5E2005BF0FF /* Icon_Settings_Highlight@2x.png */; };
-		9B97D03D16BCE5E2005BF0FF /* Icon_Settings_Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D02516BCE5E2005BF0FF /* Icon_Settings_Highlight.png */; };
-		9B97D03F16BCE5E2005BF0FF /* Icon_Settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D02716BCE5E2005BF0FF /* Icon_Settings@2x.png */; };
-		9B97D04116BCE5E2005BF0FF /* Icon_Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D02916BCE5E2005BF0FF /* Icon_Settings.png */; };
-		9B97D04316BCE5E2005BF0FF /* Icon_World_Highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D02B16BCE5E2005BF0FF /* Icon_World_Highlight@2x.png */; };
-		9B97D04516BCE5E2005BF0FF /* Icon_World_Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D02D16BCE5E2005BF0FF /* Icon_World_Highlight.png */; };
-		9B97D04716BCE5E2005BF0FF /* Icon_World@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D02F16BCE5E2005BF0FF /* Icon_World@2x.png */; };
-		9B97D04916BCE5E2005BF0FF /* Icon_World.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D03116BCE5E2005BF0FF /* Icon_World.png */; };
 		9B97D05216BF0A4F005BF0FF /* SettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D05016BF0A4F005BF0FF /* SettingsTableViewController.xib */; };
 		9B97D05316BF0C7C005BF0FF /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D04F16BF0A4F005BF0FF /* SettingsTableViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D05816BF0F02005BF0FF /* ButtonTrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D05716BF0F02005BF0FF /* ButtonTrayView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -103,6 +83,54 @@
 		9B97D0BA16C21DD9005BF0FF /* train_whistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0B316C21DD9005BF0FF /* train_whistle.mp3 */; };
 		9BB464AF16C4A0B400BD5BBC /* AlarmService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB464AE16C4A0B400BD5BBC /* AlarmService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BB464B216C4E12F00BD5BBC /* TMTimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB464B116C4E12F00BD5BBC /* TMTimeUtils.m */; };
+		9BC0363E16F54016002D6C02 /* Icon_Clock_Highlight@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363216F54016002D6C02 /* Icon_Clock_Highlight@2x~ipad.png */; };
+		9BC0363F16F54016002D6C02 /* Icon_Clock_Highlight@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363316F54016002D6C02 /* Icon_Clock_Highlight@2x~iphone.png */; };
+		9BC0364016F54016002D6C02 /* Icon_Clock@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363416F54016002D6C02 /* Icon_Clock@2x~ipad.png */; };
+		9BC0364116F54016002D6C02 /* Icon_Clock@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363516F54016002D6C02 /* Icon_Clock@2x~iphone.png */; };
+		9BC0364216F54016002D6C02 /* Icon_Settings_Highlight@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363616F54016002D6C02 /* Icon_Settings_Highlight@2x~ipad.png */; };
+		9BC0364316F54016002D6C02 /* Icon_Settings_Highlight@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363716F54016002D6C02 /* Icon_Settings_Highlight@2x~iphone.png */; };
+		9BC0364416F54016002D6C02 /* Icon_Settings@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363816F54016002D6C02 /* Icon_Settings@2x~ipad.png */; };
+		9BC0364516F54016002D6C02 /* Icon_Settings@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363916F54016002D6C02 /* Icon_Settings@2x~iphone.png */; };
+		9BC0364616F54016002D6C02 /* Icon_World_Highlight@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363A16F54016002D6C02 /* Icon_World_Highlight@2x~ipad.png */; };
+		9BC0364716F54016002D6C02 /* Icon_World_Highlight@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363B16F54016002D6C02 /* Icon_World_Highlight@2x~iphone.png */; };
+		9BC0364816F54016002D6C02 /* Icon_World@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363C16F54016002D6C02 /* Icon_World@2x~ipad.png */; };
+		9BC0364916F54016002D6C02 /* Icon_World@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363D16F54016002D6C02 /* Icon_World@2x~iphone.png */; };
+		9BC0365616F54025002D6C02 /* Icon_Clock_Highlight~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0364A16F54025002D6C02 /* Icon_Clock_Highlight~ipad.png */; };
+		9BC0365716F54025002D6C02 /* Icon_Clock_Highlight~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0364B16F54025002D6C02 /* Icon_Clock_Highlight~iphone.png */; };
+		9BC0365816F54025002D6C02 /* Icon_Clock~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0364C16F54025002D6C02 /* Icon_Clock~ipad.png */; };
+		9BC0365916F54025002D6C02 /* Icon_Clock~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0364D16F54025002D6C02 /* Icon_Clock~iphone.png */; };
+		9BC0365A16F54025002D6C02 /* Icon_Settings_Highlight~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0364E16F54025002D6C02 /* Icon_Settings_Highlight~ipad.png */; };
+		9BC0365B16F54025002D6C02 /* Icon_Settings_Highlight~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0364F16F54025002D6C02 /* Icon_Settings_Highlight~iphone.png */; };
+		9BC0365C16F54025002D6C02 /* Icon_Settings~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0365016F54025002D6C02 /* Icon_Settings~ipad.png */; };
+		9BC0365D16F54025002D6C02 /* Icon_Settings~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0365116F54025002D6C02 /* Icon_Settings~iphone.png */; };
+		9BC0365E16F54025002D6C02 /* Icon_World_Highlight~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0365216F54025002D6C02 /* Icon_World_Highlight~ipad.png */; };
+		9BC0365F16F54025002D6C02 /* Icon_World_Highlight~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0365316F54025002D6C02 /* Icon_World_Highlight~iphone.png */; };
+		9BC0366016F54025002D6C02 /* Icon_World~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0365416F54025002D6C02 /* Icon_World~ipad.png */; };
+		9BC0366116F54025002D6C02 /* Icon_World~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0365516F54025002D6C02 /* Icon_World~iphone.png */; };
+		9BC0368416F64399002D6C02 /* Stars-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0367216F64399002D6C02 /* Stars-ipad.plist */; };
+		9BC0369416F64722002D6C02 /* RainLight.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368616F64722002D6C02 /* RainLight.plist */; };
+		9BC0369516F64722002D6C02 /* RainMedium-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368716F64722002D6C02 /* RainMedium-ipad.plist */; };
+		9BC0369616F64722002D6C02 /* RainMedium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368816F64722002D6C02 /* RainMedium.plist */; };
+		9BC0369716F64722002D6C02 /* SnowBlizzard-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368916F64722002D6C02 /* SnowBlizzard-ipad.plist */; };
+		9BC0369816F64722002D6C02 /* SnowBlizzard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368A16F64722002D6C02 /* SnowBlizzard.plist */; };
+		9BC0369916F64722002D6C02 /* SnowBlowing-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368B16F64722002D6C02 /* SnowBlowing-ipad.plist */; };
+		9BC0369A16F64722002D6C02 /* SnowBlowing.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368C16F64722002D6C02 /* SnowBlowing.plist */; };
+		9BC0369B16F64722002D6C02 /* SnowHeavy-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368D16F64722002D6C02 /* SnowHeavy-ipad.plist */; };
+		9BC0369C16F64722002D6C02 /* SnowHeavy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368E16F64722002D6C02 /* SnowHeavy.plist */; };
+		9BC0369D16F64722002D6C02 /* SnowLight-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368F16F64722002D6C02 /* SnowLight-ipad.plist */; };
+		9BC0369E16F64722002D6C02 /* SnowLight.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0369016F64722002D6C02 /* SnowLight.plist */; };
+		9BC0369F16F64722002D6C02 /* SnowMedium-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0369116F64722002D6C02 /* SnowMedium-ipad.plist */; };
+		9BC036A016F64722002D6C02 /* SnowMedium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0369216F64722002D6C02 /* SnowMedium.plist */; };
+		9BC036A116F64722002D6C02 /* Stars.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0369316F64722002D6C02 /* Stars.plist */; };
+		9BC036A516F64732002D6C02 /* RainHeavy-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036A216F64732002D6C02 /* RainHeavy-ipad.plist */; };
+		9BC036A616F64732002D6C02 /* RainHeavy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036A316F64732002D6C02 /* RainHeavy.plist */; };
+		9BC036A716F64732002D6C02 /* RainLight-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036A416F64732002D6C02 /* RainLight-ipad.plist */; };
+		9BC036AA16F64DA9002D6C02 /* LandscapeSpriteSheet-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036A816F64DA9002D6C02 /* LandscapeSpriteSheet-ipad.plist */; };
+		9BC036AB16F64DA9002D6C02 /* LandscapeSpriteSheet-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036A916F64DA9002D6C02 /* LandscapeSpriteSheet-ipad.png */; };
+		9BC036B016F654F7002D6C02 /* SkySpriteSheet-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036AC16F654F7002D6C02 /* SkySpriteSheet-ipad.plist */; };
+		9BC036B116F654F7002D6C02 /* SkySpriteSheet-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036AD16F654F7002D6C02 /* SkySpriteSheet-ipad.png */; };
+		9BC036B216F654F7002D6C02 /* WeatherSpriteSheet-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036AE16F654F7002D6C02 /* WeatherSpriteSheet-ipad.plist */; };
+		9BC036B316F654F7002D6C02 /* WeatherSpriteSheet-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036AF16F654F7002D6C02 /* WeatherSpriteSheet-ipad.png */; };
 		9BCE857416B5DB500043048E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857316B5DB500043048E /* QuartzCore.framework */; };
 		9BCE857616B5DB500043048E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857516B5DB500043048E /* OpenGLES.framework */; };
 		9BCE857816B5DB500043048E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857716B5DB500043048E /* OpenAL.framework */; };
@@ -237,7 +265,6 @@
 		9BCE875C16B6094E0043048E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875B16B6094E0043048E /* CoreData.framework */; };
 		9BCE875E16B609560043048E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875D16B609560043048E /* SystemConfiguration.framework */; };
 		9BCE876016B6096E0043048E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875F16B6096D0043048E /* CoreLocation.framework */; };
-		9BE2CC9016D7E5F700936709 /* Stars.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BE2CC8F16D7E5F600936709 /* Stars.plist */; };
 		9BFF80ED16E022E300051E6E /* AnalyticsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF80EC16E022E300051E6E /* AnalyticsConstants.m */; };
 /* End PBXBuildFile section */
 
@@ -269,14 +296,6 @@
 		9B1881CB16CB6C2F00E68930 /* SkyGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkyGradient.m; sourceTree = "<group>"; };
 		9B1881CD16CC8A4700E68930 /* DawnDuskGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DawnDuskGradient.h; sourceTree = "<group>"; };
 		9B1881CE16CC8A4700E68930 /* DawnDuskGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DawnDuskGradient.m; sourceTree = "<group>"; };
-		9B3B2B9B16D2BABD00179904 /* RainHeavy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RainHeavy.plist; path = Assets/ParticleEffects/RainHeavy.plist; sourceTree = SOURCE_ROOT; };
-		9B3B2B9C16D2BABD00179904 /* RainLight.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RainLight.plist; path = Assets/ParticleEffects/RainLight.plist; sourceTree = SOURCE_ROOT; };
-		9B3B2B9D16D2BABD00179904 /* RainMedium.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RainMedium.plist; path = Assets/ParticleEffects/RainMedium.plist; sourceTree = SOURCE_ROOT; };
-		9B3B2B9E16D2BABD00179904 /* SnowBlizzard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SnowBlizzard.plist; path = Assets/ParticleEffects/SnowBlizzard.plist; sourceTree = SOURCE_ROOT; };
-		9B3B2B9F16D2BABD00179904 /* SnowBlowing.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SnowBlowing.plist; path = Assets/ParticleEffects/SnowBlowing.plist; sourceTree = SOURCE_ROOT; };
-		9B3B2BA016D2BABD00179904 /* SnowHeavy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SnowHeavy.plist; path = Assets/ParticleEffects/SnowHeavy.plist; sourceTree = SOURCE_ROOT; };
-		9B3B2BA116D2BABD00179904 /* SnowLight.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SnowLight.plist; path = Assets/ParticleEffects/SnowLight.plist; sourceTree = SOURCE_ROOT; };
-		9B3B2BA216D2BABD00179904 /* SnowMedium.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SnowMedium.plist; path = Assets/ParticleEffects/SnowMedium.plist; sourceTree = SOURCE_ROOT; };
 		9B3B2BAD16D2BCA000179904 /* WeatherLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherLayer.h; sourceTree = "<group>"; };
 		9B3B2BAE16D2BCA000179904 /* WeatherLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherLayer.m; sourceTree = "<group>"; };
 		9B3B2BBC16D4227900179904 /* Cloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cloud.h; sourceTree = "<group>"; };
@@ -320,18 +339,6 @@
 		9B97D00C16BB7335005BF0FF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		9B97D00E16BB7374005BF0FF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		9B97D01016BB73D6005BF0FF /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
-		9B97D01B16BCE5E2005BF0FF /* Icon_Clock_Highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Clock_Highlight@2x.png"; sourceTree = "<group>"; };
-		9B97D01D16BCE5E2005BF0FF /* Icon_Clock_Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Clock_Highlight.png; sourceTree = "<group>"; };
-		9B97D01F16BCE5E2005BF0FF /* Icon_Clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Clock@2x.png"; sourceTree = "<group>"; };
-		9B97D02116BCE5E2005BF0FF /* Icon_Clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Clock.png; sourceTree = "<group>"; };
-		9B97D02316BCE5E2005BF0FF /* Icon_Settings_Highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Settings_Highlight@2x.png"; sourceTree = "<group>"; };
-		9B97D02516BCE5E2005BF0FF /* Icon_Settings_Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Settings_Highlight.png; sourceTree = "<group>"; };
-		9B97D02716BCE5E2005BF0FF /* Icon_Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Settings@2x.png"; sourceTree = "<group>"; };
-		9B97D02916BCE5E2005BF0FF /* Icon_Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_Settings.png; sourceTree = "<group>"; };
-		9B97D02B16BCE5E2005BF0FF /* Icon_World_Highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_World_Highlight@2x.png"; sourceTree = "<group>"; };
-		9B97D02D16BCE5E2005BF0FF /* Icon_World_Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_World_Highlight.png; sourceTree = "<group>"; };
-		9B97D02F16BCE5E2005BF0FF /* Icon_World@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_World@2x.png"; sourceTree = "<group>"; };
-		9B97D03116BCE5E2005BF0FF /* Icon_World.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_World.png; sourceTree = "<group>"; };
 		9B97D04E16BF0A4F005BF0FF /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		9B97D04F16BF0A4F005BF0FF /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		9B97D05016BF0A4F005BF0FF /* SettingsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewController.xib; sourceTree = "<group>"; };
@@ -389,6 +396,54 @@
 		9BB464AE16C4A0B400BD5BBC /* AlarmService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmService.m; sourceTree = "<group>"; };
 		9BB464B016C4E12F00BD5BBC /* TMTimeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMTimeUtils.h; sourceTree = "<group>"; };
 		9BB464B116C4E12F00BD5BBC /* TMTimeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMTimeUtils.m; sourceTree = "<group>"; };
+		9BC0363216F54016002D6C02 /* Icon_Clock_Highlight@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Clock_Highlight@2x~ipad.png"; sourceTree = "<group>"; };
+		9BC0363316F54016002D6C02 /* Icon_Clock_Highlight@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Clock_Highlight@2x~iphone.png"; sourceTree = "<group>"; };
+		9BC0363416F54016002D6C02 /* Icon_Clock@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Clock@2x~ipad.png"; sourceTree = "<group>"; };
+		9BC0363516F54016002D6C02 /* Icon_Clock@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Clock@2x~iphone.png"; sourceTree = "<group>"; };
+		9BC0363616F54016002D6C02 /* Icon_Settings_Highlight@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Settings_Highlight@2x~ipad.png"; sourceTree = "<group>"; };
+		9BC0363716F54016002D6C02 /* Icon_Settings_Highlight@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Settings_Highlight@2x~iphone.png"; sourceTree = "<group>"; };
+		9BC0363816F54016002D6C02 /* Icon_Settings@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Settings@2x~ipad.png"; sourceTree = "<group>"; };
+		9BC0363916F54016002D6C02 /* Icon_Settings@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Settings@2x~iphone.png"; sourceTree = "<group>"; };
+		9BC0363A16F54016002D6C02 /* Icon_World_Highlight@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_World_Highlight@2x~ipad.png"; sourceTree = "<group>"; };
+		9BC0363B16F54016002D6C02 /* Icon_World_Highlight@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_World_Highlight@2x~iphone.png"; sourceTree = "<group>"; };
+		9BC0363C16F54016002D6C02 /* Icon_World@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_World@2x~ipad.png"; sourceTree = "<group>"; };
+		9BC0363D16F54016002D6C02 /* Icon_World@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_World@2x~iphone.png"; sourceTree = "<group>"; };
+		9BC0364A16F54025002D6C02 /* Icon_Clock_Highlight~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Clock_Highlight~ipad.png"; sourceTree = "<group>"; };
+		9BC0364B16F54025002D6C02 /* Icon_Clock_Highlight~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Clock_Highlight~iphone.png"; sourceTree = "<group>"; };
+		9BC0364C16F54025002D6C02 /* Icon_Clock~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Clock~ipad.png"; sourceTree = "<group>"; };
+		9BC0364D16F54025002D6C02 /* Icon_Clock~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Clock~iphone.png"; sourceTree = "<group>"; };
+		9BC0364E16F54025002D6C02 /* Icon_Settings_Highlight~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Settings_Highlight~ipad.png"; sourceTree = "<group>"; };
+		9BC0364F16F54025002D6C02 /* Icon_Settings_Highlight~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Settings_Highlight~iphone.png"; sourceTree = "<group>"; };
+		9BC0365016F54025002D6C02 /* Icon_Settings~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Settings~ipad.png"; sourceTree = "<group>"; };
+		9BC0365116F54025002D6C02 /* Icon_Settings~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Settings~iphone.png"; sourceTree = "<group>"; };
+		9BC0365216F54025002D6C02 /* Icon_World_Highlight~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_World_Highlight~ipad.png"; sourceTree = "<group>"; };
+		9BC0365316F54025002D6C02 /* Icon_World_Highlight~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_World_Highlight~iphone.png"; sourceTree = "<group>"; };
+		9BC0365416F54025002D6C02 /* Icon_World~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_World~ipad.png"; sourceTree = "<group>"; };
+		9BC0365516F54025002D6C02 /* Icon_World~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_World~iphone.png"; sourceTree = "<group>"; };
+		9BC0367216F64399002D6C02 /* Stars-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Stars-ipad.plist"; path = "Assets/ParticleEffects/Stars-ipad.plist"; sourceTree = SOURCE_ROOT; };
+		9BC0368616F64722002D6C02 /* RainLight.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RainLight.plist; path = Assets/ParticleEffects/RainLight.plist; sourceTree = SOURCE_ROOT; };
+		9BC0368716F64722002D6C02 /* RainMedium-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "RainMedium-ipad.plist"; path = "Assets/ParticleEffects/RainMedium-ipad.plist"; sourceTree = SOURCE_ROOT; };
+		9BC0368816F64722002D6C02 /* RainMedium.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RainMedium.plist; path = Assets/ParticleEffects/RainMedium.plist; sourceTree = SOURCE_ROOT; };
+		9BC0368916F64722002D6C02 /* SnowBlizzard-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SnowBlizzard-ipad.plist"; path = "Assets/ParticleEffects/SnowBlizzard-ipad.plist"; sourceTree = SOURCE_ROOT; };
+		9BC0368A16F64722002D6C02 /* SnowBlizzard.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SnowBlizzard.plist; path = Assets/ParticleEffects/SnowBlizzard.plist; sourceTree = SOURCE_ROOT; };
+		9BC0368B16F64722002D6C02 /* SnowBlowing-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SnowBlowing-ipad.plist"; path = "Assets/ParticleEffects/SnowBlowing-ipad.plist"; sourceTree = SOURCE_ROOT; };
+		9BC0368C16F64722002D6C02 /* SnowBlowing.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SnowBlowing.plist; path = Assets/ParticleEffects/SnowBlowing.plist; sourceTree = SOURCE_ROOT; };
+		9BC0368D16F64722002D6C02 /* SnowHeavy-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SnowHeavy-ipad.plist"; path = "Assets/ParticleEffects/SnowHeavy-ipad.plist"; sourceTree = SOURCE_ROOT; };
+		9BC0368E16F64722002D6C02 /* SnowHeavy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SnowHeavy.plist; path = Assets/ParticleEffects/SnowHeavy.plist; sourceTree = SOURCE_ROOT; };
+		9BC0368F16F64722002D6C02 /* SnowLight-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SnowLight-ipad.plist"; path = "Assets/ParticleEffects/SnowLight-ipad.plist"; sourceTree = SOURCE_ROOT; };
+		9BC0369016F64722002D6C02 /* SnowLight.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SnowLight.plist; path = Assets/ParticleEffects/SnowLight.plist; sourceTree = SOURCE_ROOT; };
+		9BC0369116F64722002D6C02 /* SnowMedium-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SnowMedium-ipad.plist"; path = "Assets/ParticleEffects/SnowMedium-ipad.plist"; sourceTree = SOURCE_ROOT; };
+		9BC0369216F64722002D6C02 /* SnowMedium.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SnowMedium.plist; path = Assets/ParticleEffects/SnowMedium.plist; sourceTree = SOURCE_ROOT; };
+		9BC0369316F64722002D6C02 /* Stars.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Stars.plist; path = Assets/ParticleEffects/Stars.plist; sourceTree = SOURCE_ROOT; };
+		9BC036A216F64732002D6C02 /* RainHeavy-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "RainHeavy-ipad.plist"; path = "Assets/ParticleEffects/RainHeavy-ipad.plist"; sourceTree = SOURCE_ROOT; };
+		9BC036A316F64732002D6C02 /* RainHeavy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = RainHeavy.plist; path = Assets/ParticleEffects/RainHeavy.plist; sourceTree = SOURCE_ROOT; };
+		9BC036A416F64732002D6C02 /* RainLight-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "RainLight-ipad.plist"; path = "Assets/ParticleEffects/RainLight-ipad.plist"; sourceTree = SOURCE_ROOT; };
+		9BC036A816F64DA9002D6C02 /* LandscapeSpriteSheet-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "LandscapeSpriteSheet-ipad.plist"; path = "Assets/SpriteSheet/LandscapeSpriteSheet-ipad.plist"; sourceTree = SOURCE_ROOT; };
+		9BC036A916F64DA9002D6C02 /* LandscapeSpriteSheet-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LandscapeSpriteSheet-ipad.png"; path = "Assets/SpriteSheet/LandscapeSpriteSheet-ipad.png"; sourceTree = SOURCE_ROOT; };
+		9BC036AC16F654F7002D6C02 /* SkySpriteSheet-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SkySpriteSheet-ipad.plist"; path = "Assets/SpriteSheet/SkySpriteSheet-ipad.plist"; sourceTree = SOURCE_ROOT; };
+		9BC036AD16F654F7002D6C02 /* SkySpriteSheet-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SkySpriteSheet-ipad.png"; path = "Assets/SpriteSheet/SkySpriteSheet-ipad.png"; sourceTree = SOURCE_ROOT; };
+		9BC036AE16F654F7002D6C02 /* WeatherSpriteSheet-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "WeatherSpriteSheet-ipad.plist"; path = "Assets/SpriteSheet/WeatherSpriteSheet-ipad.plist"; sourceTree = SOURCE_ROOT; };
+		9BC036AF16F654F7002D6C02 /* WeatherSpriteSheet-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WeatherSpriteSheet-ipad.png"; path = "Assets/SpriteSheet/WeatherSpriteSheet-ipad.png"; sourceTree = SOURCE_ROOT; };
 		9BCE856F16B5DB500043048E /* ATidyWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATidyWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BCE857316B5DB500043048E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9BCE857516B5DB500043048E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -672,7 +727,6 @@
 		9BCE875B16B6094E0043048E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9BCE875D16B609560043048E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9BCE875F16B6096D0043048E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		9BE2CC8F16D7E5F600936709 /* Stars.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Stars.plist; path = Assets/ParticleEffects/Stars.plist; sourceTree = SOURCE_ROOT; };
 		9BFF80EB16E022E300051E6E /* AnalyticsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsConstants.h; sourceTree = "<group>"; };
 		9BFF80EC16E022E300051E6E /* AnalyticsConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticsConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -739,14 +793,20 @@
 			children = (
 				9B7DFE2316E5672C00A534DF /* LandscapeSpriteSheet-hd.plist */,
 				9B7DFE2416E5672C00A534DF /* LandscapeSpriteSheet-hd.png */,
+				9BC036A816F64DA9002D6C02 /* LandscapeSpriteSheet-ipad.plist */,
+				9BC036A916F64DA9002D6C02 /* LandscapeSpriteSheet-ipad.png */,
 				9B7DFE2516E5672C00A534DF /* LandscapeSpriteSheet.plist */,
 				9B7DFE2616E5672C00A534DF /* LandscapeSpriteSheet.png */,
 				9B7DFE2716E5672C00A534DF /* SkySpriteSheet-hd.plist */,
 				9B7DFE2816E5672C00A534DF /* SkySpriteSheet-hd.png */,
+				9BC036AC16F654F7002D6C02 /* SkySpriteSheet-ipad.plist */,
+				9BC036AD16F654F7002D6C02 /* SkySpriteSheet-ipad.png */,
 				9B7DFE2916E5672C00A534DF /* SkySpriteSheet.plist */,
 				9B7DFE2A16E5672C00A534DF /* SkySpriteSheet.png */,
 				9B7DFE2B16E5672C00A534DF /* WeatherSpriteSheet-hd.plist */,
 				9B7DFE2C16E5672C00A534DF /* WeatherSpriteSheet-hd.png */,
+				9BC036AE16F654F7002D6C02 /* WeatherSpriteSheet-ipad.plist */,
+				9BC036AF16F654F7002D6C02 /* WeatherSpriteSheet-ipad.png */,
 				9B7DFE2D16E5672C00A534DF /* WeatherSpriteSheet.plist */,
 				9B7DFE2E16E5672C00A534DF /* WeatherSpriteSheet.png */,
 			);
@@ -756,15 +816,24 @@
 		9B3B2B9916D2B9AB00179904 /* ParticleEffects */ = {
 			isa = PBXGroup;
 			children = (
-				9B3B2B9B16D2BABD00179904 /* RainHeavy.plist */,
-				9B3B2B9C16D2BABD00179904 /* RainLight.plist */,
-				9B3B2B9D16D2BABD00179904 /* RainMedium.plist */,
-				9B3B2B9E16D2BABD00179904 /* SnowBlizzard.plist */,
-				9B3B2B9F16D2BABD00179904 /* SnowBlowing.plist */,
-				9B3B2BA016D2BABD00179904 /* SnowHeavy.plist */,
-				9B3B2BA116D2BABD00179904 /* SnowLight.plist */,
-				9B3B2BA216D2BABD00179904 /* SnowMedium.plist */,
-				9BE2CC8F16D7E5F600936709 /* Stars.plist */,
+				9BC036A216F64732002D6C02 /* RainHeavy-ipad.plist */,
+				9BC036A316F64732002D6C02 /* RainHeavy.plist */,
+				9BC036A416F64732002D6C02 /* RainLight-ipad.plist */,
+				9BC0368616F64722002D6C02 /* RainLight.plist */,
+				9BC0368716F64722002D6C02 /* RainMedium-ipad.plist */,
+				9BC0368816F64722002D6C02 /* RainMedium.plist */,
+				9BC0368916F64722002D6C02 /* SnowBlizzard-ipad.plist */,
+				9BC0368A16F64722002D6C02 /* SnowBlizzard.plist */,
+				9BC0368B16F64722002D6C02 /* SnowBlowing-ipad.plist */,
+				9BC0368C16F64722002D6C02 /* SnowBlowing.plist */,
+				9BC0368D16F64722002D6C02 /* SnowHeavy-ipad.plist */,
+				9BC0368E16F64722002D6C02 /* SnowHeavy.plist */,
+				9BC0368F16F64722002D6C02 /* SnowLight-ipad.plist */,
+				9BC0369016F64722002D6C02 /* SnowLight.plist */,
+				9BC0369116F64722002D6C02 /* SnowMedium-ipad.plist */,
+				9BC0369216F64722002D6C02 /* SnowMedium.plist */,
+				9BC0369316F64722002D6C02 /* Stars.plist */,
+				9BC0367216F64399002D6C02 /* Stars-ipad.plist */,
 			);
 			name = ParticleEffects;
 			sourceTree = "<group>";
@@ -946,12 +1015,18 @@
 		9B97D04A16BDF9B1005BF0FF /* 1x */ = {
 			isa = PBXGroup;
 			children = (
-				9B97D01D16BCE5E2005BF0FF /* Icon_Clock_Highlight.png */,
-				9B97D02116BCE5E2005BF0FF /* Icon_Clock.png */,
-				9B97D02516BCE5E2005BF0FF /* Icon_Settings_Highlight.png */,
-				9B97D02916BCE5E2005BF0FF /* Icon_Settings.png */,
-				9B97D02D16BCE5E2005BF0FF /* Icon_World_Highlight.png */,
-				9B97D03116BCE5E2005BF0FF /* Icon_World.png */,
+				9BC0364A16F54025002D6C02 /* Icon_Clock_Highlight~ipad.png */,
+				9BC0364B16F54025002D6C02 /* Icon_Clock_Highlight~iphone.png */,
+				9BC0364C16F54025002D6C02 /* Icon_Clock~ipad.png */,
+				9BC0364D16F54025002D6C02 /* Icon_Clock~iphone.png */,
+				9BC0364E16F54025002D6C02 /* Icon_Settings_Highlight~ipad.png */,
+				9BC0364F16F54025002D6C02 /* Icon_Settings_Highlight~iphone.png */,
+				9BC0365016F54025002D6C02 /* Icon_Settings~ipad.png */,
+				9BC0365116F54025002D6C02 /* Icon_Settings~iphone.png */,
+				9BC0365216F54025002D6C02 /* Icon_World_Highlight~ipad.png */,
+				9BC0365316F54025002D6C02 /* Icon_World_Highlight~iphone.png */,
+				9BC0365416F54025002D6C02 /* Icon_World~ipad.png */,
+				9BC0365516F54025002D6C02 /* Icon_World~iphone.png */,
 			);
 			name = 1x;
 			sourceTree = "<group>";
@@ -959,12 +1034,18 @@
 		9B97D04B16BDF9B6005BF0FF /* 2x */ = {
 			isa = PBXGroup;
 			children = (
-				9B97D01B16BCE5E2005BF0FF /* Icon_Clock_Highlight@2x.png */,
-				9B97D01F16BCE5E2005BF0FF /* Icon_Clock@2x.png */,
-				9B97D02316BCE5E2005BF0FF /* Icon_Settings_Highlight@2x.png */,
-				9B97D02716BCE5E2005BF0FF /* Icon_Settings@2x.png */,
-				9B97D02B16BCE5E2005BF0FF /* Icon_World_Highlight@2x.png */,
-				9B97D02F16BCE5E2005BF0FF /* Icon_World@2x.png */,
+				9BC0363216F54016002D6C02 /* Icon_Clock_Highlight@2x~ipad.png */,
+				9BC0363316F54016002D6C02 /* Icon_Clock_Highlight@2x~iphone.png */,
+				9BC0363416F54016002D6C02 /* Icon_Clock@2x~ipad.png */,
+				9BC0363516F54016002D6C02 /* Icon_Clock@2x~iphone.png */,
+				9BC0363616F54016002D6C02 /* Icon_Settings_Highlight@2x~ipad.png */,
+				9BC0363716F54016002D6C02 /* Icon_Settings_Highlight@2x~iphone.png */,
+				9BC0363816F54016002D6C02 /* Icon_Settings@2x~ipad.png */,
+				9BC0363916F54016002D6C02 /* Icon_Settings@2x~iphone.png */,
+				9BC0363A16F54016002D6C02 /* Icon_World_Highlight@2x~ipad.png */,
+				9BC0363B16F54016002D6C02 /* Icon_World_Highlight@2x~iphone.png */,
+				9BC0363C16F54016002D6C02 /* Icon_World@2x~ipad.png */,
+				9BC0363D16F54016002D6C02 /* Icon_World@2x~iphone.png */,
 			);
 			name = 2x;
 			sourceTree = "<group>";
@@ -1690,18 +1771,6 @@
 				9BCE872416B5FD610043048E /* WorldOptions.plist in Resources */,
 				9BCE872516B5FD610043048E /* AppDefaults.plist in Resources */,
 				9B96CB8A16B90318009A226B /* Localizable.strings in Resources */,
-				9B97D03316BCE5E2005BF0FF /* Icon_Clock_Highlight@2x.png in Resources */,
-				9B97D03516BCE5E2005BF0FF /* Icon_Clock_Highlight.png in Resources */,
-				9B97D03716BCE5E2005BF0FF /* Icon_Clock@2x.png in Resources */,
-				9B97D03916BCE5E2005BF0FF /* Icon_Clock.png in Resources */,
-				9B97D03B16BCE5E2005BF0FF /* Icon_Settings_Highlight@2x.png in Resources */,
-				9B97D03D16BCE5E2005BF0FF /* Icon_Settings_Highlight.png in Resources */,
-				9B97D03F16BCE5E2005BF0FF /* Icon_Settings@2x.png in Resources */,
-				9B97D04116BCE5E2005BF0FF /* Icon_Settings.png in Resources */,
-				9B97D04316BCE5E2005BF0FF /* Icon_World_Highlight@2x.png in Resources */,
-				9B97D04516BCE5E2005BF0FF /* Icon_World_Highlight.png in Resources */,
-				9B97D04716BCE5E2005BF0FF /* Icon_World@2x.png in Resources */,
-				9B97D04916BCE5E2005BF0FF /* Icon_World.png in Resources */,
 				9B97D05216BF0A4F005BF0FF /* SettingsTableViewController.xib in Resources */,
 				9B97D05E16BF1B3A005BF0FF /* WorldOptionsViewController.xib in Resources */,
 				9B97D06416BF2153005BF0FF /* SelectWeatherOptionViewController.xib in Resources */,
@@ -1719,15 +1788,6 @@
 				9B97D0B816C21DD9005BF0FF /* ranz_des_vaches.mp3 in Resources */,
 				9B97D0B916C21DD9005BF0FF /* reveille.mp3 in Resources */,
 				9B97D0BA16C21DD9005BF0FF /* train_whistle.mp3 in Resources */,
-				9B3B2BA316D2BABD00179904 /* RainHeavy.plist in Resources */,
-				9B3B2BA416D2BABD00179904 /* RainLight.plist in Resources */,
-				9B3B2BA516D2BABD00179904 /* RainMedium.plist in Resources */,
-				9B3B2BA616D2BABD00179904 /* SnowBlizzard.plist in Resources */,
-				9B3B2BA716D2BABD00179904 /* SnowBlowing.plist in Resources */,
-				9B3B2BA816D2BABD00179904 /* SnowHeavy.plist in Resources */,
-				9B3B2BA916D2BABD00179904 /* SnowLight.plist in Resources */,
-				9B3B2BAA16D2BABD00179904 /* SnowMedium.plist in Resources */,
-				9BE2CC9016D7E5F700936709 /* Stars.plist in Resources */,
 				9B7DFE2F16E5672C00A534DF /* LandscapeSpriteSheet-hd.plist in Resources */,
 				9B7DFE3016E5672C00A534DF /* LandscapeSpriteSheet-hd.png in Resources */,
 				9B7DFE3116E5672C00A534DF /* LandscapeSpriteSheet.plist in Resources */,
@@ -1747,6 +1807,54 @@
 				9B141EA716F2C54E002B5EB6 /* Icon@2x in Resources */,
 				9B141EAE16F2D006002B5EB6 /* README.md in Resources */,
 				9B141EAF16F2D006002B5EB6 /* release_notes.md in Resources */,
+				9BC0363E16F54016002D6C02 /* Icon_Clock_Highlight@2x~ipad.png in Resources */,
+				9BC0363F16F54016002D6C02 /* Icon_Clock_Highlight@2x~iphone.png in Resources */,
+				9BC0364016F54016002D6C02 /* Icon_Clock@2x~ipad.png in Resources */,
+				9BC0364116F54016002D6C02 /* Icon_Clock@2x~iphone.png in Resources */,
+				9BC0364216F54016002D6C02 /* Icon_Settings_Highlight@2x~ipad.png in Resources */,
+				9BC0364316F54016002D6C02 /* Icon_Settings_Highlight@2x~iphone.png in Resources */,
+				9BC0364416F54016002D6C02 /* Icon_Settings@2x~ipad.png in Resources */,
+				9BC0364516F54016002D6C02 /* Icon_Settings@2x~iphone.png in Resources */,
+				9BC0364616F54016002D6C02 /* Icon_World_Highlight@2x~ipad.png in Resources */,
+				9BC0364716F54016002D6C02 /* Icon_World_Highlight@2x~iphone.png in Resources */,
+				9BC0364816F54016002D6C02 /* Icon_World@2x~ipad.png in Resources */,
+				9BC0364916F54016002D6C02 /* Icon_World@2x~iphone.png in Resources */,
+				9BC0365616F54025002D6C02 /* Icon_Clock_Highlight~ipad.png in Resources */,
+				9BC0365716F54025002D6C02 /* Icon_Clock_Highlight~iphone.png in Resources */,
+				9BC0365816F54025002D6C02 /* Icon_Clock~ipad.png in Resources */,
+				9BC0365916F54025002D6C02 /* Icon_Clock~iphone.png in Resources */,
+				9BC0365A16F54025002D6C02 /* Icon_Settings_Highlight~ipad.png in Resources */,
+				9BC0365B16F54025002D6C02 /* Icon_Settings_Highlight~iphone.png in Resources */,
+				9BC0365C16F54025002D6C02 /* Icon_Settings~ipad.png in Resources */,
+				9BC0365D16F54025002D6C02 /* Icon_Settings~iphone.png in Resources */,
+				9BC0365E16F54025002D6C02 /* Icon_World_Highlight~ipad.png in Resources */,
+				9BC0365F16F54025002D6C02 /* Icon_World_Highlight~iphone.png in Resources */,
+				9BC0366016F54025002D6C02 /* Icon_World~ipad.png in Resources */,
+				9BC0366116F54025002D6C02 /* Icon_World~iphone.png in Resources */,
+				9BC0368416F64399002D6C02 /* Stars-ipad.plist in Resources */,
+				9BC0369416F64722002D6C02 /* RainLight.plist in Resources */,
+				9BC0369516F64722002D6C02 /* RainMedium-ipad.plist in Resources */,
+				9BC0369616F64722002D6C02 /* RainMedium.plist in Resources */,
+				9BC0369716F64722002D6C02 /* SnowBlizzard-ipad.plist in Resources */,
+				9BC0369816F64722002D6C02 /* SnowBlizzard.plist in Resources */,
+				9BC0369916F64722002D6C02 /* SnowBlowing-ipad.plist in Resources */,
+				9BC0369A16F64722002D6C02 /* SnowBlowing.plist in Resources */,
+				9BC0369B16F64722002D6C02 /* SnowHeavy-ipad.plist in Resources */,
+				9BC0369C16F64722002D6C02 /* SnowHeavy.plist in Resources */,
+				9BC0369D16F64722002D6C02 /* SnowLight-ipad.plist in Resources */,
+				9BC0369E16F64722002D6C02 /* SnowLight.plist in Resources */,
+				9BC0369F16F64722002D6C02 /* SnowMedium-ipad.plist in Resources */,
+				9BC036A016F64722002D6C02 /* SnowMedium.plist in Resources */,
+				9BC036A116F64722002D6C02 /* Stars.plist in Resources */,
+				9BC036A516F64732002D6C02 /* RainHeavy-ipad.plist in Resources */,
+				9BC036A616F64732002D6C02 /* RainHeavy.plist in Resources */,
+				9BC036A716F64732002D6C02 /* RainLight-ipad.plist in Resources */,
+				9BC036AA16F64DA9002D6C02 /* LandscapeSpriteSheet-ipad.plist in Resources */,
+				9BC036AB16F64DA9002D6C02 /* LandscapeSpriteSheet-ipad.png in Resources */,
+				9BC036B016F654F7002D6C02 /* SkySpriteSheet-ipad.plist in Resources */,
+				9BC036B116F654F7002D6C02 /* SkySpriteSheet-ipad.png in Resources */,
+				9BC036B216F654F7002D6C02 /* WeatherSpriteSheet-ipad.plist in Resources */,
+				9BC036B316F654F7002D6C02 /* WeatherSpriteSheet-ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

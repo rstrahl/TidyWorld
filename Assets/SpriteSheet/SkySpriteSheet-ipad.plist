@@ -7,93 +7,93 @@
             <key>Moon.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{68,64},{58,60}}</string>
+                <string>{{2,132},{116,120}}</string>
                 <key>offset</key>
-                <string>{-1,0}</string>
+                <string>{-2,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
-                <string>{{2,2},{58,60}}</string>
+                <string>{{4,4},{116,120}}</string>
                 <key>sourceSize</key>
-                <string>{64,64}</string>
+                <string>{128,128}</string>
             </dict>
             <key>Moon3Quarter.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,130},{56,58}}</string>
+                <string>{{2,250},{114,118}}</string>
                 <key>offset</key>
-                <string>{-2,-1}</string>
+                <string>{-4,-1}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{2,4},{56,58}}</string>
+                <string>{{3,6},{114,118}}</string>
                 <key>sourceSize</key>
-                <string>{64,64}</string>
+                <string>{128,128}</string>
             </dict>
             <key>MoonFull.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,68},{60,60}}</string>
+                <string>{{132,2},{122,122}}</string>
                 <key>offset</key>
-                <string>{0,0}</string>
+                <string>{0,1}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{2,2},{60,60}}</string>
+                <string>{{3,2},{122,122}}</string>
                 <key>sourceSize</key>
-                <string>{64,64}</string>
+                <string>{128,128}</string>
             </dict>
             <key>MoonHalf.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{64,126},{48,60}}</string>
+                <string>{{124,244},{94,120}}</string>
                 <key>offset</key>
-                <string>{-7,0}</string>
+                <string>{-13,0}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{1,2},{48,60}}</string>
+                <string>{{4,4},{94,120}}</string>
                 <key>sourceSize</key>
-                <string>{64,64}</string>
+                <string>{128,128}</string>
             </dict>
             <key>MoonQuarter.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{68,2},{58,60}}</string>
+                <string>{{132,126},{116,122}}</string>
                 <key>offset</key>
-                <string>{-2,0}</string>
+                <string>{-3,1}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
-                <string>{{1,2},{58,60}}</string>
+                <string>{{3,2},{116,122}}</string>
                 <key>sourceSize</key>
-                <string>{64,64}</string>
+                <string>{128,128}</string>
             </dict>
             <key>Star.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{62,176},{6,6}}</string>
+                <string>{{122,340},{12,12}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{1,1},{6,6}}</string>
+                <string>{{2,2},{12,12}}</string>
                 <key>sourceSize</key>
-                <string>{8,8}</string>
+                <string>{16,16}</string>
             </dict>
             <key>Sun.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{64,64}}</string>
+                <string>{{2,2},{128,128}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{64,64}}</string>
+                <string>{{0,0},{128,128}}</string>
                 <key>sourceSize</key>
-                <string>{64,64}</string>
+                <string>{128,128}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -101,13 +101,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>SkySpriteSheet.png</string>
+            <string>SkySpriteSheet-ipad.png</string>
             <key>size</key>
-            <string>{128,256}</string>
+            <string>{256,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:c1fc193bc3afd38ee3dcc3f32d45b959$</string>
+            <string>$TexturePacker:SmartUpdate:b6e9738dcb109f36ee2784b9762982b7$</string>
             <key>textureFileName</key>
-            <string>SkySpriteSheet.png</string>
+            <string>SkySpriteSheet-ipad.png</string>
         </dict>
     </dict>
 </plist>
