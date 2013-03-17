@@ -94,12 +94,17 @@
                                                   ALARM_DEFAULT_SOUND_FILE]];
         self.alarm.sound_id = [NSString stringWithFormat:@"%@", assetURL];
         self.alarm.sound_name = ALARM_DEFAULT_SOUND_NAME;
+        self.alarm.enabled = [NSNumber numberWithBool:YES];
     }
     
     // Picker time is today in seconds + the alarm time since midnight of its original day
     if ([self.alarm.time doubleValue])
-    {
+    {        
         [self.timePicker setDate:[NSDate dateWithTimeIntervalSinceReferenceDate:self.alarm.time.doubleValue]];
+    }
+    else
+    {
+        [self.timePicker setDate:[NSDate date]];
     }
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -313,7 +318,15 @@
 - (IBAction)saveButtonPressed:(id)sender
 {
     // We save the time of the alarm as the time during the day - datepicker always includes DATE
-    mAlarm.time = [NSNumber numberWithDouble:floor([TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:[self.timePicker.date timeIntervalSinceReferenceDate]])];
+    NSTimeInterval alarmTime = floor([TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:[self.timePicker.date timeIntervalSinceReferenceDate]]);
+    if (mIsNewAlarm)
+    {
+        if ([[NSTimeZone localTimeZone] isDaylightSavingTime])
+        {
+            alarmTime += [[NSTimeZone localTimeZone] daylightSavingTimeOffset];
+        }
+    }
+    mAlarm.time = [NSNumber numberWithDouble:alarmTime];
     mAlarm.hasProblem = [NSNumber numberWithBool:NO];
     // Save object in context
     NSError *error;

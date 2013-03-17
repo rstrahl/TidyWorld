@@ -51,6 +51,7 @@
 {
     // Initalize Analytics
     [self initGoogleAnalytics];
+    [self initTestFlight];
     
     NSDate *startTime = [NSDate date];
 
