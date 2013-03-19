@@ -23,8 +23,9 @@
     UIViewController    *mParentViewController;
 }
 
-@property (nonatomic, assign) id sceneDelegate;
-@property (nonatomic, strong) UIViewController *parentViewController;
+@property (nonatomic, assign) id                    sceneDelegate;
+@property (nonatomic, strong) UIViewController      *parentViewController;
+@property (nonatomic, strong) UIPopoverController   *popoverController;
 
 - (IBAction)alarmClockButtonPressed:(id)sender;
 - (IBAction)changeSeasonButtonPressed:(id)sender;

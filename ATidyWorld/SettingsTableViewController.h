@@ -28,7 +28,10 @@ typedef enum
     NSArray                             *mDisplayOptionsData;
     NSArray                             *mGeneralOptionsData;
     BOOL                                mSettingsChanged;
+    
 }
+
+@property (nonatomic, unsafe_unretained) id delegate;
 
 // IBActions
 - (IBAction)doneButtonPressed:(id)sender;

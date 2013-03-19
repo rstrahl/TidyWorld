@@ -90,6 +90,7 @@
             [[[GAI sharedInstance] defaultTracker] trackException:NO withNSError:error];
         }
 	}
+    self.contentSizeForViewInPopover = CGSizeMake(320,460);
 }
 
 - (void)viewDidUnload
@@ -406,7 +407,21 @@
 
 - (IBAction)doneButtonPressed:(id)sender
 {
-    [self dismissModalViewControllerAnimated:YES];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        if ([self.delegate respondsToSelector:@selector(dismissPopoverAnimated:)])
+        {
+            [self.delegate dismissPopoverAnimated:YES];
+        }
+        else
+        {
+            DLog(@"ERROR: DISMISSING POPOVER SHOULDN'T HAVE FAILED...");
+        }
+    }
+    else
+    {
+        [self dismissModalViewControllerAnimated:YES];
+    }
 }
 
 - (IBAction)doneEditingButtonPressed:(id)sender

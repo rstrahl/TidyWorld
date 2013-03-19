@@ -83,6 +83,7 @@
     mCurrentWeatherCondition.lightning = [mUserDefaults boolForKey:SETTINGS_KEY_CURRENT_LIGHTNING];
     mCurrentWeatherCondition.season = [mUserDefaults integerForKey:SETTINGS_KEY_CURRENT_SEASON];
     mLocationBasedWeather = [mUserDefaults boolForKey:SETTINGS_KEY_LOCATION_BASED_WEATHER];
+    self.contentSizeForViewInPopover = CGSizeMake(320,460);
 }
 
 - (void)didReceiveMemoryWarning
@@ -272,7 +273,21 @@
 - (IBAction)doneButtonPressed:(id)sender
 {
     [self saveSettings];
-    [self dismissModalViewControllerAnimated:YES];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        if ([self.delegate respondsToSelector:@selector(dismissPopoverAnimated:)])
+        {
+            [self.delegate dismissPopoverAnimated:YES];
+        }
+        else
+        {
+            DLog(@"ERROR: DISMISSING POPOVER SHOULDN'T HAVE FAILED...");
+        }
+    }
+    else
+    {
+        [self dismissModalViewControllerAnimated:YES];
+    }
 }
 
 - (IBAction)switchToggled:(id)sender

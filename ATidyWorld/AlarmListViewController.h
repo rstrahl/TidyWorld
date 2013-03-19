@@ -24,6 +24,7 @@
     BOOL                                mUse24HourClock;
 }
 
+@property (nonatomic, unsafe_unretained) id                     delegate;
 @property (nonatomic, strong) IBOutlet UITableView              *tableView;
 @property (nonatomic, strong) IBOutlet AlarmCellView            *alarmCell;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem          *doneButton;

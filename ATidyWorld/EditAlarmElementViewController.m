@@ -37,6 +37,7 @@ CGFloat _kGroupedTableCellSize = 300;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.contentSizeForViewInPopover = CGSizeMake(320,460);
     // Do any additional setup after loading the view from its nib.
 }
 

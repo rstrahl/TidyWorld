@@ -67,7 +67,6 @@
 		9B97D09416C0A498005BF0FF /* EditAlarmTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08916C0A498005BF0FF /* EditAlarmTitleViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D09516C0A498005BF0FF /* EditAlarmTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D08A16C0A498005BF0FF /* EditAlarmTitleViewController.xib */; };
 		9B97D09616C0A498005BF0FF /* EditAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08C16C0A498005BF0FF /* EditAlarmViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9B97D09716C0A498005BF0FF /* EditAlarmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D08D16C0A498005BF0FF /* EditAlarmViewController.xib */; };
 		9B97D09816C0A498005BF0FF /* MediaCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08F16C0A498005BF0FF /* MediaCellView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D09916C0A498005BF0FF /* MediaCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D09016C0A498005BF0FF /* MediaCellView.xib */; };
 		9B97D09D16C0E403005BF0FF /* Alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D09B16C0E403005BF0FF /* Alarm.xcdatamodeld */; };
@@ -81,6 +80,8 @@
 		9B97D0B816C21DD9005BF0FF /* ranz_des_vaches.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0B116C21DD9005BF0FF /* ranz_des_vaches.mp3 */; };
 		9B97D0B916C21DD9005BF0FF /* reveille.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0B216C21DD9005BF0FF /* reveille.mp3 */; };
 		9B97D0BA16C21DD9005BF0FF /* train_whistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0B316C21DD9005BF0FF /* train_whistle.mp3 */; };
+		9BAB1A2716F7EB57005E5057 /* DebugDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAB1A2516F7EB57005E5057 /* DebugDataViewController.m */; };
+		9BAB1A2816F7EB57005E5057 /* DebugDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BAB1A2616F7EB57005E5057 /* DebugDataViewController.xib */; };
 		9BB464AF16C4A0B400BD5BBC /* AlarmService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB464AE16C4A0B400BD5BBC /* AlarmService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BB464B216C4E12F00BD5BBC /* TMTimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB464B116C4E12F00BD5BBC /* TMTimeUtils.m */; };
 		9BC0363E16F54016002D6C02 /* Icon_Clock_Highlight@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363216F54016002D6C02 /* Icon_Clock_Highlight@2x~ipad.png */; };
@@ -131,6 +132,7 @@
 		9BC036B116F654F7002D6C02 /* SkySpriteSheet-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036AD16F654F7002D6C02 /* SkySpriteSheet-ipad.png */; };
 		9BC036B216F654F7002D6C02 /* WeatherSpriteSheet-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036AE16F654F7002D6C02 /* WeatherSpriteSheet-ipad.plist */; };
 		9BC036B316F654F7002D6C02 /* WeatherSpriteSheet-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036AF16F654F7002D6C02 /* WeatherSpriteSheet-ipad.png */; };
+		9BC7963A16F80AFA001C2876 /* EditAlarmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BC7963916F80AFA001C2876 /* EditAlarmViewController.xib */; };
 		9BCE857416B5DB500043048E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857316B5DB500043048E /* QuartzCore.framework */; };
 		9BCE857616B5DB500043048E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857516B5DB500043048E /* OpenGLES.framework */; };
 		9BCE857816B5DB500043048E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857716B5DB500043048E /* OpenAL.framework */; };
@@ -375,7 +377,6 @@
 		9B97D08A16C0A498005BF0FF /* EditAlarmTitleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditAlarmTitleViewController.xib; sourceTree = "<group>"; };
 		9B97D08B16C0A498005BF0FF /* EditAlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAlarmViewController.h; sourceTree = "<group>"; };
 		9B97D08C16C0A498005BF0FF /* EditAlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAlarmViewController.m; sourceTree = "<group>"; };
-		9B97D08D16C0A498005BF0FF /* EditAlarmViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditAlarmViewController.xib; sourceTree = "<group>"; };
 		9B97D08E16C0A498005BF0FF /* MediaCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaCellView.h; sourceTree = "<group>"; };
 		9B97D08F16C0A498005BF0FF /* MediaCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaCellView.m; sourceTree = "<group>"; };
 		9B97D09016C0A498005BF0FF /* MediaCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaCellView.xib; sourceTree = "<group>"; };
@@ -392,6 +393,9 @@
 		9B97D0B116C21DD9005BF0FF /* ranz_des_vaches.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ranz_des_vaches.mp3; sourceTree = "<group>"; };
 		9B97D0B216C21DD9005BF0FF /* reveille.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = reveille.mp3; sourceTree = "<group>"; };
 		9B97D0B316C21DD9005BF0FF /* train_whistle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = train_whistle.mp3; sourceTree = "<group>"; };
+		9BAB1A2416F7EB57005E5057 /* DebugDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugDataViewController.h; sourceTree = "<group>"; };
+		9BAB1A2516F7EB57005E5057 /* DebugDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugDataViewController.m; sourceTree = "<group>"; };
+		9BAB1A2616F7EB57005E5057 /* DebugDataViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DebugDataViewController.xib; sourceTree = "<group>"; };
 		9BB464AD16C4A0B400BD5BBC /* AlarmService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmService.h; sourceTree = "<group>"; };
 		9BB464AE16C4A0B400BD5BBC /* AlarmService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmService.m; sourceTree = "<group>"; };
 		9BB464B016C4E12F00BD5BBC /* TMTimeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMTimeUtils.h; sourceTree = "<group>"; };
@@ -444,6 +448,7 @@
 		9BC036AD16F654F7002D6C02 /* SkySpriteSheet-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SkySpriteSheet-ipad.png"; path = "Assets/SpriteSheet/SkySpriteSheet-ipad.png"; sourceTree = SOURCE_ROOT; };
 		9BC036AE16F654F7002D6C02 /* WeatherSpriteSheet-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "WeatherSpriteSheet-ipad.plist"; path = "Assets/SpriteSheet/WeatherSpriteSheet-ipad.plist"; sourceTree = SOURCE_ROOT; };
 		9BC036AF16F654F7002D6C02 /* WeatherSpriteSheet-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WeatherSpriteSheet-ipad.png"; path = "Assets/SpriteSheet/WeatherSpriteSheet-ipad.png"; sourceTree = SOURCE_ROOT; };
+		9BC7963916F80AFA001C2876 /* EditAlarmViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditAlarmViewController.xib; sourceTree = "<group>"; };
 		9BCE856F16B5DB500043048E /* ATidyWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATidyWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BCE857316B5DB500043048E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9BCE857516B5DB500043048E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1057,6 +1062,7 @@
 				9B97D07316C0A415005BF0FF /* Alarm */,
 				9B69800D16DECACB0052C0BB /* Button Tray */,
 				9BCE871016B5F2BF0043048E /* Clock */,
+				9BAB1A2316F7EB3B005E5057 /* Debug */,
 				9B97D06516BF2364005BF0FF /* Main */,
 				9B97D04D16BF0A05005BF0FF /* Settings */,
 				9B97D05916BF1B11005BF0FF /* World Options */,
@@ -1182,6 +1188,16 @@
 			name = "Edit Title";
 			sourceTree = "<group>";
 		};
+		9BAB1A2316F7EB3B005E5057 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				9BAB1A2416F7EB57005E5057 /* DebugDataViewController.h */,
+				9BAB1A2516F7EB57005E5057 /* DebugDataViewController.m */,
+				9BAB1A2616F7EB57005E5057 /* DebugDataViewController.xib */,
+			);
+			name = Debug;
+			sourceTree = "<group>";
+		};
 		9BB464AB16C490A700BD5BBC /* Edit */ = {
 			isa = PBXGroup;
 			children = (
@@ -1190,7 +1206,7 @@
 				9B97D0A716C21B3C005BF0FF /* Edit Sound */,
 				9B97D08B16C0A498005BF0FF /* EditAlarmViewController.h */,
 				9B97D08C16C0A498005BF0FF /* EditAlarmViewController.m */,
-				9B97D08D16C0A498005BF0FF /* EditAlarmViewController.xib */,
+				9BC7963916F80AFA001C2876 /* EditAlarmViewController.xib */,
 				9B97D07A16C0A45E005BF0FF /* EditAlarmElementViewController.h */,
 				9B97D07B16C0A45E005BF0FF /* EditAlarmElementViewController.m */,
 			);
@@ -1779,7 +1795,6 @@
 				9B97D09116C0A498005BF0FF /* EditAlarmRepeatViewController.xib in Resources */,
 				9B97D09316C0A498005BF0FF /* EditAlarmSoundViewController.xib in Resources */,
 				9B97D09516C0A498005BF0FF /* EditAlarmTitleViewController.xib in Resources */,
-				9B97D09716C0A498005BF0FF /* EditAlarmViewController.xib in Resources */,
 				9B97D09916C0A498005BF0FF /* MediaCellView.xib in Resources */,
 				9B97D0B416C21DD9005BF0FF /* air_raid_siren.mp3 in Resources */,
 				9B97D0B516C21DD9005BF0FF /* beep.mp3 in Resources */,
@@ -1855,6 +1870,8 @@
 				9BC036B116F654F7002D6C02 /* SkySpriteSheet-ipad.png in Resources */,
 				9BC036B216F654F7002D6C02 /* WeatherSpriteSheet-ipad.plist in Resources */,
 				9BC036B316F654F7002D6C02 /* WeatherSpriteSheet-ipad.png in Resources */,
+				9BAB1A2816F7EB57005E5057 /* DebugDataViewController.xib in Resources */,
+				9BC7963A16F80AFA001C2876 /* EditAlarmViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2008,6 +2025,7 @@
 				9BFF80ED16E022E300051E6E /* AnalyticsConstants.m in Sources */,
 				9B7DFE1F16E5415300A534DF /* ParallaxLayer.m in Sources */,
 				9B7DFE2216E5589000A534DF /* FogLayer.m in Sources */,
+				9BAB1A2716F7EB57005E5057 /* DebugDataViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

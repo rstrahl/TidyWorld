@@ -34,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.contentSizeForViewInPopover = CGSizeMake(320,460);
 }
 
 - (void)viewWillAppear:(BOOL)animated
