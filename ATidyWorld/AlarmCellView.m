@@ -95,7 +95,7 @@ static const uint kVerticalMarginPadding = 4;
 //    [self.ampmLabel setBackgroundColor:[UIColor orangeColor]];
 //    [self.titleLabel setBackgroundColor:[UIColor cyanColor]];
 //    [self.frequencyLabel setBackgroundColor:[UIColor greenColor]];
-    DLog(@"");
+//    DLog(@"");
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {

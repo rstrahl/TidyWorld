@@ -144,7 +144,7 @@ static LocationService *sharedLocationController = nil;
                                       mWoeidServiceGFlags,
                                       mWoeidServiceFlags,
                                       mYahooApplicationID];
-        DLog(@"updateWithLocation URL: %@", serviceURLString);
+//        DLog(@"updateWithLocation URL: %@", serviceURLString);
         mWoeidServiceURL = [NSURL URLWithString:serviceURLString];
         NSURLRequest *request = [NSURLRequest requestWithURL:mWoeidServiceURL];
         NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -183,7 +183,7 @@ static LocationService *sharedLocationController = nil;
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSString *responseString = [[NSString alloc] initWithData:mResponseData encoding:NSUTF8StringEncoding];
-    DLog(@"Finished loading woeid response: \r %@", responseString);
+//    DLog(@"Finished loading woeid response: \r %@", responseString);
     NSError *error;
     NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:mResponseData options:kNilOptions error:&error];
     

@@ -25,4 +25,9 @@ NSTimeInterval const kHalfHourInSeconds         = 1800;
     return (NSTimeInterval)((NSUInteger)time % (NSUInteger)kOneDayInSeconds);
 }
 
++ (NSTimeInterval)timeOffsetForLocalTimeZoneDaylightSavings
+{
+    return [[NSTimeZone localTimeZone] daylightSavingTimeOffset];
+}
+
 @end

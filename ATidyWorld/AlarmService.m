@@ -61,7 +61,6 @@ static AlarmService *sharedClockService = nil;
         AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
         self.context = [appDelegate managedObjectContext];
         mLastTimeUpdate = [NSDate timeIntervalSinceReferenceDate];
-        [self updateActiveAlarmQueueForTimeSinceReferenceDate:mLastTimeUpdate];
 
         NSError *error;
         if (![[self mFetchedResultsController] performFetch:&error])
@@ -69,6 +68,7 @@ static AlarmService *sharedClockService = nil;
             DLog(@"ERROR loading alarm objects %@, %@", error, [error userInfo]);
         }
         DLog(@"Alarms Loaded: %d", [[self.fetchedResultsController fetchedObjects] count]);
+        [self updateActiveAlarmQueueForTimeSinceReferenceDate:mLastTimeUpdate];
     }
     return self;
 }
@@ -113,6 +113,7 @@ static AlarmService *sharedClockService = nil;
 - (void)updateActiveAlarmQueueForTimeSinceReferenceDate:(NSTimeInterval)time
 {
     NSTimeInterval timeInDay = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:time];
+    timeInDay += [[NSTimeZone localTimeZone] daylightSavingTimeOffset];
     DLog(@"Scheduled Alarms Before Check: %d", [mActiveAlarmQueue count]);
     if (mActiveAlarmQueue == nil)
     {
@@ -123,17 +124,19 @@ static AlarmService *sharedClockService = nil;
         [mActiveAlarmQueue removeAllObjects];
     }
     
+    // Get all alarms that are "enabled"
     for (Alarm *alarm in [self.fetchedResultsController fetchedObjects])
     {
-        DLog(@"Alarm time: %@", [NSDate dateWithTimeIntervalSinceReferenceDate:alarm.time.doubleValue]);
-        DLog(@"Curr. time: %@", [NSDate dateWithTimeIntervalSinceReferenceDate:timeInDay]);
-        // Is alarm time within today's time range
+        DLog(@"Alarm time: %f", alarm.time.doubleValue);
+        DLog(@"Curr. time: %f", timeInDay);
+        // Is alarm time later than now
         if (alarm.time.doubleValue >= timeInDay)
         {
             // Is alarm scheduled for today or has a repeat of today
             if (([alarm.repeat intValue] == 0) ||
                 ([alarm.repeat intValue] & (1 << mCurrentWeekday)))
             {
+                // add the alarm into the active alarm queue
                 [mActiveAlarmQueue addObject:alarm];
             }
         }
@@ -145,6 +148,7 @@ static AlarmService *sharedClockService = nil;
 {
     if ([mActiveAlarmQueue count] > 0)
     {
+        // Grab the alarm at the "top" of the queue (the one that comes next chronologically)
         Alarm *nextAlarm = [mActiveAlarmQueue objectAtIndex:0];
         NSTimeInterval nextAlarmTime = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:nextAlarm.time.doubleValue];
         
@@ -156,6 +160,7 @@ static AlarmService *sharedClockService = nil;
             {
                 nextAlarm.enabled = NO;
             }
+            // Remove the alarm from the queue
             [mActiveAlarmQueue removeObject:nextAlarm];
             self.activeAlarm = nextAlarm;
             [self presentAlarmAlertViewForAlarm:self.activeAlarm];
