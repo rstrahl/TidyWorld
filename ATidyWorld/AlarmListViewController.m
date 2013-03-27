@@ -90,7 +90,7 @@
             [[[GAI sharedInstance] defaultTracker] trackException:NO withNSError:error];
         }
 	}
-    self.contentSizeForViewInPopover = CGSizeMake(320,460);
+    self.contentSizeForViewInPopover = CGSizeMake(320,436);
 }
 
 - (void)viewDidUnload

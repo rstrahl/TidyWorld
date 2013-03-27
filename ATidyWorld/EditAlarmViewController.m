@@ -97,7 +97,7 @@
         self.alarm.enabled = [NSNumber numberWithBool:YES];
     }
     
-    [self.tableView setFrame:CGRectMake(0,0,320,240)];
+//    [self.tableView setFrame:CGRectMake(0,0,320,240)];
     
     // Picker time is today in seconds + the alarm time since midnight of its original day
     if ([self.alarm.time doubleValue])
@@ -115,9 +115,9 @@
     {
         [self.timePicker setDatePickerMode:UIDatePickerModeTime];
     }
-    [self.timePicker setFrame:CGRectMake(0,244,320, 216)];
-    [self.view addSubview:self.timePicker];
-    self.contentSizeForViewInPopover = CGSizeMake(320,460);
+//    [self.timePicker setFrame:CGRectMake(0,244,320, 216)];
+//    [self.view addSubview:self.timePicker];
+    self.contentSizeForViewInPopover = CGSizeMake(320,436);
 }
 
 - (void)viewDidUnload

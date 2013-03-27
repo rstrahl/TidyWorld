@@ -38,6 +38,7 @@
 		9B7DFE3816E5672C00A534DF /* WeatherSpriteSheet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2C16E5672C00A534DF /* WeatherSpriteSheet-hd.png */; };
 		9B7DFE3916E5672C00A534DF /* WeatherSpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2D16E5672C00A534DF /* WeatherSpriteSheet.plist */; };
 		9B7DFE3A16E5672C00A534DF /* WeatherSpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2E16E5672C00A534DF /* WeatherSpriteSheet.png */; };
+		9B91636617028FBE009E9AF8 /* EditAlarmViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B91636517028FBE009E9AF8 /* EditAlarmViewController~ipad.xib */; };
 		9B96CB8A16B90318009A226B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B96CB8916B90318009A226B /* Localizable.strings */; };
 		9B97CFF716BB695B005BF0FF /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97CFF616BB695B005BF0FF /* AdsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D00316BB6A72005BF0FF /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00216BB6A72005BF0FF /* libGoogleAdMobAds.a */; };
@@ -324,6 +325,7 @@
 		9B7DFE2C16E5672C00A534DF /* WeatherSpriteSheet-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WeatherSpriteSheet-hd.png"; path = "Assets/SpriteSheet/WeatherSpriteSheet-hd.png"; sourceTree = SOURCE_ROOT; };
 		9B7DFE2D16E5672C00A534DF /* WeatherSpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = WeatherSpriteSheet.plist; path = Assets/SpriteSheet/WeatherSpriteSheet.plist; sourceTree = SOURCE_ROOT; };
 		9B7DFE2E16E5672C00A534DF /* WeatherSpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WeatherSpriteSheet.png; path = Assets/SpriteSheet/WeatherSpriteSheet.png; sourceTree = SOURCE_ROOT; };
+		9B91636517028FBE009E9AF8 /* EditAlarmViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EditAlarmViewController~ipad.xib"; sourceTree = "<group>"; };
 		9B96CB8916B90318009A226B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Resources/Localizable.strings; sourceTree = "<group>"; };
 		9B97CFF516BB695B005BF0FF /* AdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsViewController.h; sourceTree = "<group>"; };
 		9B97CFF616BB695B005BF0FF /* AdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsViewController.m; sourceTree = "<group>"; };
@@ -1207,6 +1209,7 @@
 				9B97D08B16C0A498005BF0FF /* EditAlarmViewController.h */,
 				9B97D08C16C0A498005BF0FF /* EditAlarmViewController.m */,
 				9BC7963916F80AFA001C2876 /* EditAlarmViewController.xib */,
+				9B91636517028FBE009E9AF8 /* EditAlarmViewController~ipad.xib */,
 				9B97D07A16C0A45E005BF0FF /* EditAlarmElementViewController.h */,
 				9B97D07B16C0A45E005BF0FF /* EditAlarmElementViewController.m */,
 			);
@@ -1872,6 +1875,7 @@
 				9BC036B316F654F7002D6C02 /* WeatherSpriteSheet-ipad.png in Resources */,
 				9BAB1A2816F7EB57005E5057 /* DebugDataViewController.xib in Resources */,
 				9BC7963A16F80AFA001C2876 /* EditAlarmViewController.xib in Resources */,
+				9B91636617028FBE009E9AF8 /* EditAlarmViewController~ipad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

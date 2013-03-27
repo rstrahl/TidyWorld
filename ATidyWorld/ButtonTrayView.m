@@ -123,7 +123,7 @@
 {
     UIButton *senderButton = (UIButton *)sender;
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:contentViewController];
-    navController.contentSizeForViewInPopover = CGSizeMake(320,480);
+    navController.contentSizeForViewInPopover = CGSizeMake(320,436);
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
         self.popoverController = [[UIPopoverController alloc] initWithContentViewController:navController];
