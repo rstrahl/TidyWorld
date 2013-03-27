@@ -13,6 +13,7 @@
 //#import "Alarm.h"
 #import "Constants.h"
 #import "TMTimeUtils.h"
+#import "LocationService.h"
 
 @interface ClockFaceView()
 - (void)updateClockFace:(NSTimeInterval)time;
@@ -58,6 +59,7 @@
         CGRect ampmLabelFrame = self.ampmLabel.frame;
         ampmLabelFrame.size.width = expectedAMPMLabelSize.width;
         ampmLabelFrame.size.height *= mFontSizeMultiplier;
+        self.ampmLabel.text = @"";
         self.ampmLabel.frame = ampmLabelFrame;
         self.temperatureLabel.text = @"";
         self.temperatureLabel.font = [UIFont fontWithName:@"CenturyGothic" size:64*mFontSizeMultiplier];
@@ -264,9 +266,16 @@
     // Temperature Settings
     mUseCelsius = [defaults boolForKey:SETTINGS_KEY_USE_CELSIUS];
     mShowTemperature = [defaults boolForKey:SETTINGS_KEY_SHOW_TEMP];
-//    [self updateTemperature:[[[WeatherService sharedWeatherService] conditionTemp] floatValue]];
     self.temperatureLabel.hidden = !mShowTemperature;
     self.unitsLabel.hidden = !mShowTemperature;
+    if (mShowTemperature)
+    {
+        [self startTemperatureAnimationTimer];
+    }
+    else
+    {
+        [self stopTemperatureAnimationTimer];
+    }
     
     // Time Settings
     mShowDate = [defaults boolForKey:SETTINGS_KEY_SHOW_DATE];
@@ -283,37 +292,49 @@
         [mTimeFormatter setDateFormat:@"EEEE:MMMM:dd:yyyy:H:mm"];
     }
     
-    // Start the timer for animating the swap between time and temp
-    if (mShowTemperature)
+}
+
+- (void)startTemperatureAnimationTimer
+{
+    if ([[LocationService sharedInstance] currentLocation] != nil)
     {
-        [self updateTemperature:mTemperature];
-        if (mClockTempAnimationTimer == nil)
+        // Start the timer for animating the swap between time and temp
+        if (mShowTemperature)
         {
-            DLog(@"Starting Time/Temp animation timer");
-            mClockTempAnimationTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f
-                                                                target:self
-                                                              selector:@selector(swapTimeTemperatureAnimation)
-                                                              userInfo:nil
-                                                               repeats:YES];
+            [self updateTemperature:mTemperature];
+            if (mClockTempAnimationTimer == nil)
+            {
+                DLog(@"Starting Time/Temp animation timer");
+                mClockTempAnimationTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f
+                                                                            target:self
+                                                                          selector:@selector(swapTimeTemperatureAnimation)
+                                                                          userInfo:nil
+                                                                           repeats:YES];
+            }
         }
     }
     else
     {
-        if (mClockTempAnimationTimer != nil)
+        [self stopTemperatureAnimationTimer];
+    }
+}
+
+- (void)stopTemperatureAnimationTimer
+{
+    if (mClockTempAnimationTimer != nil)
+    {
+        DLog(@"Stopping Time/Temp animation timer");
+        if (mClockTempAnimationTimer.isValid)
         {
-            DLog(@"Stopping Time/Temp animation timer");
-            if (mClockTempAnimationTimer.isValid)
-            {
-                [mClockTempAnimationTimer invalidate];
-            }
-            mClockTempAnimationTimer = nil;
-            self.timeLabel.alpha = 1.0f;
-            self.ampmLabel.alpha = 1.0f;
-            self.dateLabel.alpha = 1.0f;
-            self.temperatureLabel.alpha = 0.0f;
-            self.unitsLabel.alpha = 0.0f;
-            self.locationLabel.alpha = 0.0f;
+            [mClockTempAnimationTimer invalidate];
         }
+        mClockTempAnimationTimer = nil;
+        self.timeLabel.alpha = 1.0f;
+        self.ampmLabel.alpha = 1.0f;
+        self.dateLabel.alpha = 1.0f;
+        self.temperatureLabel.alpha = 0.0f;
+        self.unitsLabel.alpha = 0.0f;
+        self.locationLabel.alpha = 0.0f;
     }
 }
 

@@ -350,6 +350,7 @@
     WeatherService *weatherService = [WeatherService sharedInstance];
     [self initDayNightCycleWithWeatherService:weatherService];
     [self.mainViewController.clockView setTemperature:[weatherService.conditionTemp floatValue]];
+    [self.mainViewController.clockView startTemperatureAnimationTimer];
     [self updateWeatherConditions:weatherService.weatherCode];
 }
 

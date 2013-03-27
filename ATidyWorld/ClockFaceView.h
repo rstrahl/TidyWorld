@@ -51,5 +51,7 @@
 - (NSString *)getLocation;
 /// Sets the name of the location used by the clock
 - (void)setLocation:(NSString *)location;
+- (void)startTemperatureAnimationTimer;
+- (void)stopTemperatureAnimationTimer;
 
 @end

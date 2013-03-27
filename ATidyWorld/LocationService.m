@@ -42,10 +42,10 @@ static LocationService *sharedLocationController = nil;
         mLocationManager = [[CLLocationManager alloc] init]; // Create new instance of locMgr
         mLocationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
         self.locationManager.delegate = self;
-        const double testLatitude = 40.714224;
-		const double testLongitude = -73.961452;
-        
-        mCurrentLocation = [[CLLocation alloc] initWithLatitude:testLatitude longitude:testLongitude];
+//        const double testLatitude = 40.714224;
+//		const double testLongitude = -73.961452;
+//        
+//        mCurrentLocation = [[CLLocation alloc] initWithLatitude:testLatitude longitude:testLongitude];
         
         mWoeidServiceString = @"http://where.yahooapis.com/geocode";
         mWoeidServiceGFlags = @"R";
