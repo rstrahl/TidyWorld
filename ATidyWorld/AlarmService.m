@@ -223,13 +223,27 @@ static AlarmService *sharedClockService = nil;
 #pragma mark - Alarm AlertView
 - (void)presentAlarmAlertViewForAlarm:(Alarm *)alarm
 {
-    UIAlertView *alarmAlert = [[UIAlertView alloc]
-                               initWithTitle:NSLocalizedString(@"ALERT_VIEW_ALARM_TRIGGERED_TITLE", @"Alarm Alert View Title")
-                               message:alarm.title
-                               delegate:self
-                               cancelButtonTitle:NSLocalizedString(@"ALERT_VIEW_ALARM_TRIGGERED_BUTTON_OFF", @"Button Text - Turn off Alarm")
-                               otherButtonTitles:NSLocalizedString(@"ALERT_VIEW_ALARM_TRIGGERED_BUTTON_SNOOZE", @"Button Text - Snooze"), nil];
-    [alarmAlert show];
+    if (alarm.snooze.boolValue)
+    {
+        UIAlertView *alarmAlert = [[UIAlertView alloc]
+                                   initWithTitle:NSLocalizedString(@"ALERT_VIEW_ALARM_TRIGGERED_TITLE", @"Alarm Alert View Title")
+                                   message:alarm.title
+                                   delegate:self
+                                   cancelButtonTitle:NSLocalizedString(@"ALERT_VIEW_ALARM_TRIGGERED_BUTTON_OFF", @"Button Text - Turn off Alarm")
+                                   otherButtonTitles:NSLocalizedString(@"ALERT_VIEW_ALARM_TRIGGERED_BUTTON_SNOOZE", @"Button Text - Snooze"), nil];
+        [alarmAlert show];
+    }
+    else
+    {
+        UIAlertView *alarmAlert = [[UIAlertView alloc]
+                                   initWithTitle:NSLocalizedString(@"ALERT_VIEW_ALARM_TRIGGERED_TITLE", @"Alarm Alert View Title")
+                                   message:alarm.title
+                                   delegate:self
+                                   cancelButtonTitle:NSLocalizedString(@"ALERT_VIEW_ALARM_TRIGGERED_BUTTON_OFF", @"Button Text - Turn off Alarm")
+                                   otherButtonTitles:nil];
+        [alarmAlert show];
+    }
+    
 }
 
 #pragma mark - Snooze Methods
