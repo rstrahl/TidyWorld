@@ -94,14 +94,15 @@
         mLastSunsetProgress = 0;
         mNight = -1;
         
+        // Add AdsViewController
+        mAdsViewController = [[AdsViewController alloc] initWithNibName:nil bundle:nil];
+        [[[CCDirector sharedDirector] view] addSubview:mAdsViewController.view];
+        
         // Add UI Panel
         mMainViewController = [[MainViewController alloc] initWithNibName:nil bundle:nil];
         [mMainViewController setSceneDelegate:self];
         [[[CCDirector sharedDirector] view] addSubview:mMainViewController.view];
         
-        // Add AdsViewController
-        mAdsViewController = [[AdsViewController alloc] initWithNibName:nil bundle:nil];
-        [[[CCDirector sharedDirector] view] addSubview:mAdsViewController.view];
         
         // Register notification listeners for service
         [[NSNotificationCenter defaultCenter] addObserver:self
