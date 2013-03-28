@@ -12,6 +12,7 @@
 #import "Constants.h"
 #import "TMTimeUtils.h"
 #import "SettingsConstants.h"
+#import "Reachability.h"
 
 static WeatherService *sharedWeatherService = nil;
 
@@ -65,6 +66,11 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
         self.sunsetInSeconds = kDefaultSunsetTime;
         self.conditionTemp = [NSNumber numberWithFloat:59];
         self.weatherCode = [self buildWeatherCode:[NSNumber numberWithInt:30]];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didReceiveReachabilityNotification:)
+                                                     name:kReachabilityChangedNotification
+                                                   object:nil];
     }
     return self;
 }
@@ -101,15 +107,24 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
 {
     if (self.internetReachable)
     {
-        LocationService *locationController = [LocationService sharedInstance];
-        if (locationController.woeid != nil)
+        NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
+        if ((now - mLastLocationUpdateTime) >= 120)
         {
-            NSOperationQueue *queue = [NSOperationQueue new];
-            NSInvocationOperation *operation = [[NSInvocationOperation alloc]
-                                                initWithTarget:self
-                                                selector:@selector(getWeatherFeedForWOEID:)
-                                                object:locationController.woeid];
-            [queue addOperation:operation];
+            LocationService *locationController = [LocationService sharedInstance];
+            if (locationController.woeid != nil)
+            {
+                mLastLocationUpdateTime = [NSDate timeIntervalSinceReferenceDate];
+                NSOperationQueue *queue = [NSOperationQueue new];
+                NSInvocationOperation *operation = [[NSInvocationOperation alloc]
+                                                    initWithTarget:self
+                                                    selector:@selector(getWeatherFeedForWOEID:)
+                                                    object:locationController.woeid];
+                [queue addOperation:operation];
+            }
+        }
+        else
+        {
+            [self willSendWeatherUnchangedNotification];
         }
     }
     else
@@ -423,6 +438,19 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
     [weatherFeedProblemAlertView show];
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WEATHER_FAILED object:self];
 }
+
+- (void)willSendWeatherUnchangedNotification
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WEATHER_UNCHANGED object:self];
+}
+
+#pragma mark - Notification Listeners
+- (void)didReceiveReachabilityNotification:(NSNotification *)notification
+{
+    Reachability *reachable = (Reachability *)notification.object;
+    self.internetReachable = reachable.isReachable;
+}
+
 
 #pragma mark - Analytics Methods
 - (void)analyticsDidFinishLoadingSince:(NSDate *)date

@@ -15,8 +15,10 @@
 #define NOTIFICATION_SETTINGS_CHANGED       @"NotifySettingsUpdate"
 #define NOTIFICATION_WEATHER_SUCCESS        @"NotifyWeatherUpdate"
 #define NOTIFICATION_WEATHER_FAILED         @"NotifyWeatherFailed"
+#define NOTIFICATION_WEATHER_UNCHANGED      @"NotifyWeatherUnchanged"
 #define NOTIFICATION_LOCATION_SUCCESS       @"NotifyLocationUpdate"
 #define NOTIFICATION_LOCATION_FAILED        @"NotifyLocationFailed"
+#define NOTIFICATION_LOCATION_UNCHANGED     @"NotifyLocationUnchanged"
 
 #define WEATHER_SERVICE_CHECK_TIMER         900
 
@@ -96,6 +98,6 @@ extern CGPoint const kOffscreenSpritePoint;
 // Google Analytics
 // TODO: PRE-RELEASE CONFIG: Change analytics codes to release build
 #define ANALYTICS_GOOGLE_TRACKING_ID        @"UA-36822575-3"
-#define ANALYTICS_GOOGLE_ON                 1
+#define ANALYTICS_GOOGLE_ON                 0
 
 #endif

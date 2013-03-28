@@ -10,6 +10,9 @@
 #import "SelectWeatherOptionViewController.h"
 #import "Constants.h"
 #import "SettingsConstants.h"
+#import "LocationService.h"
+#import "WeatherService.h"
+#import "DebugDataViewController.h"
 
 @interface WorldOptionsViewController ()
 /** Helper method for configuring table view cell based on its contents */
@@ -39,7 +42,11 @@
 @implementation WorldOptionsViewController
 
 @synthesize tableData = mTableData,
-            delegate = mDelegate;
+            delegate = mDelegate,
+            currentLocationString = mCurrentLocationString,
+            currentWeatherCondition = mCurrentWeatherCondition,
+            retryLocationButton = mRetryLocationButton,
+            locationActivityIndicatorView = mLocationActivityIndicatorView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -76,20 +83,85 @@
     mTableData = [[NSArray alloc] initWithContentsOfFile:dataPath];
     
     mUserDefaults = [NSUserDefaults standardUserDefaults];
-    mCurrentWeatherCondition.clouds = [mUserDefaults integerForKey:SETTINGS_KEY_CURRENT_CLOUDS];
-    mCurrentWeatherCondition.rain = [mUserDefaults integerForKey:SETTINGS_KEY_CURRENT_RAIN];
-    mCurrentWeatherCondition.snow = [mUserDefaults integerForKey:SETTINGS_KEY_CURRENT_SNOW];
-    mCurrentWeatherCondition.fog = [mUserDefaults boolForKey:SETTINGS_KEY_CURRENT_FOG];
-    mCurrentWeatherCondition.lightning = [mUserDefaults boolForKey:SETTINGS_KEY_CURRENT_LIGHTNING];
-    mCurrentWeatherCondition.season = [mUserDefaults integerForKey:SETTINGS_KEY_CURRENT_SEASON];
     mLocationBasedWeather = [mUserDefaults boolForKey:SETTINGS_KEY_LOCATION_BASED_WEATHER];
+
+    LocationService *locationService = [LocationService sharedInstance];
+    if (locationService.currentLocation != nil)
+    {
+        mCurrentLocationString = [NSString stringWithFormat:@"%@, %@, %@", locationService.city, locationService.state, locationService.country];
+    }
+    
+    if (mLocationBasedWeather)
+    {
+        [self loadWeatherCodesFromService];
+    }
+    else
+    {
+        [self loadWeatherCodesFromDefaults];   
+    }
+    
     self.contentSizeForViewInPopover = CGSizeMake(320,460);
+    
+    // Register notification listeners for service
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveLocationSuccessNotification:)
+                                                 name:NOTIFICATION_LOCATION_SUCCESS
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveLocationFailedNotification:)
+                                                 name:NOTIFICATION_LOCATION_FAILED
+                                               object:nil]; 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveLocationUnchangedNotification:)
+                                                 name:NOTIFICATION_LOCATION_UNCHANGED
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveWeatherSuccessNotification:)
+                                                 name:NOTIFICATION_WEATHER_SUCCESS
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveWeatherFailedNotification:)
+                                                 name:NOTIFICATION_WEATHER_FAILED
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveWeatherUnchangedNotification:)
+                                                 name:NOTIFICATION_WEATHER_UNCHANGED
+                                               object:nil];
+    
+    // Setup button for attempting to try location
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake(0, 0, 60, 32);
+    [button setTitle:@"Retry" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(retryLocationButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    self.retryLocationButton = button;
+    
+    // Setup activity indicator for location-service
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indicator.hidesWhenStopped = YES;
+    self.locationActivityIndicatorView = indicator;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - WeatherCode Loading
+- (void)loadWeatherCodesFromDefaults
+{
+    mCurrentWeatherCondition.clouds = [mUserDefaults integerForKey:SETTINGS_KEY_CURRENT_CLOUDS];
+    mCurrentWeatherCondition.rain = [mUserDefaults integerForKey:SETTINGS_KEY_CURRENT_RAIN];
+    mCurrentWeatherCondition.snow = [mUserDefaults integerForKey:SETTINGS_KEY_CURRENT_SNOW];
+    mCurrentWeatherCondition.fog = [mUserDefaults boolForKey:SETTINGS_KEY_CURRENT_FOG];
+    mCurrentWeatherCondition.lightning = [mUserDefaults boolForKey:SETTINGS_KEY_CURRENT_LIGHTNING];
+    mCurrentWeatherCondition.season = [mUserDefaults integerForKey:SETTINGS_KEY_CURRENT_SEASON];
+}
+
+- (void)loadWeatherCodesFromService
+{
+    WeatherService *weatherService = [WeatherService sharedInstance];
+    mCurrentWeatherCondition = weatherService.weatherCode;
 }
 
 #pragma mark - UITableViewDataSource Implementation
@@ -128,15 +200,24 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *cellDict = [self worldOptionForIndexPath:indexPath];
-    SelectWeatherOptionViewController *detailViewController = [[SelectWeatherOptionViewController alloc] initWithNibName:@"SelectWeatherOptionViewController" bundle:nil];
-    [detailViewController setTableData:[self worldOptionForIndexPath:indexPath]];
-    detailViewController.weatherOptionDelegate = self;
     NSString *key = [cellDict valueForKey:@"Header"];
-    detailViewController.title = key;
-    detailViewController.checkedRow = [self currentValueForWeatherOptionKey:key];
-    detailViewController.weatherCategory = indexPath.row;
     
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    if ([key isEqualToString:@"Current Location"])
+    {
+        DebugDataViewController *debugViewController = [[DebugDataViewController alloc] initWithNibName:@"DebugDataViewController" bundle:nil];
+        [self.navigationController pushViewController:debugViewController animated:YES];
+    }
+    else
+    {
+        SelectWeatherOptionViewController *detailViewController = [[SelectWeatherOptionViewController alloc] initWithNibName:@"SelectWeatherOptionViewController" bundle:nil];
+        [detailViewController setTableData:[self worldOptionForIndexPath:indexPath]];
+        detailViewController.weatherOptionDelegate = self;
+        detailViewController.title = key;
+        detailViewController.checkedRow = [self currentValueForWeatherOptionKey:key];
+        detailViewController.weatherCategory = indexPath.row;
+        
+        [self.navigationController pushViewController:detailViewController animated:YES];
+    }
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -151,42 +232,105 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [self addSwitchToCell:cell forKey:key enabled:YES];
     }
+    else if ([key isEqualToString:@"Current Location"])
+    {
+        [self configureCurrentLocationCell:cell atIndexPath:indexPath];
+    }
     else if ([key isEqualToString:@"Fog"] ||
              [key isEqualToString:@"Lightning"])
     {
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        if (mLocationBasedWeather)
-        {
-            cell.textLabel.enabled = NO;
-            [self addSwitchToCell:cell forKey:key enabled:NO];
-        }
-        else
-        {
-            cell.textLabel.enabled = YES;
-            [self addSwitchToCell:cell forKey:key enabled:YES];
-        }
+        [self configureSwitchCell:cell forKey:key atIndexPath:indexPath];
     }
     // Handle multiple-choice World Options
     else
     {
-        cell.detailTextLabel.text = [[cellDict valueForKey:@"Rows"] objectAtIndex:[self currentValueForWeatherOptionKey:key]];
-        if (mLocationBasedWeather)
-        {
-            [cell setAccessoryType:UITableViewCellAccessoryNone];
-            cell.userInteractionEnabled = NO;
-            cell.textLabel.enabled = NO;
-            cell.detailTextLabel.enabled = NO;
-        }
-        else
-        {
-            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-            cell.userInteractionEnabled = YES;
-            cell.textLabel.enabled = YES;
-            cell.detailTextLabel.enabled = YES;
-        }
-    
+        [self configureMultipleChoiceCell:cell withRows:[cellDict valueForKey:@"Rows"] forKey:key atIndexPath:indexPath];
     }
 }
+
+- (void)configureMultipleChoiceCell:(UITableViewCell *)cell withRows:(NSArray *)rows forKey:(NSString *)key atIndexPath:(NSIndexPath *)indexPath
+{
+    cell.detailTextLabel.text = [rows objectAtIndex:[self currentValueForWeatherOptionKey:key]];
+    if (mLocationBasedWeather)
+    {
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+        cell.userInteractionEnabled = NO;
+        cell.textLabel.enabled = NO;
+        cell.detailTextLabel.enabled = NO;
+    }
+    else
+    {
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        cell.userInteractionEnabled = YES;
+        cell.textLabel.enabled = YES;
+        cell.detailTextLabel.enabled = YES;
+    }
+
+}
+
+- (void)configureCurrentLocationCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.font = [UIFont systemFontOfSize:14];
+    if (mLocationBasedWeather)
+    {
+        switch ([[LocationService sharedInstance] locationErrorCode]) {
+            case kCLErrorLocationUnknown:
+            case kCLErrorDenied:
+            {
+                cell.textLabel.text = NSLocalizedString(@"CELL_TEXT_LOCATION_ERROR", @"Location error");
+                cell.textLabel.textColor = [UIColor grayColor];
+                cell.accessoryView = self.retryLocationButton;
+                break;
+            }
+            case kLocationServiceNotReachable:
+            {
+                cell.textLabel.text = NSLocalizedString(@"CELL_TEXT_INTERNET_UNREACHABLE", @"Internet error");
+                cell.textLabel.textColor = [UIColor grayColor];
+                cell.accessoryView = self.retryLocationButton;
+                break;
+            }
+            default:
+            {
+                if (mCurrentLocationString != nil)
+                {
+                    cell.textLabel.text = mCurrentLocationString;
+                    cell.accessoryView = nil;
+                }
+                else
+                {
+                    cell.textLabel.text = NSLocalizedString(@"CELL_TEXT_DETERMINING_LOCATION", @"Determining Location");
+                    cell.textLabel.textColor = [UIColor grayColor];
+                    cell.accessoryView = self.locationActivityIndicatorView;
+                    [self.locationActivityIndicatorView startAnimating];
+                }
+                break;
+            }
+        }
+    }
+    else
+    {
+        cell.textLabel.text = NSLocalizedString(@"CELL_TEXT_LOCATION_UNKNOWN", @"Location Unknown");
+        cell.textLabel.textColor = [UIColor grayColor];
+        cell.accessoryView = nil;
+    }
+}
+
+- (void)configureSwitchCell:(UITableViewCell *)cell forKey:(NSString *)key atIndexPath:(NSIndexPath *)indexPath
+{
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (mLocationBasedWeather)
+    {
+        cell.textLabel.enabled = NO;
+        [self addSwitchToCell:cell forKey:key enabled:NO];
+    }
+    else
+    {
+        cell.textLabel.enabled = YES;
+        [self addSwitchToCell:cell forKey:key enabled:YES];
+    }
+}
+
 - (void)addSwitchToCell:(UITableViewCell *)cell forKey:(NSString *)key enabled:(BOOL)enabled
 {
     UISwitch *cellSwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
@@ -202,6 +346,14 @@
             cellSwitch.enabled = NO;
         }
     }
+}
+
+- (void)addActivityIndicatorViewToCell:(UITableViewCell *)cell forKey:(NSString *)key
+{
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indicator.hidesWhenStopped = YES;
+    [cell setAccessoryView:indicator];
+    [indicator startAnimating];
 }
 
 - (NSInteger)currentValueForWeatherOptionKey:(NSString *)key
@@ -314,6 +466,16 @@
     }
 }
 
+- (IBAction)retryLocationButtonPressed:(id)sender
+{
+    UIButton *button = (UIButton *)sender;
+    UITableViewCell *cell = (UITableViewCell *)button.superview;
+    [button removeFromSuperview];
+    [cell setAccessoryView:self.locationActivityIndicatorView];
+    [self.locationActivityIndicatorView startAnimating];
+    [[LocationService sharedInstance] startLocationAttempt];
+}
+
 #pragma mark - SelectWeatherOptionsDelegate Implementation
 - (void)willChangeValue:(NSInteger)value forCategory:(WeatherCategory)weatherCategory
 {
@@ -411,9 +573,75 @@
 {
     mOptionsChanged = YES;
     mLocationBasedWeather = value;
+    if (mLocationBasedWeather)
+    {
+        LocationService *locationService = [LocationService sharedInstance];
+        WeatherService *weatherService = [WeatherService sharedInstance];
+        if (locationService.currentLocation)
+        {
+            self.currentLocationString = [NSString stringWithFormat:@"%@, %@, %@", locationService.city, locationService.state, locationService.country];
+            self.currentWeatherCondition = weatherService.weatherCode;
+        }
+        else
+        {
+            self.currentLocationString = nil;
+        }
+    }
+    else
+    {
+        self.currentLocationString = nil;
+    }
     [self.tableView reloadData];
     [self.delegate controller:self didChangeLocationBased:mLocationBasedWeather];
     [self googleLogWorldOptionChanged:@"Location Based Weather"];
+}
+
+#pragma mark - Notifications
+- (void)didReceiveLocationSuccessNotification:(NSNotification *)notification
+{
+    // Update to the new location
+    LocationService *locationService = [LocationService sharedInstance];
+    self.currentLocationString = [NSString stringWithFormat:@"%@, %@, %@", locationService.city, locationService.state, locationService.country];
+    [self.tableView reloadData];
+}
+
+- (void)didReceiveLocationFailedNotification:(NSNotification *)notification
+{
+    self.currentLocationString = nil;
+    [self.tableView reloadData];
+}
+
+- (void)didReceiveLocationUnchangedNotification:(NSNotification *)notification
+{
+    // If we fail to receive a new location, fall back to the old location
+    LocationService *locationService = [LocationService sharedInstance];
+    if (locationService.currentLocation != nil)
+    {
+        self.currentLocationString = [NSString stringWithFormat:@"%@, %@, %@", locationService.city, locationService.state, locationService.country];
+    }
+    else
+    {
+        self.currentLocationString = nil;
+    }
+    [self.tableView reloadData];
+}
+
+- (void)didReceiveWeatherSuccessNotification:(NSNotification *)notification
+{
+    WeatherService *weatherService = [WeatherService sharedInstance];
+    mCurrentWeatherCondition = weatherService.weatherCode;
+    [self.tableView reloadData];
+}
+
+- (void)didReceiveWeatherFailedNotification:(NSNotification *)notification
+{
+}
+
+- (void)didReceiveWeatherUnchangedNotification:(NSNotification *)notification
+{
+    WeatherService *weatherService = [WeatherService sharedInstance];
+    mCurrentWeatherCondition = weatherService.weatherCode;
+    [self.tableView reloadData];
 }
 
 #pragma mark - Analytics Logging Methods

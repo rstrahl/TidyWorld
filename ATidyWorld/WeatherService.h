@@ -23,7 +23,9 @@ typedef enum
 typedef enum
 {
     WeatherSeasonSummer,
-    WeatherSeasonWinter
+    WeatherSeasonFall,
+    WeatherSeasonWinter,
+    WeatherSeasonSpring
 } WeatherConditionSeason;
 
 typedef enum
@@ -107,7 +109,7 @@ typedef struct
     NSNumber                *mAtmospherePressure;
     NSNumber                *mAtmosphereRising;
     WeatherCondition        mWeatherCode;
-    
+    NSTimeInterval                              mLastLocationUpdateTime;
     id __unsafe_unretained  mDelegate;
 }
 

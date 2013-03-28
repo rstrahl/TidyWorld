@@ -99,6 +99,11 @@
 "OPTIONS_VALUE_TIMELAPSE_FASTER"            = "Faster";
 "OPTIONS_VALUE_TIMELAPSE_FASTEST"           = "Fastest";
 
+"CELL_TEXT_DETERMINING_LOCATION"            = "Determining Location...";
+"CELL_TEXT_INTERNET_UNREACHABLE"            = "Cannot reach internet";
+"CELL_TEXT_LOCATION_UNKNOWN"                = "Location Unknown";
+"CELL_TEXT_LOCATION_ERROR"                  = "Could not determine location";
+
 // Settings Strings - Settings Titles
 // NOTE: The string key MUST match the #defines in OptionsConstants.h
 //"USE_SYSTEM_TIME_FORMAT" = "Use Device Time Format";

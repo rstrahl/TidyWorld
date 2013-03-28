@@ -199,6 +199,7 @@
 - (void)initReachability
 {
     mInternetReachability = [Reachability reachabilityForInternetConnection];
+    [mInternetReachability startNotifier];
 }
 
 - (void)initLocationService
@@ -215,6 +216,15 @@
                                                  selector:@selector(didReceiveLocationSuccessNotification:)
                                                      name:NOTIFICATION_LOCATION_SUCCESS
                                                    object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didReceiveLocationFailedNotification:)
+                                                     name:NOTIFICATION_LOCATION_FAILED
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didReceiveLocationUnchangedNotification:)
+                                                     name:NOTIFICATION_LOCATION_UNCHANGED
+                                                   object:nil];
+
     }
 }
 
@@ -228,6 +238,14 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(didReceiveWeatherSuccessNotification:)
                                                      name:NOTIFICATION_WEATHER_SUCCESS
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didReceiveWeatherFailedNotification:)
+                                                     name:NOTIFICATION_WEATHER_FAILED
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didReceiveWeatherUnchangedNotification:)
+                                                     name:NOTIFICATION_WEATHER_UNCHANGED
                                                    object:nil];
     }
 }
@@ -274,14 +292,14 @@
         {
             self.locationService.internetReachable = NO;
             self.weatherService.internetReachable = NO;
-            [self.locationService stopServiceTimer];
+            self.locationService.running = NO;
             break;
         }
         default:
         {
             self.locationService.internetReachable = YES;
             self.weatherService.internetReachable = YES;
-            [self.locationService startServiceTimer];
+            self.locationService.running = YES;
             break;
         }
     }
@@ -290,12 +308,22 @@
 #pragma mark - Service Notifications
 - (void)didReceiveLocationSuccessNotification:(NSNotification *)notification
 {
+    // If we have a good location, check for weather
     [self.weatherService checkForWeatherUpdate];
 }
 
 - (void)didReceiveLocationFailedNotification:(NSNotification *)notification
 {
-    
+    // If our location failed, check if we have an old location
+    if (mLocationService.currentLocation != nil)
+    {
+        [self.weatherService checkForWeatherUpdate];
+    }
+}
+
+- (void)didReceiveLocationUnchangedNotification:(NSNotification *)notification
+{
+    [self.weatherService checkForWeatherUpdate];
 }
 
 - (void)didReceiveWeatherSuccessNotification:(NSNotification *)notification
@@ -304,6 +332,11 @@
 }
 
 - (void)didReceiveWeatherFailedNotification:(NSNotification *)notification
+{
+    
+}
+
+- (void)didReceiveWeatherUnchangedNotification:(NSNotification *)notification
 {
     
 }

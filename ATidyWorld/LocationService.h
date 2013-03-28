@@ -10,6 +10,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import <CoreLocation/CLGeocoder.h>
 
+#define kLocationServiceNotReachable -99
+
 @interface LocationService : NSObject <NSURLConnectionDelegate, CLLocationManagerDelegate>
 {
     @private
@@ -31,6 +33,7 @@
     NSString                                    *mCountry;
     NSTimeInterval                              mLastLocationUpdateTime;
     BOOL                                        mInternetReachable;
+    NSInteger                                   mLocationErrorCode;
 }
 
 @property (nonatomic, strong) CLLocationManager             *locationManager;
@@ -43,11 +46,12 @@
 @property (nonatomic, strong) NSTimer                       *serviceTimer;
 @property (nonatomic, assign, getter = isRunning)           BOOL running;
 @property (nonatomic, assign, getter = isInternetReachable) BOOL internetReachable;
+@property (nonatomic, assign) NSInteger                     locationErrorCode;
 
 /// Return a reference to the LocationService singleton instance
 + (id)sharedInstance;
 /// Start the location service
-- (void)start;
+- (void)startLocationAttempt;
 /// Start the location service timer
 - (void)startServiceTimer;
 /// Stop the location service timer

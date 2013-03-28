@@ -368,21 +368,15 @@
 
 - (void)controller:(WorldOptionsViewController *)controller didChangeLocationBased:(BOOL)isLocationBased
 {
-    DLog(@"");
     mUsingLocationBasedWeather = isLocationBased;
     if (mUsingLocationBasedWeather)
     {
-        [[LocationService sharedInstance] startServiceTimer];
-    }
-    else
-    {
-        [[LocationService sharedInstance] stopServiceTimer];
+        [self didReceiveWeatherSuccessNotification:nil];
     }
 }
 
 - (void)controller:(WorldOptionsViewController *)controller didChangeSeason:(NSUInteger)season
 {
-    DLog(@"");
 }
 
 @end

@@ -15,6 +15,10 @@
 					<string>Location Based</string>
 				</array>
 			</dict>
+			<dict>
+				<key>Header</key>
+				<string>Current Location</string>
+			</dict>
 		</array>
 	</dict>
 	<dict>
@@ -28,7 +32,6 @@
 				<key>Rows</key>
 				<array>
 					<string>Summer</string>
-					<string>Winter</string>
 				</array>
 			</dict>
 			<dict>

@@ -8,6 +8,7 @@
 
 #import "LocationService.h"
 #import "Constants.h"
+#import "Reachability.h"
 
 static LocationService *sharedLocationController = nil;
 
@@ -33,12 +34,14 @@ static LocationService *sharedLocationController = nil;
             country = mCountry,
             serviceTimer = mServiceTimer,
             running = mRunning,
-            internetReachable = mInternetReachable;
+            internetReachable = mInternetReachable,
+            locationErrorCode = mLocationErrorCode;
 
 - (id)init
 {
     if (self = [super init])
     {
+        self.running = YES;
         mLocationManager = [[CLLocationManager alloc] init]; // Create new instance of locMgr
         mLocationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
         self.locationManager.delegate = self;
@@ -51,6 +54,11 @@ static LocationService *sharedLocationController = nil;
         mWoeidServiceGFlags = @"R";
         mWoeidServiceFlags = @"J";
         mYahooApplicationID = @"rBibj342";
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didReceiveReachabilityNotification:)
+                                                     name:kReachabilityChangedNotification
+                                                   object:nil];
     }
     
     return self;
@@ -66,15 +74,18 @@ static LocationService *sharedLocationController = nil;
     return sharedLocationController;
 }
 
-- (void)start
+- (void)startLocationAttempt
 {
     if (self.internetReachable)
     {
-        [mLocationManager startUpdatingLocation];
-        mRunning = YES;
+        if (self.isRunning)
+        {
+            [mLocationManager startUpdatingLocation];
+        }
     }
     else
     {
+        self.running = NO;
         UIAlertView *noReachabilityAlertView =
         [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ALERT_VIEW_NON_REACHABLE_TITLE", @"No Reachability")
                                    message:NSLocalizedString(@"ALERT_VIEW_NON_REACHABLE_MESSAGE", @"No Reachability")
@@ -82,6 +93,7 @@ static LocationService *sharedLocationController = nil;
                          cancelButtonTitle:NSLocalizedString(@"OK", @"Ok")
                          otherButtonTitles:nil];
         [noReachabilityAlertView show];
+        self.locationErrorCode = kLocationServiceNotReachable;
         [self willSendLocationFailedNotification];
     }
 }
@@ -90,8 +102,8 @@ static LocationService *sharedLocationController = nil;
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation 
 {
     self.currentLocation = newLocation;
+    mLocationErrorCode = -1;
     [mLocationManager stopUpdatingLocation];
-    mRunning = NO;
     
     // IOS5 Geocoding Code
     //[self geocodeLocation:newLocation];
@@ -103,11 +115,12 @@ static LocationService *sharedLocationController = nil;
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
 	DLog(@"ERROR in CLLocationManager: %@", error);
-
-    switch (error.code)
+    mLocationErrorCode = error.code;
+    switch (mLocationErrorCode)
     {
         case kCLErrorDenied:
         {
+            self.running = NO;
             DLog(@"No location services authorized");
             UIAlertView *noLocationAlertView =
             [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ALERT_VIEW_LOCATION_DISABLED_TITLE", @"Location Disabled")
@@ -118,14 +131,17 @@ static LocationService *sharedLocationController = nil;
             [noLocationAlertView show];
             [self willSendLocationFailedNotification];
             [self.locationManager stopUpdatingLocation];
-            mRunning = NO;
+            break;
+        }
+        case kCLErrorLocationUnknown:
+        {
+            [self willSendLocationFailedNotification];
             break;
         }
         default:
         {
             [self willSendLocationFailedNotification];
             [self.locationManager stopUpdatingLocation];
-            mRunning = NO;
             break;
         }
     }
@@ -135,7 +151,7 @@ static LocationService *sharedLocationController = nil;
 - (void)findWOEIDByLocation:(CLLocation *)location
 {
     NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
-    if ((now - mLastLocationUpdateTime) > 120)
+    if ((now - mLastLocationUpdateTime) > 120 || mCurrentLocation == nil)
     {
         mLastLocationUpdateTime = now;
         NSString *serviceURLString = [NSString stringWithFormat:@"%@?q=%f,+%f&gflags=%@&flags=%@&appid=%@",
@@ -155,6 +171,15 @@ static LocationService *sharedLocationController = nil;
         else
         {
             DLog(@"ERROR initializing connection for location service");
+            UIAlertView *noReachabilityAlertView =
+            [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ALERT_VIEW_WEATHER_PROBLEM_TITLE", @"No Reachability")
+                                       message:NSLocalizedString(@"ALERT_VIEW_WEATHER_PROBLEM_MESSAGE", @"No Reachability")
+                                      delegate:nil
+                             cancelButtonTitle:NSLocalizedString(@"OK", @"Ok")
+                             otherButtonTitles:nil];
+            [noReachabilityAlertView show];
+            self.locationErrorCode = kLocationServiceNotReachable;
+            [self willSendLocationFailedNotification];
         }
 
     }
@@ -182,7 +207,7 @@ static LocationService *sharedLocationController = nil;
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSString *responseString = [[NSString alloc] initWithData:mResponseData encoding:NSUTF8StringEncoding];
+//    NSString *responseString = [[NSString alloc] initWithData:mResponseData encoding:NSUTF8StringEncoding];
 //    DLog(@"Finished loading woeid response: \r %@", responseString);
     NSError *error;
     NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:mResponseData options:kNilOptions error:&error];
@@ -208,6 +233,18 @@ static LocationService *sharedLocationController = nil;
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOCATION_FAILED object:self];
 }
 
+- (void)willSendLocationUnchangedNotification
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOCATION_UNCHANGED object:self];
+}
+
+#pragma mark - Notification Listeners
+- (void)didReceiveReachabilityNotification:(NSNotification *)notification
+{
+    Reachability *reachable = (Reachability *)notification.object;
+    self.internetReachable = reachable.isReachable;
+}
+
 #pragma mark - Service Timer Control
 - (void)startServiceTimer
 {
@@ -216,10 +253,10 @@ static LocationService *sharedLocationController = nil;
         DLog(@"Creating and starting service timer");
         self.serviceTimer = [NSTimer timerWithTimeInterval:900
                                                     target:[LocationService sharedInstance]
-                                                  selector:@selector(start)
+                                                  selector:@selector(startLocationAttempt)
                                                   userInfo:nil
                                                    repeats:YES];
-        [self start];
+        [self startLocationAttempt];
     }
 }
 
