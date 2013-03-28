@@ -90,6 +90,9 @@ extern uint const kLandscapeBackgroundCount;
 // Coordinate Constants
 extern CGPoint const kOffscreenSpritePoint;
 
+// Testflight
+#define TESTFLIGHT_APP_ID                   @"7eb3e7c2-fe13-4fdb-8168-af4f5249cdd7"
+
 // Advertising
 #define ADMOB_PUBLISHER_ID                  @"a150de0742840ec"
 #define ADMOB_SIMULATOR_IDENTIFIER1         @"C77C7F9F-63D0-5BF4-820F-7084658E8B79"

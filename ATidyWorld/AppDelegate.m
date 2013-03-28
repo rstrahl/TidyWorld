@@ -300,7 +300,7 @@
 #ifdef TESTING
     NSLog(@"TestFlight initialization...");
     [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
-    [TestFlight takeOff:@"bf713a672a32730f0c641e783f1b6ddf_NTEwNjkyMDEyLTAxLTAzIDE1OjEwOjE2LjE2NDQ0NA"];
+    [TestFlight takeOff:TESTFLIGHT_APP_ID];
 #endif
 }
 
