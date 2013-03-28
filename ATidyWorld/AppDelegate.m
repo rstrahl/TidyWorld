@@ -11,8 +11,8 @@
 #import "IntroLayer.h"
 #import "LocationService.h"
 #import "WeatherService.h"
-#import "AlarmService.h"
 #import "Constants.h"
+#import "Alarm.h"
 
 @interface AppController()
 /// Initialize Reachability service
@@ -43,6 +43,7 @@
             internetReachability = mInternetReachability,
             locationService = mLocationService,
             weatherService = mWeatherService,
+            audioPlayer = mAudioPlayer,
             managedObjectContext = __managedObjectContext,
             managedObjectModel = __managedObjectModel,
             persistentStoreCoordinator = __persistentStoreCoordinator;
@@ -256,8 +257,27 @@
     if (mAlarmService == nil)
     {
         mAlarmService = [AlarmService sharedInstance];
+        mAlarmService.delegate = self;
     }
 }
+
+#pragma mark - ClockServiceDelegate Implementation
+// TODO: DEPRECATED: Possibly remove during code review if next-alarm feature not needed
+- (void)alarmServiceDidChangeAlarms
+{
+//    [self.viewController.clockFaceView updateNextAlarm:[self.clockService getNextAlarm]];
+}
+
+- (void)alarmServiceDidTriggerAlarm:(Alarm *)alarm
+{
+    [self playAudioFromURL:[NSURL URLWithString:alarm.sound_id]];
+}
+
+- (void)alarmServiceDidDismissAlarm:(Alarm *)alarm
+{
+    [self stopAudio];
+}
+
 
 #pragma mark - Analytics Initialization
 - (void)initGoogleAnalytics
@@ -340,6 +360,38 @@
 {
     
 }
+
+#pragma mark - Audio Implementation
+- (void)playAudioFromURL:(NSURL *)assetURL
+{
+    if (!self.audioPlayer)
+    {
+        mAudioPlayer = [[AVPlayer alloc] init];
+    }
+    AVPlayerItem *newPlayerItem = [AVPlayerItem playerItemWithURL:assetURL];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedAVPlayerDidPlayToEndTimeNotification:)
+                                                 name:AVPlayerItemDidPlayToEndTimeNotification
+                                               object:newPlayerItem];
+    [mAudioPlayer replaceCurrentItemWithPlayerItem:newPlayerItem];
+    [mAudioPlayer play];
+    mAudioPlaying = YES;
+}
+
+- (void)stopAudio
+{
+    [self.audioPlayer pause];
+    self.audioPlayer = nil;
+    mAudioPlaying = NO;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)receivedAVPlayerDidPlayToEndTimeNotification:(NSNotification *)notification
+{
+    //    DLog(@"receivedAVPlayerDidPlayToEndTimeNotification");
+    [self stopAudio];
+}
+
 
 #pragma mark - Analytics Logging Methods
 - (void)googleLogAppLoadingTime:(NSDate *)date

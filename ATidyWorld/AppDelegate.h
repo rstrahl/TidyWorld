@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "cocos2d.h"
 #import "Reachability.h"
+#import <AVFoundation/AVFoundation.h>
+#import "AlarmService.h"
 
 @class LocationService;
 @class WeatherService;
-@class AlarmService;
 
-@interface AppController : NSObject <UIApplicationDelegate, CCDirectorDelegate>
+@interface AppController : NSObject <UIApplicationDelegate, CCDirectorDelegate, AlarmServiceDelegate>
 {
 	UIWindow                    *window_;
 	UINavigationController      *navController_;
@@ -25,6 +26,9 @@
     Reachability                *mInternetReachability;
     WeatherService              *mWeatherService;
     AlarmService                *mAlarmService;
+    // Audio Components
+    AVPlayer                    *mAudioPlayer;
+    BOOL                        mAudioPlaying;
     id<GAITracker>              mGoogleTracker;
 }
 
@@ -35,6 +39,7 @@
 @property (nonatomic, strong) Reachability                              *internetReachability;
 @property (nonatomic, strong) WeatherService                            *weatherService;
 @property (nonatomic, strong) AlarmService                              *alarmService;
+@property (nonatomic, strong) AVPlayer                                  *audioPlayer;
 
 @property (nonatomic, strong, readonly) NSManagedObjectModel            *managedObjectModel;
 @property (nonatomic, strong, readonly) NSManagedObjectContext          *managedObjectContext;
