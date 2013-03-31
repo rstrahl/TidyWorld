@@ -94,6 +94,7 @@ extern CGPoint const kOffscreenSpritePoint;
 #define TESTFLIGHT_APP_ID                   @"7eb3e7c2-fe13-4fdb-8168-af4f5249cdd7"
 
 // Advertising
+#define USE_IAD                             0
 #define ADMOB_PUBLISHER_ID                  @"a150de0742840ec"
 #define ADMOB_SIMULATOR_IDENTIFIER1         @"C77C7F9F-63D0-5BF4-820F-7084658E8B79"
 #define ADWHIRL_APP_ID                      @"55fcaa5b0ac648df91eb06e411368f0a"

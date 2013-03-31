@@ -22,6 +22,7 @@
 #import "WeatherLayer.h"
 #import "LandscapeLayer.h"
 #import "TMTimeUtils.h"
+#import "AppDelegate.h"
 
 @interface SummerBaseLayer()
 // Layer Setup ----------------------------------------------------------------
@@ -97,6 +98,8 @@
         // Add AdsViewController
         mAdsViewController = [[AdsViewController alloc] initWithNibName:nil bundle:nil];
         [[[CCDirector sharedDirector] view] addSubview:mAdsViewController.view];
+        AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
+        appDelegate.adsViewController = mAdsViewController;
         
         // Add UI Panel
         mMainViewController = [[MainViewController alloc] initWithNibName:nil bundle:nil];

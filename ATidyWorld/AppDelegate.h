@@ -14,6 +14,7 @@
 
 @class LocationService;
 @class WeatherService;
+@class AdsViewController;
 
 @interface AppController : NSObject <UIApplicationDelegate, CCDirectorDelegate, AlarmServiceDelegate>
 {
@@ -26,6 +27,8 @@
     Reachability                *mInternetReachability;
     WeatherService              *mWeatherService;
     AlarmService                *mAlarmService;
+    AdsViewController           *mAdsViewController;
+    
     // Audio Components
     AVPlayer                    *mAudioPlayer;
     BOOL                        mAudioPlaying;
@@ -40,6 +43,7 @@
 @property (nonatomic, strong) WeatherService                            *weatherService;
 @property (nonatomic, strong) AlarmService                              *alarmService;
 @property (nonatomic, strong) AVPlayer                                  *audioPlayer;
+@property (nonatomic, strong) AdsViewController                         *adsViewController;
 
 @property (nonatomic, strong, readonly) NSManagedObjectModel            *managedObjectModel;
 @property (nonatomic, strong, readonly) NSManagedObjectContext          *managedObjectContext;

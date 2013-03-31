@@ -14,6 +14,7 @@
 #import "SettingsConstants.h"
 #import "Constants.h"
 #import "Alarm.h"
+#import "AdsViewController.h"
 
 @interface AppController()
 /// Initialize Reachability service
@@ -44,6 +45,7 @@
             internetReachability = mInternetReachability,
             locationService = mLocationService,
             weatherService = mWeatherService,
+            adsViewController = mAdsViewController,
             audioPlayer = mAudioPlayer,
             managedObjectContext = __managedObjectContext,
             managedObjectModel = __managedObjectModel,
@@ -123,6 +125,10 @@
 	// Create a Navigation Controller with the Director
 	navController_ = [[UINavigationController alloc] initWithRootViewController:director_];
 	navController_.navigationBarHidden = YES;
+    
+//    // Add AdsViewController
+//    mAdsViewController = [[AdsViewController alloc] initWithNibName:nil bundle:nil];
+//    [[[CCDirector sharedDirector] view] addSubview:mAdsViewController.view];
 	
 	// set the Navigation Controller as the root view controller
 //	[window_ addSubview:navController_.view];	// Generates flicker.
@@ -156,7 +162,7 @@
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ resume];
-    
+    [self.adsViewController willRequestAd];
 }
 
 -(void) applicationDidEnterBackground:(UIApplication*)application

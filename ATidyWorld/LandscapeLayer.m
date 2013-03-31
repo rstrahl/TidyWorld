@@ -63,12 +63,13 @@
 
         CCSprite *foregroundSprite = [[CCSprite alloc] initWithSpriteFrameName:@"LandscapeForeground1.png"];
         
+        CGFloat undergroundHeight = ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) ? 90 : 55;
         
         for (int i = 0; i < kLandscapeBackgroundCount; i++)
         {
             CCSprite *landscapeBackgroundSprite = [[CCSprite alloc] initWithSpriteFrameName:[NSString stringWithFormat:@"LandscapeBackground%d.png", i+1]];
             landscapeBackgroundSprite.position = ccp((i * landscapeBackgroundSprite.boundingBox.size.width),
-                                                     (55 + (foregroundSprite.boundingBox.size.height * 0.4) + landscapeBackgroundSprite.boundingBox.size.height));
+                                                     (undergroundHeight + (foregroundSprite.boundingBox.size.height * 0.4) + landscapeBackgroundSprite.boundingBox.size.height));
             landscapeBackgroundSprite.anchorPoint = ccp(0,1);
             [mLandscapeBackgroundArray addObject:landscapeBackgroundSprite];
             [mLandscapeBatchNode addChild:landscapeBackgroundSprite];
@@ -78,7 +79,7 @@
         {
             CCSprite *landscapeForegroundSprite = [[CCSprite alloc] initWithSpriteFrameName:[NSString stringWithFormat:@"LandscapeForeground%d.png", i+1]];
             landscapeForegroundSprite.position = ccp((i * landscapeForegroundSprite.boundingBox.size.width),
-                                                     55 + landscapeForegroundSprite.boundingBox.size.height);
+                                                     undergroundHeight + landscapeForegroundSprite.boundingBox.size.height);
             landscapeForegroundSprite.anchorPoint = ccp(0,1);
             [mLandscapeForegroundArray addObject:landscapeForegroundSprite];
             [mLandscapeBatchNode addChild:landscapeForegroundSprite];
@@ -89,7 +90,7 @@
         {
             CCSprite *undergroundSprite = [[CCSprite alloc] initWithSpriteFrameName:@"LandscapeUnderground.png"];
             undergroundSprite.position = ccp((i * undergroundSprite.boundingBox.size.width),
-                                             55);
+                                             undergroundHeight);
             undergroundSprite.anchorPoint = ccp(0,1);
             [mLandscapeUndergroundArray addObject:undergroundSprite];
             [mLandscapeBatchNode addChild:undergroundSprite];

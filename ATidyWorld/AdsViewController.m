@@ -34,25 +34,25 @@
                   [[UIDevice currentDevice] uniqueIdentifier]);
         }
         
-        CGRect viewFrame;
-        if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
-        {
-            viewFrame = CGRectMake(0,
-                                   [[UIScreen mainScreen] bounds].size.height-90,
-                                   [[UIScreen mainScreen] bounds].size.width,
-                                   90);
-        }
-        else
-        {
-            viewFrame = CGRectMake(0,
-                                   [[UIScreen mainScreen] bounds].size.height-50,
-                                   [[UIScreen mainScreen] bounds].size.width,
-                                   50);            
-        }
-        UIView *view = [[UIView alloc] initWithFrame:viewFrame];
-        view.backgroundColor = [UIColor clearColor];
-//        view.alpha = 0.25f;
-        self.view = view;
+//        CGRect viewFrame;
+//        if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+//        {
+//            viewFrame = CGRectMake(0,
+//                                   [[UIScreen mainScreen] bounds].size.height-90,
+//                                   [[UIScreen mainScreen] bounds].size.width,
+//                                   90);
+//        }
+//        else
+//        {
+//            viewFrame = CGRectMake(0,
+//                                   [[UIScreen mainScreen] bounds].size.height-50,
+//                                   [[UIScreen mainScreen] bounds].size.width,
+//                                   50);            
+//        }
+//        UIView *view = [[UIView alloc] initWithFrame:viewFrame];
+//        view.backgroundColor = [UIColor clearColor];
+////        view.alpha = 0.25f;
+//        self.view = view;
     }
     return self;
 }
@@ -60,7 +60,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self initIadBannerView];
+    CGRect viewFrame;
+    DLog(@"Screen bounds for ads: %f x %f", [[UIScreen mainScreen] bounds].size.width,[[UIScreen mainScreen] bounds].size.height);
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+    {
+        viewFrame = CGRectMake(0,
+                               [[UIScreen mainScreen] bounds].size.height-90,
+                               [[UIScreen mainScreen] bounds].size.width,
+                               90);
+    }
+    else
+    {
+        viewFrame = CGRectMake(0,
+                               [[UIScreen mainScreen] bounds].size.height-50,
+                               [[UIScreen mainScreen] bounds].size.width,
+                               50);
+    }
+    self.view.frame = viewFrame;
+    if (USE_IAD)
+    {
+        [self initIadBannerView];
+    }
     [self initAdMobBannerView];
 }
 
@@ -81,10 +101,6 @@
     
     // Only request adMob when iAd fails
     GADRequest *request = [GADRequest request];
-    // Make the request for a test ad. Put in an identifier for
-    // the simulator as well as any devices you want to receive test ads.
-    request.testDevices = [NSArray arrayWithObjects:
-                           ADMOB_SIMULATOR_IDENTIFIER1, nil];
     [self.adMobBannerView loadRequest:request];
     [self hideBanner:self.iAdBannerView];
     [self showBanner:self.adMobBannerView];
@@ -141,9 +157,10 @@
         // Create a new bottom banner, will be slided into view
         mAdMobBannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
         mAdMobBannerView.adUnitID = ADMOB_PUBLISHER_ID;
-        mAdMobBannerView.hidden = TRUE;
+        mAdMobBannerView.hidden = !USE_IAD; // If we are using IAD, then the IAD will be given preference
         mAdMobBannerView.rootViewController = self;
         [self.view addSubview:mAdMobBannerView];
+        [self willRequestAd];
     }
 }
 
@@ -152,9 +169,9 @@
     if (banner &&
         [banner isHidden])
     {
-        self.view.alpha = 1.0f;
         [UIView beginAnimations:@"animatedBannerOn" context:nil];
-        banner.frame = CGRectOffset(banner.frame, 0, -banner.frame.size.height);
+        self.view.alpha = 1.0f;
+//        banner.frame = CGRectOffset(banner.frame, 0, -banner.frame.size.height);
         [UIView commitAnimations];
         banner.hidden = FALSE;
     }
@@ -165,9 +182,9 @@
     if (banner &&
         ![banner isHidden])
     {
-        self.view.alpha = 0.25f;
         [UIView beginAnimations:@"animatedBannerOff" context:nil];
-        banner.frame = CGRectOffset(banner.frame, 0, banner.frame.size.height);
+        self.view.alpha = 0.0f;
+//        banner.frame = CGRectOffset(banner.frame, 0, banner.frame.size.height);
         [UIView commitAnimations];
         banner.hidden = TRUE;
     }
@@ -206,22 +223,22 @@
     }
 }
 
+- (void)willRequestAd
+{
+    if (!USE_IAD)
+    {
+        [self requestAdMob];
+    }
+}
+
 //#pragma mark - AdMob Methods
-//- (void)requestAdMob
-//{
-//    // Only request adMob when iAd fails
-//    GADRequest *request = [GADRequest request];
-//
-//#ifdef DEBUG
-//    request.testDevices = [NSArray arrayWithObjects:@"C77C7F9F-63D0-5BF4-820F-7084658E8B79", nil];
-//    [self showBanner:self.adMobBannerView];
-//#endif
-//
-//    [self.adMobBannerView loadRequest:request];
-//
-//    Game *game = (Game *)[mSparrowView.stage childAtIndex:0];
-//    [game adVisible:NO];
-//}
+- (void)requestAdMob
+{
+    // Only request adMob when iAd fails
+    GADRequest *request = [GADRequest request];
+    [self showBanner:self.adMobBannerView];
+    [self.adMobBannerView loadRequest:request];
+}
 
 
 @end

@@ -25,4 +25,8 @@
 /** Toggles the display of the banner Views, for debugging/layout purposes */
 - (void)toggleAdMobBannerView;
 - (void)toggleIadBannerView;
+
+/** Signals the view controller to request an ad if needed */
+- (void)willRequestAd;
+
 @end
