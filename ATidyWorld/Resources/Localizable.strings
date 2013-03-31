@@ -19,7 +19,7 @@
 
 // Location Disabled Alert View
 "ALERT_VIEW_LOCATION_DISABLED_TITLE"        = "No Location";
-"ALERT_VIEW_LOCATION_DISABLED_MESSAGE"      = "Location services are disabled, to show the conditions of your current location please enable them";
+"ALERT_VIEW_LOCATION_DISABLED_MESSAGE"      = "To show conditions in your current location, please enable Location Services on your device.";
 
 // Location Error Alert View
 "ALERT_VIEW_LOCATION_ERROR_TITLE"           = "Location Error";
