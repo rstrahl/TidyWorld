@@ -18,5 +18,9 @@ extern NSTimeInterval const kHalfHourInSeconds;
 + (NSTimeInterval)timeIntervalOfDayStartForTimeIntervalSinceReferenceDate:(NSTimeInterval)time;
 + (NSTimeInterval)timeInDayForTimeIntervalSinceReferenceDate:(NSTimeInterval)time;
 + (NSTimeInterval)timeOffsetForLocalTimeZoneDaylightSavings;
++ (NSString *)timeStringForTimeOfDay:(NSTimeInterval)time inTimeZone:(NSTimeZone *)timeZone;
++ (NSString *)timeStringForTimeOfDay:(NSTimeInterval)time;
++ (NSTimeInterval)timeSinceReferenceDateForTimeInSecondsToday:(NSTimeInterval)time;
++ (NSDate *)dateForTimeInSecondsToday:(NSTimeInterval)time;
 
 @end

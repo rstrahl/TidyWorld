@@ -30,4 +30,36 @@ NSTimeInterval const kHalfHourInSeconds         = 1800;
     return [[NSTimeZone localTimeZone] daylightSavingTimeOffset];
 }
 
++ (NSString *)timeStringForTimeOfDay:(NSTimeInterval)time inTimeZone:(NSTimeZone *)timeZone
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setTimeZone:timeZone];
+    [formatter setDateFormat:@"K:mm a z"];
+    return [formatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:time]];
+}
+
++ (NSString *)timeStringForTimeOfDay:(NSTimeInterval)time
+{
+    int hours = ((int)time % 86400) / 3600;
+    int minutes = ((int)time % 3600) / 60;
+    return [NSString stringWithFormat:@"%d:%d", hours, minutes];
+}
+
++ (NSTimeInterval)timeSinceReferenceDateForTimeInSecondsToday:(NSTimeInterval)time
+{
+    NSInteger todayTime = (NSInteger)[NSDate timeIntervalSinceReferenceDate];
+    todayTime -= todayTime % (int)kOneDayInSeconds;
+    todayTime += time;
+    return todayTime;
+}
+
++ (NSDate *)dateForTimeInSecondsToday:(NSTimeInterval)time
+{
+    NSInteger todayTime = (NSInteger)[NSDate timeIntervalSinceReferenceDate];
+    todayTime -= todayTime % (int)kOneDayInSeconds;
+    todayTime += time;
+    return [NSDate dateWithTimeIntervalSinceReferenceDate:todayTime];
+    
+}
+
 @end

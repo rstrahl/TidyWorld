@@ -15,6 +15,7 @@
 #import "Alarm.h"
 #import "AppDelegate.h"
 #import "AlarmService.h"
+#import "TMTimeUtils.h"
 
 @interface AlarmListViewController()
 /** Helper method used to configure the layout of a UITableViewCell based on its contents */
@@ -54,12 +55,13 @@
         mUse24HourClock = [defaults boolForKey:SETTINGS_KEY_USE_24_HOUR_CLOCK];
         if (!mUse24HourClock)
         {
-            [mDateFormatter setDateFormat:@"K:mm:a"];
+            [mDateFormatter setDateFormat:@"h:mm:a"];
         } 
         else
         {
             [mDateFormatter setDateFormat:@"HH:mm:a"];
         }
+        DLog(@"Date Formatter is timezone: %@", [mDateFormatter timeZone]);
         AppController *delegate = (AppController *)[[UIApplication sharedApplication] delegate];
         self.context = [delegate managedObjectContext];
     }
@@ -348,8 +350,10 @@
 - (void)configureEditAlarmCell:(AlarmCellView *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     Alarm *alarm = [mFetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
-    
-    NSString *timeString = [mDateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:alarm.time.doubleValue]];
+    NSTimeInterval alarmTime = alarm.time.doubleValue + [[NSTimeZone localTimeZone] daylightSavingTimeOffset];
+    NSString *timeString = [mDateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:alarmTime]];
+    DLog(@"Alarm loaded: %@ (GMT)", [TMTimeUtils timeStringForTimeOfDay:alarm.time.doubleValue
+                                                             inTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]]);
     NSArray *timeComponents = [timeString componentsSeparatedByString:@":"];
     cell.timeLabel.text = [NSString stringWithFormat:@"%@:%@", [timeComponents objectAtIndex:0], [timeComponents objectAtIndex:1]];
     cell.ampmLabel.text = [NSString stringWithFormat:@"%@", [timeComponents objectAtIndex:2]];
@@ -362,7 +366,7 @@
     [cell.titleLabel setText:alarm.title];
     
     // ENABLED
-    DLog(@"Alarm.enabled: %d", [alarm.enabled boolValue]);
+//    DLog(@"Alarm.enabled: %d", [alarm.enabled boolValue]);
     [cell.enabledSwitch addTarget:self
                            action:@selector(activeSwitchWasToggled:)
                  forControlEvents:UIControlEventTouchUpInside];

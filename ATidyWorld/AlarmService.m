@@ -68,6 +68,10 @@ static AlarmService *sharedClockService = nil;
             DLog(@"ERROR loading alarm objects %@, %@", error, [error userInfo]);
         }
         DLog(@"Alarms Loaded: %d", [[self.fetchedResultsController fetchedObjects] count]);
+        if ([[NSTimeZone localTimeZone] isDaylightSavingTime])
+        {
+            DLog(@"Local timezone is DST ENABLED");
+        }
         [self updateActiveAlarmQueueForTimeSinceReferenceDate:mLastTimeUpdate];
     }
     return self;
@@ -85,7 +89,11 @@ static AlarmService *sharedClockService = nil;
 #pragma mark - Time Update
 - (void)updateWithTime:(NSTimeInterval)timeInterval
 {
-    DLog(@"Updating alarm service...");
+//    if ([[NSTimeZone localTimeZone] isDaylightSavingTime])
+//    {
+//        timeInterval += [[NSTimeZone localTimeZone] daylightSavingTimeOffset];
+//    }
+    DLog(@"Update at %@", [TMTimeUtils timeStringForTimeOfDay:timeInterval]);
     mSecondsUntilDayEnds =- timeInterval - mLastTimeUpdate;
     mLastTimeUpdate = timeInterval;
     // 1. Check for end of day
@@ -113,7 +121,7 @@ static AlarmService *sharedClockService = nil;
 - (void)updateActiveAlarmQueueForTimeSinceReferenceDate:(NSTimeInterval)time
 {
     NSTimeInterval timeInDay = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:time];
-    timeInDay += [[NSTimeZone localTimeZone] daylightSavingTimeOffset];
+//    timeInDay += [[NSTimeZone localTimeZone] daylightSavingTimeOffset];
     DLog(@"Scheduled Alarms Before Check: %d", [mActiveAlarmQueue count]);
     if (mActiveAlarmQueue == nil)
     {
@@ -127,8 +135,9 @@ static AlarmService *sharedClockService = nil;
     // Get all alarms that are "enabled"
     for (Alarm *alarm in [self.fetchedResultsController fetchedObjects])
     {
-        DLog(@"Alarm time: %f", alarm.time.doubleValue);
-        DLog(@"Curr. time: %f", timeInDay);
+        DLog(@"Alarm check - (Alarm: %@) (Current Time: %@)",
+             [TMTimeUtils timeStringForTimeOfDay:alarm.time.doubleValue],
+             [TMTimeUtils timeStringForTimeOfDay:time]);
         // Is alarm time later than now
         if (alarm.time.doubleValue >= timeInDay)
         {
@@ -150,7 +159,7 @@ static AlarmService *sharedClockService = nil;
     {
         // Grab the alarm at the "top" of the queue (the one that comes next chronologically)
         Alarm *nextAlarm = [mActiveAlarmQueue objectAtIndex:0];
-        NSTimeInterval nextAlarmTime = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:nextAlarm.time.doubleValue];
+        NSTimeInterval nextAlarmTime = [TMTimeUtils timeSinceReferenceDateForTimeInSecondsToday:nextAlarm.time.doubleValue];
         
         // Trigger next alarm when the current time passes the alarm time
         if (nextAlarmTime <= time)

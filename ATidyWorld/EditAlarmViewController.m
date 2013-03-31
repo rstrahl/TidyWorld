@@ -101,8 +101,8 @@
     
     // Picker time is today in seconds + the alarm time since midnight of its original day
     if ([self.alarm.time doubleValue])
-    {        
-        [self.timePicker setDate:[NSDate dateWithTimeIntervalSinceReferenceDate:self.alarm.time.doubleValue]];
+    {
+        [self.timePicker setDate:[TMTimeUtils dateForTimeInSecondsToday:self.alarm.time.doubleValue]];
     }
     else
     {
@@ -323,14 +323,15 @@
 - (IBAction)saveButtonPressed:(id)sender
 {
     // We save the time of the alarm as the time during the day - datepicker always includes DATE
-    NSTimeInterval alarmTime = floor([TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:[self.timePicker.date timeIntervalSinceReferenceDate]]);
-    if (mIsNewAlarm)
-    {
-        if ([[NSTimeZone localTimeZone] isDaylightSavingTime])
-        {
-            alarmTime += [[NSTimeZone localTimeZone] daylightSavingTimeOffset];
-        }
-    }
+    NSTimeInterval time = [self.timePicker.date timeIntervalSinceReferenceDate];
+    NSTimeInterval alarmTime = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:(time - ((int)time % 60))];
+//    if (mIsNewAlarm)
+//    {
+//        if ([[NSTimeZone localTimeZone] isDaylightSavingTime])
+//        {
+//            alarmTime += [[NSTimeZone localTimeZone] daylightSavingTimeOffset];
+//        }
+//    }
     mAlarm.time = [NSNumber numberWithDouble:alarmTime];
     mAlarm.hasProblem = [NSNumber numberWithBool:NO];
     // Save object in context
@@ -341,7 +342,7 @@
     else
     {
         mIsSaved = YES;
-        DLog(@"saveButtonPressed: SUCCESS saving alarm");
+        DLog(@"Saved alarm wth time: %@ (GMT)", [TMTimeUtils timeStringForTimeOfDay:mAlarm.time.doubleValue inTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]]);
     }
     
     [self.delegate didReturnFromEditingAlarm:mAlarm];
