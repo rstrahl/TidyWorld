@@ -19,7 +19,6 @@
     BOOL                                mLocationBasedWeather;
     WeatherCondition                    mCurrentWeatherCondition;
     NSString                            *mCurrentLocationString;
-    UIButton                            *mRetryLocationButton;
     UIActivityIndicatorView             *mLocationActivityIndicatorView;
 }
 
@@ -29,7 +28,6 @@
 @property (nonatomic, strong) IBOutlet UISwitch                     *lightningSwitch;
 @property (nonatomic, strong) NSString                              *currentLocationString;
 @property (nonatomic, assign) WeatherCondition                      currentWeatherCondition;
-@property (nonatomic, strong) IBOutlet UIButton                     *retryLocationButton;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView      *locationActivityIndicatorView;
 
 /** Saves the changes to the world and dismisses itself */

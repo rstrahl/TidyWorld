@@ -11,6 +11,7 @@
 #import "IntroLayer.h"
 #import "LocationService.h"
 #import "WeatherService.h"
+#import "SettingsConstants.h"
 #import "Constants.h"
 #import "Alarm.h"
 
@@ -155,6 +156,7 @@
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ resume];
+    
 }
 
 -(void) applicationDidEnterBackground:(UIApplication*)application
@@ -167,6 +169,11 @@
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ startAnimation];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults boolForKey:SETTINGS_KEY_LOCATION_BASED_WEATHER])
+    {
+        [mLocationService startLocationAttempt];
+    }
 }
 
 // application will be killed

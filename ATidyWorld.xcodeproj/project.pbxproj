@@ -35,6 +35,8 @@
 		9B7DFE3816E5672C00A534DF /* WeatherSpriteSheet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2C16E5672C00A534DF /* WeatherSpriteSheet-hd.png */; };
 		9B7DFE3916E5672C00A534DF /* WeatherSpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2D16E5672C00A534DF /* WeatherSpriteSheet.plist */; };
 		9B7DFE3A16E5672C00A534DF /* WeatherSpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2E16E5672C00A534DF /* WeatherSpriteSheet.png */; };
+		9B8B97D31708F5240009A7D9 /* Icon_Warning~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97D21708F5240009A7D9 /* Icon_Warning~iphone.png */; };
+		9B8B97D51708F52C0009A7D9 /* Icon_Warning@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97D41708F52C0009A7D9 /* Icon_Warning@2x~iphone.png */; };
 		9B91636617028FBE009E9AF8 /* EditAlarmViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B91636517028FBE009E9AF8 /* EditAlarmViewController~ipad.xib */; };
 		9B91637417050A8D009E9AF8 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B91637017050A8D009E9AF8 /* libTestFlight.a */; };
 		9B91637517050A8D009E9AF8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B91637117050A8D009E9AF8 /* README.md */; };
@@ -321,6 +323,8 @@
 		9B7DFE2C16E5672C00A534DF /* WeatherSpriteSheet-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WeatherSpriteSheet-hd.png"; path = "Assets/SpriteSheet/WeatherSpriteSheet-hd.png"; sourceTree = SOURCE_ROOT; };
 		9B7DFE2D16E5672C00A534DF /* WeatherSpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = WeatherSpriteSheet.plist; path = Assets/SpriteSheet/WeatherSpriteSheet.plist; sourceTree = SOURCE_ROOT; };
 		9B7DFE2E16E5672C00A534DF /* WeatherSpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WeatherSpriteSheet.png; path = Assets/SpriteSheet/WeatherSpriteSheet.png; sourceTree = SOURCE_ROOT; };
+		9B8B97D21708F5240009A7D9 /* Icon_Warning~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Warning~iphone.png"; sourceTree = "<group>"; };
+		9B8B97D41708F52C0009A7D9 /* Icon_Warning@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Warning@2x~iphone.png"; sourceTree = "<group>"; };
 		9B91636517028FBE009E9AF8 /* EditAlarmViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EditAlarmViewController~ipad.xib"; sourceTree = "<group>"; };
 		9B91637017050A8D009E9AF8 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		9B91637117050A8D009E9AF8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -1030,6 +1034,7 @@
 				9BC0364F16F54025002D6C02 /* Icon_Settings_Highlight~iphone.png */,
 				9BC0365016F54025002D6C02 /* Icon_Settings~ipad.png */,
 				9BC0365116F54025002D6C02 /* Icon_Settings~iphone.png */,
+				9B8B97D21708F5240009A7D9 /* Icon_Warning~iphone.png */,
 				9BC0365216F54025002D6C02 /* Icon_World_Highlight~ipad.png */,
 				9BC0365316F54025002D6C02 /* Icon_World_Highlight~iphone.png */,
 				9BC0365416F54025002D6C02 /* Icon_World~ipad.png */,
@@ -1049,6 +1054,7 @@
 				9BC0363716F54016002D6C02 /* Icon_Settings_Highlight@2x~iphone.png */,
 				9BC0363816F54016002D6C02 /* Icon_Settings@2x~ipad.png */,
 				9BC0363916F54016002D6C02 /* Icon_Settings@2x~iphone.png */,
+				9B8B97D41708F52C0009A7D9 /* Icon_Warning@2x~iphone.png */,
 				9BC0363A16F54016002D6C02 /* Icon_World_Highlight@2x~ipad.png */,
 				9BC0363B16F54016002D6C02 /* Icon_World_Highlight@2x~iphone.png */,
 				9BC0363C16F54016002D6C02 /* Icon_World@2x~ipad.png */,
@@ -1876,6 +1882,8 @@
 				9B91636617028FBE009E9AF8 /* EditAlarmViewController~ipad.xib in Resources */,
 				9B91637517050A8D009E9AF8 /* README.md in Resources */,
 				9B91637617050A8D009E9AF8 /* release_notes.md in Resources */,
+				9B8B97D31708F5240009A7D9 /* Icon_Warning~iphone.png in Resources */,
+				9B8B97D51708F52C0009A7D9 /* Icon_Warning@2x~iphone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

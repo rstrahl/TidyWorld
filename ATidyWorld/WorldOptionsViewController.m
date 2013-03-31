@@ -45,7 +45,6 @@
             delegate = mDelegate,
             currentLocationString = mCurrentLocationString,
             currentWeatherCondition = mCurrentWeatherCondition,
-            retryLocationButton = mRetryLocationButton,
             locationActivityIndicatorView = mLocationActivityIndicatorView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -127,13 +126,6 @@
                                              selector:@selector(didReceiveWeatherUnchangedNotification:)
                                                  name:NOTIFICATION_WEATHER_UNCHANGED
                                                object:nil];
-    
-    // Setup button for attempting to try location
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = CGRectMake(0, 0, 60, 32);
-    [button setTitle:@"Retry" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(retryLocationButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    self.retryLocationButton = button;
     
     // Setup activity indicator for location-service
     UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -280,14 +272,18 @@
             {
                 cell.textLabel.text = NSLocalizedString(@"CELL_TEXT_LOCATION_ERROR", @"Location error");
                 cell.textLabel.textColor = [UIColor grayColor];
-                cell.accessoryView = self.retryLocationButton;
+                UIImage *warningImage = [UIImage imageNamed:@"Icon_Warning.png"];
+                UIImageView *warningImageView = [[UIImageView alloc] initWithImage:warningImage];
+                cell.accessoryView = warningImageView;
                 break;
             }
             case kLocationServiceNotReachable:
             {
                 cell.textLabel.text = NSLocalizedString(@"CELL_TEXT_INTERNET_UNREACHABLE", @"Internet error");
                 cell.textLabel.textColor = [UIColor grayColor];
-                cell.accessoryView = self.retryLocationButton;
+                UIImage *warningImage = [UIImage imageNamed:@"Icon_Warning.png"];
+                UIImageView *warningImageView = [[UIImageView alloc] initWithImage:warningImage];
+                cell.accessoryView = warningImageView;
                 break;
             }
             default:
@@ -466,6 +462,7 @@
     }
 }
 
+// TODO Code review - possibly no longer needed
 - (IBAction)retryLocationButtonPressed:(id)sender
 {
     UIButton *button = (UIButton *)sender;
