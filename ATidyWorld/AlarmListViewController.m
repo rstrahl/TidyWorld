@@ -51,6 +51,7 @@
     if (self) {
         self.title = NSLocalizedString(@"VIEW_TITLE_ALARMS", nil);
         mDateFormatter = [[NSDateFormatter alloc] init];
+        [mDateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         mUse24HourClock = [defaults boolForKey:SETTINGS_KEY_USE_24_HOUR_CLOCK];
         if (!mUse24HourClock)
@@ -350,7 +351,7 @@
 - (void)configureEditAlarmCell:(AlarmCellView *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     Alarm *alarm = [mFetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
-    NSTimeInterval alarmTime = alarm.time.doubleValue + [[NSTimeZone localTimeZone] daylightSavingTimeOffset];
+    NSTimeInterval alarmTime = alarm.time.doubleValue;
     NSString *timeString = [mDateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:alarmTime]];
     DLog(@"Alarm loaded: %@ (GMT)", [TMTimeUtils timeStringForTimeOfDay:alarm.time.doubleValue
                                                              inTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]]);

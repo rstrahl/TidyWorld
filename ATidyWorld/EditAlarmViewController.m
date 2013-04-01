@@ -97,16 +97,17 @@
         self.alarm.enabled = [NSNumber numberWithBool:YES];
     }
     
-//    [self.tableView setFrame:CGRectMake(0,0,320,240)];
-    
     // Picker time is today in seconds + the alarm time since midnight of its original day
+    [self.timePicker setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     if ([self.alarm.time doubleValue])
     {
         [self.timePicker setDate:[TMTimeUtils dateForTimeInSecondsToday:self.alarm.time.doubleValue]];
     }
     else
     {
-        [self.timePicker setDate:[NSDate date]];
+        // New time:  nowInGMT + localTimeZone + DST adjustment
+        NSTimeInterval time = [NSDate timeIntervalSinceReferenceDate] + [[NSTimeZone localTimeZone] secondsFromGMT];
+        [self.timePicker setDate:[NSDate dateWithTimeIntervalSinceReferenceDate:time]];
     }
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -115,8 +116,6 @@
     {
         [self.timePicker setDatePickerMode:UIDatePickerModeTime];
     }
-//    [self.timePicker setFrame:CGRectMake(0,244,320, 216)];
-//    [self.view addSubview:self.timePicker];
     self.contentSizeForViewInPopover = CGSizeMake(320,436);
 }
 
@@ -323,6 +322,7 @@
 - (IBAction)saveButtonPressed:(id)sender
 {
     // We save the time of the alarm as the time during the day - datepicker always includes DATE
+//    NSTimeInterval time = [self.timePicker.date timeIntervalSinceReferenceDate] + [[NSTimeZone localTimeZone] secondsFromGMT];
     NSTimeInterval time = [self.timePicker.date timeIntervalSinceReferenceDate];
     NSTimeInterval alarmTime = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:(time - ((int)time % 60))];
 //    if (mIsNewAlarm)
@@ -342,7 +342,7 @@
     else
     {
         mIsSaved = YES;
-        DLog(@"Saved alarm wth time: %@ (GMT)", [TMTimeUtils timeStringForTimeOfDay:mAlarm.time.doubleValue inTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]]);
+        DLog(@"Saved alarm wth time: %@ ", [TMTimeUtils timeStringForTimeOfDay:mAlarm.time.doubleValue]);
     }
     
     [self.delegate didReturnFromEditingAlarm:mAlarm];

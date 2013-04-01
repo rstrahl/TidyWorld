@@ -72,6 +72,7 @@ static AlarmService *sharedClockService = nil;
         {
             DLog(@"Local timezone is DST ENABLED");
         }
+        [self updateWithTime:[NSDate timeIntervalSinceReferenceDate]];
         [self updateActiveAlarmQueueForTimeSinceReferenceDate:mLastTimeUpdate];
     }
     return self;
@@ -89,12 +90,8 @@ static AlarmService *sharedClockService = nil;
 #pragma mark - Time Update
 - (void)updateWithTime:(NSTimeInterval)timeInterval
 {
-//    if ([[NSTimeZone localTimeZone] isDaylightSavingTime])
-//    {
-//        timeInterval += [[NSTimeZone localTimeZone] daylightSavingTimeOffset];
-//    }
     DLog(@"Update at %@", [TMTimeUtils timeStringForTimeOfDay:timeInterval]);
-    mSecondsUntilDayEnds =- timeInterval - mLastTimeUpdate;
+    mSecondsUntilDayEnds -= timeInterval - mLastTimeUpdate;
     mLastTimeUpdate = timeInterval;
     // 1. Check for end of day
     if (mSecondsUntilDayEnds <= 0)
@@ -115,13 +112,13 @@ static AlarmService *sharedClockService = nil;
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:NSWeekdayCalendarUnit fromDate:today];
     mCurrentWeekday = [components weekday]-1;
-    mSecondsUntilDayEnds = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:[today timeIntervalSinceReferenceDate]];
+    mSecondsUntilDayEnds = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:([today timeIntervalSinceReferenceDate] + [[NSTimeZone localTimeZone] secondsFromGMT])];
 }
 
 - (void)updateActiveAlarmQueueForTimeSinceReferenceDate:(NSTimeInterval)time
 {
-    NSTimeInterval timeInDay = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:time];
-//    timeInDay += [[NSTimeZone localTimeZone] daylightSavingTimeOffset];
+    NSTimeInterval timeInDayGMT = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:time];
+    NSTimeInterval timezoneOffset = [[NSTimeZone localTimeZone] secondsFromGMT];
     DLog(@"Scheduled Alarms Before Check: %d", [mActiveAlarmQueue count]);
     if (mActiveAlarmQueue == nil)
     {
@@ -135,11 +132,13 @@ static AlarmService *sharedClockService = nil;
     // Get all alarms that are "enabled"
     for (Alarm *alarm in [self.fetchedResultsController fetchedObjects])
     {
-        DLog(@"Alarm check - (Alarm: %@) (Current Time: %@)",
+        DLog(@"Alarm check - (Alarm Local: %@) (Current Time Local: %@) (Alarm GMT: %@) (Current Time GMT: %@)",
              [TMTimeUtils timeStringForTimeOfDay:alarm.time.doubleValue],
+             [TMTimeUtils timeStringForTimeOfDay:(time + timezoneOffset)],
+             [TMTimeUtils timeStringForTimeOfDay:(alarm.time.doubleValue - timezoneOffset)],
              [TMTimeUtils timeStringForTimeOfDay:time]);
         // Is alarm time later than now
-        if (alarm.time.doubleValue >= timeInDay)
+        if ((alarm.time.doubleValue - timezoneOffset) > timeInDayGMT)
         {
             // Is alarm scheduled for today or has a repeat of today
             if (([alarm.repeat intValue] == 0) ||
@@ -159,10 +158,21 @@ static AlarmService *sharedClockService = nil;
     {
         // Grab the alarm at the "top" of the queue (the one that comes next chronologically)
         Alarm *nextAlarm = [mActiveAlarmQueue objectAtIndex:0];
-        NSTimeInterval nextAlarmTime = [TMTimeUtils timeSinceReferenceDateForTimeInSecondsToday:nextAlarm.time.doubleValue];
+        NSTimeInterval timezoneOffset = [[NSTimeZone localTimeZone] secondsFromGMT];
+        
+        // Alarm time is a fixed seconds-in-day point
+        NSTimeInterval nextAlarmTimeAbsolute = nextAlarm.time.doubleValue;
+        // Convert current time (GMT) to fixed seconds-in-day point based on local time zone
+        NSTimeInterval currentTimeAbsolute = ([TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:time] + timezoneOffset);
+        
+        DLog(@"TRIGGER CHECK: (Alarm Local: %@) (Current Time Local: %@) (Alarm GMT: %@) (Current Time GMT: %@)",
+             [TMTimeUtils timeStringForTimeOfDay:nextAlarm.time.doubleValue],
+             [TMTimeUtils timeStringForTimeOfDay:(time + timezoneOffset)],
+             [TMTimeUtils timeStringForTimeOfDay:(nextAlarm.time.doubleValue - timezoneOffset)],
+             [TMTimeUtils timeStringForTimeOfDay:time]);
         
         // Trigger next alarm when the current time passes the alarm time
-        if (nextAlarmTime <= time)
+        if (nextAlarmTimeAbsolute <= currentTimeAbsolute)
         {
             // Disable alarm if its not set to repeat
             if (![nextAlarm.repeat intValue])

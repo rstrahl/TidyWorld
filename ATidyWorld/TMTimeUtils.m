@@ -42,7 +42,7 @@ NSTimeInterval const kHalfHourInSeconds         = 1800;
 {
     int hours = ((int)time % 86400) / 3600;
     int minutes = ((int)time % 3600) / 60;
-    return [NSString stringWithFormat:@"%d:%d", hours, minutes];
+    return [NSString stringWithFormat:@"%d:%.2d", hours, minutes];
 }
 
 + (NSTimeInterval)timeSinceReferenceDateForTimeInSecondsToday:(NSTimeInterval)time
