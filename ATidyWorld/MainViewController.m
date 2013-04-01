@@ -9,6 +9,8 @@
 #import "MainViewController.h"
 #import "ClockFaceView.h"
 #import "ButtonTrayView.h"
+#import "AdsViewController.h"
+#import "AppDelegate.h"
 
 @interface MainViewController ()
 
@@ -17,7 +19,8 @@
 @implementation MainViewController
 
 @synthesize buttonsView = mButtonsView,
-            clockView = mClockView;
+            clockView = mClockView,
+            adsViewController = mAdsViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -58,6 +61,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    // Add AdsViewController
+    mAdsViewController = [[AdsViewController alloc] initWithNibName:nil bundle:nil];
+    [self.view addSubview:mAdsViewController.view];
+    AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
+    appDelegate.adsViewController = mAdsViewController;
 }
 
 - (void)didReceiveMemoryWarning

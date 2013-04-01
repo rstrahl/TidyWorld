@@ -8,6 +8,7 @@
 
 #import "AdsViewController.h"
 #import "Constants.h"
+#import "LocationService.h"
 #import <AdSupport/AdSupport.h>
 
 @interface AdsViewController ()
@@ -159,6 +160,7 @@
         mAdMobBannerView.adUnitID = ADMOB_PUBLISHER_ID;
         mAdMobBannerView.hidden = !USE_IAD; // If we are using IAD, then the IAD will be given preference
         mAdMobBannerView.rootViewController = self;
+        mAdMobBannerView.delegate = self;
         [self.view addSubview:mAdMobBannerView];
         [self willRequestAd];
     }
@@ -236,6 +238,13 @@
 {
     // Only request adMob when iAd fails
     GADRequest *request = [GADRequest request];
+    LocationService *location = [LocationService sharedInstance];
+    if (location.currentLocation != nil)
+    {
+        [request setLocationWithLatitude:location.currentLocation.coordinate.latitude
+                               longitude:location.currentLocation.coordinate.longitude
+                                accuracy:location.currentLocation.horizontalAccuracy];
+    }
     [self showBanner:self.adMobBannerView];
     [self.adMobBannerView loadRequest:request];
 }
