@@ -102,6 +102,6 @@ extern CGPoint const kOffscreenSpritePoint;
 // Google Analytics
 // TODO: PRE-RELEASE CONFIG: Change analytics codes to release build
 #define ANALYTICS_GOOGLE_TRACKING_ID        @"UA-36822575-3"
-#define ANALYTICS_GOOGLE_ON                 0
+#define ANALYTICS_GOOGLE_ON                 1
 
 #endif
