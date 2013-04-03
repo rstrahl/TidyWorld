@@ -15,6 +15,25 @@ NSTimeInterval const kHalfHourInSeconds         = 1800;
 
 @implementation TMTimeUtils
 
++ (NSTimeInterval)localTimeOfDayForTimeIntervalSinceReferenceDate:(NSTimeInterval)time inTimeZone:(NSTimeZone *)timeZone
+{
+    // calculate GMT timeInDay
+    NSTimeInterval timeInDay = [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:time];
+    NSTimeInterval localTimeInDay = timeInDay + [timeZone secondsFromGMT];
+    if (localTimeInDay < 0)
+    {
+        return (kOneDayInSeconds - localTimeInDay);
+    }
+    else if (localTimeInDay > kOneDayInSeconds)
+    {
+        return (localTimeInDay - kOneDayInSeconds);
+    }
+    else
+    {
+        return localTimeInDay;
+    }
+}
+
 + (NSTimeInterval)timeIntervalOfDayStartForTimeIntervalSinceReferenceDate:(NSTimeInterval)time
 {
     return time - [TMTimeUtils timeInDayForTimeIntervalSinceReferenceDate:time];

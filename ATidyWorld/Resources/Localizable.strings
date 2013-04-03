@@ -33,6 +33,9 @@
 "ALERT_VIEW_WEATHER_PROBLEM_TITLE"          = "No Weather Data";
 "ALERT_VIEW_WEATHER_PROBLEM_MESSAGE"        = "There was a problem finding weather data for your location, the app will try again in a few moments.";
 
+"ALERT_VIEW_FIRST_HOME_SCREEN_TITLE"        = "Welcome!";
+"ALERT_VIEW_FIRST_HOME_SCREEN_MESSAGE"      = "Welcome to A Tidy World! Swipe the clock area left or right to change different settings, swipe the landscape to view the world!";
+
 // Alarm List View
 "BUTTON_TITLE_NEW_ALARM"                    = "Add New Alarm";
 

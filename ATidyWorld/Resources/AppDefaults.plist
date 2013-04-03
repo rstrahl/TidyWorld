@@ -32,5 +32,7 @@
 	<integer>0</integer>
 	<key>LOCATION_BASED_WEATHER</key>
 	<string>YES</string>
+	<key>FIRST_TIME_ON_HOME_SCREEN</key>
+	<string>YES</string>
 </dict>
 </plist>

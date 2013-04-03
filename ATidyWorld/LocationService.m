@@ -9,13 +9,17 @@
 #import "LocationService.h"
 #import "Constants.h"
 #import "Reachability.h"
+#import "TMOSVersionDetection.h"
 
 static LocationService *sharedLocationController = nil;
 
 @interface LocationService()
-
-/// Determine location identifier for Yahoo! Weather Service
+- (void)geocodeIOS4Location:(CLLocation*)location;
+- (void)geocodeIOS5Location:(CLLocation*)location;
+/// Determine location identifier for Yahoo! Weather Service DEPRECATED	
 - (void)findWOEIDByLocation:(CLLocation *)location;
+/// Determine location identifier for Yahoo! Weather Service
+- (void)findWOEIDByAddressString:(NSString *)address;
 /// Send notification that a location was successfully determined
 - (void)willSendLocationSuccessNotification;
 /// Send notification that a location failed to be determined
@@ -50,7 +54,8 @@ static LocationService *sharedLocationController = nil;
 //        
 //        mCurrentLocation = [[CLLocation alloc] initWithLatitude:testLatitude longitude:testLongitude];
         
-        mWoeidServiceString = @"http://where.yahooapis.com/geocode";
+//        mWoeidServiceString = @"http://where.yahooapis.com/geocode"; // NO LONGER VALID AS OF APRIL 2013! >:(
+        mWoeidServiceString = @"http://gws2.maps.yahoo.com/findlocation";
         mWoeidServiceGFlags = @"R";
         mWoeidServiceFlags = @"J";
         mYahooApplicationID = @"rBibj342";
@@ -105,11 +110,19 @@ static LocationService *sharedLocationController = nil;
     mLocationErrorCode = -1;
     [mLocationManager stopUpdatingLocation];
     
-    // IOS5 Geocoding Code
-    //[self geocodeLocation:newLocation];
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"5.0"))
+    {
+        // IOS5 Geocoding Code
+        [self geocodeIOS5Location:newLocation];
+    }
+    else
+    {
+        // IOS4.x Geocoding Code
+        [self geocodeIOS4Location:newLocation];
+    }
     
     // Yahoo! Placefinder Geocoding code
-    [self findWOEIDByLocation:newLocation];
+//    [self findWOEIDByLocation:newLocation];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -147,6 +160,56 @@ static LocationService *sharedLocationController = nil;
     }
 }
 
+#pragma mark - iOS 4.1 Geocoding
+- (void)geocodeIOS4Location:(CLLocation*)location
+{
+    MKReverseGeocoder* theGeocoder = [[MKReverseGeocoder alloc] initWithCoordinate:location.coordinate];
+    
+    theGeocoder.delegate = self;
+    [theGeocoder start];
+}
+
+- (void)reverseGeocoder:(MKReverseGeocoder*)geocoder didFindPlacemark:(MKPlacemark*)place
+{
+    NSString *address = [NSString stringWithFormat:@"%@,%@,%@",
+                         place.locality,
+                         place.administrativeArea,
+                         place.country];
+    [self findWOEIDByAddressString:address];
+}
+
+- (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError:(NSError *)error
+{
+
+    UIAlertView *noLocationAlertView =
+    [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ALERT_VIEW_LOCATION_ERROR_TITLE", @"Location Failed")
+                               message:NSLocalizedString(@"ALERT_VIEW_LOCATION_ERROR_MESSAGE", @"Location Failed")
+                              delegate:nil
+                     cancelButtonTitle:NSLocalizedString(@"OK", @"Ok")
+                     otherButtonTitles:nil];
+    [noLocationAlertView show];
+    [self willSendLocationFailedNotification];
+}
+
+#pragma mark - iOS 5+ Geocoding
+- (void)geocodeIOS5Location:(CLLocation*)location
+{
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error)
+    {
+        //Get nearby address
+        CLPlacemark *place = [placemarks objectAtIndex:0];
+        NSString *address = [NSString stringWithFormat:@"%@,%@,%@",
+                             place.locality,
+                             place.administrativeArea,
+                             place.country];
+        //Print the location to console
+        DLog(@"LOCATION FOUND: %@", address);
+        [self findWOEIDByAddressString:address];
+    }];
+}
+
 #pragma mark - Yahoo Geocoding Service
 - (void)findWOEIDByLocation:(CLLocation *)location
 {
@@ -154,6 +217,7 @@ static LocationService *sharedLocationController = nil;
     if ((now - mLastLocationUpdateTime) > 120 || mCurrentLocation == nil)
     {
         mLastLocationUpdateTime = now;
+        // gws2.maps.yahoo.com/findlocation?pf=1&locale=en_US&flags=J&offset=15&gflags=&q=Hasselt&start=0&count=100
         NSString *serviceURLString = [NSString stringWithFormat:@"%@?q=%f,+%f&gflags=%@&flags=%@&appid=%@",
                                       mWoeidServiceString,
                                       location.coordinate.latitude, location.coordinate.longitude,
@@ -189,9 +253,58 @@ static LocationService *sharedLocationController = nil;
     }
 }
 
+- (void)findWOEIDByAddressString:(NSString *)address
+{
+    NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
+    if ((now - mLastLocationUpdateTime) > 120 || mCurrentLocation == nil)
+    {
+        mLastLocationUpdateTime = now;
+        // gws2.maps.yahoo.com/findlocation?pf=1&locale=en_US&flags=J&offset=15&gflags=&q=Hasselt&start=0&count=100
+        NSString *serviceURLString = [NSString stringWithFormat:@"%@?pf=1&locale=en_US&flags=J&offset=15&q=%@&gflags=%@&start=0&count=1",
+                                      mWoeidServiceString,
+                                      address,
+                                      mWoeidServiceGFlags];
+        mWoeidServiceURL = [NSURL URLWithString:serviceURLString];
+        NSURLRequest *request = [NSURLRequest requestWithURL:mWoeidServiceURL];
+        NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+        if (connection)
+        {
+            mResponseData = [[NSMutableData alloc] init];
+        }
+        else
+        {
+            DLog(@"ERROR initializing connection for location service");
+            UIAlertView *noReachabilityAlertView =
+            [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ALERT_VIEW_WEATHER_PROBLEM_TITLE", @"No Reachability")
+                                       message:NSLocalizedString(@"ALERT_VIEW_WEATHER_PROBLEM_MESSAGE", @"No Reachability")
+                                      delegate:nil
+                             cancelButtonTitle:NSLocalizedString(@"OK", @"Ok")
+                             otherButtonTitles:nil];
+            [noReachabilityAlertView show];
+            self.locationErrorCode = kLocationServiceNotReachable;
+            [self willSendLocationFailedNotification];
+        }
+        
+    }
+    else
+    {
+        DLog(@"IGNORING repeat call to locationDidUpdate within 2 minutes");
+    }
+}
+
 #pragma mark - NSURLConnectionDelegate Implementation
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
+    if ([response respondsToSelector:@selector(statusCode)])
+    {
+        int statusCode = [((NSHTTPURLResponse *)response) statusCode];
+        if (statusCode == 404)
+        {
+//            [connection cancel];  // stop connecting; no more delegate messages
+            DLog(@"ERROR connection statuscode = %i", statusCode);
+            [self analyticsLogGeocodingException:[NSString stringWithFormat:@"Location to WOEID service failed with HTTP status: %i", statusCode]];
+        }
+    }
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
@@ -202,13 +315,14 @@ static LocationService *sharedLocationController = nil;
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
 	DLog(@"ERROR connection failed: %@", [error description]);
+    [self analyticsLogGeocodingException:[NSString stringWithFormat:@"Location to WOEID service failed: %@", [error description]]];
     [self willSendLocationFailedNotification];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-//    NSString *responseString = [[NSString alloc] initWithData:mResponseData encoding:NSUTF8StringEncoding];
-//    DLog(@"Finished loading woeid response: \r %@", responseString);
+    NSString *responseString = [[NSString alloc] initWithData:mResponseData encoding:NSUTF8StringEncoding];
+    DLog(@"Finished loading woeid response: \r %@", responseString);
     NSError *error;
     NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:mResponseData options:kNilOptions error:&error];
     
@@ -271,6 +385,15 @@ static LocationService *sharedLocationController = nil;
         }
         DLog(@"Service timer being nil'd...");
         self.serviceTimer = nil;
+    }
+}
+
+#pragma mark - Google Analytics Code
+- (void)analyticsLogGeocodingException:(NSString *)errorString
+{
+    if (ANALYTICS_GOOGLE_ON)
+    {
+        [[GAI sharedInstance].defaultTracker trackException:NO withDescription:errorString];
     }
 }
 

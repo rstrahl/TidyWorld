@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import <CoreLocation/CLGeocoder.h>
+#import <MapKit/MapKit.h>
 
 #define kLocationServiceNotReachable -99
 
-@interface LocationService : NSObject <NSURLConnectionDelegate, CLLocationManagerDelegate>
+@interface LocationService : NSObject <NSURLConnectionDelegate, CLLocationManagerDelegate, MKReverseGeocoderDelegate>
 {
     @private
     CLLocationManager                           *mLocationManager;

@@ -161,21 +161,14 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
         {
             DLog(@"ERROR trying to parse xml: %@", [[parser parserError] localizedDescription]);
             mWeatherFeedValid = NO;
-            if (ANALYTICS_GOOGLE_ON)
-            {
-                [[[GAI sharedInstance] defaultTracker] trackException:NO
-                                                      withDescription:@"Weather Feed Parse Error: %@", [[parser parserError] localizedDescription]];
-            }
+            [self analyticsLogWeatherError:[NSString stringWithFormat:@"Weather Feed Parse Error: %@" ,[[parser parserError] localizedDescription]]];
         }
         self.weatherCode = [self buildWeatherCode:self.conditionCode];
     }
     else
     {
         DLog(@"ERROR fetching weather data: %@", [error localizedDescription]);
-        if (ANALYTICS_GOOGLE_ON)
-        {
-            [[[GAI sharedInstance] defaultTracker] trackException:NO withNSError:error];
-        }
+        [self analyticsLogWeatherError:@"Weather service returned bad data"];
     }
     
     // Check that we have valid data from our feed
@@ -193,6 +186,7 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
     else
     {
         DLog(@"ERROR: Weather feed was invalid!");
+        [self analyticsLogWeatherError:@"Weather feed active but contained bad info"];
         if (![NSThread isMainThread])
         {
             [self performSelectorOnMainThread:@selector(willSendWeatherFailedNotification) withObject:nil waitUntilDone:NO];
@@ -203,8 +197,7 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
         }
     }
     
-    if (ANALYTICS_GOOGLE_ON)
-        [self analyticsDidFinishLoadingSince:startTime];
+    [self analyticsDidFinishLoadingSince:startTime];
 }
 
 #pragma mark - NSXMLParserDelegate Implementation
@@ -455,10 +448,21 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
 #pragma mark - Analytics Methods
 - (void)analyticsDidFinishLoadingSince:(NSDate *)date
 {
-    [[GAI sharedInstance].defaultTracker trackTimingWithCategory:@"resources"
-                                                       withValue:fabs([date timeIntervalSinceNow])
-                                                        withName:@"WeatherLoadTime"
-                                                       withLabel:@"Weather Data Load Time"];
+    if (ANALYTICS_GOOGLE_ON)
+    {
+        [[GAI sharedInstance].defaultTracker trackTimingWithCategory:@"resources"
+                                                           withValue:fabs([date timeIntervalSinceNow])
+                                                            withName:@"WeatherLoadTime"
+                                                           withLabel:@"Weather Data Load Time"];
+    }
+}
+
+- (void)analyticsLogWeatherError:(NSString *)errorString
+{
+    if (ANALYTICS_GOOGLE_ON)
+    {
+        [[GAI sharedInstance].defaultTracker trackException:NO withDescription:errorString];
+    }
 }
 
 @end

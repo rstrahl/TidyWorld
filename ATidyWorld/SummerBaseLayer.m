@@ -177,6 +177,19 @@
         WeatherCondition conditions = [[WeatherService sharedInstance] weatherConditionsFromUserDefaults:userDefaults];
         [self controller:nil didChangeWeatherConditions:conditions];        
     }
+    
+    if ([userDefaults boolForKey:SETTINGS_KEY_FIRST_TIME_ON_HOME_SCREEN])
+    {
+        UIAlertView *firstTimeInstructionAlertView =
+        [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ALERT_VIEW_FIRST_HOME_SCREEN_TITLE", @"First Time Home Screen")
+                                   message:NSLocalizedString(@"ALERT_VIEW_FIRST_HOME_SCREEN_MESSAGE", @"First Time Home Screen")
+                                  delegate:nil
+                         cancelButtonTitle:NSLocalizedString(@"OK", @"Ok")
+                         otherButtonTitles:nil];
+        [firstTimeInstructionAlertView show];
+        [userDefaults setBool:NO forKey:SETTINGS_KEY_FIRST_TIME_ON_HOME_SCREEN];
+        [userDefaults synchronize];
+    }
 }
 
 #pragma mark - Game Loop Update

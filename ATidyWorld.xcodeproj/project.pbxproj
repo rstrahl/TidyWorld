@@ -40,6 +40,8 @@
 		9B8B97D9170A7FE90009A7D9 /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97D6170A7FE80009A7D9 /* Default@2x~iphone.png */; };
 		9B8B97DA170A7FE90009A7D9 /* Default~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97D7170A7FE80009A7D9 /* Default~ipad.png */; };
 		9B8B97DB170A7FE90009A7D9 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97D8170A7FE90009A7D9 /* Default~iphone.png */; };
+		9B8B97DD170B9F1D0009A7D9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B8B97DC170B9F1C0009A7D9 /* MapKit.framework */; };
+		9B8B97E0170BB33C0009A7D9 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97DF170BB33B0009A7D9 /* Icon-Small-50.png */; };
 		9B91636617028FBE009E9AF8 /* EditAlarmViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B91636517028FBE009E9AF8 /* EditAlarmViewController~ipad.xib */; };
 		9B91637417050A8D009E9AF8 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B91637017050A8D009E9AF8 /* libTestFlight.a */; };
 		9B91637517050A8D009E9AF8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B91637117050A8D009E9AF8 /* README.md */; };
@@ -329,6 +331,9 @@
 		9B8B97D6170A7FE80009A7D9 /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x~iphone.png"; sourceTree = "<group>"; };
 		9B8B97D7170A7FE80009A7D9 /* Default~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~ipad.png"; sourceTree = "<group>"; };
 		9B8B97D8170A7FE90009A7D9 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
+		9B8B97DC170B9F1C0009A7D9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		9B8B97DE170BA56C0009A7D9 /* TMOSVersionDetection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMOSVersionDetection.h; sourceTree = "<group>"; };
+		9B8B97DF170BB33B0009A7D9 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Assets/Art/App/Icon-Small-50.png"; sourceTree = SOURCE_ROOT; };
 		9B91636517028FBE009E9AF8 /* EditAlarmViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EditAlarmViewController~ipad.xib"; sourceTree = "<group>"; };
 		9B91637017050A8D009E9AF8 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		9B91637117050A8D009E9AF8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -749,6 +754,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B8B97DD170B9F1D0009A7D9 /* MapKit.framework in Frameworks */,
 				9B97D0A616C20178005BF0FF /* MediaPlayer.framework in Frameworks */,
 				9B97D01116BB73D6005BF0FF /* iAd.framework in Frameworks */,
 				9B97D00F16BB7374005BF0FF /* MessageUI.framework in Frameworks */,
@@ -942,6 +948,7 @@
 		9B97D01216BB74B2005BF0FF /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				9B8B97DC170B9F1C0009A7D9 /* MapKit.framework */,
 				9B97D0A516C20177005BF0FF /* MediaPlayer.framework */,
 				9BCE875F16B6096D0043048E /* CoreLocation.framework */,
 				9BCE875B16B6094E0043048E /* CoreData.framework */,
@@ -1137,6 +1144,7 @@
 				9B97D06E16BF94A0005BF0FF /* TMPlistUtils.m */,
 				9BB464B016C4E12F00BD5BBC /* TMTimeUtils.h */,
 				9BB464B116C4E12F00BD5BBC /* TMTimeUtils.m */,
+				9B8B97DE170BA56C0009A7D9 /* TMOSVersionDetection.h */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1710,8 +1718,9 @@
 				9B8B97D7170A7FE80009A7D9 /* Default~ipad.png */,
 				9B8B97D8170A7FE90009A7D9 /* Default~iphone.png */,
 				9B141E9E16F2C54D002B5EB6 /* Icon-72.png */,
-				9B141E9F16F2C54D002B5EB6 /* Icon-Small.png */,
 				9B141EA016F2C54D002B5EB6 /* Icon-Small@2x.png */,
+				9B8B97DF170BB33B0009A7D9 /* Icon-Small-50.png */,
+				9B141E9F16F2C54D002B5EB6 /* Icon-Small.png */,
 				9B141EA116F2C54D002B5EB6 /* Icon.png */,
 				9B141EA216F2C54E002B5EB6 /* Icon@2x.png */,
 			);
@@ -1888,6 +1897,7 @@
 				9B8B97D9170A7FE90009A7D9 /* Default@2x~iphone.png in Resources */,
 				9B8B97DA170A7FE90009A7D9 /* Default~ipad.png in Resources */,
 				9B8B97DB170A7FE90009A7D9 /* Default~iphone.png in Resources */,
+				9B8B97E0170BB33C0009A7D9 /* Icon-Small-50.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2121,7 +2131,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
 					"COCOS2D_DEBUG=1",
-					"TESTING=1",
+					TESTING,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;

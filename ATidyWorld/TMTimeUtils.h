@@ -15,6 +15,7 @@ extern NSTimeInterval const kHalfHourInSeconds;
 
 @interface TMTimeUtils : NSObject
 
++ (NSTimeInterval)localTimeOfDayForTimeIntervalSinceReferenceDate:(NSTimeInterval)time inTimeZone:(NSTimeZone *)timeZone;
 + (NSTimeInterval)timeIntervalOfDayStartForTimeIntervalSinceReferenceDate:(NSTimeInterval)time;
 + (NSTimeInterval)timeInDayForTimeIntervalSinceReferenceDate:(NSTimeInterval)time;
 + (NSTimeInterval)timeOffsetForLocalTimeZoneDaylightSavings;
