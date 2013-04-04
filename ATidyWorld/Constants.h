@@ -99,7 +99,7 @@ extern CGPoint const kOffscreenSpritePoint;
 #define ADMOB_PUBLISHER_ID                  @"a150de0742840ec"
 #define ADMOB_SIMULATOR_IDENTIFIER1         @"C77C7F9F-63D0-5BF4-820F-7084658E8B79"
 #define ADWHIRL_APP_ID                      @"55fcaa5b0ac648df91eb06e411368f0a"
-#define AD_REFRESH_RATE                     30
+#define AD_REFRESH_RATE                     60
 
 // Google Analytics
 // TODO: PRE-RELEASE CONFIG: Change analytics codes to release build

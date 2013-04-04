@@ -162,6 +162,7 @@
 // getting a call, pause the game
 -(void) applicationWillResignActive:(UIApplication *)application
 {
+    DLog(@"");
 	if( [navController_ visibleViewController] == director_ )
 		[director_ pause];
 }
@@ -169,6 +170,8 @@
 // call got rejected
 -(void) applicationDidBecomeActive:(UIApplication *)application
 {
+    DLog(@"");
+    [[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 	if( [navController_ visibleViewController] == director_ )
 		[director_ resume];
     [self.adsViewController willRequestAd];
@@ -176,12 +179,14 @@
 
 -(void) applicationDidEnterBackground:(UIApplication*)application
 {
+    DLog(@"");
 	if( [navController_ visibleViewController] == director_ )
 		[director_ stopAnimation];
 }
 
 -(void) applicationWillEnterForeground:(UIApplication*)application
 {
+    DLog(@"");
 	if( [navController_ visibleViewController] == director_ )
 		[director_ startAnimation];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -200,12 +205,14 @@
 // purge memory
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
 {
+    DLog(@"");
 	[[CCDirector sharedDirector] purgeCachedData];
 }
 
 // next delta time will be zero
 -(void) applicationSignificantTimeChange:(UIApplication *)application
 {
+    DLog(@"");
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 }
 

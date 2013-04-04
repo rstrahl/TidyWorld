@@ -2131,7 +2131,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
 					"COCOS2D_DEBUG=1",
-					TESTING,
+					"TESTING=1",
 					"ANALYTICS=0",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
@@ -2161,6 +2161,7 @@
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
 					"ANALYTICS=1",
+					"TESTING=1",
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
