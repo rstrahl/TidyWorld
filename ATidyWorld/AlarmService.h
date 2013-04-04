@@ -27,16 +27,17 @@
 @interface AlarmService : NSObject <NSFetchedResultsControllerDelegate>
 {
     @private
-    NSTimeInterval                  mSecondsUntilDayEnds; /**< number of seconds until end of day */
-    NSTimeInterval                  mLastTimeUpdate; /**< the last time interval received by the service */
-    NSMutableArray                  *mActiveAlarmQueue; /**< the queue of alarms that are eligible to be triggered in the current day */
-    NSMutableArray                  *mTodaysSnoozedAlarms; /**< the queue of alarms that have been snoozed */
-    Alarm                           *mActiveAlarm; /**< the currently triggered alarm, if an alarm has been triggered */
-    int                             mSnoozeCount; /**< the number of times the currently triggered alarm has been snoozed */
-    int                             mCurrentWeekday; /**< the current weekday (0 = sunday, 6 = saturday) */
-    NSFetchedResultsController      *mFetchedResultsController; /**< the results controller containing all alarms with the enabled flag set */
-    NSManagedObjectContext          *mContext; /**< the reference to the application delegate's NSManagedObjectContext */
-    id<AlarmServiceDelegate>        __unsafe_unretained mDelegate; /**< the delegate intended to respond to alarm service events */
+    NSTimeInterval                  mSecondsUntilDayEnds;           /**< number of seconds until end of day */
+    NSTimeInterval                  mLastTimeUpdate;                /**< the last time interval received by the service */
+    NSArray                         *mAlarmList;                    /**< the alarms found in the core data context */
+    NSMutableArray                  *mActiveAlarmQueue;             /**< the queue of alarms that are eligible to be triggered in the current day */
+    NSMutableArray                  *mTodaysSnoozedAlarms;          /**< the queue of alarms that have been snoozed */
+    Alarm                           *mActiveAlarm;                  /**< the currently triggered alarm, if an alarm has been triggered */
+    int                             mSnoozeCount;                   /**< the number of times the currently triggered alarm has been snoozed */
+    int                             mCurrentWeekday;                /**< the current weekday (0 = sunday, 6 = saturday) */
+    NSFetchedResultsController      *mFetchedResultsController;     /**< the results controller containing all alarms with the enabled flag set */
+    NSManagedObjectContext          *mContext;                      /**< the reference to the application delegate's NSManagedObjectContext */
+    id<AlarmServiceDelegate>        __unsafe_unretained mDelegate;  /**< the delegate intended to respond to alarm service events */
 }
 
 @property (nonatomic, strong) NSArray                               *todaysAlarms;

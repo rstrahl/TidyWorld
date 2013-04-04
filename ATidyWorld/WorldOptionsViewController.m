@@ -60,7 +60,7 @@
 {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
-    if (ANALYTICS_GOOGLE_ON)
+    if (ANALYTICS)
         [[GAI sharedInstance].defaultTracker trackView:@"World Options"];
 }
 
@@ -644,7 +644,7 @@
 #pragma mark - Analytics Logging Methods
 - (void)googleLogWorldOptionChanged:(NSString *)option
 {
-    if (ANALYTICS_GOOGLE_ON)
+    if (ANALYTICS)
     {
         [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"World"
                                                          withAction:[NSString stringWithFormat:@"%@Changed", option]

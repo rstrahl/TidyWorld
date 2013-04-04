@@ -88,12 +88,25 @@
     NSError *error;
 	if (![[self mFetchedResultsController] performFetch:&error]) {
 		DLog(@"ERROR loading core data objects %@, %@", error, [error localizedDescription]);
-        if (ANALYTICS_GOOGLE_ON)
+        if (ANALYTICS)
         {
             [[[GAI sharedInstance] defaultTracker] trackException:NO withNSError:error];
         }
 	}
     self.contentSizeForViewInPopover = CGSizeMake(320,436);
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if ([userDefaults boolForKey:SETTINGS_KEY_FIRST_TIME_ON_ALARM_SCREEN])
+    {
+        UIAlertView *firstTimeInstructionAlertView =
+        [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ALERT_VIEW_FIRST_ALARM_SCREEN_TITLE", @"First Time Alarm Screen")
+                                   message:NSLocalizedString(@"ALERT_VIEW_FIRST_ALARM_SCREEN_MESSAGE", @"First Time Alarm Screen")
+                                  delegate:nil
+                         cancelButtonTitle:NSLocalizedString(@"OK", @"Ok")
+                         otherButtonTitles:nil];
+        [firstTimeInstructionAlertView show];
+        [userDefaults setBool:NO forKey:SETTINGS_KEY_FIRST_TIME_ON_ALARM_SCREEN];
+        [userDefaults synchronize];
+    }
 }
 
 - (void)viewDidUnload
@@ -111,7 +124,7 @@
     {
         [self addButtonPressed:self];
     }
-    if (ANALYTICS_GOOGLE_ON)
+    if (ANALYTICS)
         [[GAI sharedInstance].defaultTracker trackView:@"Alarm List"];
 }
 
@@ -184,7 +197,7 @@
         NSError *error;
         if (![mContext save:&error]) {
             DLog(@"Unresolved error %@, %@", error, [error localizedDescription]);
-            if (ANALYTICS_GOOGLE_ON)
+            if (ANALYTICS)
             {
                 [[[GAI sharedInstance] defaultTracker] trackException:NO withNSError:error];
             }
@@ -282,18 +295,18 @@
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
-    NSError *error = nil;
-    if (![mContext save:&error]) { 
-        DLog(@"ERROR saving alarm data");
-        if (ANALYTICS_GOOGLE_ON)
-        {
-            [[[GAI sharedInstance] defaultTracker] trackException:NO withNSError:error];
-        }
-    }
-    else
-    {
-        DLog(@"SUCCESS saving alarm data");
-    }
+//    NSError *error = nil;
+//    if (![mContext save:&error]) { 
+//        DLog(@"ERROR saving alarm data");
+//        if (ANALYTICS)
+//        {
+//            [[[GAI sharedInstance] defaultTracker] trackException:NO withNSError:error];
+//        }
+//    }
+//    else
+//    {
+//        DLog(@"SUCCESS saving alarm data");
+//    }
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
@@ -411,6 +424,20 @@
 
 - (IBAction)doneButtonPressed:(id)sender
 {
+    // Save any outstanding alarm changes
+    NSError *error = nil;
+    if (![mContext save:&error]) {
+        DLog(@"ERROR saving alarm data");
+        if (ANALYTICS)
+        {
+            [[[GAI sharedInstance] defaultTracker] trackException:NO withNSError:error];
+        }
+    }
+    else
+    {
+        DLog(@"SUCCESS saving alarm data");
+    }
+    // Dismiss the view
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
         if ([self.delegate respondsToSelector:@selector(dismissPopoverAnimated:)])
@@ -446,6 +473,7 @@
     {
         [self googleLogAlarmEnabled];
     }
+    
 }
 
 #pragma mark - EditAlarmViewDelegate Methods
@@ -572,7 +600,7 @@
 #pragma mark - Analytics Logging Methods
 - (void)googleLogAlarmAdd
 {
-    if (ANALYTICS_GOOGLE_ON)
+    if (ANALYTICS)
     {
         [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Alarms"
                                                          withAction:@"AlarmAdds"
@@ -583,7 +611,7 @@
 
 - (void)googleLogAlarmEdit
 {
-    if (ANALYTICS_GOOGLE_ON)
+    if (ANALYTICS)
     {
         [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Alarms"
                                                          withAction:@"AlarmEdits"
@@ -594,7 +622,7 @@
 
 - (void)googleLogAlarmEnabled
 {
-    if (ANALYTICS_GOOGLE_ON)
+    if (ANALYTICS)
     {
         [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Alarms"
                                                          withAction:@"AlarmEnables"

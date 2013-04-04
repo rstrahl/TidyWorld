@@ -448,7 +448,7 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
 #pragma mark - Analytics Methods
 - (void)analyticsDidFinishLoadingSince:(NSDate *)date
 {
-    if (ANALYTICS_GOOGLE_ON)
+    if (ANALYTICS)
     {
         [[GAI sharedInstance].defaultTracker trackTimingWithCategory:@"resources"
                                                            withValue:fabs([date timeIntervalSinceNow])
@@ -459,7 +459,7 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
 
 - (void)analyticsLogWeatherError:(NSString *)errorString
 {
-    if (ANALYTICS_GOOGLE_ON)
+    if (ANALYTICS)
     {
         [[GAI sharedInstance].defaultTracker trackException:NO withDescription:errorString];
     }

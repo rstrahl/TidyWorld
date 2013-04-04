@@ -17,7 +17,6 @@
     @private
     id                  __unsafe_unretained mSceneDelegate; //< Intended to be a reference back to the Scene object
     UIButton            *mAlarmClockButton;
-    UIButton            *mChangeSeasonButton;
     UIButton            *mChangeWorldButton;
     UIButton            *mSettingsButton;
     UIViewController    *mParentViewController;

@@ -19,6 +19,7 @@
 #define NOTIFICATION_LOCATION_SUCCESS       @"NotifyLocationUpdate"
 #define NOTIFICATION_LOCATION_FAILED        @"NotifyLocationFailed"
 #define NOTIFICATION_LOCATION_UNCHANGED     @"NotifyLocationUnchanged"
+#define NOTIFICATION_ALARMS_UPDATED         @"NotifyAlarmsUpdated"
 
 #define WEATHER_SERVICE_CHECK_TIMER         900
 
@@ -98,10 +99,10 @@ extern CGPoint const kOffscreenSpritePoint;
 #define ADMOB_PUBLISHER_ID                  @"a150de0742840ec"
 #define ADMOB_SIMULATOR_IDENTIFIER1         @"C77C7F9F-63D0-5BF4-820F-7084658E8B79"
 #define ADWHIRL_APP_ID                      @"55fcaa5b0ac648df91eb06e411368f0a"
+#define AD_REFRESH_RATE                     30
 
 // Google Analytics
 // TODO: PRE-RELEASE CONFIG: Change analytics codes to release build
 #define ANALYTICS_GOOGLE_TRACKING_ID        @"UA-36822575-3"
-#define ANALYTICS_GOOGLE_ON                 1
 
 #endif

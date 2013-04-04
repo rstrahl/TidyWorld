@@ -19,6 +19,8 @@ static AlarmService *sharedClockService = nil;
 
 // Begin Private Interface
 @interface AlarmService()
+/** Event listener for observing when Alarm objects have changed */
+- (void)didReceiveAlarmsUpdatedNotification:(NSNotification *)notification;
 /** Resets the end of day countdown and updates the current weekday bitflag used by alarm repeats 
     @param time the time from which the new day is derived */
 - (void)setupNewDayWithTimeSinceReferenceDate:(NSTimeInterval)time;
@@ -52,7 +54,6 @@ static AlarmService *sharedClockService = nil;
             delegate = mDelegate,
             activeAlarm = mActiveAlarm;
 
-#pragma mark Object Lifetime
 - (id)init
 {
     self = [super init];
@@ -62,18 +63,23 @@ static AlarmService *sharedClockService = nil;
         self.context = [appDelegate managedObjectContext];
         mLastTimeUpdate = [NSDate timeIntervalSinceReferenceDate];
 
-        NSError *error;
-        if (![[self mFetchedResultsController] performFetch:&error])
-        {
-            DLog(@"ERROR loading alarm objects %@, %@", error, [error userInfo]);
-        }
-        DLog(@"Alarms Loaded: %d", [[self.fetchedResultsController fetchedObjects] count]);
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didReceiveAlarmsUpdatedNotification:)
+                                                     name:NSManagedObjectContextDidSaveNotification
+                                                   object:self.context];
+        
+//        NSError *error;
+//        if (![[self mFetchedResultsController] performFetch:&error])
+//        {
+//            DLog(@"ERROR loading alarm objects %@, %@", error, [error userInfo]);
+//        }
+//        DLog(@"Alarms Loaded: %d", [[self.fetchedResultsController fetchedObjects] count]);
+        [self loadAlarmsFromCoreData];
         if ([[NSTimeZone localTimeZone] isDaylightSavingTime])
         {
             DLog(@"Local timezone is DST ENABLED");
         }
         [self updateWithTime:[NSDate timeIntervalSinceReferenceDate]];
-        [self updateActiveAlarmQueueForTimeSinceReferenceDate:mLastTimeUpdate];
     }
     return self;
 }
@@ -93,19 +99,19 @@ static AlarmService *sharedClockService = nil;
     DLog(@"Update at %@", [TMTimeUtils timeStringForTimeOfDay:timeInterval]);
     mSecondsUntilDayEnds -= timeInterval - mLastTimeUpdate;
     mLastTimeUpdate = timeInterval;
+    // 2. Check for any triggered alarms
+    [self checkAlarmTriggeredForTimeSinceReferenceDate:mLastTimeUpdate];
+    // 3. Check for any snoozed alarms to trigger
+    [self checkSnoozedAlarmTriggeredForTimeSinceReferenceDate:mLastTimeUpdate];
+    
     // 1. Check for end of day
     if (mSecondsUntilDayEnds <= 0)
     {
         [self setupNewDayWithTimeSinceReferenceDate:mLastTimeUpdate];
         [self updateActiveAlarmQueueForTimeSinceReferenceDate:mLastTimeUpdate];
     }
-    // 2. Check for any triggered alarms
-    [self checkAlarmTriggeredForTimeSinceReferenceDate:mLastTimeUpdate];
-    // 3. Check for any snoozed alarms to trigger
-    [self checkSnoozedAlarmTriggeredForTimeSinceReferenceDate:mLastTimeUpdate];
 }
 
-#pragma mark - Private Methods
 - (void)setupNewDayWithTimeSinceReferenceDate:(NSTimeInterval)time
 {
     NSDate *today = [NSDate dateWithTimeIntervalSinceReferenceDate:time];
@@ -130,7 +136,8 @@ static AlarmService *sharedClockService = nil;
     }
     
     // Get all alarms that are "enabled"
-    for (Alarm *alarm in [self.fetchedResultsController fetchedObjects])
+//    for (Alarm *alarm in [self.fetchedResultsController fetchedObjects])
+    for (Alarm *alarm in mAlarmList)
     {
         NSTimeInterval alarmTime = alarm.time.doubleValue;
         DLog(@"Alarm check - (Alarm Local: %@) (Current Time Local: %@)",
@@ -151,6 +158,7 @@ static AlarmService *sharedClockService = nil;
     DLog(@"Scheduled Alarms After Check: %d", [mActiveAlarmQueue count]);
 }
 
+#pragma mark - Alarm Checks
 - (void)checkAlarmTriggeredForTimeSinceReferenceDate:(NSTimeInterval)time
 {
     if ([mActiveAlarmQueue count] > 0)
@@ -177,6 +185,7 @@ static AlarmService *sharedClockService = nil;
             self.activeAlarm = nextAlarm;
             [self presentAlarmAlertViewForAlarm:self.activeAlarm];
             [self.delegate alarmServiceDidTriggerAlarm:self.activeAlarm];
+            [self saveAlarm];
         }
     }
 }
@@ -197,45 +206,100 @@ static AlarmService *sharedClockService = nil;
     }
 }
 
-#pragma mark - Property Overrides
-- (NSFetchedResultsController *)mFetchedResultsController {
-    
-    if (mFetchedResultsController != nil) {
-        return mFetchedResultsController;
-    }
-    
+#pragma mark - Alarm Loading
+- (void)didReceiveAlarmsUpdatedNotification:(NSNotification *)notification
+{
+    [self loadAlarmsFromCoreData];
+}
+
+- (void)loadAlarmsFromCoreData
+{
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription 
-                                   entityForName:@"Alarm" 
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Alarm"
                                    inManagedObjectContext:mContext];
     [fetchRequest setEntity:entity];
     NSPredicate *enabledPredicate = [NSPredicate predicateWithFormat:@"enabled == YES"];
     [fetchRequest setPredicate:enabledPredicate];
-
+    
     NSSortDescriptor *alarmSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObject:alarmSortDescriptor]];
+    //    [fetchRequest setFetchBatchSize:20];
     
-    [fetchRequest setFetchBatchSize:20];
-    
-    NSFetchedResultsController *resultsController = 
-    [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
-                                        managedObjectContext:mContext 
-                                          sectionNameKeyPath:nil 
-                                                   cacheName:nil];
-    self.fetchedResultsController = resultsController;
-    mFetchedResultsController.delegate = self;
-    
-    
-    return mFetchedResultsController;
-}
-
-#pragma mark - NSFetchedResultsControllerDelegate Methods
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller 
-{
-    // The fetch controller has sent all current change notifications, so tell the table view to process all updates.
-    DLog(@"Enabled Alarms in results controller: %d", [[controller fetchedObjects] count]);
+    NSError *error;
+    mAlarmList = nil;
+    mAlarmList = [self.context executeFetchRequest:fetchRequest error:&error];
+    if (mAlarmList == nil)
+    {
+        DLog(@"ERROR loading alarms: %@", [error description]);
+    }
+    else
+    {
+        DLog(@"Alarms Loaded: %d", [mAlarmList count]);
+    }
     [self updateActiveAlarmQueueForTimeSinceReferenceDate:mLastTimeUpdate];
 }
+
+- (void)saveAlarm
+{
+    NSError *error;
+    if (![self.context save:&error]) {
+        DLog(@"ERROR saving alarm data");
+        [self analyticsLogAlarmServiceException:[NSString stringWithFormat:@"ERROR saving alarm data: %@", [error description]]];
+    }
+    else
+    {
+        DLog(@"Alarms updated.");
+    }
+}
+
+//#pragma mark - Property Overrides
+//- (NSFetchedResultsController *)mFetchedResultsController {
+//    
+//    if (mFetchedResultsController != nil) {
+//        return mFetchedResultsController;
+//    }
+//    
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//    NSEntityDescription *entity = [NSEntityDescription 
+//                                   entityForName:@"Alarm" 
+//                                   inManagedObjectContext:mContext];
+//    [fetchRequest setEntity:entity];
+//    NSPredicate *enabledPredicate = [NSPredicate predicateWithFormat:@"enabled == YES"];
+//    [fetchRequest setPredicate:enabledPredicate];
+//
+//    NSSortDescriptor *alarmSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:YES];
+//    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:alarmSortDescriptor]];
+//    
+//    [fetchRequest setFetchBatchSize:20];
+//    
+//    NSFetchedResultsController *resultsController = 
+//    [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
+//                                        managedObjectContext:mContext 
+//                                          sectionNameKeyPath:nil 
+//                                                   cacheName:nil];
+//    self.fetchedResultsController = resultsController;
+//    mFetchedResultsController.delegate = self;
+//    
+//    
+//    return mFetchedResultsController;
+//}
+//
+//#pragma mark - NSFetchedResultsControllerDelegate Methods
+//- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller 
+//{
+//    DLog(@"Enabled Alarms: %d", [[controller fetchedObjects] count]);
+//    [self updateActiveAlarmQueueForTimeSinceReferenceDate:mLastTimeUpdate];
+//    NSError *error;
+//    if (![mContext save:&error]) {
+//        DLog(@"ERROR saving alarm data");
+//        [self analyticsLogAlarmServiceException:[NSString stringWithFormat:@"ERROR saving alarm data: %@", [error description]]];
+//    }
+//    else
+//    {
+//        DLog(@"Alarms updated.");
+//    }
+//}
 
 #pragma mark - Alarm AlertView
 - (void)presentAlarmAlertViewForAlarm:(Alarm *)alarm
@@ -315,6 +379,15 @@ static AlarmService *sharedClockService = nil;
         return (Alarm *)[mActiveAlarmQueue objectAtIndex:0];
     else
         return nil;
+}
+
+#pragma mark - Google Analytics
+- (void)analyticsLogAlarmServiceException:(NSString *)errorString
+{
+    if (ANALYTICS)
+    {
+        [[GAI sharedInstance].defaultTracker trackException:NO withDescription:errorString];
+    }
 }
 
 @end

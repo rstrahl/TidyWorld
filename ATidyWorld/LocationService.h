@@ -18,7 +18,6 @@
     @private
     CLLocationManager                           *mLocationManager;
     CLLocation                                  *mCurrentLocation;
-    CLGeocoder                                  *mGeocoder;
 	id __unsafe_unretained                      mDelegate;
     NSTimer                                     *mServiceTimer;
     BOOL                                        mRunning;

@@ -85,7 +85,7 @@ NSUInteger const kMusicSegmentIndex = 1;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if (ANALYTICS_GOOGLE_ON)
+    if (ANALYTICS)
         [[GAI sharedInstance].defaultTracker trackView:@"Edit Alarm Sound"];
 }
 
@@ -459,7 +459,7 @@ NSUInteger const kMusicSegmentIndex = 1;
     [picker setAllowsPickingMultipleItems: YES];
     picker.prompt = NSLocalizedString (@"PROMPT_TEXT_SELECT_MEDIA", "Prompt in media item picker");
     [self presentModalViewController:picker animated:YES];
-    if (ANALYTICS_GOOGLE_ON)
+    if (ANALYTICS)
         [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Content"
                                                          withAction:@"AlarmSoundAdds"
                                                           withLabel:@"Alarm Sound Adds"

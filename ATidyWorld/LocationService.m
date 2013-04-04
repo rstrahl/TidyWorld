@@ -175,6 +175,9 @@ static LocationService *sharedLocationController = nil;
                          place.locality,
                          place.administrativeArea,
                          place.country];
+    self.city = place.locality;
+    self.state = place.administrativeArea;
+    self.country = place.country;
     [self findWOEIDByAddressString:address];
 }
 
@@ -204,6 +207,9 @@ static LocationService *sharedLocationController = nil;
                              place.locality,
                              place.administrativeArea,
                              place.country];
+        self.city = place.locality;
+        self.state = place.administrativeArea;
+        self.country = place.country;
         //Print the location to console
         DLog(@"LOCATION FOUND: %@", address);
         [self findWOEIDByAddressString:address];
@@ -328,11 +334,7 @@ static LocationService *sharedLocationController = nil;
     
     NSDictionary *results = [(NSArray *)[(NSDictionary *)[jsonData objectForKey:@"ResultSet"] objectForKey:@"Results"] objectAtIndex:0];
     
-    self.woeid = [NSNumber numberWithInt:[[results objectForKey:@"woeid"] intValue]];
-    self.city = [results objectForKey:@"city"];
-    self.state = [results objectForKey:@"state"];
-    self.country = [results objectForKey:@"country"];
-        
+    self.woeid = [NSNumber numberWithInt:[[results objectForKey:@"woeid"] intValue]];        
     [self willSendLocationSuccessNotification];
 }
 
@@ -388,10 +390,10 @@ static LocationService *sharedLocationController = nil;
     }
 }
 
-#pragma mark - Google Analytics Code
+#pragma mark - Google Analytics
 - (void)analyticsLogGeocodingException:(NSString *)errorString
 {
-    if (ANALYTICS_GOOGLE_ON)
+    if (ANALYTICS)
     {
         [[GAI sharedInstance].defaultTracker trackException:NO withDescription:errorString];
     }

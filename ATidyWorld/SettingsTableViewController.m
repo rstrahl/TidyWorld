@@ -78,7 +78,7 @@
 {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
-    if (ANALYTICS_GOOGLE_ON)
+    if (ANALYTICS)
         [[GAI sharedInstance].defaultTracker trackView:@"Settings View"];
 }
 

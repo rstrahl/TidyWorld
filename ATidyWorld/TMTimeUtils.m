@@ -22,7 +22,7 @@ NSTimeInterval const kHalfHourInSeconds         = 1800;
     NSTimeInterval localTimeInDay = timeInDay + [timeZone secondsFromGMT];
     if (localTimeInDay < 0)
     {
-        return (kOneDayInSeconds - localTimeInDay);
+        return (kOneDayInSeconds + localTimeInDay);
     }
     else if (localTimeInDay > kOneDayInSeconds)
     {

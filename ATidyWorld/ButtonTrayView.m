@@ -126,7 +126,8 @@
     navController.contentSizeForViewInPopover = CGSizeMake(320,436);
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
-        self.popoverController = [[UIPopoverController alloc] initWithContentViewController:navController];
+        UIPopoverController *controller = [[UIPopoverController alloc] initWithContentViewController:navController];
+        self.popoverController = controller;
         [self.popoverController presentPopoverFromRect:senderButton.frame inView:self permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
     else

@@ -33,8 +33,13 @@
 "ALERT_VIEW_WEATHER_PROBLEM_TITLE"          = "No Weather Data";
 "ALERT_VIEW_WEATHER_PROBLEM_MESSAGE"        = "There was a problem finding weather data for your location, the app will try again in a few moments.";
 
+// Home screen first time Alert View
 "ALERT_VIEW_FIRST_HOME_SCREEN_TITLE"        = "Welcome!";
 "ALERT_VIEW_FIRST_HOME_SCREEN_MESSAGE"      = "Welcome to A Tidy World! Swipe the clock area left or right to change different settings, swipe the landscape to view the world!";
+
+// Alarms first time Alert View
+"ALERT_VIEW_FIRST_ALARM_SCREEN_TITLE"       = "How Alarms Work";
+"ALERT_VIEW_FIRST_ALARM_SCREEN_MESSAGE"     = "Please note that in order for any alarm to work, the app must be running in the foreground!";
 
 // Alarm List View
 "BUTTON_TITLE_NEW_ALARM"                    = "Add New Alarm";

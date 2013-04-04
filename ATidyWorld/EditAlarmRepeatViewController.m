@@ -44,7 +44,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if (ANALYTICS_GOOGLE_ON)
+    if (ANALYTICS)
         [[GAI sharedInstance].defaultTracker trackView:@"Edit Alarm Repeat"];
 }
 

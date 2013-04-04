@@ -53,6 +53,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    application.idleTimerDisabled = YES;
+    
     // Initalize Analytics
     [self initGoogleAnalytics];
     [self initTestFlight];
@@ -100,9 +102,12 @@
 	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
 	if( ! [director_ enableRetinaDisplay:YES] )
 		CCLOG(@"Retina Display Not supported");
-    
-    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] == YES && [[UIScreen mainScreen] scale] == 2.00) {
-        [director_ setContentScaleFactor:1.0f];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] == YES && [[UIScreen mainScreen] scale] == 2.00)
+        {
+            [director_ setContentScaleFactor:1.0f];
+        }
     }
 
 	// Default texture format for PNG/BMP/TIFF/JPEG/GIF images
@@ -411,7 +416,7 @@
 #pragma mark - Analytics Logging Methods
 - (void)googleLogAppLoadingTime:(NSDate *)date
 {
-    if (ANALYTICS_GOOGLE_ON)
+    if (ANALYTICS)
     {
         [mGoogleTracker trackTimingWithCategory:@"resources"
                                       withValue:fabs([date timeIntervalSinceNow])

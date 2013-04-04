@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "LocationService.h"
 #import <AdSupport/AdSupport.h>
+#import "cocos2d.h"
 
 @interface AdsViewController ()
 /** Initialize Apple iAd Bannerview */
@@ -62,6 +63,11 @@
 //        view.backgroundColor = [UIColor clearColor];
 ////        view.alpha = 0.25f;
 //        self.view = view;
+        NSTimer *refreshAdTimer = [NSTimer scheduledTimerWithTimeInterval:AD_REFRESH_RATE
+                                                                   target:self
+                                                                 selector:@selector(willRequestAd)
+                                                                 userInfo:nil
+                                                                  repeats:YES];
     }
     return self;
 }
@@ -277,6 +283,7 @@
     if (!USE_IAD)
     {
         [self requestAdMob];
+        DLog(@"Requesting AdMob Banner");
     }
 }
 
@@ -284,6 +291,9 @@
 {
     // Only request adMob when iAd fails
     GADRequest *request = [GADRequest request];
+#ifdef DEBUG
+    request.testDevices = [NSArray arrayWithObjects:ADMOB_SIMULATOR_IDENTIFIER1,nil];
+#endif
     LocationService *location = [LocationService sharedInstance];
     if (location.currentLocation != nil)
     {
