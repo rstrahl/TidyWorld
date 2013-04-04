@@ -108,6 +108,7 @@ typedef struct
     NSNumber                *mAtmosphereVisibility;
     NSNumber                *mAtmospherePressure;
     NSNumber                *mAtmosphereRising;
+    NSDate                  *mLastUpdateTime;
     WeatherCondition        mWeatherCode;
     NSTimeInterval                              mLastLocationUpdateTime;
     id __unsafe_unretained  mDelegate;
@@ -129,6 +130,7 @@ typedef struct
 @property (nonatomic, strong) NSNumber              *atmosphereVisibility;
 @property (nonatomic, strong) NSNumber              *atmospherePressure;
 @property (nonatomic, strong) NSNumber              *atmosphereRising;
+@property (nonatomic, strong) NSDate                *lastUpdateTime;
 @property (nonatomic, assign) WeatherCondition      weatherCode;
 @property (nonatomic, assign, getter = isInternetReachable) BOOL internetReachable;
 

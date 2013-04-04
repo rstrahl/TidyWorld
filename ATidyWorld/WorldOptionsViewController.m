@@ -188,6 +188,19 @@
 }
 
 #pragma mark - UITableViewDelegate Implementation
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *cellDict = [self worldOptionForIndexPath:indexPath];
+    NSString *key = [cellDict valueForKey:@"Header"];
+    
+    if ([key isEqualToString:@"Location Based"] ||
+        [key isEqualToString:@"Fog"] ||
+        [key isEqualToString:@"Lightning"])
+    {
+        return nil;
+    }
+    return indexPath;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -196,8 +209,11 @@
     
     if ([key isEqualToString:@"Current Location"])
     {
-        DebugDataViewController *debugViewController = [[DebugDataViewController alloc] initWithNibName:@"DebugDataViewController" bundle:nil];
-        [self.navigationController pushViewController:debugViewController animated:YES];
+        if (DEBUG)
+        {
+            DebugDataViewController *debugViewController = [[DebugDataViewController alloc] initWithNibName:@"DebugDataViewController" bundle:nil];
+            [self.navigationController pushViewController:debugViewController animated:YES];
+        }
     }
     else
     {

@@ -361,7 +361,10 @@
     [self initDayNightCycleWithWeatherService:weatherService];
     [self.mainViewController.clockView setTemperature:[weatherService.conditionTemp floatValue]];
     [self.mainViewController.clockView startTemperatureAnimationTimer];
-    [self updateWeatherConditions:weatherService.weatherCode];
+    if (mUsingLocationBasedWeather)
+    {
+        [self updateWeatherConditions:weatherService.weatherCode];
+    }
 }
 
 - (void)didReceiveSettingsChangedNotification:(NSNotification *)notification

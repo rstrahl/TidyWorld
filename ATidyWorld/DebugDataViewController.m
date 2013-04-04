@@ -33,6 +33,7 @@
             atmospherePressureLabel,
             atmosphereRisingLabel,
             atmosphereVisibilityLabel,
+            lastUpdatedLabel,
             timeFormatter,
             dateFormatter;
 
@@ -74,7 +75,7 @@
     [super viewDidLoad];
     [self updateUIWithWeather:[WeatherService sharedInstance]];
     [self updateUIWithLocation:[LocationService sharedInstance]];
-
+    self.contentSizeForViewInPopover = CGSizeMake(320,436);
 }
 
 - (void)viewDidUnload
@@ -120,6 +121,7 @@
     self.atmospherePressureLabel.text = [NSString stringWithFormat:@"%@", service.atmospherePressure];
     self.atmosphereRisingLabel.text = [NSString stringWithFormat:@"%@", service.atmosphereRising];
     self.atmosphereVisibilityLabel.text = [NSString stringWithFormat:@"%@", service.atmosphereVisibility];
+    self.lastUpdatedLabel.text = [NSString stringWithFormat:@"%@", service.lastUpdateTime];
 }
 
 - (void)updateUIWithLocation:(LocationService *)service

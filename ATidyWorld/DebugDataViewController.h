@@ -28,6 +28,7 @@
     UILabel *atmospherePressureLabel;
     UILabel *atmosphereRisingLabel;
     UILabel *atmosphereVisibilityLabel;
+    UILabel *lastUpdatedLabel;
     
     NSDateFormatter *timeFormatter;
     NSDateFormatter *dateFormatter;
@@ -51,6 +52,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *atmospherePressureLabel;
 @property (nonatomic, strong) IBOutlet UILabel *atmosphereRisingLabel;
 @property (nonatomic, strong) IBOutlet UILabel *atmosphereVisibilityLabel;
+@property (nonatomic, strong) IBOutlet UILabel *lastUpdatedLabel;
 @property (nonatomic, strong) NSDateFormatter *timeFormatter;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 

@@ -54,7 +54,8 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
             sunriseInSeconds = mSunriseInSeconds,
             sunsetInSeconds = mSunsetInSeconds,
             weatherCode = mWeatherCode,
-            internetReachable = mInternetReachable;
+            internetReachable = mInternetReachable,
+            lastUpdateTime = mLastUpdateTime;
 
 - (id)init
 {
@@ -417,6 +418,7 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
 #pragma mark - Weather Notification
 - (void)willSendWeatherSuccessNotification
 {
+    self.lastUpdateTime = [NSDate date];
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WEATHER_SUCCESS object:self];
 }
 
