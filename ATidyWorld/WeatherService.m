@@ -188,6 +188,11 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
     {
         DLog(@"ERROR: Weather feed was invalid!");
         [self analyticsLogWeatherError:@"Weather feed active but contained bad info"];
+        NSTimer *retryTimer = [NSTimer scheduledTimerWithTimeInterval:125
+                                                               target:self
+                                                             selector:@selector(checkForWeatherUpdate)
+                                                             userInfo:nil
+                                                              repeats:NO];
         if (![NSThread isMainThread])
         {
             [self performSelectorOnMainThread:@selector(willSendWeatherFailedNotification) withObject:nil waitUntilDone:NO];

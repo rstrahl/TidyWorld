@@ -27,7 +27,6 @@
 @property (nonatomic, strong) UIPopoverController   *popoverController;
 
 - (IBAction)alarmClockButtonPressed:(id)sender;
-- (IBAction)changeSeasonButtonPressed:(id)sender;
 - (IBAction)changeWorldButtonPressed:(id)sender;
 - (IBAction)settingsButtonPressed:(id)sender;
 

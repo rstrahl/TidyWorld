@@ -306,6 +306,7 @@
 		9B3B2BBD16D4227900179904 /* Cloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cloud.m; sourceTree = "<group>"; };
 		9B67A8B516D85D9F00659006 /* LandscapeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandscapeLayer.h; sourceTree = "<group>"; };
 		9B67A8B616D85D9F00659006 /* LandscapeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandscapeLayer.m; sourceTree = "<group>"; };
+		9B69549E170E3E55003453DD /* TestFlightConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestFlightConstants.h; sourceTree = "<group>"; };
 		9B69800616DC6D990052C0BB /* CCNode+SFGestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+SFGestureRecognizers.h"; sourceTree = "<group>"; };
 		9B69800716DC6D990052C0BB /* CCNode+SFGestureRecognizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+SFGestureRecognizers.m"; sourceTree = "<group>"; };
 		9B69800A16DDC5220052C0BB /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -1680,11 +1681,12 @@
 		9BCE874E16B6064C0043048E /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				9BCE874216B5FDEA0043048E /* SettingsConstants.h */,
-				9BCE874316B5FE040043048E /* Constants.h */,
-				9BCE874416B5FE050043048E /* Constants.m */,
 				9BFF80EB16E022E300051E6E /* AnalyticsConstants.h */,
 				9BFF80EC16E022E300051E6E /* AnalyticsConstants.m */,
+				9BCE874316B5FE040043048E /* Constants.h */,
+				9BCE874416B5FE050043048E /* Constants.m */,
+				9BCE874216B5FDEA0043048E /* SettingsConstants.h */,
+				9B69549E170E3E55003453DD /* TestFlightConstants.h */,
 			);
 			name = Constants;
 			sourceTree = "<group>";

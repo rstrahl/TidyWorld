@@ -313,6 +313,7 @@ static AlarmService *sharedClockService = nil;
                                    cancelButtonTitle:NSLocalizedString(@"ALERT_VIEW_ALARM_TRIGGERED_BUTTON_OFF", @"Button Text - Turn off Alarm")
                                    otherButtonTitles:NSLocalizedString(@"ALERT_VIEW_ALARM_TRIGGERED_BUTTON_SNOOZE", @"Button Text - Snooze"), nil];
         [alarmAlert show];
+        [TestFlight passCheckpoint:CHECKPOINT_ALARM_TRIGGER];
     }
     else
     {
@@ -323,6 +324,7 @@ static AlarmService *sharedClockService = nil;
                                    cancelButtonTitle:NSLocalizedString(@"ALERT_VIEW_ALARM_TRIGGERED_BUTTON_OFF", @"Button Text - Turn off Alarm")
                                    otherButtonTitles:nil];
         [alarmAlert show];
+        [TestFlight passCheckpoint:CHECKPOINT_ALARM_TRIGGER];
     }
     
 }
@@ -360,6 +362,7 @@ static AlarmService *sharedClockService = nil;
             }
             mSnoozeCount++;
             self.activeAlarm.time_snooze = [NSNumber numberWithDouble:((kSnoozeIntervalInMinutes * 60) + self.activeAlarm.time_snooze.doubleValue)];
+            [TestFlight passCheckpoint:CHECKPOINT_ALARM_SNOOZE];
             break;
         }
         default:

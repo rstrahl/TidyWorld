@@ -39,17 +39,20 @@
 
 - (void)setupButtons
 {
+    CGFloat sizeMultiplier = ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) ? 2.0 : 1.0;
+    
     // Add Buttons
     // Grab a sample image for a button to obtain the dimensions
     UIImage *weatherImage = [UIImage imageNamed:@"Icon_World.png"];
     UIImage *weatherImageHighlight = [UIImage imageNamed:@"Icon_World_Highlight.png"];
     // Calculate the cell dimensions and padding
     int buttonCount = 0;
+    float screenMargin = (32 * sizeMultiplier) / 2;
     float buttonCellWidth = [[UIScreen mainScreen] bounds].size.width / 3; // width divided by number of buttons
     float buttonCellHorizontalPadding = (buttonCellWidth - weatherImage.size.width) / 2;
     float buttonCellVerticalPadding = (self.frame.size.height / 2) - (weatherImage.size.height / 2);
     CGRect buttonFrame;
-    buttonFrame = CGRectMake((buttonCount * buttonCellWidth) + buttonCellHorizontalPadding,
+    buttonFrame = CGRectMake((buttonCount * buttonCellWidth) + buttonCellHorizontalPadding + screenMargin,
                              buttonCellVerticalPadding,
                              weatherImage.size.width,
                              weatherImage.size.height);
@@ -77,7 +80,7 @@
     
     UIImage *settingsImage = [UIImage imageNamed:@"Icon_Settings.png"];
     UIImage *settingsHighlightImage = [UIImage imageNamed:@"Icon_Settings_Highlight.png"];
-    buttonFrame = CGRectMake((buttonCount * buttonCellWidth) + buttonCellHorizontalPadding,
+    buttonFrame = CGRectMake((buttonCount * buttonCellWidth) + buttonCellHorizontalPadding - screenMargin,
                              buttonCellVerticalPadding,
                              clockImage.size.width,
                              clockImage.size.height);
@@ -90,22 +93,24 @@
 }
 
 #pragma mark - Button Actions
-- (void)alarmClockButtonPressed:(id)sender
+- (IBAction)alarmClockButtonPressed:(id)sender
 {
     DLog(@"");
+    [TestFlight passCheckpoint:CHECKPOINT_ALARMS];
     AlarmListViewController *alarmListViewController = [[AlarmListViewController alloc] init];
     alarmListViewController.delegate = self;
     [self presentViewController:alarmListViewController fromSender:sender];
 }
 
-- (void)changeSeasonButtonPressed:(id)sender
+- (IBAction)changeSeasonButtonPressed:(id)sender
 {
     DLog(@"");
 }
 
-- (void)changeWorldButtonPressed:(id)sender
+- (IBAction)changeWorldButtonPressed:(id)sender
 {
     DLog(@"");
+    [TestFlight passCheckpoint:CHECKPOINT_WORLD];
     WorldOptionsViewController *worldOptionsViewController = [[WorldOptionsViewController alloc] initWithNibName:@"WorldOptionsViewController" bundle:nil];
     worldOptionsViewController.delegate = self;
     [self presentViewController:worldOptionsViewController fromSender:sender];
@@ -114,11 +119,13 @@
 - (void)settingsButtonPressed:(id)sender
 {
     DLog(@"");
+    [TestFlight passCheckpoint:CHECKPOINT_SETTINGS];
     SettingsTableViewController *settingsViewController = [[SettingsTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
     settingsViewController.delegate = self;
     [self presentViewController:settingsViewController fromSender:sender];
 }
 
+#pragma mark - ViewController Manipulation
 - (void)presentViewController:(UIViewController *)contentViewController fromSender:(id)sender
 {
     UIButton *senderButton = (UIButton *)sender;

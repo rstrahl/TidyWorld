@@ -209,11 +209,10 @@
     
     if ([key isEqualToString:@"Current Location"])
     {
-        if (DEBUG)
-        {
-            DebugDataViewController *debugViewController = [[DebugDataViewController alloc] initWithNibName:@"DebugDataViewController" bundle:nil];
-            [self.navigationController pushViewController:debugViewController animated:YES];
-        }
+#ifdef DEBUG
+        DebugDataViewController *debugViewController = [[DebugDataViewController alloc] initWithNibName:@"DebugDataViewController" bundle:nil];
+        [self.navigationController pushViewController:debugViewController animated:YES];
+#endif
     }
     else
     {
@@ -465,15 +464,21 @@
     if ([key isEqualToString:@"Location Based"])
     {
         [self locationBasedValueChanged:cellSwitch.isOn];
+        if (cellSwitch.isOn)
+        {
+            [TestFlight passCheckpoint:CHECKPOINT_CUSTOM_WEATHER];
+        }
     }
     else if ([key isEqualToString:@"Fog"])
     {
         mCurrentWeatherCondition.fog = cellSwitch.isOn;
+        [TestFlight passCheckpoint:CHECKPOINT_FOG];
         [self didChangeWeatherCondition:key];
     }
     else if ([key isEqualToString:@"Lightning"])
     {
         mCurrentWeatherCondition.lightning = cellSwitch.isOn;
+        [TestFlight passCheckpoint:CHECKPOINT_LIGHTNING];
         [self didChangeWeatherCondition:key];
     }
 }
@@ -503,18 +508,21 @@
                 mCurrentWeatherCondition.lightning = WeatherLightningNone;
             }
             category = @"Clouds";
+            [TestFlight passCheckpoint:CHECKPOINT_CLOUDS];
             break;
         }
         case WeatherCategoryRain:
         {
             mCurrentWeatherCondition.rain = value;
             category = @"Rain";
+            [TestFlight passCheckpoint:CHECKPOINT_RAIN];
             break;
         }
         case WeatherCategorySnow:
         {
             mCurrentWeatherCondition.snow = value;
             category = @"Snow";
+            [TestFlight passCheckpoint:CHECKPOINT_SNOW];
             break;
         }
         case WeatherCategorySeason:

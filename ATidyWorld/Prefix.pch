@@ -15,4 +15,5 @@
 #import "GAI.h"
 #import "DLogMacro.h"
 #import "TestFlight.h"
+#import "TestFlightConstants.h"
 #endif

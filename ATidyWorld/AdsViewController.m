@@ -61,7 +61,7 @@
 //        }
 //        UIView *view = [[UIView alloc] initWithFrame:viewFrame];
 //        view.backgroundColor = [UIColor clearColor];
-////        view.alpha = 0.25f;
+//          view.alpha = 0.25f;
 //        self.view = view;
         NSTimer *refreshAdTimer = [NSTimer scheduledTimerWithTimeInterval:AD_REFRESH_RATE
                                                                    target:self
@@ -76,10 +76,10 @@
 {
     [super viewDidLoad];
     self.view.frame = [self setFrame];
-    if (USE_IAD)
-    {
-        [self initIadBannerView];
-    }
+    self.view.hidden = NO;
+#ifdef iAd
+    [self initIadBannerView];
+#endif
     [self initAdMobBannerView];
 }
 
@@ -91,6 +91,11 @@
 #pragma mark - AdBannerViewDelegate (iAd) Implementation
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
+    [TestFlight passCheckpoint:CHECKPOINT_AD_IAD_DISPLAYED];
+    if (!self.adMobBannerView.hidden)
+    {
+        [self hideBanner:self.adMobBannerView];
+    }
     [self showBanner:self.iAdBannerView];
 }
 
@@ -108,6 +113,7 @@
 
 - (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave
 {
+    [TestFlight passCheckpoint:CHECKPOINT_AD_AD_CLICKED];
     return YES;
 }
 
@@ -121,6 +127,7 @@
 - (void)adViewDidReceiveAd:(GADBannerView *)bannerView
 {
     DLog(@"");
+    [TestFlight passCheckpoint:CHECKPOINT_AD_ADMOB_DISPLAYED];
     [self showBanner:bannerView];
 }
 
@@ -132,6 +139,7 @@
 
 - (void)adViewWillPresentScreen:(GADBannerView *)bannerView
 {
+    [TestFlight passCheckpoint:CHECKPOINT_AD_AD_CLICKED];
     [self hideBanner:bannerView];
 }
 
@@ -142,7 +150,6 @@
 
 - (void)adViewWillDismissScreen:(GADBannerView *)bannerView
 {
-//    self.view.frame = [self setFrame];
     [self requestAdMob];
 }
 
@@ -192,7 +199,7 @@
         [banner isHidden])
     {
         self.view.frame = [self setFrame];
-        banner.hidden = FALSE;
+        banner.hidden = NO;
         [UIView animateWithDuration:1.0
                               delay:0.0
                             options:UIViewAnimationOptionCurveEaseIn
@@ -280,11 +287,10 @@
 //#pragma mark - AdMob Methods
 - (void)willRequestAd
 {
-    if (!USE_IAD)
-    {
+#ifndef iAD
         [self requestAdMob];
-        DLog(@"Requesting AdMob Banner");
-    }
+        DLog(@"iAd Disabled - Requesting AdMob Banner");
+#endif
 }
 
 - (void)requestAdMob
@@ -304,5 +310,22 @@
     [self.adMobBannerView loadRequest:request];
 }
 
+#pragma mark - Test
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    DLog(@"");
+}
 
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesEnded:touches withEvent:event];
+    DLog(@"");
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesMoved:touches withEvent:event];
+    DLog(@"");
+}
 @end

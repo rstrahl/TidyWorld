@@ -295,18 +295,6 @@
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
-//    NSError *error = nil;
-//    if (![mContext save:&error]) { 
-//        DLog(@"ERROR saving alarm data");
-//        if (ANALYTICS)
-//        {
-//            [[[GAI sharedInstance] defaultTracker] trackException:NO withNSError:error];
-//        }
-//    }
-//    else
-//    {
-//        DLog(@"SUCCESS saving alarm data");
-//    }
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
@@ -472,6 +460,7 @@
     if ([alarm.enabled boolValue])
     {
         [self googleLogAlarmEnabled];
+        [TestFlight passCheckpoint:CHECKPOINT_ALARM_SET];
     }
     
 }

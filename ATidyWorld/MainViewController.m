@@ -27,14 +27,16 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-        // Add Clock Label
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
         CGFloat sizeMultiplier = ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) ? 2.0 : 1.0;
+        
+        // Add Clock Label
         CGRect clockFaceFrame = CGRectMake(0,
                                            0,
                                            screenSize.width,
                                            80*sizeMultiplier);
         mClockView = [[ClockFaceView alloc] initWithFrame:clockFaceFrame];
+        [self.view addSubview:mClockView];
         
         // Add ButtonsViewControlller
         mButtonsView = [[ButtonTrayView alloc] initWithFrame:CGRectMake(screenSize.width,
@@ -42,17 +44,34 @@
                                                                         screenSize.width,
                                                                         80*sizeMultiplier)];
         mButtonsView.parentViewController = self;
+        mButtonsView.hidden = YES;
+        [self.view addSubview:mButtonsView];
         
-        mScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,
-                                                                     0,
-                                                                     [UIScreen mainScreen].bounds.size.width,
-                                                                     80*sizeMultiplier)];
-        [mScrollView addSubview:mClockView];
-        [mScrollView addSubview:mButtonsView];
-        [mScrollView setContentSize:CGSizeMake(mScrollView.frame.size.width * 2, 80*sizeMultiplier)];
-        [mScrollView setPagingEnabled:YES];
+        // Add navigation buttons (left/right)
+        mLeftNavigationButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        mLeftNavigationButton.titleLabel.text = @"L";
+        mLeftNavigationButton.hidden = YES;
+        mLeftNavigationButton.alpha = 0;
+        [mLeftNavigationButton addTarget:self
+                                  action:@selector(leftNavigationButtonPressed:)
+                        forControlEvents:UIControlEventTouchUpInside];
+        mLeftNavigationButton.frame = CGRectMake(8,
+                                                 ((80 * sizeMultiplier) / 2) - (16),
+                                                 32,
+                                                 32);
+        [self.view addSubview:mLeftNavigationButton];
         
-        [self.view addSubview:mScrollView];
+        mRightNavigationButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        mRightNavigationButton.titleLabel.text = @"R";
+        mRightNavigationButton.hidden = NO;
+        [mRightNavigationButton addTarget:self
+                                   action:@selector(rightNavigationButtonPressed:)
+                         forControlEvents:UIControlEventTouchUpInside];
+        mRightNavigationButton.frame = CGRectMake(screenSize.width - 32 - 8,
+                                                  ((80 * sizeMultiplier) / 2) - (16),
+                                                  32,
+                                                  32);
+        [self.view addSubview:mRightNavigationButton];
     }
     return self;
 }
@@ -62,10 +81,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     // Add AdsViewController
-    mAdsViewController = [[AdsViewController alloc] initWithNibName:nil bundle:nil];
-    [self.view addSubview:mAdsViewController.view];
-    AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
-    appDelegate.adsViewController = mAdsViewController;
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,6 +93,57 @@
 {
     mSceneDelegate = sceneDelegate;
     mButtonsView.sceneDelegate = sceneDelegate;
+}
+
+#pragma mark - IBActions
+- (IBAction)leftNavigationButtonPressed:(id)sender
+{
+    DLog(@"");
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    if (mClockView.hidden)
+    {
+        mRightNavigationButton.hidden = NO;
+        mClockView.hidden = NO;
+        [UIView animateWithDuration:0.4
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             mButtonsView.frame = CGRectOffset(mButtonsView.frame, +screenSize.width, 0);
+                             mClockView.frame = CGRectOffset(mClockView.frame, +screenSize.width, 0);
+                             mLeftNavigationButton.alpha = 0;
+                             mRightNavigationButton.alpha = 1;
+                         }
+                         completion:^(BOOL finished) {
+                             mButtonsView.hidden = YES;
+                             mLeftNavigationButton.hidden = YES;
+                         }
+         ];
+    }
+}
+
+- (IBAction)rightNavigationButtonPressed:(id)sender
+{
+    DLog(@"");
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    if (mButtonsView.hidden)
+    {
+        mLeftNavigationButton.hidden = NO;
+        mButtonsView.hidden = NO;
+        [UIView animateWithDuration:0.4
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             mButtonsView.frame = CGRectOffset(mButtonsView.frame, -screenSize.width, 0);
+                             mClockView.frame = CGRectOffset(mClockView.frame, -screenSize.width, 0);
+                             mRightNavigationButton.alpha = 0;
+                             mLeftNavigationButton.alpha = 1;
+                         }
+                         completion:^(BOOL finished) {
+                             mClockView.hidden = YES;
+                             mRightNavigationButton.hidden = YES;
+                         }
+         ];
+    }
 }
 
 #pragma mark - Test

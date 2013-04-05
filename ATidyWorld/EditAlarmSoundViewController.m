@@ -290,6 +290,7 @@ NSUInteger const kMusicSegmentIndex = 1;
 - (void)mediaPicker:(MPMediaPickerController *) mediaPicker didPickMediaItems:(MPMediaItemCollection *) collection 
 {
     [self dismissModalViewControllerAnimated: YES];
+    [TestFlight passCheckpoint:CHECKPOINT_ALARM_CUSTOM_SOUND];
     //[self updatePlayerQueueWithMediaCollection: collection];
     DLog(@"Music List contains %d items, adding %d items", [_musicList count], [collection count]);
     [_musicList addObjectsFromArray:[collection items]];
