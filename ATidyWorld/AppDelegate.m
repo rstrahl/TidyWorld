@@ -174,7 +174,7 @@
     [[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 	if( [navController_ visibleViewController] == director_ )
 		[director_ resume];
-    [self.adsViewController willRequestAd];
+//    [self.adsViewController willRequestAd];
 }
 
 -(void) applicationDidEnterBackground:(UIApplication*)application
@@ -314,7 +314,7 @@
     // Optional: automatically track uncaught exceptions with Google Analytics.
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
-    [GAI sharedInstance].dispatchInterval = 20;
+    [GAI sharedInstance].dispatchInterval = 30;
     // Optional: set debug to YES for extra debugging information.
     [GAI sharedInstance].debug = YES;
     // Create tracker instance.

@@ -21,6 +21,7 @@
     id                      __unsafe_unretained mSceneDelegate;
     UIButton                *mLeftNavigationButton;
     UIButton                *mRightNavigationButton;
+    NSTimer                 *mButtonsHighAlphaTimer;
 }
 
 @property (nonatomic, strong) ButtonTrayView        *buttonsView;
@@ -28,6 +29,7 @@
 @property (nonatomic, strong) AdsViewController     *adsViewController;
 @property (nonatomic, strong) UIButton              *leftNavigationButton;
 @property (nonatomic, strong) UIButton              *rightNavigationButton;
+@property (nonatomic, strong) NSTimer               *buttonsHighAlphaTimer;
 
 - (void)setSceneDelegate:(id)sceneDelegate;
 

@@ -20,7 +20,8 @@
 
 @synthesize buttonsView = mButtonsView,
             clockView = mClockView,
-            adsViewController = mAdsViewController;
+            adsViewController = mAdsViewController,
+            buttonsHighAlphaTimer = mButtonsHighAlphaTimer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,29 +49,36 @@
         [self.view addSubview:mButtonsView];
         
         // Add navigation buttons (left/right)
-        mLeftNavigationButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        mLeftNavigationButton.titleLabel.text = @"L";
+        UIImage *leftImage = [UIImage imageNamed:@"Icon_LeftArrow.png"];
+        UIImage *leftImageHighlighted = [UIImage imageNamed:@"Icon_LeftArrow_Highlight.png"];
+        mLeftNavigationButton = [UIButton buttonWithType:UIButtonTypeCustom];
         mLeftNavigationButton.hidden = YES;
         mLeftNavigationButton.alpha = 0;
         [mLeftNavigationButton addTarget:self
                                   action:@selector(leftNavigationButtonPressed:)
                         forControlEvents:UIControlEventTouchUpInside];
+        [mLeftNavigationButton setImage:leftImage forState:UIControlStateNormal];
+        [mLeftNavigationButton setImage:leftImageHighlighted forState:UIControlStateHighlighted];
         mLeftNavigationButton.frame = CGRectMake(8,
-                                                 ((80 * sizeMultiplier) / 2) - (16),
-                                                 32,
-                                                 32);
+                                                 ((80 * sizeMultiplier) / 2) - (leftImage.size.width / 2),
+                                                 leftImage.size.width,
+                                                 leftImage.size.height);
         [self.view addSubview:mLeftNavigationButton];
         
-        mRightNavigationButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        mRightNavigationButton.titleLabel.text = @"R";
+        UIImage *rightImage = [UIImage imageNamed:@"Icon_RightArrow.png"];
+        UIImage *rightImageHighlighted = [UIImage imageNamed:@"Icon_RightArrow_Highlight.png"];
+        mRightNavigationButton = [UIButton buttonWithType:UIButtonTypeCustom];
         mRightNavigationButton.hidden = NO;
+        mRightNavigationButton.alpha = 0.5;
         [mRightNavigationButton addTarget:self
                                    action:@selector(rightNavigationButtonPressed:)
                          forControlEvents:UIControlEventTouchUpInside];
-        mRightNavigationButton.frame = CGRectMake(screenSize.width - 32 - 8,
-                                                  ((80 * sizeMultiplier) / 2) - (16),
-                                                  32,
-                                                  32);
+        [mRightNavigationButton setImage:rightImage forState:UIControlStateNormal];
+        [mRightNavigationButton setImage:rightImageHighlighted forState:UIControlStateHighlighted];
+        mRightNavigationButton.frame = CGRectMake(screenSize.width - rightImage.size.width - 8,
+                                                  ((80 * sizeMultiplier) / 2) - (rightImage.size.width / 2),
+                                                  rightImage.size.width,
+                                                  rightImage.size.height);
         [self.view addSubview:mRightNavigationButton];
     }
     return self;
@@ -111,7 +119,7 @@
                              mButtonsView.frame = CGRectOffset(mButtonsView.frame, +screenSize.width, 0);
                              mClockView.frame = CGRectOffset(mClockView.frame, +screenSize.width, 0);
                              mLeftNavigationButton.alpha = 0;
-                             mRightNavigationButton.alpha = 1;
+                             mRightNavigationButton.alpha = 0.5;
                          }
                          completion:^(BOOL finished) {
                              mButtonsView.hidden = YES;
@@ -136,7 +144,7 @@
                              mButtonsView.frame = CGRectOffset(mButtonsView.frame, -screenSize.width, 0);
                              mClockView.frame = CGRectOffset(mClockView.frame, -screenSize.width, 0);
                              mRightNavigationButton.alpha = 0;
-                             mLeftNavigationButton.alpha = 1;
+                             mLeftNavigationButton.alpha = 0.5;
                          }
                          completion:^(BOOL finished) {
                              mClockView.hidden = YES;
@@ -146,16 +154,65 @@
     }
 }
 
+#pragma mark - UIView Animations
+- (void)fadeOutButtons
+{
+    DLog(@"");
+    [UIView animateWithDuration:0.5
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         mButtonsView.alpha = 0.5;
+                     }
+                     completion:^(BOOL finished) {
+                         mClockView.hidden = YES;
+                         mRightNavigationButton.hidden = YES;
+                     }
+     ];
+}
+
+- (void)fadeInButtons
+{
+    DLog(@"");
+    [UIView animateWithDuration:0.5
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         mButtonsView.alpha = 1.0f;
+                     }
+                     completion:^(BOOL finished) {
+                         mClockView.hidden = YES;
+                         mRightNavigationButton.hidden = YES;
+                     }
+     ];
+
+}
+
 #pragma mark - Test
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];
+//    if (self.buttonsHighAlphaTimer != nil)
+//    {
+//        if ([self.buttonsHighAlphaTimer isValid])
+//        {
+//            [self.buttonsHighAlphaTimer invalidate];
+//            self.buttonsHighAlphaTimer = nil;
+//        }
+//    }
+//    [self fadeInButtons];
     DLog(@"");
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesEnded:touches withEvent:event];
+    // Set NSTimer for 5-10 seconds that unless interrupted will fade out all non-hidden buttons to MINALPHA
+//    self.buttonsHighAlphaTimer = [NSTimer scheduledTimerWithTimeInterval:5
+//                                                              target:self
+//                                                            selector:@selector(fadeOutButtons)
+//                                                            userInfo:nil
+//                                                             repeats:NO];
     DLog(@"");
 }
 

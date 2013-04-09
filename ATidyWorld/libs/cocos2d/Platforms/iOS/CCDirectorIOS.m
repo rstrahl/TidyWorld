@@ -520,11 +520,11 @@ CGFloat	__ccContentScaleFactor = 1;
 	if( displayStats_ )
 		gettimeofday( &lastUpdate_, NULL);
 
-#ifdef DEBUG
+//#ifdef DEBUG
 	// If we are debugging our code, prevent big delta time
 	if( dt > 0.2f )
 		dt = 1/60.0f;
-#endif
+//#endif
 }
 
 

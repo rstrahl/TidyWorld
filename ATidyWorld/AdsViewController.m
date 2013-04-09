@@ -91,7 +91,7 @@
 #pragma mark - AdBannerViewDelegate (iAd) Implementation
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
-    [TestFlight passCheckpoint:CHECKPOINT_AD_IAD_DISPLAYED];
+//    [TestFlight passCheckpoint:CHECKPOINT_AD_IAD_DISPLAYED];
     if (!self.adMobBannerView.hidden)
     {
         [self hideBanner:self.adMobBannerView];
@@ -113,13 +113,17 @@
 
 - (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave
 {
-    [TestFlight passCheckpoint:CHECKPOINT_AD_AD_CLICKED];
+    DLog(@"");
+//    [TestFlight passCheckpoint:CHECKPOINT_AD_AD_CLICKED];
+    [self stopActionsForAd];
     return YES;
 }
 
 - (void)bannerViewActionDidFinish:(ADBannerView *)banner
 {
+    DLog(@"");
     [self hideBanner:banner];
+    [self startActionsForAd];
 }
 
 
@@ -127,7 +131,7 @@
 - (void)adViewDidReceiveAd:(GADBannerView *)bannerView
 {
     DLog(@"");
-    [TestFlight passCheckpoint:CHECKPOINT_AD_ADMOB_DISPLAYED];
+//    [TestFlight passCheckpoint:CHECKPOINT_AD_ADMOB_DISPLAYED];
     [self showBanner:bannerView];
 }
 
@@ -139,23 +143,27 @@
 
 - (void)adViewWillPresentScreen:(GADBannerView *)bannerView
 {
-    [TestFlight passCheckpoint:CHECKPOINT_AD_AD_CLICKED];
+//    [TestFlight passCheckpoint:CHECKPOINT_AD_AD_CLICKED];
+    [self stopActionsForAd];
     [self hideBanner:bannerView];
 }
 
 - (void)adViewDidDismissScreen:(GADBannerView *)bannerView
 {
-
+    DLog(@"");
+    self.view.frame = [self setFrame];
 }
 
 - (void)adViewWillDismissScreen:(GADBannerView *)bannerView
 {
+    DLog(@"");
     [self requestAdMob];
+    [self startActionsForAd];
 }
 
 - (void)adViewWillLeaveApplication:(GADBannerView *)bannerView
 {
-    
+    DLog(@"");
 }
 
 #pragma mark - Advertising Initialization
@@ -198,7 +206,6 @@
     if (banner &&
         [banner isHidden])
     {
-        self.view.frame = [self setFrame];
         banner.hidden = NO;
         [UIView animateWithDuration:1.0
                               delay:0.0
@@ -249,6 +256,26 @@
     }
     return viewFrame;
 }
+
+#pragma mark - Cocos2d Management
+- (void) stopActionsForAd
+{
+	//Stop Director
+	[[CCDirector sharedDirector] stopAnimation];
+	[[CCDirector sharedDirector] pause];
+}
+
+- (void) startActionsForAd
+{
+//	[self rotateBannerView:[self currentOrientation]];
+//	[[UIApplication sharedApplication] setStatusBarOrientation:(UIInterfaceOrientation)[self currentOrientation]];
+    
+	//Resume Director
+	[[CCDirector sharedDirector] stopAnimation];
+	[[CCDirector sharedDirector] resume];
+	[[CCDirector sharedDirector] startAnimation];
+}
+
 
 #pragma mark - DEBUGGING METHODS
 // DEBUG ONLY
