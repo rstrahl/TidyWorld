@@ -46,6 +46,8 @@
 		9B6954D317150F8B003453DD /* InAppPurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6954D217150F8B003453DD /* InAppPurchaseViewController.m */; };
 		9B6954D617151040003453DD /* TMInAppPurchaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6954D517151040003453DD /* TMInAppPurchaseHelper.m */; };
 		9B6954D917173F08003453DD /* TMActivityInProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6954D817173F08003453DD /* TMActivityInProgressView.m */; };
+		9B6954DB1718931C003453DD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954DA1718931B003453DD /* Default-568h@2x.png */; };
+		9B6954DD17189EA3003453DD /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954DC17189EA3003453DD /* Icon-72@2x.png */; };
 		9B69800816DC6D990052C0BB /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69800716DC6D990052C0BB /* CCNode+SFGestureRecognizers.m */; };
 		9B69800C16DDC5220052C0BB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69800B16DDC5220052C0BB /* MainViewController.m */; };
 		9B7DFE1F16E5415300A534DF /* ParallaxLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7DFE1E16E5415300A534DF /* ParallaxLayer.m */; };
@@ -364,6 +366,8 @@
 		9B6954D517151040003453DD /* TMInAppPurchaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMInAppPurchaseHelper.m; sourceTree = "<group>"; };
 		9B6954D717173F08003453DD /* TMActivityInProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMActivityInProgressView.h; sourceTree = "<group>"; };
 		9B6954D817173F08003453DD /* TMActivityInProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMActivityInProgressView.m; sourceTree = "<group>"; };
+		9B6954DA1718931B003453DD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9B6954DC17189EA3003453DD /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		9B69800616DC6D990052C0BB /* CCNode+SFGestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+SFGestureRecognizers.h"; sourceTree = "<group>"; };
 		9B69800716DC6D990052C0BB /* CCNode+SFGestureRecognizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+SFGestureRecognizers.m"; sourceTree = "<group>"; };
 		9B69800A16DDC5220052C0BB /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -1811,10 +1815,12 @@
 		9BFF80F016E034AA00051E6E /* App */ = {
 			isa = PBXGroup;
 			children = (
+				9B6954DA1718931B003453DD /* Default-568h@2x.png */,
 				9B8B97D6170A7FE80009A7D9 /* Default@2x~iphone.png */,
 				9B8B97D7170A7FE80009A7D9 /* Default~ipad.png */,
 				9B8B97D8170A7FE90009A7D9 /* Default~iphone.png */,
 				9B141E9E16F2C54D002B5EB6 /* Icon-72.png */,
+				9B6954DC17189EA3003453DD /* Icon-72@2x.png */,
 				9B141EA016F2C54D002B5EB6 /* Icon-Small@2x.png */,
 				9B8B97DF170BB33B0009A7D9 /* Icon-Small-50.png */,
 				9B141E9F16F2C54D002B5EB6 /* Icon-Small.png */,
@@ -2019,6 +2025,8 @@
 				9B6954CE17150F11003453DD /* Icon_Purchases_Highlight~iphone.png in Resources */,
 				9B6954CF17150F11003453DD /* Icon_Purchases~ipad.png in Resources */,
 				9B6954D017150F11003453DD /* Icon_Purchases~iphone.png in Resources */,
+				9B6954DB1718931C003453DD /* Default-568h@2x.png in Resources */,
+				9B6954DD17189EA3003453DD /* Icon-72@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

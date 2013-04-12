@@ -22,6 +22,7 @@
     UIButton                *mLeftNavigationButton;
     UIButton                *mRightNavigationButton;
     NSTimer                 *mButtonsHighAlphaTimer;
+    BOOL                    mAdsDisabled;
 }
 
 @property (nonatomic, strong) ButtonTrayView        *buttonsView;
@@ -30,6 +31,7 @@
 @property (nonatomic, strong) UIButton              *leftNavigationButton;
 @property (nonatomic, strong) UIButton              *rightNavigationButton;
 @property (nonatomic, strong) NSTimer               *buttonsHighAlphaTimer;
+@property (nonatomic, assign) BOOL adsDisabled;
 
 - (void)setSceneDelegate:(id)sceneDelegate;
 

@@ -11,6 +11,7 @@
 #import "ButtonTrayView.h"
 #import "AdsViewController.h"
 #import "AppDelegate.h"
+#import "TMInAppPurchaseHelper.h"
 
 @interface MainViewController ()
 
@@ -21,15 +22,38 @@
 @synthesize buttonsView = mButtonsView,
             clockView = mClockView,
             adsViewController = mAdsViewController,
-            buttonsHighAlphaTimer = mButtonsHighAlphaTimer;
+            buttonsHighAlphaTimer = mButtonsHighAlphaTimer,
+            adsDisabled = mAdsDisabled;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
+        CGRect viewFrame = self.view.frame;
+        viewFrame.size.height -= 55;
+        self.view.frame = viewFrame;
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
         CGFloat sizeMultiplier = ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) ? 2.0 : 1.0;
+        
+        // Add AdsViewController for Ads
+        self.adsDisabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"com.atidymind.atidyworld.removeads"];
+        if (!self.adsDisabled)
+        {
+            mAdsViewController = [[AdsViewController alloc] initWithNibName:nil bundle:nil];
+            [self.view addSubview:mAdsViewController.view];
+            AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
+            appDelegate.adsViewController = mAdsViewController;
+//            CGRect mainFrame = self.view.frame;
+//            mainFrame.size.height -= mAdsViewController.view.frame.size.height;
+//            NSLog(@"adsviewcontroller height = %f", mAdsViewController.view.frame.size.height);
+//            self.view.frame = mainFrame;
+        }
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didReceiveProductPurchasedNotification:)
+                                                     name:TM_PRODUCT_PURCHASED_NOTIFICATION
+                                                   object:nil];
         
         // Add Clock Label
         CGRect clockFaceFrame = CGRectMake(0,
@@ -80,6 +104,7 @@
                                                   rightImage.size.width,
                                                   rightImage.size.height);
         [self.view addSubview:mRightNavigationButton];
+        NSLog(@"MainViewController Size = %f x %f", self.view.frame.size.width, self.view.frame.size.height);
     }
     return self;
 }
@@ -188,31 +213,26 @@
 
 }
 
+- (void)didReceiveProductPurchasedNotification:(NSNotification *)notification
+{
+    self.adsDisabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"com.atidymind.atidyworld.removeads"];
+    if ((!self.adsDisabled) && self.adsViewController)
+    {
+        [self.adsViewController.view removeFromSuperview];
+        self.adsViewController = nil;
+    }
+}
+
 #pragma mark - Test
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];
-//    if (self.buttonsHighAlphaTimer != nil)
-//    {
-//        if ([self.buttonsHighAlphaTimer isValid])
-//        {
-//            [self.buttonsHighAlphaTimer invalidate];
-//            self.buttonsHighAlphaTimer = nil;
-//        }
-//    }
-//    [self fadeInButtons];
     DLog(@"");
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesEnded:touches withEvent:event];
-    // Set NSTimer for 5-10 seconds that unless interrupted will fade out all non-hidden buttons to MINALPHA
-//    self.buttonsHighAlphaTimer = [NSTimer scheduledTimerWithTimeInterval:5
-//                                                              target:self
-//                                                            selector:@selector(fadeOutButtons)
-//                                                            userInfo:nil
-//                                                             repeats:NO];
     DLog(@"");
 }
 

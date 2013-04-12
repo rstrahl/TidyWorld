@@ -10,7 +10,6 @@
 #import "cocos2d.h"
 #import "WorldOptionsViewController.h"
 
-@class AdsViewController;
 @class MainViewController;
 @class SkyLayer;
 @class WeatherLayer;
@@ -19,13 +18,11 @@
 @interface SummerBaseLayer : CCLayer <WorldOptionsViewControllerDelegate>
 {
     NSTimeInterval          mClockTime;
-    AdsViewController       *mAdsViewController;
     MainViewController      *mMainViewController;
     NSInteger               mTimeLapseMultiplier;
     BOOL                    mUsingTimeLapse;
     BOOL                    mUsingLocationBasedWeather;
     BOOL                    mOvercast;
-    BOOL                    mAdsEnabled;
     int                     mNight;
     NSTimeInterval          mTimeOfSunriseInSeconds;
     NSTimeInterval          mTimeOfSunsetInSeconds;
@@ -48,7 +45,6 @@
     LandscapeLayer          *mLandscapeLayer;
 }
 
-@property (nonatomic, strong) AdsViewController     *adsViewController;
 @property (nonatomic, strong) MainViewController    *mainViewController;
 @property (nonatomic, strong) CCSpriteBatchNode     *spriteBatchNode;
 @property (nonatomic, strong) CCParticleBatchNode   *particleBatchNode;
@@ -59,7 +55,6 @@
 @property (nonatomic, assign, getter = isUsingTimeLapse) BOOL usingTimeLapse;
 @property (nonatomic, assign, getter = isUsingLocationBasedWeather) BOOL usingLocationBasedWeather;
 @property (nonatomic, assign, getter = isOvercast) BOOL overcast;
-@property (nonatomic, assign) BOOL adsDisabled;
 
 // returns a CCScene that contains the SummerBaseLayer as the only child
 +(CCScene *) scene;

@@ -43,9 +43,20 @@
 
 	CCSprite *background;
 	
-	if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
-		background = [CCSprite spriteWithFile:@"Default~iphone.png"];
-	} else {
+	if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone )
+    {
+        NSLog(@"height = %f", size.height);
+        if (size.height == 568)
+        {
+            background = [CCSprite spriteWithFile:@"Default-568h@2x.png"];
+        }
+        else
+        {
+            background = [CCSprite spriteWithFile:@"Default~iphone.png"];
+        }
+	}
+    else
+    {
 		background = [CCSprite spriteWithFile:@"Default~ipad.png"];
 	}
 	background.position = ccp(size.width/2, size.height/2);
