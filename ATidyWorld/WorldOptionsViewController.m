@@ -59,6 +59,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 45)];
+	footer.backgroundColor = [UIColor clearColor];
+	self.tableView.tableFooterView = footer;
     [self.tableView reloadData];
     if (ANALYTICS)
         [[GAI sharedInstance].defaultTracker trackView:@"World Options"];
@@ -209,10 +212,8 @@
     
     if ([key isEqualToString:@"Current Location"])
     {
-#ifdef DEBUG
         DebugDataViewController *debugViewController = [[DebugDataViewController alloc] initWithNibName:@"DebugDataViewController" bundle:nil];
         [self.navigationController pushViewController:debugViewController animated:YES];
-#endif
     }
     else
     {

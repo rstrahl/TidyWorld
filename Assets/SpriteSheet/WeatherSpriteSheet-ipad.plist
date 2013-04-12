@@ -176,13 +176,13 @@
             <key>LightningBolt.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,1624},{226,256}}</string>
+                <string>{{2,1624},{198,256}}</string>
                 <key>offset</key>
-                <string>{5,0}</string>
+                <string>{1,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{20,0},{226,256}}</string>
+                <string>{{30,0},{198,256}}</string>
                 <key>sourceSize</key>
                 <string>{256,256}</string>
             </dict>
@@ -222,7 +222,7 @@
             <key>size</key>
             <string>{1024,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:c6f543adf04622f34a294846f7aa3094$</string>
+            <string>$TexturePacker:SmartUpdate:48efa2d43c0965737d348b098f7defad$</string>
             <key>textureFileName</key>
             <string>WeatherSpriteSheet-ipad.png</string>
         </dict>

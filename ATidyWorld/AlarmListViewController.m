@@ -118,12 +118,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    // If there are no alarms, present an "add alarm" view rather than a blank list of alarms
-    DLog(@"fetched alarms: %d", [self.fetchedResultsController.fetchedObjects count]);
-    if ([self.fetchedResultsController.fetchedObjects count] == 0)
-    {
-        [self addButtonPressed:self];
-    }
+//    // If there are no alarms, present an "add alarm" view rather than a blank list of alarms
+//    DLog(@"fetched alarms: %d", [self.fetchedResultsController.fetchedObjects count]);
+//    if ([self.fetchedResultsController.fetchedObjects count] == 0)
+//    {
+//        [self addButtonPressed:self];
+//    }
+    UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 45)];
+	footer.backgroundColor = [UIColor clearColor];
+	self.tableView.tableFooterView = footer;
     if (ANALYTICS)
         [[GAI sharedInstance].defaultTracker trackView:@"Alarm List"];
 }

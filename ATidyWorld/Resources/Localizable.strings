@@ -41,8 +41,15 @@
 "ALERT_VIEW_FIRST_ALARM_SCREEN_TITLE"       = "How Alarms Work";
 "ALERT_VIEW_FIRST_ALARM_SCREEN_MESSAGE"     = "Please note that in order for any alarm to work, the app must be running in the foreground!";
 
+// In-App Purchase Error
+"ALERT_VIEW_INAPP_PURCHASE_ERROR_TITLE"     = "Purchase Problem";
+
 // Alarm List View
 "BUTTON_TITLE_NEW_ALARM"                    = "Add New Alarm";
+
+// In-App Purchases
+"BUTTON_TITLE_BUY"                          = "Buy";
+"ACTIVITY_TEXT_LOADING_PRODUCTS"            = "Loading Products...";
 
 // Edit Alarm View
 "VIEW_TITLE_NEW_ALARM"                      = "New Alarm";
@@ -93,6 +100,7 @@
 "VIEW_TITLE_WORLD_OPTIONS"                  = "Change World";
 "VIEW_TITLE_DEBUG"                          = "Debug";
 "VIEW_TITLE_DEBUG_DATA"                     = "Debug 2";
+"VIEW_TITLE_INAPP_PURCHASES"                = "In-App Purchases";
 
 // Settings Strings - Section Headers
 "OPTIONS_SECTION_HEADER_TIME"               = "Time";
@@ -116,7 +124,7 @@
 // NOTE: The string key MUST match the #defines in OptionsConstants.h
 //"USE_SYSTEM_TIME_FORMAT" = "Use Device Time Format";
 "SYNC_CLOCK_TO_REAL_WORLD"                  = "Clock is Real";
-"CLOCK_MULTIPLIER"                          = "Speed";
+"CLOCK_MULTIPLIER"                          = "Time-Lapse Speed";
 "USE_24_HOUR_CLOCK"                         = "Hour Format";
 "SHOW_DATE"                                 = "Show Date";
 "SHOW_NEXT_ALARM"                           = "Show Next Alarm";
@@ -124,5 +132,6 @@
 "SHOW_TEMPERATURE"                          = "Show Temperature";
 "USE_CELSIUS"                               = "Show Temperature In";
 "SHOW_FROST_FRAME"                          = "Show Frosty Screen";
+"IN_APP_PURCHASES"                          = "In-App Purchases";
 
 

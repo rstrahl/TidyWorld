@@ -7,6 +7,7 @@
 //
 
 #import "SettingsTableViewController.h"
+#import "InAppPurchaseViewController.h"
 #import "SettingsConstants.h"
 #import "Constants.h"
 
@@ -25,33 +26,31 @@
     if (self) {
         mUserDefaults = [NSUserDefaults standardUserDefaults];
         mOptionsTableSectionHeaders = [[NSArray alloc] initWithObjects:
+                                      NSLocalizedString(@"OPTIONS_SECTION_HEADER_GENERAL", @"General"),
                                        NSLocalizedString(@"OPTIONS_SECTION_HEADER_DISPLAY", @"Display"),
                                        NSLocalizedString(@"OPTIONS_SECTION_HEADER_TIME", @"Time"),
-                                       NSLocalizedString(@"OPTIONS_SECTION_HEADER_ALARM", @"Alarm"),
-                                       NSLocalizedString(@"OPTIONS_SECTION_HEADER_WEATHER", @"Weather"),
-                                       NSLocalizedString(@"OPTIONS_SECTION_HEADER_GENERAL", @"General"),
+//                                       NSLocalizedString(@"OPTIONS_SECTION_HEADER_ALARM", @"Alarm"),
                                        nil];
+        mGeneralOptionsData = [[NSArray alloc] initWithObjects:
+                               SETTINGS_KEY_IN_APP_PURCHASES,
+                               SETTINGS_KEY_USE_CELSIUS,
+                               SETTINGS_KEY_USE_24_HOUR_CLOCK,
+                               nil];
         mDisplayOptionsData = [[NSArray alloc] initWithObjects:
                                SETTINGS_KEY_SHOW_DATE,
-//                               SETTINGS_KEY_SHOW_NEXT_ALARM,
                                SETTINGS_KEY_SHOW_TEMP,
                                SETTINGS_KEY_SHOW_FROST_FRAME,
                                nil];
         mTimeOptionsData = [[NSMutableArray alloc] initWithObjects:
                             SETTINGS_KEY_CLOCK_MULTIPLIER,
-                            SETTINGS_KEY_USE_24_HOUR_CLOCK,
                             nil];
-        mAlarmOptionsData = [[NSArray alloc] initWithObjects:
-                             SETTINGS_KEY_FADE_IN_MUSIC,
-                             nil];
-        mWeatherOptionsData = [[NSArray alloc] initWithObjects:
-                               SETTINGS_KEY_USE_CELSIUS,
-                               nil];
+//        mAlarmOptionsData = [[NSArray alloc] initWithObjects:
+//                             SETTINGS_KEY_FADE_IN_MUSIC,
+//                             nil];
         mOptionsTableData = [[NSArray alloc] initWithObjects:
+                             mGeneralOptionsData,
                              mDisplayOptionsData,
                              mTimeOptionsData,
-                             mAlarmOptionsData,
-                             mWeatherOptionsData,
                              nil];
         
         self.title = NSLocalizedString(@"VIEW_TITLE_OPTIONS", @"Options Screen Title");
@@ -67,6 +66,7 @@
     [self.navigationItem setRightBarButtonItem:doneButton];
     mSettingsChanged = NO;
     self.contentSizeForViewInPopover = CGSizeMake(320,460);
+    self.tableView.contentSize = CGSizeMake(self.tableView.contentSize.width, self.tableView.contentSize.height+20);
 }
 
 - (void)viewDidUnload
@@ -77,6 +77,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 45)];
+	footer.backgroundColor = [UIColor clearColor];
+	self.tableView.tableFooterView = footer;
     [self.tableView reloadData];
     if (ANALYTICS)
         [[GAI sharedInstance].defaultTracker trackView:@"Settings View"];
@@ -129,6 +132,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString *key = [[mOptionsTableData objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    if ([key isEqualToString:SETTINGS_KEY_IN_APP_PURCHASES])
+    {
+        InAppPurchaseViewController *iapController = [[InAppPurchaseViewController alloc] init];
+        [self.navigationController pushViewController:iapController animated:YES];
+    }
 }
 
 #pragma mark - UITableViewCell
@@ -188,6 +197,12 @@
         [cellSegment setWidth:36.0f forSegmentAtIndex:1];
         [cellSegment addTarget:self action:@selector(segmentSelected:) forControlEvents:UIControlEventValueChanged];
         [cell setAccessoryView:cellSegment];
+    }
+    else if ([key isEqualToString:SETTINGS_KEY_IN_APP_PURCHASES])
+    {
+        cell.textLabel.text = NSLocalizedString(@"IN_APP_PURCHASES", @"In-App Purchases");
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
     }
 }
 

@@ -36,5 +36,7 @@
 	<string>YES</string>
 	<key>FIRST_TIME_ON_ALARM_SCREEN</key>
 	<string>YES</string>
+	<key>com.atidymind.atidyworld.removeads</key>
+	<false/>
 </dict>
 </plist>

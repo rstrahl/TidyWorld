@@ -15,6 +15,7 @@
 #import "Constants.h"
 #import "Alarm.h"
 #import "AdsViewController.h"
+#import "TMInAppPurchaseHelper.h"
 
 @interface AppController()
 /// Initialize Reachability service
@@ -66,6 +67,9 @@
     [self initWeatherService];
     [self initLocationService];
     
+    // Add in-app purchases
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:[TMInAppPurchaseHelper sharedHelper]];
+    
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
@@ -84,8 +88,9 @@
 	director_.wantsFullScreenLayout = YES;
 
 	// Display FSP and SPF
+#ifdef DEBUG
 	[director_ setDisplayStats:YES];
-
+#endif
 	// set FPS at 60
 	[director_ setAnimationInterval:1.0/60];
 

@@ -23,6 +23,7 @@
 #import "LandscapeLayer.h"
 #import "TMTimeUtils.h"
 #import "AppDelegate.h"
+#import "TMInAppPurchaseHelper.h"
 
 @interface SummerBaseLayer()
 // Layer Setup ----------------------------------------------------------------
@@ -66,6 +67,7 @@
             usingTimeLapse = mUsingTimeLapse,
             usingLocationBasedWeather = mUsingLocationBasedWeather,
             overcast = mOvercast,
+            adsDisabled = mAdsEnabled,
             currentWeatherCondition = mCurrentWeatherCondition;
 
 // Helper class method that creates a Scene with the SummerBaseLayer as the only child.
@@ -95,18 +97,21 @@
         mLastSunsetProgress = 0;
         mNight = -1;
         
-        
         // Add MainViewController for UI
         mMainViewController = [[MainViewController alloc] initWithNibName:nil bundle:nil];
         [mMainViewController setSceneDelegate:self];
         [[[CCDirector sharedDirector] view] addSubview:mMainViewController.view];
         
         // Add AdsViewController for Ads
-        mAdsViewController = [[AdsViewController alloc] initWithNibName:nil bundle:nil];
-        [[[CCDirector sharedDirector] view] addSubview:mAdsViewController.view];
-        AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
-        appDelegate.adsViewController = mAdsViewController;
         
+        self.adsDisabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"com.atidymind.atidyworld.removeads"];
+        if (!self.adsDisabled)
+        {
+            mAdsViewController = [[AdsViewController alloc] initWithNibName:nil bundle:nil];
+            [[[CCDirector sharedDirector] view] addSubview:mAdsViewController.view];
+            AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
+            appDelegate.adsViewController = mAdsViewController;
+        }
         // Register notification listeners for service
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(didReceiveLocationSuccessNotification:)
@@ -122,6 +127,13 @@
                                                  selector:@selector(didReceiveSettingsChangedNotification:)
                                                      name:NOTIFICATION_SETTINGS_CHANGED
                                                    object:nil];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didReceiveProductPurchasedNotification:)
+                                                     name:TM_PRODUCT_PURCHASED_NOTIFICATION
+                                                   object:nil];
+
+        
         
         [[LocationService sharedInstance] startServiceTimer];
 
@@ -377,6 +389,16 @@
 - (void)didReceiveSettingsChangedNotification:(NSNotification *)notification
 {
     [self loadApplicationSettings];
+}
+
+- (void)didReceiveProductPurchasedNotification:(NSNotification *)notification
+{
+    self.adsDisabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"com.atidymind.atidyworld.removeads"];
+    if ((!self.adsDisabled) && self.adsViewController)
+    {
+        [self.adsViewController.view removeFromSuperview];
+        self.adsViewController = nil;
+    }
 }
 
 #pragma mark - WorldOptionViewControllerDelegate Implementation

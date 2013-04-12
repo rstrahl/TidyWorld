@@ -25,6 +25,7 @@
     BOOL                    mUsingTimeLapse;
     BOOL                    mUsingLocationBasedWeather;
     BOOL                    mOvercast;
+    BOOL                    mAdsEnabled;
     int                     mNight;
     NSTimeInterval          mTimeOfSunriseInSeconds;
     NSTimeInterval          mTimeOfSunsetInSeconds;
@@ -58,6 +59,7 @@
 @property (nonatomic, assign, getter = isUsingTimeLapse) BOOL usingTimeLapse;
 @property (nonatomic, assign, getter = isUsingLocationBasedWeather) BOOL usingLocationBasedWeather;
 @property (nonatomic, assign, getter = isOvercast) BOOL overcast;
+@property (nonatomic, assign) BOOL adsDisabled;
 
 // returns a CCScene that contains the SummerBaseLayer as the only child
 +(CCScene *) scene;

@@ -42,7 +42,7 @@
 					<object class="IBUILabel" id="421009321">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 0}, {280, 37}}</string>
+						<string key="NSFrame">{{20, 0}, {280, 58}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="243429128"/>
@@ -61,17 +61,17 @@
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
-						<int key="IBUINumberOfLines">2</int>
+						<int key="IBUINumberOfLines">3</int>
 						<int key="IBUITextAlignment">1</int>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
 							<string key="name">Helvetica-Bold</string>
 							<string key="family">Helvetica</string>
 							<int key="traits">2</int>
-							<double key="pointSize">16</double>
+							<double key="pointSize">18</double>
 						</object>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Helvetica-Bold</string>
-							<double key="NSSize">16</double>
+							<double key="NSSize">18</double>
 							<int key="NSfFlags">16</int>
 						</object>
 						<double key="preferredMaxLayoutWidth">280</double>
@@ -737,7 +737,6 @@
 						<string key="NSFrame">{{150, 398}, {150, 15}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:311</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -756,7 +755,6 @@
 				<string key="NSFrame">{{0, 44}, {320, 436}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
@@ -961,11 +959,11 @@
 							<reference ref="585935033"/>
 							<reference ref="817207717"/>
 							<reference ref="854036013"/>
-							<reference ref="421009321"/>
 							<reference ref="243429128"/>
 							<reference ref="771137770"/>
 							<reference ref="853488238"/>
 							<reference ref="429949699"/>
+							<reference ref="421009321"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1230,7 +1228,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">64</int>
+			<int key="maxID">66</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

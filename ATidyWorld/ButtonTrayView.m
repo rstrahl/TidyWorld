@@ -11,6 +11,8 @@
 #import "WorldOptionsViewController.h"
 #import "AlarmListViewController.h"
 
+static const NSInteger kButtonCount = 3;
+
 @interface ButtonTrayView ()
 - (void)setupButtons;
 /** Presents a content view controller either modally (for iPhone) or as a popover (for iPad)
@@ -48,7 +50,7 @@
     // Calculate the cell dimensions and padding
     int buttonCount = 0;
     float screenMargin = (32 * sizeMultiplier) / 2;
-    float buttonCellWidth = [[UIScreen mainScreen] bounds].size.width / 3; // width divided by number of buttons
+    float buttonCellWidth = [[UIScreen mainScreen] bounds].size.width / kButtonCount; // width divided by number of buttons
     float buttonCellHorizontalPadding = (buttonCellWidth - weatherImage.size.width) / 2;
     float buttonCellVerticalPadding = (self.frame.size.height / 2) - (weatherImage.size.height / 2);
     CGRect buttonFrame;

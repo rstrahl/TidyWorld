@@ -42,7 +42,7 @@
         // Lightning sprite
         mLightningBolt = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"LightningBolt.png"]];
         CGPoint lightningAnchor = mLightningBolt.anchorPoint;
-        lightningAnchor.y = 0.85;
+        lightningAnchor.y = 1;
         mLightningBolt.anchorPoint = lightningAnchor;
         mLightningBolt.position = kOffscreenSpritePoint;
         [mLightningBolt setVisible:NO];

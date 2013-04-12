@@ -34,6 +34,7 @@
     NSTimeInterval                              mLastLocationUpdateTime;
     BOOL                                        mInternetReachable;
     NSInteger                                   mLocationErrorCode;
+    NSInteger                                   mLocationUpdateCount;
 }
 
 @property (nonatomic, strong) CLLocationManager             *locationManager;
@@ -47,6 +48,7 @@
 @property (nonatomic, assign, getter = isRunning)           BOOL running;
 @property (nonatomic, assign, getter = isInternetReachable) BOOL internetReachable;
 @property (nonatomic, assign) NSInteger                     locationErrorCode;
+@property (nonatomic, assign) NSInteger                     locationUpdateCount;
 
 /// Return a reference to the LocationService singleton instance
 + (id)sharedInstance;

@@ -35,6 +35,17 @@
 		9B6954BD170F9A54003453DD /* Icon_RightArrow_Highlight~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954B5170F9A52003453DD /* Icon_RightArrow_Highlight~iphone.png */; };
 		9B6954BE170F9A54003453DD /* Icon_RightArrow~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954B6170F9A52003453DD /* Icon_RightArrow~ipad.png */; };
 		9B6954BF170F9A54003453DD /* Icon_RightArrow~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954B7170F9A53003453DD /* Icon_RightArrow~iphone.png */; };
+		9B6954C517150F07003453DD /* Icon_Purchases_Highlight@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954C117150F07003453DD /* Icon_Purchases_Highlight@2x~ipad.png */; };
+		9B6954C617150F07003453DD /* Icon_Purchases_Highlight@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954C217150F07003453DD /* Icon_Purchases_Highlight@2x~iphone.png */; };
+		9B6954C717150F07003453DD /* Icon_Purchases@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954C317150F07003453DD /* Icon_Purchases@2x~ipad.png */; };
+		9B6954C817150F07003453DD /* Icon_Purchases@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954C417150F07003453DD /* Icon_Purchases@2x~iphone.png */; };
+		9B6954CD17150F11003453DD /* Icon_Purchases_Highlight~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954C917150F11003453DD /* Icon_Purchases_Highlight~ipad.png */; };
+		9B6954CE17150F11003453DD /* Icon_Purchases_Highlight~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954CA17150F11003453DD /* Icon_Purchases_Highlight~iphone.png */; };
+		9B6954CF17150F11003453DD /* Icon_Purchases~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954CB17150F11003453DD /* Icon_Purchases~ipad.png */; };
+		9B6954D017150F11003453DD /* Icon_Purchases~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954CC17150F11003453DD /* Icon_Purchases~iphone.png */; };
+		9B6954D317150F8B003453DD /* InAppPurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6954D217150F8B003453DD /* InAppPurchaseViewController.m */; };
+		9B6954D617151040003453DD /* TMInAppPurchaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6954D517151040003453DD /* TMInAppPurchaseHelper.m */; };
+		9B6954D917173F08003453DD /* TMActivityInProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6954D817173F08003453DD /* TMActivityInProgressView.m */; };
 		9B69800816DC6D990052C0BB /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69800716DC6D990052C0BB /* CCNode+SFGestureRecognizers.m */; };
 		9B69800C16DDC5220052C0BB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69800B16DDC5220052C0BB /* MainViewController.m */; };
 		9B7DFE1F16E5415300A534DF /* ParallaxLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7DFE1E16E5415300A534DF /* ParallaxLayer.m */; };
@@ -339,6 +350,20 @@
 		9B6954B5170F9A52003453DD /* Icon_RightArrow_Highlight~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_RightArrow_Highlight~iphone.png"; sourceTree = "<group>"; };
 		9B6954B6170F9A52003453DD /* Icon_RightArrow~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_RightArrow~ipad.png"; sourceTree = "<group>"; };
 		9B6954B7170F9A53003453DD /* Icon_RightArrow~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_RightArrow~iphone.png"; sourceTree = "<group>"; };
+		9B6954C117150F07003453DD /* Icon_Purchases_Highlight@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Purchases_Highlight@2x~ipad.png"; sourceTree = "<group>"; };
+		9B6954C217150F07003453DD /* Icon_Purchases_Highlight@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Purchases_Highlight@2x~iphone.png"; sourceTree = "<group>"; };
+		9B6954C317150F07003453DD /* Icon_Purchases@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Purchases@2x~ipad.png"; sourceTree = "<group>"; };
+		9B6954C417150F07003453DD /* Icon_Purchases@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Purchases@2x~iphone.png"; sourceTree = "<group>"; };
+		9B6954C917150F11003453DD /* Icon_Purchases_Highlight~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Purchases_Highlight~ipad.png"; sourceTree = "<group>"; };
+		9B6954CA17150F11003453DD /* Icon_Purchases_Highlight~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Purchases_Highlight~iphone.png"; sourceTree = "<group>"; };
+		9B6954CB17150F11003453DD /* Icon_Purchases~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Purchases~ipad.png"; sourceTree = "<group>"; };
+		9B6954CC17150F11003453DD /* Icon_Purchases~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Purchases~iphone.png"; sourceTree = "<group>"; };
+		9B6954D117150F8B003453DD /* InAppPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppPurchaseViewController.h; sourceTree = "<group>"; };
+		9B6954D217150F8B003453DD /* InAppPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPurchaseViewController.m; sourceTree = "<group>"; };
+		9B6954D417151040003453DD /* TMInAppPurchaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMInAppPurchaseHelper.h; sourceTree = "<group>"; };
+		9B6954D517151040003453DD /* TMInAppPurchaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMInAppPurchaseHelper.m; sourceTree = "<group>"; };
+		9B6954D717173F08003453DD /* TMActivityInProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMActivityInProgressView.h; sourceTree = "<group>"; };
+		9B6954D817173F08003453DD /* TMActivityInProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMActivityInProgressView.m; sourceTree = "<group>"; };
 		9B69800616DC6D990052C0BB /* CCNode+SFGestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+SFGestureRecognizers.h"; sourceTree = "<group>"; };
 		9B69800716DC6D990052C0BB /* CCNode+SFGestureRecognizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+SFGestureRecognizers.m"; sourceTree = "<group>"; };
 		9B69800A16DDC5220052C0BB /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -932,6 +957,17 @@
 			name = Landscape;
 			sourceTree = "<group>";
 		};
+		9B6954C01713A611003453DD /* In-App Purchases */ = {
+			isa = PBXGroup;
+			children = (
+				9B6954D117150F8B003453DD /* InAppPurchaseViewController.h */,
+				9B6954D217150F8B003453DD /* InAppPurchaseViewController.m */,
+				9B6954D717173F08003453DD /* TMActivityInProgressView.h */,
+				9B6954D817173F08003453DD /* TMActivityInProgressView.m */,
+			);
+			name = "In-App Purchases";
+			sourceTree = "<group>";
+		};
 		9B69800D16DECACB0052C0BB /* Button Tray */ = {
 			isa = PBXGroup;
 			children = (
@@ -1076,6 +1112,10 @@
 				9B6954B1170F9A51003453DD /* Icon_LeftArrow_Highlight~iphone.png */,
 				9B6954B2170F9A51003453DD /* Icon_LeftArrow~ipad.png */,
 				9B6954B3170F9A51003453DD /* Icon_LeftArrow~iphone.png */,
+				9B6954C917150F11003453DD /* Icon_Purchases_Highlight~ipad.png */,
+				9B6954CA17150F11003453DD /* Icon_Purchases_Highlight~iphone.png */,
+				9B6954CB17150F11003453DD /* Icon_Purchases~ipad.png */,
+				9B6954CC17150F11003453DD /* Icon_Purchases~iphone.png */,
 				9B6954B4170F9A52003453DD /* Icon_RightArrow_Highlight~ipad.png */,
 				9B6954B5170F9A52003453DD /* Icon_RightArrow_Highlight~iphone.png */,
 				9B6954B6170F9A52003453DD /* Icon_RightArrow~ipad.png */,
@@ -1104,6 +1144,10 @@
 				9B6954A1170F9A31003453DD /* Icon_LeftArrow_Highlight@2x~iphone.png */,
 				9B6954A2170F9A31003453DD /* Icon_LeftArrow@2x~ipad.png */,
 				9B6954A3170F9A31003453DD /* Icon_LeftArrow@2x~iphone.png */,
+				9B6954C117150F07003453DD /* Icon_Purchases_Highlight@2x~ipad.png */,
+				9B6954C217150F07003453DD /* Icon_Purchases_Highlight@2x~iphone.png */,
+				9B6954C317150F07003453DD /* Icon_Purchases@2x~ipad.png */,
+				9B6954C417150F07003453DD /* Icon_Purchases@2x~iphone.png */,
 				9B6954A4170F9A32003453DD /* Icon_RightArrow_Highlight@2x~ipad.png */,
 				9B6954A5170F9A32003453DD /* Icon_RightArrow_Highlight@2x~iphone.png */,
 				9B6954A6170F9A32003453DD /* Icon_RightArrow@2x~ipad.png */,
@@ -1124,6 +1168,7 @@
 		9B97D04C16BF09FE005BF0FF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9B6954C01713A611003453DD /* In-App Purchases */,
 				9B97CFF316BB68BA005BF0FF /* Ads */,
 				9B97D07316C0A415005BF0FF /* Alarm */,
 				9B69800D16DECACB0052C0BB /* Button Tray */,
@@ -1194,6 +1239,8 @@
 				9BB464B016C4E12F00BD5BBC /* TMTimeUtils.h */,
 				9BB464B116C4E12F00BD5BBC /* TMTimeUtils.m */,
 				9B8B97DE170BA56C0009A7D9 /* TMOSVersionDetection.h */,
+				9B6954D417151040003453DD /* TMInAppPurchaseHelper.h */,
+				9B6954D517151040003453DD /* TMInAppPurchaseHelper.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1964,6 +2011,14 @@
 				9B6954BD170F9A54003453DD /* Icon_RightArrow_Highlight~iphone.png in Resources */,
 				9B6954BE170F9A54003453DD /* Icon_RightArrow~ipad.png in Resources */,
 				9B6954BF170F9A54003453DD /* Icon_RightArrow~iphone.png in Resources */,
+				9B6954C517150F07003453DD /* Icon_Purchases_Highlight@2x~ipad.png in Resources */,
+				9B6954C617150F07003453DD /* Icon_Purchases_Highlight@2x~iphone.png in Resources */,
+				9B6954C717150F07003453DD /* Icon_Purchases@2x~ipad.png in Resources */,
+				9B6954C817150F07003453DD /* Icon_Purchases@2x~iphone.png in Resources */,
+				9B6954CD17150F11003453DD /* Icon_Purchases_Highlight~ipad.png in Resources */,
+				9B6954CE17150F11003453DD /* Icon_Purchases_Highlight~iphone.png in Resources */,
+				9B6954CF17150F11003453DD /* Icon_Purchases~ipad.png in Resources */,
+				9B6954D017150F11003453DD /* Icon_Purchases~iphone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2118,6 +2173,9 @@
 				9B7DFE1F16E5415300A534DF /* ParallaxLayer.m in Sources */,
 				9B7DFE2216E5589000A534DF /* FogLayer.m in Sources */,
 				9BAB1A2716F7EB57005E5057 /* DebugDataViewController.m in Sources */,
+				9B6954D317150F8B003453DD /* InAppPurchaseViewController.m in Sources */,
+				9B6954D617151040003453DD /* TMInAppPurchaseHelper.m in Sources */,
+				9B6954D917173F08003453DD /* TMActivityInProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -101,7 +101,10 @@ extern CGPoint const kOffscreenSpritePoint;
 #define AD_REFRESH_RATE                     60
 
 // Google Analytics
-// TODO: PRE-RELEASE CONFIG: Change analytics codes to release build
+#ifdef APPSTORE
+#define ANALYTICS_GOOGLE_TRACKING_ID        @"UA-36822575-2"
+#else
 #define ANALYTICS_GOOGLE_TRACKING_ID        @"UA-36822575-3"
+#endif
 
 #endif

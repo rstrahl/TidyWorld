@@ -39,7 +39,8 @@ static LocationService *sharedLocationController = nil;
             serviceTimer = mServiceTimer,
             running = mRunning,
             internetReachable = mInternetReachable,
-            locationErrorCode = mLocationErrorCode;
+            locationErrorCode = mLocationErrorCode,
+            locationUpdateCount = mLocationUpdateCount;
 
 - (id)init
 {
@@ -175,6 +176,7 @@ static LocationService *sharedLocationController = nil;
                          place.locality,
                          place.administrativeArea,
                          place.country];
+    
     self.city = place.locality;
     self.state = place.administrativeArea;
     self.country = place.country;
@@ -192,6 +194,7 @@ static LocationService *sharedLocationController = nil;
                      otherButtonTitles:nil];
     [noLocationAlertView show];
     [self willSendLocationFailedNotification];
+    [self analyticsLogGeocodingException:[NSString stringWithFormat:@"ERROR geocoding location: %@", [error description]]];
 }
 
 #pragma mark - iOS 5+ Geocoding
@@ -201,18 +204,33 @@ static LocationService *sharedLocationController = nil;
     
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error)
     {
-        //Get nearby address
-        CLPlacemark *place = [placemarks objectAtIndex:0];
-        NSString *address = [NSString stringWithFormat:@"%@,%@,%@",
-                             place.locality,
-                             place.administrativeArea,
-                             place.country];
-        self.city = place.locality;
-        self.state = place.administrativeArea;
-        self.country = place.country;
-        //Print the location to console
-        DLog(@"LOCATION FOUND: %@", address);
-        [self findWOEIDByAddressString:address];
+        if (!error)
+        {
+            //Get nearby address
+            CLPlacemark *place = [placemarks objectAtIndex:0];
+            NSString *address = [NSString stringWithFormat:@"%@,%@,%@",
+                                 place.locality,
+                                 place.administrativeArea,
+                                 place.country];
+            self.city = (place.locality == nil) ? @"?" : place.locality;
+            self.state = (place.administrativeArea == nil) ? @"?" : place.administrativeArea;
+            self.country = (place.country == nil) ? @"?" : place.country;
+            //Print the location to console
+            DLog(@"LOCATION FOUND: %@", address);
+            [self findWOEIDByAddressString:address];
+        }
+        else
+        {
+            [self analyticsLogGeocodingException:[NSString stringWithFormat:@"ERROR geocoding location: %@", [error description]]];
+            UIAlertView *noLocationAlertView =
+            [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ALERT_VIEW_LOCATION_ERROR_TITLE", @"Location Failed")
+                                       message:NSLocalizedString(@"ALERT_VIEW_LOCATION_ERROR_MESSAGE", @"Location Failed")
+                                      delegate:nil
+                             cancelButtonTitle:NSLocalizedString(@"OK", @"Ok")
+                             otherButtonTitles:nil];
+            [noLocationAlertView show];
+            [self willSendLocationFailedNotification];
+        }
     }];
 }
 
@@ -222,6 +240,7 @@ static LocationService *sharedLocationController = nil;
     NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
     if ((now - mLastLocationUpdateTime) > 120 || mCurrentLocation == nil)
     {
+        mLocationUpdateCount++;
         mLastLocationUpdateTime = now;
         // gws2.maps.yahoo.com/findlocation?pf=1&locale=en_US&flags=J&offset=15&gflags=&q=Hasselt&start=0&count=100
         NSString *serviceURLString = [NSString stringWithFormat:@"%@?q=%f,+%f&gflags=%@&flags=%@&appid=%@",
@@ -367,8 +386,8 @@ static LocationService *sharedLocationController = nil;
     if (self.serviceTimer == nil)
     {
         DLog(@"Creating and starting service timer");
-        self.serviceTimer = [NSTimer timerWithTimeInterval:900
-                                                    target:[LocationService sharedInstance]
+        self.serviceTimer = [NSTimer scheduledTimerWithTimeInterval:WEATHER_SERVICE_CHECK_TIMER
+                                                    target:self
                                                   selector:@selector(startLocationAttempt)
                                                   userInfo:nil
                                                    repeats:YES];

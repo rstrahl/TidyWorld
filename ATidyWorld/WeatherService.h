@@ -112,6 +112,7 @@ typedef struct
     WeatherCondition        mWeatherCode;
     NSTimeInterval                              mLastLocationUpdateTime;
     id __unsafe_unretained  mDelegate;
+    NSInteger               mWeatherUpdateCount;
 }
 
 @property (nonatomic, unsafe_unretained) id         delegate;
@@ -133,6 +134,7 @@ typedef struct
 @property (nonatomic, strong) NSDate                *lastUpdateTime;
 @property (nonatomic, assign) WeatherCondition      weatherCode;
 @property (nonatomic, assign, getter = isInternetReachable) BOOL internetReachable;
+@property (nonatomic, assign) NSInteger             weatherUpdateCount;
 
 /// Returns a reference to the singleton instance
 + (WeatherService *)sharedInstance;

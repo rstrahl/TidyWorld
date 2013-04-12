@@ -55,7 +55,8 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
             sunsetInSeconds = mSunsetInSeconds,
             weatherCode = mWeatherCode,
             internetReachable = mInternetReachable,
-            lastUpdateTime = mLastUpdateTime;
+            lastUpdateTime = mLastUpdateTime,
+            weatherUpdateCount = mWeatherUpdateCount;
 
 - (id)init
 {
@@ -114,7 +115,7 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
             LocationService *locationController = [LocationService sharedInstance];
             if (locationController.woeid != nil)
             {
-                mLastLocationUpdateTime = [NSDate timeIntervalSinceReferenceDate];
+                mLastLocationUpdateTime = now;
                 NSOperationQueue *queue = [NSOperationQueue new];
                 NSInvocationOperation *operation = [[NSInvocationOperation alloc]
                                                     initWithTarget:self
@@ -138,7 +139,7 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
 {
     // For performance analytics
     NSDate *startTime = [NSDate date];
-    
+    mWeatherUpdateCount++;
     mWeatherFeedValid = NO;
     char units;
     if (mUseCelsius)
@@ -188,11 +189,11 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
     {
         DLog(@"ERROR: Weather feed was invalid!");
         [self analyticsLogWeatherError:@"Weather feed active but contained bad info"];
-        NSTimer *retryTimer = [NSTimer scheduledTimerWithTimeInterval:125
-                                                               target:self
-                                                             selector:@selector(checkForWeatherUpdate)
-                                                             userInfo:nil
-                                                              repeats:NO];
+//        NSTimer *retryTimer = [NSTimer scheduledTimerWithTimeInterval:30
+//                                                               target:self
+//                                                             selector:@selector(checkForWeatherUpdate)
+//                                                             userInfo:nil
+//                                                              repeats:NO];
         if (![NSThread isMainThread])
         {
             [self performSelectorOnMainThread:@selector(willSendWeatherFailedNotification) withObject:nil waitUntilDone:NO];
@@ -469,6 +470,14 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
     if (ANALYTICS)
     {
         [[GAI sharedInstance].defaultTracker trackException:NO withDescription:errorString];
+    }
+}
+
+- (void)analyticsLogWeatherCount
+{
+    if (ANALYTICS)
+    {
+        
     }
 }
 
