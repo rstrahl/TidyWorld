@@ -35,7 +35,7 @@
 
 // Home screen first time Alert View
 "ALERT_VIEW_FIRST_HOME_SCREEN_TITLE"        = "Welcome!";
-"ALERT_VIEW_FIRST_HOME_SCREEN_MESSAGE"      = "Welcome to A Tidy World! Tap the buttons on the side of the clock to access the app options, swipe the landscape to view the world!";
+"ALERT_VIEW_FIRST_HOME_SCREEN_MESSAGE"      = "Welcome to A Tidy World! Tap the button on the side of the clock to access the app options, swipe the landscape to view the world!";
 
 // Alarms first time Alert View
 "ALERT_VIEW_FIRST_ALARM_SCREEN_TITLE"       = "How Alarms Work";

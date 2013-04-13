@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9BFDCC671718D73000ADEF30"
-               BuildableName = "ATidyWorldFree.app"
+               BuildableName = "ATidyWorldLite.app"
                BlueprintName = "ATidyWorld Lite"
                ReferencedContainer = "container:ATidyWorld.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9BFDCC671718D73000ADEF30"
-            BuildableName = "ATidyWorldFree.app"
+            BuildableName = "ATidyWorldLite.app"
             BlueprintName = "ATidyWorld Lite"
             ReferencedContainer = "container:ATidyWorld.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9BFDCC671718D73000ADEF30"
-            BuildableName = "ATidyWorldFree.app"
+            BuildableName = "ATidyWorldLite.app"
             BlueprintName = "ATidyWorld Lite"
             ReferencedContainer = "container:ATidyWorld.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9BFDCC671718D73000ADEF30"
-            BuildableName = "ATidyWorldFree.app"
+            BuildableName = "ATidyWorldLite.app"
             BlueprintName = "ATidyWorld Lite"
             ReferencedContainer = "container:ATidyWorld.xcodeproj">
          </BuildableReference>
