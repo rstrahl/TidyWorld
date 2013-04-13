@@ -1400,8 +1400,8 @@
 		9BCE875B16B6094E0043048E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9BCE875D16B609560043048E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9BCE875F16B6096D0043048E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		9BFDCD961718D73000ADEF30 /* ATidyWorldFree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATidyWorldFree.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BFDCD971718D73000ADEF30 /* ATidyWorldFree-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ATidyWorldFree-Info.plist"; path = "/Users/rudi/Source/ios/ATidyWorld/ATidyWorldFree-Info.plist"; sourceTree = "<absolute>"; };
+		9BFDCD961718D73000ADEF30 /* ATidyWorldLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATidyWorldLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BFDCD971718D73000ADEF30 /* ATidyWorldLite-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ATidyWorldLite-Info.plist"; path = "/Users/rudi/Source/ios/ATidyWorld/ATidyWorldLite-Info.plist"; sourceTree = "<absolute>"; };
 		9BFDCEC71718D83100ADEF30 /* ATidyWorldBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATidyWorldBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BFDCEC81718D83200ADEF30 /* ATidyWorldBeta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ATidyWorldBeta-Info.plist"; path = "/Users/rudi/Source/ios/ATidyWorld/ATidyWorldBeta-Info.plist"; sourceTree = "<absolute>"; };
 		9BFDCEE91718DFA100ADEF30 /* BetaIcon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BetaIcon-72.png"; path = "Assets/Art/App/BetaIcon-72.png"; sourceTree = SOURCE_ROOT; };
@@ -1713,7 +1713,7 @@
 			children = (
 				9BCE872216B5FD610043048E /* AppDefaults.plist */,
 				9BCE859D16B5DB500043048E /* Info.plist */,
-				9BFDCD971718D73000ADEF30 /* ATidyWorldFree-Info.plist */,
+				9BFDCD971718D73000ADEF30 /* ATidyWorldLite-Info.plist */,
 				9BFDCEC81718D83200ADEF30 /* ATidyWorldBeta-Info.plist */,
 				9BCE872016B5FD600043048E /* SoundEffects.plist */,
 				9BCE872116B5FD600043048E /* WorldOptions.plist */,
@@ -2011,7 +2011,7 @@
 			isa = PBXGroup;
 			children = (
 				9BCE856F16B5DB500043048E /* ATidyWorld.app */,
-				9BFDCD961718D73000ADEF30 /* ATidyWorldFree.app */,
+				9BFDCD961718D73000ADEF30 /* ATidyWorldLite.app */,
 				9BFDCEC71718D83100ADEF30 /* ATidyWorldBeta.app */,
 			);
 			name = Products;
@@ -2543,9 +2543,9 @@
 			productReference = 9BCE856F16B5DB500043048E /* ATidyWorld.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9BFDCC671718D73000ADEF30 /* ATidyWorld Free */ = {
+		9BFDCC671718D73000ADEF30 /* ATidyWorld Lite */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9BFDCD921718D73000ADEF30 /* Build configuration list for PBXNativeTarget "ATidyWorld Free" */;
+			buildConfigurationList = 9BFDCD921718D73000ADEF30 /* Build configuration list for PBXNativeTarget "ATidyWorld Lite" */;
 			buildPhases = (
 				9BFDCC6A1718D73000ADEF30 /* Sources */,
 				9BFDCCFB1718D73000ADEF30 /* Frameworks */,
@@ -2556,9 +2556,9 @@
 			dependencies = (
 				9BFDCC681718D73000ADEF30 /* PBXTargetDependency */,
 			);
-			name = "ATidyWorld Free";
+			name = "ATidyWorld Lite";
 			productName = ATidyWorld;
-			productReference = 9BFDCD961718D73000ADEF30 /* ATidyWorldFree.app */;
+			productReference = 9BFDCD961718D73000ADEF30 /* ATidyWorldLite.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9BFDCD981718D83100ADEF30 /* ATidyWorld Beta */ = {
@@ -2601,7 +2601,7 @@
 			targets = (
 				9BCE856E16B5DB500043048E /* ATidyWorld */,
 				9B1881D016CD626B00E68930 /* SpriteSheet */,
-				9BFDCC671718D73000ADEF30 /* ATidyWorld Free */,
+				9BFDCC671718D73000ADEF30 /* ATidyWorld Lite */,
 				9BFDCD981718D83100ADEF30 /* ATidyWorld Beta */,
 			);
 		};
@@ -3662,7 +3662,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"ATidyWorld/libs/kazmath/include\"";
-				INFOPLIST_FILE = "ATidyWorldFree-Info.plist";
+				INFOPLIST_FILE = "ATidyWorldLite-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3674,7 +3674,7 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_NAME = ATidyWorldFree;
+				PRODUCT_NAME = ATidyWorldLite;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3687,7 +3687,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"ATidyWorld/libs/kazmath/include\"";
-				INFOPLIST_FILE = "ATidyWorldFree-Info.plist";
+				INFOPLIST_FILE = "ATidyWorldLite-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3699,7 +3699,7 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_NAME = ATidyWorldFree;
+				PRODUCT_NAME = ATidyWorldLite;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -3787,7 +3787,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9BFDCD921718D73000ADEF30 /* Build configuration list for PBXNativeTarget "ATidyWorld Free" */ = {
+		9BFDCD921718D73000ADEF30 /* Build configuration list for PBXNativeTarget "ATidyWorld Lite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9BFDCD931718D73000ADEF30 /* Debug */,
