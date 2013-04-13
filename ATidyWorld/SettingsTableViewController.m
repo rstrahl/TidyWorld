@@ -7,7 +7,6 @@
 //
 
 #import "SettingsTableViewController.h"
-#import "InAppPurchaseViewController.h"
 #import "SettingsConstants.h"
 #import "Constants.h"
 
@@ -32,7 +31,6 @@
 //                                       NSLocalizedString(@"OPTIONS_SECTION_HEADER_ALARM", @"Alarm"),
                                        nil];
         mGeneralOptionsData = [[NSArray alloc] initWithObjects:
-                               SETTINGS_KEY_IN_APP_PURCHASES,
                                SETTINGS_KEY_USE_CELSIUS,
                                SETTINGS_KEY_USE_24_HOUR_CLOCK,
                                nil];
@@ -132,12 +130,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *key = [[mOptionsTableData objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    if ([key isEqualToString:SETTINGS_KEY_IN_APP_PURCHASES])
-    {
-        InAppPurchaseViewController *iapController = [[InAppPurchaseViewController alloc] init];
-        [self.navigationController pushViewController:iapController animated:YES];
-    }
 }
 
 #pragma mark - UITableViewCell
@@ -198,12 +190,12 @@
         [cellSegment addTarget:self action:@selector(segmentSelected:) forControlEvents:UIControlEventValueChanged];
         [cell setAccessoryView:cellSegment];
     }
-    else if ([key isEqualToString:SETTINGS_KEY_IN_APP_PURCHASES])
-    {
-        cell.textLabel.text = NSLocalizedString(@"IN_APP_PURCHASES", @"In-App Purchases");
-        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-        [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
-    }
+//    else if ([key isEqualToString:SETTINGS_KEY_IN_APP_PURCHASES])
+//    {
+//        cell.textLabel.text = NSLocalizedString(@"IN_APP_PURCHASES", @"In-App Purchases");
+//        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+//        [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
+//    }
 }
 
 #pragma mark - IBActions

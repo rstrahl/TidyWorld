@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ATidyWorld Beta.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>ATidyWorld Free.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>ATidyWorld.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +33,21 @@
 			<true/>
 		</dict>
 		<key>9BCE856E16B5DB500043048E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9BFDCB331718D61900ADEF30</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9BFDCC671718D73000ADEF30</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9BFDCD981718D83100ADEF30</key>
 		<dict>
 			<key>primary</key>
 			<true/>

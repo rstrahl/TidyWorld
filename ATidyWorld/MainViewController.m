@@ -11,7 +11,6 @@
 #import "ButtonTrayView.h"
 #import "AdsViewController.h"
 #import "AppDelegate.h"
-#import "TMInAppPurchaseHelper.h"
 
 @interface MainViewController ()
 
@@ -36,24 +35,17 @@
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
         CGFloat sizeMultiplier = ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) ? 2.0 : 1.0;
         
+#ifdef ADS
         // Add AdsViewController for Ads
-        self.adsDisabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"com.atidymind.atidyworld.removeads"];
-        if (!self.adsDisabled)
-        {
-            mAdsViewController = [[AdsViewController alloc] initWithNibName:nil bundle:nil];
-            [self.view addSubview:mAdsViewController.view];
-            AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
-            appDelegate.adsViewController = mAdsViewController;
-//            CGRect mainFrame = self.view.frame;
-//            mainFrame.size.height -= mAdsViewController.view.frame.size.height;
-//            NSLog(@"adsviewcontroller height = %f", mAdsViewController.view.frame.size.height);
-//            self.view.frame = mainFrame;
-        }
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(didReceiveProductPurchasedNotification:)
-                                                     name:TM_PRODUCT_PURCHASED_NOTIFICATION
-                                                   object:nil];
+        mAdsViewController = [[AdsViewController alloc] initWithNibName:nil bundle:nil];
+        [self.view addSubview:mAdsViewController.view];
+        AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
+        appDelegate.adsViewController = mAdsViewController;
+#endif
+//        [[NSNotificationCenter defaultCenter] addObserver:self
+//                                                 selector:@selector(didReceiveProductPurchasedNotification:)
+//                                                     name:TM_PRODUCT_PURCHASED_NOTIFICATION
+//                                                   object:nil];
         
         // Add Clock Label
         CGRect clockFaceFrame = CGRectMake(0,

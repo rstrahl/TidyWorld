@@ -15,7 +15,6 @@
 #import "Constants.h"
 #import "Alarm.h"
 #import "AdsViewController.h"
-#import "TMInAppPurchaseHelper.h"
 
 @interface AppController()
 /// Initialize Reachability service
@@ -66,9 +65,6 @@
     [self initReachability];
     [self initWeatherService];
     [self initLocationService];
-    
-    // Add in-app purchases
-    [[SKPaymentQueue defaultQueue] addTransactionObserver:[TMInAppPurchaseHelper sharedHelper]];
     
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

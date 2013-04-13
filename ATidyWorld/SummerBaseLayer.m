@@ -22,7 +22,6 @@
 #import "LandscapeLayer.h"
 #import "TMTimeUtils.h"
 #import "AppDelegate.h"
-#import "TMInAppPurchaseHelper.h"
 
 @interface SummerBaseLayer()
 // Layer Setup ----------------------------------------------------------------
