@@ -1119,7 +1119,7 @@
 		9BC036AE16F654F7002D6C02 /* WeatherSpriteSheet-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "WeatherSpriteSheet-ipad.plist"; path = "Assets/SpriteSheet/WeatherSpriteSheet-ipad.plist"; sourceTree = SOURCE_ROOT; };
 		9BC036AF16F654F7002D6C02 /* WeatherSpriteSheet-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WeatherSpriteSheet-ipad.png"; path = "Assets/SpriteSheet/WeatherSpriteSheet-ipad.png"; sourceTree = SOURCE_ROOT; };
 		9BC7963916F80AFA001C2876 /* EditAlarmViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditAlarmViewController.xib; sourceTree = "<group>"; };
-		9BCE856F16B5DB500043048E /* ATidyWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATidyWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BCE856F16B5DB500043048E /* atidyworld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = atidyworld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BCE857316B5DB500043048E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9BCE857516B5DB500043048E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		9BCE857716B5DB500043048E /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -1400,9 +1400,9 @@
 		9BCE875B16B6094E0043048E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9BCE875D16B609560043048E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9BCE875F16B6096D0043048E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		9BFDCD961718D73000ADEF30 /* ATidyWorldLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATidyWorldLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BFDCD961718D73000ADEF30 /* atidyworldlite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = atidyworldlite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BFDCD971718D73000ADEF30 /* ATidyWorldLite-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ATidyWorldLite-Info.plist"; path = "/Users/rudi/Source/ios/ATidyWorld/ATidyWorldLite-Info.plist"; sourceTree = "<absolute>"; };
-		9BFDCEC71718D83100ADEF30 /* ATidyWorldBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATidyWorldBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BFDCEC71718D83100ADEF30 /* atidyworldbeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = atidyworldbeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BFDCEC81718D83200ADEF30 /* ATidyWorldBeta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ATidyWorldBeta-Info.plist"; path = "/Users/rudi/Source/ios/ATidyWorld/ATidyWorldBeta-Info.plist"; sourceTree = "<absolute>"; };
 		9BFDCEE91718DFA100ADEF30 /* BetaIcon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BetaIcon-72.png"; path = "Assets/Art/App/BetaIcon-72.png"; sourceTree = SOURCE_ROOT; };
 		9BFDCEEA1718DFA100ADEF30 /* BetaIcon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BetaIcon-72@2x.png"; path = "Assets/Art/App/BetaIcon-72@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -2010,9 +2010,9 @@
 		9BCE857016B5DB500043048E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9BCE856F16B5DB500043048E /* ATidyWorld.app */,
-				9BFDCD961718D73000ADEF30 /* ATidyWorldLite.app */,
-				9BFDCEC71718D83100ADEF30 /* ATidyWorldBeta.app */,
+				9BCE856F16B5DB500043048E /* atidyworld.app */,
+				9BFDCD961718D73000ADEF30 /* atidyworldlite.app */,
+				9BFDCEC71718D83100ADEF30 /* atidyworldbeta.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2525,9 +2525,9 @@
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
-		9BCE856E16B5DB500043048E /* ATidyWorld */ = {
+		9BCE856E16B5DB500043048E /* atidyworld */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9BCE870816B5DB530043048E /* Build configuration list for PBXNativeTarget "ATidyWorld" */;
+			buildConfigurationList = 9BCE870816B5DB530043048E /* Build configuration list for PBXNativeTarget "atidyworld" */;
 			buildPhases = (
 				9BCE856B16B5DB500043048E /* Sources */,
 				9BCE856C16B5DB500043048E /* Frameworks */,
@@ -2538,14 +2538,14 @@
 			dependencies = (
 				9B1881D516CD62BE00E68930 /* PBXTargetDependency */,
 			);
-			name = ATidyWorld;
+			name = atidyworld;
 			productName = ATidyWorld;
-			productReference = 9BCE856F16B5DB500043048E /* ATidyWorld.app */;
+			productReference = 9BCE856F16B5DB500043048E /* atidyworld.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9BFDCC671718D73000ADEF30 /* ATidyWorld Lite */ = {
+		9BFDCC671718D73000ADEF30 /* atidyworldlite */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9BFDCD921718D73000ADEF30 /* Build configuration list for PBXNativeTarget "ATidyWorld Lite" */;
+			buildConfigurationList = 9BFDCD921718D73000ADEF30 /* Build configuration list for PBXNativeTarget "atidyworldlite" */;
 			buildPhases = (
 				9BFDCC6A1718D73000ADEF30 /* Sources */,
 				9BFDCCFB1718D73000ADEF30 /* Frameworks */,
@@ -2556,14 +2556,14 @@
 			dependencies = (
 				9BFDCC681718D73000ADEF30 /* PBXTargetDependency */,
 			);
-			name = "ATidyWorld Lite";
+			name = atidyworldlite;
 			productName = ATidyWorld;
-			productReference = 9BFDCD961718D73000ADEF30 /* ATidyWorldLite.app */;
+			productReference = 9BFDCD961718D73000ADEF30 /* atidyworldlite.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9BFDCD981718D83100ADEF30 /* ATidyWorld Beta */ = {
+		9BFDCD981718D83100ADEF30 /* atidyworldbeta */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9BFDCEC31718D83100ADEF30 /* Build configuration list for PBXNativeTarget "ATidyWorld Beta" */;
+			buildConfigurationList = 9BFDCEC31718D83100ADEF30 /* Build configuration list for PBXNativeTarget "atidyworldbeta" */;
 			buildPhases = (
 				9BFDCD9B1718D83100ADEF30 /* Sources */,
 				9BFDCE2C1718D83100ADEF30 /* Frameworks */,
@@ -2574,9 +2574,9 @@
 			dependencies = (
 				9BFDCD991718D83100ADEF30 /* PBXTargetDependency */,
 			);
-			name = "ATidyWorld Beta";
+			name = atidyworldbeta;
 			productName = ATidyWorld;
-			productReference = 9BFDCEC71718D83100ADEF30 /* ATidyWorldBeta.app */;
+			productReference = 9BFDCEC71718D83100ADEF30 /* atidyworldbeta.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2599,10 +2599,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9BCE856E16B5DB500043048E /* ATidyWorld */,
+				9BCE856E16B5DB500043048E /* atidyworld */,
 				9B1881D016CD626B00E68930 /* SpriteSheet */,
-				9BFDCC671718D73000ADEF30 /* ATidyWorld Lite */,
-				9BFDCD981718D83100ADEF30 /* ATidyWorld Beta */,
+				9BFDCC671718D73000ADEF30 /* atidyworldlite */,
+				9BFDCD981718D83100ADEF30 /* atidyworldbeta */,
 			);
 		};
 /* End PBXProject section */
@@ -3587,8 +3587,6 @@
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
 					"ANALYTICS=1",
-					"ADS=1",
-					"TESTING=1",
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -3631,9 +3629,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: E. Rudi Strahl";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					"NS_BLOCK_ASSERTIONS=1",
+					"ANALYTICS=1",
+					"APPSTORE=1",
+				);
 				HEADER_SEARCH_PATHS = "\"ATidyWorld/libs/kazmath/include\"";
 				INFOPLIST_FILE = ATidyWorld/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
@@ -3648,6 +3654,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "E744094C-CCC4-4E46-A435-CB8696E372A8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -3674,7 +3682,7 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_NAME = ATidyWorldLite;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3683,9 +3691,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: E. Rudi Strahl";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					"NS_BLOCK_ASSERTIONS=1",
+					"ANALYTICS=1",
+					"APPSTORE=1",
+					"ADS=1",
+				);
 				HEADER_SEARCH_PATHS = "\"ATidyWorld/libs/kazmath/include\"";
 				INFOPLIST_FILE = "ATidyWorldLite-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
@@ -3699,7 +3715,8 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_NAME = ATidyWorldLite;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "192FE44E-A84C-4604-A0D9-55CE86E500F2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -3726,7 +3743,7 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_NAME = ATidyWorldBeta;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3738,6 +3755,13 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					"NS_BLOCK_ASSERTIONS=1",
+					"ANALYTICS=1",
+					"TESTING=1",
+					"ADS=1",
+				);
 				HEADER_SEARCH_PATHS = "\"ATidyWorld/libs/kazmath/include\"";
 				INFOPLIST_FILE = "ATidyWorldBeta-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
@@ -3751,7 +3775,7 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_NAME = ATidyWorldBeta;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -3778,7 +3802,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9BCE870816B5DB530043048E /* Build configuration list for PBXNativeTarget "ATidyWorld" */ = {
+		9BCE870816B5DB530043048E /* Build configuration list for PBXNativeTarget "atidyworld" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9BCE870916B5DB530043048E /* Debug */,
@@ -3787,7 +3811,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9BFDCD921718D73000ADEF30 /* Build configuration list for PBXNativeTarget "ATidyWorld Lite" */ = {
+		9BFDCD921718D73000ADEF30 /* Build configuration list for PBXNativeTarget "atidyworldlite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9BFDCD931718D73000ADEF30 /* Debug */,
@@ -3796,7 +3820,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9BFDCEC31718D83100ADEF30 /* Build configuration list for PBXNativeTarget "ATidyWorld Beta" */ = {
+		9BFDCEC31718D83100ADEF30 /* Build configuration list for PBXNativeTarget "atidyworldbeta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9BFDCEC41718D83100ADEF30 /* Debug */,

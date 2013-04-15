@@ -37,7 +37,6 @@
         mDisplayOptionsData = [[NSArray alloc] initWithObjects:
                                SETTINGS_KEY_SHOW_DATE,
                                SETTINGS_KEY_SHOW_TEMP,
-                               SETTINGS_KEY_SHOW_FROST_FRAME,
                                nil];
         mTimeOptionsData = [[NSMutableArray alloc] initWithObjects:
                             SETTINGS_KEY_CLOCK_MULTIPLIER,

@@ -74,7 +74,7 @@
 
 // No Music In Library Alert View
 "ALERT_TITLE_NO_MUSIC_IN_LIBRARY"           = "Add Music to Your Alarms";
-"ALERT_TEXT_NO_MUSIC_IN_LIBRARY"            = "You can add songs from your iPod library here, and use them as an alarm sound. Tap on the Add Music to Library button to add songs!";
+"ALERT_TEXT_NO_MUSIC_IN_LIBRARY"            = "You can add songs from your music library here, and use them as an alarm sound. Tap on the Songs button to go to the music section!";
 
 // Alarm Media Not Found Alert View
 "ALERT_TITLE_ALARM_MEDIA_NOT_FOUND"         = "Missing Alarm Sounds";

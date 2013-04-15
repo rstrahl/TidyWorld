@@ -28,14 +28,6 @@
 		<array>
 			<dict>
 				<key>Header</key>
-				<string>Season</string>
-				<key>Rows</key>
-				<array>
-					<string>Summer</string>
-				</array>
-			</dict>
-			<dict>
-				<key>Header</key>
 				<string>Clouds</string>
 				<key>Rows</key>
 				<array>

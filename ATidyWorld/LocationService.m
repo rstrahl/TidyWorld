@@ -107,21 +107,29 @@ static LocationService *sharedLocationController = nil;
 #pragma mark - CLLocationManagerDelegate Implementation
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation 
 {
-    self.currentLocation = newLocation;
-    mLocationErrorCode = -1;
-    [mLocationManager stopUpdatingLocation];
-    
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"5.0"))
+    NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
+    if ((now - mLastLocationUpdateTime) > 15 || mCurrentLocation == nil)
     {
-        // IOS5 Geocoding Code
-        [self geocodeIOS5Location:newLocation];
+        mLastLocationUpdateTime = now;
+        self.currentLocation = newLocation;
+        mLocationErrorCode = -1;
+        [mLocationManager stopUpdatingLocation];
+        
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"5.0"))
+        {
+            // IOS5 Geocoding Code
+            [self geocodeIOS5Location:newLocation];
+        }
+        else
+        {
+            // IOS4.x Geocoding Code
+            [self geocodeIOS4Location:newLocation];
+        }
     }
     else
     {
-        // IOS4.x Geocoding Code
-        [self geocodeIOS4Location:newLocation];
+        DLog(@"Ignoring location request newer than 15 seconds");
     }
-    
     // Yahoo! Placefinder Geocoding code
 //    [self findWOEIDByLocation:newLocation];
 }
@@ -185,7 +193,6 @@ static LocationService *sharedLocationController = nil;
 
 - (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError:(NSError *)error
 {
-
     UIAlertView *noLocationAlertView =
     [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ALERT_VIEW_LOCATION_ERROR_TITLE", @"Location Failed")
                                message:NSLocalizedString(@"ALERT_VIEW_LOCATION_ERROR_MESSAGE", @"Location Failed")
@@ -280,40 +287,30 @@ static LocationService *sharedLocationController = nil;
 
 - (void)findWOEIDByAddressString:(NSString *)address
 {
-    NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
-    if ((now - mLastLocationUpdateTime) > 120 || mCurrentLocation == nil)
+    // gws2.maps.yahoo.com/findlocation?pf=1&locale=en_US&flags=J&offset=15&gflags=&q=Hasselt&start=0&count=100
+    NSString *serviceURLString = [NSString stringWithFormat:@"%@?pf=1&locale=en_US&flags=J&offset=15&q=%@&gflags=%@&start=0&count=1",
+                                  mWoeidServiceString,
+                                  address,
+                                  mWoeidServiceGFlags];
+    mWoeidServiceURL = [NSURL URLWithString:serviceURLString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:mWoeidServiceURL];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    if (connection)
     {
-        mLastLocationUpdateTime = now;
-        // gws2.maps.yahoo.com/findlocation?pf=1&locale=en_US&flags=J&offset=15&gflags=&q=Hasselt&start=0&count=100
-        NSString *serviceURLString = [NSString stringWithFormat:@"%@?pf=1&locale=en_US&flags=J&offset=15&q=%@&gflags=%@&start=0&count=1",
-                                      mWoeidServiceString,
-                                      address,
-                                      mWoeidServiceGFlags];
-        mWoeidServiceURL = [NSURL URLWithString:serviceURLString];
-        NSURLRequest *request = [NSURLRequest requestWithURL:mWoeidServiceURL];
-        NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-        if (connection)
-        {
-            mResponseData = [[NSMutableData alloc] init];
-        }
-        else
-        {
-            DLog(@"ERROR initializing connection for location service");
-            UIAlertView *noReachabilityAlertView =
-            [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ALERT_VIEW_WEATHER_PROBLEM_TITLE", @"No Reachability")
-                                       message:NSLocalizedString(@"ALERT_VIEW_WEATHER_PROBLEM_MESSAGE", @"No Reachability")
-                                      delegate:nil
-                             cancelButtonTitle:NSLocalizedString(@"OK", @"Ok")
-                             otherButtonTitles:nil];
-            [noReachabilityAlertView show];
-            self.locationErrorCode = kLocationServiceNotReachable;
-            [self willSendLocationFailedNotification];
-        }
-        
+        mResponseData = [[NSMutableData alloc] init];
     }
     else
     {
-        DLog(@"IGNORING repeat call to locationDidUpdate within 2 minutes");
+        DLog(@"ERROR initializing connection for location service");
+        UIAlertView *noReachabilityAlertView =
+        [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ALERT_VIEW_WEATHER_PROBLEM_TITLE", @"No Reachability")
+                                   message:NSLocalizedString(@"ALERT_VIEW_WEATHER_PROBLEM_MESSAGE", @"No Reachability")
+                                  delegate:nil
+                         cancelButtonTitle:NSLocalizedString(@"OK", @"Ok")
+                         otherButtonTitles:nil];
+        [noReachabilityAlertView show];
+        self.locationErrorCode = kLocationServiceNotReachable;
+        [self willSendLocationFailedNotification];
     }
 }
 
