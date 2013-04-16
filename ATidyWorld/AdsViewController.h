@@ -17,10 +17,12 @@
 {
     ADBannerView                        *mIadBannerView;    // iAd Banner View
     GADBannerView                       *mAdMobBannerView;  // Google AdMob Banner View
+    NSTimer                             *mAdMobTimer;
 }
 
 @property (nonatomic, strong) ADBannerView  *iAdBannerView;
 @property (nonatomic, strong) GADBannerView *adMobBannerView;
+@property (nonatomic, strong) NSTimer       *adMobTimer;
 
 /** Toggles the display of the banner Views, for debugging/layout purposes */
 - (void)toggleAdMobBannerView;

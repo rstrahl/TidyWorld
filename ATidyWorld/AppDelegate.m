@@ -175,7 +175,6 @@
     [[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 	if( [navController_ visibleViewController] == director_ )
 		[director_ resume];
-//    [self.adsViewController willRequestAd];
 }
 
 -(void) applicationDidEnterBackground:(UIApplication*)application

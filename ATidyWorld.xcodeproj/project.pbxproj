@@ -3669,6 +3669,13 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DEBUG,
+					"COCOS2D_DEBUG=1",
+					"TESTING=1",
+					"ANALYTICS=0",
+					"ADS=1",
+				);
 				HEADER_SEARCH_PATHS = "\"ATidyWorld/libs/kazmath/include\"";
 				INFOPLIST_FILE = "ATidyWorldLite-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;

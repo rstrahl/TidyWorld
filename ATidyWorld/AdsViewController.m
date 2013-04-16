@@ -11,6 +11,7 @@
 #import "LocationService.h"
 #import <AdSupport/AdSupport.h>
 #import "cocos2d.h"
+#import "TMOSVersionDetection.h"
 
 @interface AdsViewController ()
 /** Initialize Apple iAd Bannerview */
@@ -28,7 +29,8 @@
 @implementation AdsViewController
 
 @synthesize iAdBannerView = mIadBannerView,
-            adMobBannerView = mAdMobBannerView;
+            adMobBannerView = mAdMobBannerView,
+            adMobTimer = mAdMobTimer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,31 +45,7 @@
             NSLog(@"GoogleAdMobAdsSDK ID for testing: %@" ,
                   [[UIDevice currentDevice] uniqueIdentifier]);
         }
-        
-//        CGRect viewFrame;
-//        if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
-//        {
-//            viewFrame = CGRectMake(0,
-//                                   [[UIScreen mainScreen] bounds].size.height-90,
-//                                   [[UIScreen mainScreen] bounds].size.width,
-//                                   90);
-//        }
-//        else
-//        {
-//            viewFrame = CGRectMake(0,
-//                                   [[UIScreen mainScreen] bounds].size.height-50,
-//                                   [[UIScreen mainScreen] bounds].size.width,
-//                                   50);            
-//        }
-//        UIView *view = [[UIView alloc] initWithFrame:viewFrame];
-//        view.backgroundColor = [UIColor clearColor];
-//          view.alpha = 0.25f;
 //        self.view = view;
-        NSTimer *refreshAdTimer = [NSTimer scheduledTimerWithTimeInterval:AD_REFRESH_RATE
-                                                                   target:self
-                                                                 selector:@selector(willRequestAd)
-                                                                 userInfo:nil
-                                                                  repeats:YES];
     }
     return self;
 }
@@ -77,9 +55,7 @@
     [super viewDidLoad];
     self.view.frame = [self setFrame];
     self.view.hidden = NO;
-#ifdef iAd
     [self initIadBannerView];
-#endif
     [self initAdMobBannerView];
 }
 
@@ -196,7 +172,6 @@
         mAdMobBannerView.alpha = 0.0f;
         mAdMobBannerView.hidden = YES;
         [self.view addSubview:mAdMobBannerView];
-        [self willRequestAd];
     }
 }
 
@@ -267,6 +242,7 @@
 
 - (void) startActionsForAd
 {
+    // Fix orientation if required
 //	[self rotateBannerView:[self currentOrientation]];
 //	[[UIApplication sharedApplication] setStatusBarOrientation:(UIInterfaceOrientation)[self currentOrientation]];
     
@@ -275,7 +251,6 @@
 	[[CCDirector sharedDirector] resume];
 	[[CCDirector sharedDirector] startAnimation];
 }
-
 
 #pragma mark - DEBUGGING METHODS
 // DEBUG ONLY
@@ -314,10 +289,8 @@
 //#pragma mark - AdMob Methods
 - (void)willRequestAd
 {
-#ifndef iAD
-        [self requestAdMob];
-        DLog(@"iAd Disabled - Requesting AdMob Banner");
-#endif
+    [self requestAdMob];
+    DLog(@"iAd Disabled - Requesting AdMob Banner");
 }
 
 - (void)requestAdMob
