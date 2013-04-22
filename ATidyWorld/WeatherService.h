@@ -11,7 +11,7 @@
 
 typedef enum
 {
-    WeatherCategorySeason,
+//    WeatherCategorySeason,
     WeatherCategoryClouds,
     WeatherCategoryRain,
     WeatherCategorySnow,

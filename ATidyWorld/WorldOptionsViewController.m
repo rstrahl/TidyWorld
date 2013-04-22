@@ -526,12 +526,12 @@
             [TestFlight passCheckpoint:CHECKPOINT_SNOW];
             break;
         }
-        case WeatherCategorySeason:
-        {
-            mCurrentWeatherCondition.season = value;
-            category = @"Season";
-            break;
-        }
+//        case WeatherCategorySeason:
+//        {
+//            mCurrentWeatherCondition.season = value;
+//            category = @"Season";
+//            break;
+//        }
         default:
             break;
     }
