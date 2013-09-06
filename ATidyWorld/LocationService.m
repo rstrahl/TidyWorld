@@ -347,11 +347,19 @@ static LocationService *sharedLocationController = nil;
     DLog(@"Finished loading woeid response: \r %@", responseString);
     NSError *error;
     NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:mResponseData options:kNilOptions error:&error];
-    
-    NSDictionary *results = [(NSArray *)[(NSDictionary *)[jsonData objectForKey:@"ResultSet"] objectForKey:@"Results"] objectAtIndex:0];
-    
-    self.woeid = [NSNumber numberWithInt:[[results objectForKey:@"woeid"] intValue]];        
-    [self willSendLocationSuccessNotification];
+    NSObject *jsonObject = [(NSDictionary *)[jsonData objectForKey:@"ResultSet"] objectForKey:@"Results"];
+    if ([jsonObject isKindOfClass:[NSArray class]])
+    {
+        NSDictionary *results = [(NSArray *)jsonObject objectAtIndex:0];
+        self.woeid = [NSNumber numberWithInt:[[results objectForKey:@"woeid"] intValue]];
+        [self willSendLocationSuccessNotification];
+    }
+    else if ([jsonObject isKindOfClass:[NSDictionary class]])
+    {
+        NSDictionary *results = (NSDictionary *)jsonObject;
+        self.woeid = [NSNumber numberWithInt:[[results objectForKey:@"woeid"] intValue]];
+        [self willSendLocationSuccessNotification];
+    }
 }
 
 #pragma mark - Notifications

@@ -326,9 +326,10 @@
 - (void)initTestFlight
 {
     // Initialize TestFlight
+#ifdef TESTING
     NSLog(@"TestFlight initialization...");
-    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
     [TestFlight takeOff:TESTFLIGHT_APP_ID];
+#endif
 }
 
 #pragma mark - Reachability Delegate

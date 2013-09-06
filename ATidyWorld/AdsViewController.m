@@ -41,11 +41,7 @@
         if (NSClassFromString(@"ASIdentifierManager")) {
             NSLog(@"GoogleAdMobAdsSDK ID for testing: %@" ,
                   [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString]);
-        } else {
-            NSLog(@"GoogleAdMobAdsSDK ID for testing: %@" ,
-                  [[UIDevice currentDevice] uniqueIdentifier]);
         }
-//        self.view = view;
     }
     return self;
 }

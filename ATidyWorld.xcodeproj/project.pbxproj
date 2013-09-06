@@ -1909,6 +1909,7 @@
 		9B97D07316C0A415005BF0FF /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				9B97D07216BF94A8005BF0FF /* Utility */,
 				9BB464AB16C490A700BD5BBC /* Edit */,
 				9B97D09A16C0A49D005BF0FF /* Table Cells */,
 				9B97D07716C0A45E005BF0FF /* AlarmListViewController.h */,
@@ -2035,7 +2036,6 @@
 				9BCE870416B5DB530043048E /* IntroLayer.m */,
 				9BCE874E16B6064C0043048E /* Constants */,
 				9B97D05F16BF1B5A005BF0FF /* Services */,
-				9B97D07216BF94A8005BF0FF /* Utility */,
 				9B97D04C16BF09FE005BF0FF /* ViewControllers */,
 				9B3B2BAC16D2BB9100179904 /* World */,
 				9BCE858616B5DB500043048E /* Resources */,
@@ -2600,9 +2600,9 @@
 			projectRoot = "";
 			targets = (
 				9BCE856E16B5DB500043048E /* atidyworld */,
-				9B1881D016CD626B00E68930 /* SpriteSheet */,
 				9BFDCC671718D73000ADEF30 /* atidyworldlite */,
 				9BFDCD981718D83100ADEF30 /* atidyworldbeta */,
+				9B1881D016CD626B00E68930 /* SpriteSheet */,
 			);
 		};
 /* End PBXProject section */
