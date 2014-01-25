@@ -291,6 +291,7 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
 - (WeatherCondition)buildWeatherCode:(NSNumber *)yahooCode
 {
     WeatherCondition code = {0,0,0,0,0};
+    // http://developer.yahoo.com/weather/#codes
     switch ([yahooCode intValue]) {
 //        case 0:     // Tornado
         case 3:     // Severe Thunderstorms
