@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28CBCB09B04B47D3A7472F2D /* libPods-atidyworldbeta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D34FCC15FC94292AB6562F9 /* libPods-atidyworldbeta.a */; };
 		9B141EA316F2C54E002B5EB6 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B141E9E16F2C54D002B5EB6 /* Icon-72.png */; };
 		9B141EA416F2C54E002B5EB6 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B141E9F16F2C54D002B5EB6 /* Icon-Small.png */; };
 		9B141EA516F2C54E002B5EB6 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B141EA016F2C54D002B5EB6 /* Icon-Small@2x.png */; };
@@ -69,9 +70,6 @@
 		9B8B97DD170B9F1D0009A7D9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B8B97DC170B9F1C0009A7D9 /* MapKit.framework */; };
 		9B8B97E0170BB33C0009A7D9 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97DF170BB33B0009A7D9 /* Icon-Small-50.png */; };
 		9B91636617028FBE009E9AF8 /* EditAlarmViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B91636517028FBE009E9AF8 /* EditAlarmViewController~ipad.xib */; };
-		9B91637417050A8D009E9AF8 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B91637017050A8D009E9AF8 /* libTestFlight.a */; };
-		9B91637517050A8D009E9AF8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B91637117050A8D009E9AF8 /* README.md */; };
-		9B91637617050A8D009E9AF8 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B91637217050A8D009E9AF8 /* release_notes.md */; };
 		9B96CB8A16B90318009A226B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B96CB8916B90318009A226B /* Localizable.strings */; };
 		9B97CFF716BB695B005BF0FF /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97CFF616BB695B005BF0FF /* AdsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9B97D00316BB6A72005BF0FF /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00216BB6A72005BF0FF /* libGoogleAdMobAds.a */; };
@@ -293,9 +291,7 @@
 		9BCE872516B5FD610043048E /* AppDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE872216B5FD610043048E /* AppDefaults.plist */; };
 		9BCE874516B5FE060043048E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874416B5FE050043048E /* Constants.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BCE874916B604570043048E /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874816B604570043048E /* LocationService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9BCE874C16B605680043048E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874B16B605670043048E /* Reachability.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BCE875216B607BC0043048E /* WeatherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE875116B607BC0043048E /* WeatherService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9BCE875A16B608D50043048E /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875916B608D50043048E /* libGoogleAnalytics.a */; };
 		9BCE875C16B6094E0043048E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875B16B6094E0043048E /* CoreData.framework */; };
 		9BCE875E16B609560043048E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875D16B609560043048E /* SystemConfiguration.framework */; };
 		9BCE876016B6096E0043048E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875F16B6096D0043048E /* CoreLocation.framework */; };
@@ -407,7 +403,6 @@
 		9BFDCCD41718D73000ADEF30 /* ClockConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE871C16B5F81A0043048E /* ClockConstants.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCCD51718D73000ADEF30 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874416B5FE050043048E /* Constants.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCCD61718D73000ADEF30 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874816B604570043048E /* LocationService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9BFDCCD71718D73000ADEF30 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874B16B605670043048E /* Reachability.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCCD81718D73000ADEF30 /* WeatherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE875116B607BC0043048E /* WeatherService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCCD91718D73000ADEF30 /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97CFF616BB695B005BF0FF /* AdsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCCDA1718D73000ADEF30 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D04F16BF0A4F005BF0FF /* SettingsTableViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -461,9 +456,7 @@
 		9BFDCD0B1718D73000ADEF30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857F16B5DB500043048E /* Foundation.framework */; };
 		9BFDCD0C1718D73000ADEF30 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE858116B5DB500043048E /* CoreGraphics.framework */; };
 		9BFDCD0D1718D73000ADEF30 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE858316B5DB500043048E /* GameKit.framework */; };
-		9BFDCD0E1718D73000ADEF30 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875916B608D50043048E /* libGoogleAnalytics.a */; };
 		9BFDCD0F1718D73000ADEF30 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00216BB6A72005BF0FF /* libGoogleAdMobAds.a */; };
-		9BFDCD101718D73000ADEF30 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B91637017050A8D009E9AF8 /* libTestFlight.a */; };
 		9BFDCD121718D73000ADEF30 /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858B16B5DB500043048E /* fps_images.png */; };
 		9BFDCD131718D73000ADEF30 /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858D16B5DB500043048E /* fps_images-hd.png */; };
 		9BFDCD141718D73000ADEF30 /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858F16B5DB500043048E /* fps_images-ipadhd.png */; };
@@ -553,8 +546,6 @@
 		9BFDCD6D1718D73000ADEF30 /* DebugDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BAB1A2616F7EB57005E5057 /* DebugDataViewController.xib */; };
 		9BFDCD6E1718D73000ADEF30 /* EditAlarmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BC7963916F80AFA001C2876 /* EditAlarmViewController.xib */; };
 		9BFDCD6F1718D73000ADEF30 /* EditAlarmViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B91636517028FBE009E9AF8 /* EditAlarmViewController~ipad.xib */; };
-		9BFDCD701718D73000ADEF30 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B91637117050A8D009E9AF8 /* README.md */; };
-		9BFDCD711718D73000ADEF30 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B91637217050A8D009E9AF8 /* release_notes.md */; };
 		9BFDCD721718D73000ADEF30 /* Icon_Warning~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97D21708F5240009A7D9 /* Icon_Warning~iphone.png */; };
 		9BFDCD731718D73000ADEF30 /* Icon_Warning@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97D41708F52C0009A7D9 /* Icon_Warning@2x~iphone.png */; };
 		9BFDCD741718D73000ADEF30 /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97D6170A7FE80009A7D9 /* Default@2x~iphone.png */; };
@@ -693,7 +684,6 @@
 		9BFDCE051718D83100ADEF30 /* ClockConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE871C16B5F81A0043048E /* ClockConstants.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCE061718D83100ADEF30 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874416B5FE050043048E /* Constants.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCE071718D83100ADEF30 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874816B604570043048E /* LocationService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9BFDCE081718D83100ADEF30 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874B16B605670043048E /* Reachability.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCE091718D83100ADEF30 /* WeatherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE875116B607BC0043048E /* WeatherService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCE0A1718D83100ADEF30 /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97CFF616BB695B005BF0FF /* AdsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCE0B1718D83100ADEF30 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D04F16BF0A4F005BF0FF /* SettingsTableViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -747,9 +737,7 @@
 		9BFDCE3C1718D83100ADEF30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857F16B5DB500043048E /* Foundation.framework */; };
 		9BFDCE3D1718D83100ADEF30 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE858116B5DB500043048E /* CoreGraphics.framework */; };
 		9BFDCE3E1718D83100ADEF30 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE858316B5DB500043048E /* GameKit.framework */; };
-		9BFDCE3F1718D83100ADEF30 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875916B608D50043048E /* libGoogleAnalytics.a */; };
 		9BFDCE401718D83100ADEF30 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00216BB6A72005BF0FF /* libGoogleAdMobAds.a */; };
-		9BFDCE411718D83100ADEF30 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B91637017050A8D009E9AF8 /* libTestFlight.a */; };
 		9BFDCE431718D83100ADEF30 /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858B16B5DB500043048E /* fps_images.png */; };
 		9BFDCE441718D83100ADEF30 /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858D16B5DB500043048E /* fps_images-hd.png */; };
 		9BFDCE451718D83100ADEF30 /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858F16B5DB500043048E /* fps_images-ipadhd.png */; };
@@ -839,8 +827,6 @@
 		9BFDCE9E1718D83100ADEF30 /* DebugDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BAB1A2616F7EB57005E5057 /* DebugDataViewController.xib */; };
 		9BFDCE9F1718D83100ADEF30 /* EditAlarmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BC7963916F80AFA001C2876 /* EditAlarmViewController.xib */; };
 		9BFDCEA01718D83100ADEF30 /* EditAlarmViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B91636517028FBE009E9AF8 /* EditAlarmViewController~ipad.xib */; };
-		9BFDCEA11718D83100ADEF30 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B91637117050A8D009E9AF8 /* README.md */; };
-		9BFDCEA21718D83100ADEF30 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B91637217050A8D009E9AF8 /* release_notes.md */; };
 		9BFDCEA31718D83100ADEF30 /* Icon_Warning~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97D21708F5240009A7D9 /* Icon_Warning~iphone.png */; };
 		9BFDCEA41718D83100ADEF30 /* Icon_Warning@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97D41708F52C0009A7D9 /* Icon_Warning@2x~iphone.png */; };
 		9BFDCEA51718D83100ADEF30 /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97D6170A7FE80009A7D9 /* Default@2x~iphone.png */; };
@@ -888,6 +874,7 @@
 		9BFDCF071718DFBC00ADEF30 /* LiteIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BFDCEFF1718DFBC00ADEF30 /* LiteIcon.png */; };
 		9BFDCF081718DFBC00ADEF30 /* LiteIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BFDCF001718DFBC00ADEF30 /* LiteIcon@2x.png */; };
 		9BFF80ED16E022E300051E6E /* AnalyticsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF80EC16E022E300051E6E /* AnalyticsConstants.m */; };
+		FECA790D729441C49E3E14CC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB604FD809A44CC965BAC60 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -915,6 +902,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DB604FD809A44CC965BAC60 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D34FCC15FC94292AB6562F9 /* libPods-atidyworldbeta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-atidyworldbeta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		840E09E6B4334EF09A288D5D /* Pods-atidyworldbeta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-atidyworldbeta.xcconfig"; path = "Pods/Pods-atidyworldbeta.xcconfig"; sourceTree = "<group>"; };
 		9B141E9E16F2C54D002B5EB6 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Assets/Art/App/Icon-72.png"; sourceTree = SOURCE_ROOT; };
 		9B141E9F16F2C54D002B5EB6 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Assets/Art/App/Icon-Small.png"; sourceTree = SOURCE_ROOT; };
 		9B141EA016F2C54D002B5EB6 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Assets/Art/App/Icon-Small@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -990,10 +980,6 @@
 		9B8B97DE170BA56C0009A7D9 /* TMOSVersionDetection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMOSVersionDetection.h; sourceTree = "<group>"; };
 		9B8B97DF170BB33B0009A7D9 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Assets/Art/App/Icon-Small-50.png"; sourceTree = SOURCE_ROOT; };
 		9B91636517028FBE009E9AF8 /* EditAlarmViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EditAlarmViewController~ipad.xib"; sourceTree = "<group>"; };
-		9B91637017050A8D009E9AF8 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		9B91637117050A8D009E9AF8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		9B91637217050A8D009E9AF8 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
-		9B91637317050A8D009E9AF8 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		9B96CB8916B90318009A226B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Resources/Localizable.strings; sourceTree = "<group>"; };
 		9B97CFF516BB695B005BF0FF /* AdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsViewController.h; sourceTree = "<group>"; };
 		9B97CFF616BB695B005BF0FF /* AdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsViewController.m; sourceTree = "<group>"; };
@@ -1387,16 +1373,8 @@
 		9BCE874416B5FE050043048E /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		9BCE874716B604570043048E /* LocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
 		9BCE874816B604570043048E /* LocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
-		9BCE874A16B605660043048E /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		9BCE874B16B605670043048E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		9BCE875016B607BC0043048E /* WeatherService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherService.h; sourceTree = "<group>"; };
 		9BCE875116B607BC0043048E /* WeatherService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherService.m; sourceTree = "<group>"; };
-		9BCE875416B608D50043048E /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		9BCE875516B608D50043048E /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		9BCE875616B608D50043048E /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
-		9BCE875716B608D50043048E /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
-		9BCE875816B608D50043048E /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
-		9BCE875916B608D50043048E /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		9BCE875B16B6094E0043048E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9BCE875D16B609560043048E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9BCE875F16B6096D0043048E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -1422,6 +1400,7 @@
 		9BFDCF001718DFBC00ADEF30 /* LiteIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LiteIcon@2x.png"; path = "Assets/Art/App/LiteIcon@2x.png"; sourceTree = SOURCE_ROOT; };
 		9BFF80EB16E022E300051E6E /* AnalyticsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsConstants.h; sourceTree = "<group>"; };
 		9BFF80EC16E022E300051E6E /* AnalyticsConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticsConstants.m; sourceTree = "<group>"; };
+		B6731D322C4A443495382F0A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1447,9 +1426,8 @@
 				9BCE858016B5DB500043048E /* Foundation.framework in Frameworks */,
 				9BCE858216B5DB500043048E /* CoreGraphics.framework in Frameworks */,
 				9BCE858416B5DB500043048E /* GameKit.framework in Frameworks */,
-				9BCE875A16B608D50043048E /* libGoogleAnalytics.a in Frameworks */,
 				9B97D00316BB6A72005BF0FF /* libGoogleAdMobAds.a in Frameworks */,
-				9B91637417050A8D009E9AF8 /* libTestFlight.a in Frameworks */,
+				FECA790D729441C49E3E14CC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1475,9 +1453,7 @@
 				9BFDCD0B1718D73000ADEF30 /* Foundation.framework in Frameworks */,
 				9BFDCD0C1718D73000ADEF30 /* CoreGraphics.framework in Frameworks */,
 				9BFDCD0D1718D73000ADEF30 /* GameKit.framework in Frameworks */,
-				9BFDCD0E1718D73000ADEF30 /* libGoogleAnalytics.a in Frameworks */,
 				9BFDCD0F1718D73000ADEF30 /* libGoogleAdMobAds.a in Frameworks */,
-				9BFDCD101718D73000ADEF30 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1503,9 +1479,8 @@
 				9BFDCE3C1718D83100ADEF30 /* Foundation.framework in Frameworks */,
 				9BFDCE3D1718D83100ADEF30 /* CoreGraphics.framework in Frameworks */,
 				9BFDCE3E1718D83100ADEF30 /* GameKit.framework in Frameworks */,
-				9BFDCE3F1718D83100ADEF30 /* libGoogleAnalytics.a in Frameworks */,
 				9BFDCE401718D83100ADEF30 /* libGoogleAdMobAds.a in Frameworks */,
-				9BFDCE411718D83100ADEF30 /* libTestFlight.a in Frameworks */,
+				28CBCB09B04B47D3A7472F2D /* libPods-atidyworldbeta.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1637,17 +1612,6 @@
 				9B97D05716BF0F02005BF0FF /* ButtonTrayView.m */,
 			);
 			name = "Button Tray";
-			sourceTree = "<group>";
-		};
-		9B91636F17050A8D009E9AF8 /* TestFlightSDK1 */ = {
-			isa = PBXGroup;
-			children = (
-				9B91637017050A8D009E9AF8 /* libTestFlight.a */,
-				9B91637117050A8D009E9AF8 /* README.md */,
-				9B91637217050A8D009E9AF8 /* release_notes.md */,
-				9B91637317050A8D009E9AF8 /* TestFlight.h */,
-			);
-			path = TestFlightSDK1;
 			sourceTree = "<group>";
 		};
 		9B97CFF316BB68BA005BF0FF /* Ads */ = {
@@ -1872,7 +1836,6 @@
 			children = (
 				9BB464AC16C4A0A000BD5BBC /* Alarm */,
 				9BCE874616B6043E0043048E /* Location */,
-				9BCE874D16B6056B0043048E /* Reachability */,
 				9BCE874F16B6079C0043048E /* Weather */,
 			);
 			name = Services;
@@ -2005,6 +1968,8 @@
 				9BCE858516B5DB500043048E /* ATidyWorld */,
 				9BCE857216B5DB500043048E /* Frameworks */,
 				9BCE857016B5DB500043048E /* Products */,
+				B6731D322C4A443495382F0A /* Pods.xcconfig */,
+				840E09E6B4334EF09A288D5D /* Pods-atidyworldbeta.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2023,6 +1988,8 @@
 			children = (
 				9B97D01316BB7557005BF0FF /* Ads */,
 				9B97D01216BB74B2005BF0FF /* Core */,
+				2DB604FD809A44CC965BAC60 /* libPods.a */,
+				5D34FCC15FC94292AB6562F9 /* libPods-atidyworldbeta.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2069,9 +2036,7 @@
 				9BCE85A116B5DB500043048E /* cocos2d */,
 				9BCE86B816B5DB520043048E /* CocosDenshion */,
 				9BCE86C716B5DB520043048E /* kazmath */,
-				9BCE875316B608D40043048E /* GoogleAnalytics */,
 				9B97CFF816BB6A5C005BF0FF /* GoogleAdMob */,
-				9B91636F17050A8D009E9AF8 /* TestFlightSDK1 */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -2427,15 +2392,6 @@
 			name = Location;
 			sourceTree = "<group>";
 		};
-		9BCE874D16B6056B0043048E /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				9BCE874A16B605660043048E /* Reachability.h */,
-				9BCE874B16B605670043048E /* Reachability.m */,
-			);
-			name = Reachability;
-			sourceTree = "<group>";
-		};
 		9BCE874E16B6064C0043048E /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -2456,19 +2412,6 @@
 				9BCE875116B607BC0043048E /* WeatherService.m */,
 			);
 			name = Weather;
-			sourceTree = "<group>";
-		};
-		9BCE875316B608D40043048E /* GoogleAnalytics */ = {
-			isa = PBXGroup;
-			children = (
-				9BCE875416B608D50043048E /* GAI.h */,
-				9BCE875516B608D50043048E /* GAITrackedViewController.h */,
-				9BCE875616B608D50043048E /* GAITracker.h */,
-				9BCE875716B608D50043048E /* GAITransaction.h */,
-				9BCE875816B608D50043048E /* GAITransactionItem.h */,
-				9BCE875916B608D50043048E /* libGoogleAnalytics.a */,
-			);
-			path = GoogleAnalytics;
 			sourceTree = "<group>";
 		};
 		9BFF80F016E034AA00051E6E /* App */ = {
@@ -2529,9 +2472,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BCE870816B5DB530043048E /* Build configuration list for PBXNativeTarget "atidyworld" */;
 			buildPhases = (
+				CA0AEEF1FC3A4347879217A1 /* Check Pods Manifest.lock */,
 				9BCE856B16B5DB500043048E /* Sources */,
 				9BCE856C16B5DB500043048E /* Frameworks */,
 				9BCE856D16B5DB500043048E /* Resources */,
+				C25B89119D4B41CF984E80D3 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2565,9 +2510,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BFDCEC31718D83100ADEF30 /* Build configuration list for PBXNativeTarget "atidyworldbeta" */;
 			buildPhases = (
+				2EBE709B737A48C7AC7BB7EC /* Check Pods Manifest.lock */,
 				9BFDCD9B1718D83100ADEF30 /* Sources */,
 				9BFDCE2C1718D83100ADEF30 /* Frameworks */,
 				9BFDCE421718D83100ADEF30 /* Resources */,
+				363E0390676F44E9A3940951 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2706,8 +2653,6 @@
 				9BAB1A2816F7EB57005E5057 /* DebugDataViewController.xib in Resources */,
 				9BC7963A16F80AFA001C2876 /* EditAlarmViewController.xib in Resources */,
 				9B91636617028FBE009E9AF8 /* EditAlarmViewController~ipad.xib in Resources */,
-				9B91637517050A8D009E9AF8 /* README.md in Resources */,
-				9B91637617050A8D009E9AF8 /* release_notes.md in Resources */,
 				9B8B97D31708F5240009A7D9 /* Icon_Warning~iphone.png in Resources */,
 				9B8B97D51708F52C0009A7D9 /* Icon_Warning@2x~iphone.png in Resources */,
 				9B8B97D9170A7FE90009A7D9 /* Default@2x~iphone.png in Resources */,
@@ -2836,8 +2781,6 @@
 				9BFDCD6D1718D73000ADEF30 /* DebugDataViewController.xib in Resources */,
 				9BFDCD6E1718D73000ADEF30 /* EditAlarmViewController.xib in Resources */,
 				9BFDCD6F1718D73000ADEF30 /* EditAlarmViewController~ipad.xib in Resources */,
-				9BFDCD701718D73000ADEF30 /* README.md in Resources */,
-				9BFDCD711718D73000ADEF30 /* release_notes.md in Resources */,
 				9BFDCD721718D73000ADEF30 /* Icon_Warning~iphone.png in Resources */,
 				9BFDCD731718D73000ADEF30 /* Icon_Warning@2x~iphone.png in Resources */,
 				9BFDCD741718D73000ADEF30 /* Default@2x~iphone.png in Resources */,
@@ -2972,8 +2915,6 @@
 				9BFDCE9E1718D83100ADEF30 /* DebugDataViewController.xib in Resources */,
 				9BFDCE9F1718D83100ADEF30 /* EditAlarmViewController.xib in Resources */,
 				9BFDCEA01718D83100ADEF30 /* EditAlarmViewController~ipad.xib in Resources */,
-				9BFDCEA11718D83100ADEF30 /* README.md in Resources */,
-				9BFDCEA21718D83100ADEF30 /* release_notes.md in Resources */,
 				9BFDCEA31718D83100ADEF30 /* Icon_Warning~iphone.png in Resources */,
 				9BFDCEA41718D83100ADEF30 /* Icon_Warning@2x~iphone.png in Resources */,
 				9BFDCEA51718D83100ADEF30 /* Default@2x~iphone.png in Resources */,
@@ -3016,6 +2957,69 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2EBE709B737A48C7AC7BB7EC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		363E0390676F44E9A3940951 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-atidyworldbeta-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C25B89119D4B41CF984E80D3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA0AEEF1FC3A4347879217A1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9BCE856B16B5DB500043048E /* Sources */ = {
@@ -3130,7 +3134,6 @@
 				9BCE871D16B5F81A0043048E /* ClockConstants.m in Sources */,
 				9BCE874516B5FE060043048E /* Constants.m in Sources */,
 				9BCE874916B604570043048E /* LocationService.m in Sources */,
-				9BCE874C16B605680043048E /* Reachability.m in Sources */,
 				9BCE875216B607BC0043048E /* WeatherService.m in Sources */,
 				9B97CFF716BB695B005BF0FF /* AdsViewController.m in Sources */,
 				9B97D05316BF0C7C005BF0FF /* SettingsTableViewController.m in Sources */,
@@ -3281,7 +3284,6 @@
 				9BFDCCD41718D73000ADEF30 /* ClockConstants.m in Sources */,
 				9BFDCCD51718D73000ADEF30 /* Constants.m in Sources */,
 				9BFDCCD61718D73000ADEF30 /* LocationService.m in Sources */,
-				9BFDCCD71718D73000ADEF30 /* Reachability.m in Sources */,
 				9BFDCCD81718D73000ADEF30 /* WeatherService.m in Sources */,
 				9BFDCCD91718D73000ADEF30 /* AdsViewController.m in Sources */,
 				9BFDCCDA1718D73000ADEF30 /* SettingsTableViewController.m in Sources */,
@@ -3432,7 +3434,6 @@
 				9BFDCE051718D83100ADEF30 /* ClockConstants.m in Sources */,
 				9BFDCE061718D83100ADEF30 /* Constants.m in Sources */,
 				9BFDCE071718D83100ADEF30 /* LocationService.m in Sources */,
-				9BFDCE081718D83100ADEF30 /* Reachability.m in Sources */,
 				9BFDCE091718D83100ADEF30 /* WeatherService.m in Sources */,
 				9BFDCE0A1718D83100ADEF30 /* AdsViewController.m in Sources */,
 				9BFDCE0B1718D83100ADEF30 /* SettingsTableViewController.m in Sources */,
@@ -3565,7 +3566,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3592,7 +3593,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3601,20 +3602,26 @@
 		};
 		9BCE870916B5DB530043048E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6731D322C4A443495382F0A /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
-				HEADER_SEARCH_PATHS = "\"ATidyWorld/libs/kazmath/include\"";
-				INFOPLIST_FILE = ATidyWorld/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LIBRARY_SEARCH_PATHS = (
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)",
 					"$(inherited)",
-					"\"$(SRCROOT)/ATidyWorld/GoogleAnalytics\"",
-					"\"$(SRCROOT)/ATidyWorld\"",
-					"\"$(SRCROOT)/ATidyWorld/TestFlightSDK1\"",
+				);
+				INFOPLIST_FILE = ATidyWorld/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(inherited)",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -3627,11 +3634,16 @@
 		};
 		9BCE870A16B5DB530043048E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6731D322C4A443495382F0A /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: E. Rudi Strahl";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -3640,14 +3652,15 @@
 					"ANALYTICS=1",
 					"APPSTORE=1",
 				);
-				HEADER_SEARCH_PATHS = "\"ATidyWorld/libs/kazmath/include\"";
-				INFOPLIST_FILE = ATidyWorld/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LIBRARY_SEARCH_PATHS = (
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)",
 					"$(inherited)",
-					"\"$(SRCROOT)/ATidyWorld/GoogleAnalytics\"",
-					"\"$(SRCROOT)/ATidyWorld\"",
-					"\"$(SRCROOT)/ATidyWorld/TestFlightSDK1\"",
+				);
+				INFOPLIST_FILE = ATidyWorld/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(inherited)",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -3678,7 +3691,7 @@
 				);
 				HEADER_SEARCH_PATHS = "\"ATidyWorld/libs/kazmath/include\"";
 				INFOPLIST_FILE = "ATidyWorldLite-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/ATidyWorld/GoogleAnalytics\"",
@@ -3711,7 +3724,7 @@
 				);
 				HEADER_SEARCH_PATHS = "\"ATidyWorld/libs/kazmath/include\"";
 				INFOPLIST_FILE = "ATidyWorldLite-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/ATidyWorld/GoogleAnalytics\"",
@@ -3731,20 +3744,26 @@
 		};
 		9BFDCEC41718D83100ADEF30 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 840E09E6B4334EF09A288D5D /* Pods-atidyworldbeta.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(inherited)",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
-				HEADER_SEARCH_PATHS = "\"ATidyWorld/libs/kazmath/include\"";
-				INFOPLIST_FILE = "ATidyWorldBeta-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LIBRARY_SEARCH_PATHS = (
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)",
 					"$(inherited)",
-					"\"$(SRCROOT)/ATidyWorld/GoogleAnalytics\"",
-					"\"$(SRCROOT)/ATidyWorld\"",
-					"\"$(SRCROOT)/ATidyWorld/TestFlightSDK1\"",
+				);
+				INFOPLIST_FILE = "ATidyWorldBeta-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(inherited)",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -3757,9 +3776,14 @@
 		};
 		9BFDCEC51718D83100ADEF30 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 840E09E6B4334EF09A288D5D /* Pods-atidyworldbeta.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(inherited)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -3769,14 +3793,15 @@
 					"TESTING=1",
 					"ADS=1",
 				);
-				HEADER_SEARCH_PATHS = "\"ATidyWorld/libs/kazmath/include\"";
-				INFOPLIST_FILE = "ATidyWorldBeta-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LIBRARY_SEARCH_PATHS = (
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)",
 					"$(inherited)",
-					"\"$(SRCROOT)/ATidyWorld/GoogleAnalytics\"",
-					"\"$(SRCROOT)/ATidyWorld\"",
-					"\"$(SRCROOT)/ATidyWorld/TestFlightSDK1\"",
+				);
+				INFOPLIST_FILE = "ATidyWorldBeta-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(inherited)",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",
