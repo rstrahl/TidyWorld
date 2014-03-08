@@ -390,7 +390,6 @@
 
 /* Begin PBXFileReference section */
 		2DB604FD809A44CC965BAC60 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D34FCC15FC94292AB6562F9 /* libPods-atidyworldbeta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-atidyworldbeta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B141E9E16F2C54D002B5EB6 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Assets/Art/App/Icon-72.png"; sourceTree = SOURCE_ROOT; };
 		9B141E9F16F2C54D002B5EB6 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Assets/Art/App/Icon-Small.png"; sourceTree = SOURCE_ROOT; };
 		9B141EA016F2C54D002B5EB6 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Assets/Art/App/Icon-Small@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -1133,7 +1132,6 @@
 				9BCE857F16B5DB500043048E /* Foundation.framework */,
 				9BCE858116B5DB500043048E /* CoreGraphics.framework */,
 				2DB604FD809A44CC965BAC60 /* libPods.a */,
-				5D34FCC15FC94292AB6562F9 /* libPods-atidyworldbeta.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
