@@ -1,14 +1,23 @@
 PODS:
+  - CCNode-SFGestureRecognizers (1.0):
+    - cocos2d (~> 2.0)
+  - cocos2d (2.1):
+    - cocos2d/CocosDenshion
+  - cocos2d/CocosDenshion (2.1)
   - GoogleAnalytics-iOS-SDK (3.0.3)
   - Reachability (3.1.1)
   - TestFlightSDK (3.0.0)
 
 DEPENDENCIES:
+  - CCNode-SFGestureRecognizers (~> 1.0)
+  - cocos2d (~> 2.1)
   - GoogleAnalytics-iOS-SDK (~> 3.0)
   - Reachability (~> 3.1)
   - TestFlightSDK (~> 3.0)
 
 SPEC CHECKSUMS:
+  CCNode-SFGestureRecognizers: 1106b85bf58a8ad18330a47b126d69b8b8cc7007
+  cocos2d: 1ee107ccb03edf8f72f846e87b7d71c96fbfe6bc
   GoogleAnalytics-iOS-SDK: 7b0e55cfe5e70d60478a7b105f15ac71e8bc373e
   Reachability: be4883bb93f31e38266ae3365e5600a317aae735
   TestFlightSDK: 71e3e78d3a46144dbad975a4bf80a14dae6a818a
