@@ -1,4 +1,4 @@
-platform :ios, '5.0'
+platform :ios, '6.1'
 
 pod 'Reachability', '~> 3.1'
 pod 'GoogleAnalytics-iOS-SDK', '~> 3.0'

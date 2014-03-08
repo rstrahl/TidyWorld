@@ -3749,20 +3749,20 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)",
+					"$(SRCROOT)/**",
 					"$(inherited)",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)",
+					"$(SRCROOT)/**",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "ATidyWorldBeta-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)",
+					"$(SRCROOT)/**",
 					"$(inherited)",
 				);
 				OTHER_LDFLAGS = (
@@ -3781,7 +3781,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)",
+					"$(SRCROOT)/**",
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3794,13 +3794,13 @@
 					"ADS=1",
 				);
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)",
+					"$(SRCROOT)/**",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "ATidyWorldBeta-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)",
+					"$(SRCROOT)/**",
 					"$(inherited)",
 				);
 				OTHER_LDFLAGS = (
