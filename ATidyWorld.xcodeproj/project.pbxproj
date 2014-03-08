@@ -888,6 +888,7 @@
 		9BFDCF071718DFBC00ADEF30 /* LiteIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BFDCEFF1718DFBC00ADEF30 /* LiteIcon.png */; };
 		9BFDCF081718DFBC00ADEF30 /* LiteIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BFDCF001718DFBC00ADEF30 /* LiteIcon@2x.png */; };
 		9BFF80ED16E022E300051E6E /* AnalyticsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF80EC16E022E300051E6E /* AnalyticsConstants.m */; };
+		BEDF2B04189D998E00B20C80 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEDF2B03189D998E00B20C80 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1422,6 +1423,7 @@
 		9BFDCF001718DFBC00ADEF30 /* LiteIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LiteIcon@2x.png"; path = "Assets/Art/App/LiteIcon@2x.png"; sourceTree = SOURCE_ROOT; };
 		9BFF80EB16E022E300051E6E /* AnalyticsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsConstants.h; sourceTree = "<group>"; };
 		9BFF80EC16E022E300051E6E /* AnalyticsConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticsConstants.m; sourceTree = "<group>"; };
+		BEDF2B03189D998E00B20C80 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = atidyworld/Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2002,6 +2004,7 @@
 		9BCE856416B5DB500043048E = {
 			isa = PBXGroup;
 			children = (
+				BEDF2B03189D998E00B20C80 /* Images.xcassets */,
 				9BCE858516B5DB500043048E /* ATidyWorld */,
 				9BCE857216B5DB500043048E /* Frameworks */,
 				9BCE857016B5DB500043048E /* Products */,
@@ -2636,6 +2639,7 @@
 				9B97D0B616C21DD9005BF0FF /* gong.mp3 in Resources */,
 				9B97D0B716C21DD9005BF0FF /* grandfather_clock.mp3 in Resources */,
 				9B97D0B816C21DD9005BF0FF /* ranz_des_vaches.mp3 in Resources */,
+				BEDF2B04189D998E00B20C80 /* Images.xcassets in Resources */,
 				9B97D0B916C21DD9005BF0FF /* reveille.mp3 in Resources */,
 				9B97D0BA16C21DD9005BF0FF /* train_whistle.mp3 in Resources */,
 				9B7DFE2F16E5672C00A534DF /* LandscapeSpriteSheet-hd.plist in Resources */,
@@ -3603,6 +3607,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3629,6 +3635,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: E. Rudi Strahl";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
@@ -3665,6 +3673,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3698,6 +3708,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: E. Rudi Strahl";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3733,6 +3745,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-3";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-3";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3759,6 +3773,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-3";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-3";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;

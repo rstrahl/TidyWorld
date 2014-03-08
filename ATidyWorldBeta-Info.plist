@@ -10,15 +10,6 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
 	<string></string>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>BetaIcon.png</string>
-		<string>BetaIcon@2x.png</string>
-		<string>BetaIcon-72.png</string>
-		<string>BetaIcon-Small-50.png</string>
-		<string>BetaIcon-Small.png</string>
-		<string>BetaIcon-Small@2x.png</string>
-	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.atidymind.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
