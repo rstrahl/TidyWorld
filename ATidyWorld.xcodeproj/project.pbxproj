@@ -1851,8 +1851,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
 					"COCOS2D_DEBUG=1",
-					"TESTING=1",
-					"ANALYTICS=0",
+					"COCOAPODS=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1885,7 +1884,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
-					"ANALYTICS=1",
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1915,9 +1913,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					DEBUG,
-					"COCOS2D_DEBUG=1",
-					"COCOAPODS=1",
+					"$(inherited)",
 					"ANALYTICS=0",
 				);
 				HEADER_SEARCH_PATHS = (
@@ -1953,12 +1949,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					NDEBUG,
-					"NS_BLOCK_ASSERTIONS=1",
-					"ANALYTICS=1",
-					"APPSTORE=1",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(inherited)",
@@ -1996,7 +1987,6 @@
 				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
-					"COCOAPODS=1",
 					"ANALYTICS=0",
 				);
 				HEADER_SEARCH_PATHS = (
@@ -2032,9 +2022,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					NDEBUG,
-					"NS_BLOCK_ASSERTIONS=1",
-					"TESTING=1",
+					"$(inherited)",
+					"TESTFLIGHT=1",
 					"ANALYTICS=0",
 				);
 				HEADER_SEARCH_PATHS = (

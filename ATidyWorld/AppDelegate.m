@@ -323,7 +323,7 @@
 - (void)initTestFlight
 {
     // Initialize TestFlight
-#ifdef TESTING
+#ifdef TESTFLIGHT
     NSLog(@"TestFlight initialization...");
     [TestFlight takeOff:TESTFLIGHT_APP_ID];
 #endif
