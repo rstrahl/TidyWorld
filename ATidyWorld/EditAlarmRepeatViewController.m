@@ -45,7 +45,9 @@
 {
     [super viewWillAppear:animated];
     if (ANALYTICS)
-        [[GAI sharedInstance].defaultTracker trackView:@"Edit Alarm Repeat"];
+    {
+//        [[GAI sharedInstance].defaultTracker trackView:@"Edit Alarm Repeat"];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

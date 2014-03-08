@@ -8,293 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		28CBCB09B04B47D3A7472F2D /* libPods-atidyworldbeta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D34FCC15FC94292AB6562F9 /* libPods-atidyworldbeta.a */; };
-		9B141EA316F2C54E002B5EB6 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B141E9E16F2C54D002B5EB6 /* Icon-72.png */; };
-		9B141EA416F2C54E002B5EB6 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B141E9F16F2C54D002B5EB6 /* Icon-Small.png */; };
-		9B141EA516F2C54E002B5EB6 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B141EA016F2C54D002B5EB6 /* Icon-Small@2x.png */; };
-		9B141EA616F2C54E002B5EB6 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B141EA116F2C54D002B5EB6 /* Icon.png */; };
-		9B141EA716F2C54E002B5EB6 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B141EA216F2C54E002B5EB6 /* Icon@2x.png */; };
-		9B1881C116CB1D0B00E68930 /* SkyLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881C016CB1D0B00E68930 /* SkyLayer.m */; };
-		9B1881C616CB6C1100E68930 /* SunMoonSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881C516CB6C1100E68930 /* SunMoonSprite.m */; };
-		9B1881CC16CB6C2F00E68930 /* SkyGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881CB16CB6C2F00E68930 /* SkyGradient.m */; };
-		9B1881CF16CC8A4800E68930 /* DawnDuskGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1881CE16CC8A4700E68930 /* DawnDuskGradient.m */; };
-		9B3B2BAF16D2BCA000179904 /* WeatherLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B2BAE16D2BCA000179904 /* WeatherLayer.m */; };
-		9B3B2BC316D4227C00179904 /* Cloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B2BBD16D4227900179904 /* Cloud.m */; };
-		9B67A8B716D85D9F00659006 /* LandscapeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B67A8B616D85D9F00659006 /* LandscapeLayer.m */; };
-		9B6954A8170F9A33003453DD /* Icon_LeftArrow_Highlight@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954A0170F9A31003453DD /* Icon_LeftArrow_Highlight@2x~ipad.png */; };
-		9B6954A9170F9A33003453DD /* Icon_LeftArrow_Highlight@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954A1170F9A31003453DD /* Icon_LeftArrow_Highlight@2x~iphone.png */; };
-		9B6954AA170F9A33003453DD /* Icon_LeftArrow@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954A2170F9A31003453DD /* Icon_LeftArrow@2x~ipad.png */; };
-		9B6954AB170F9A33003453DD /* Icon_LeftArrow@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954A3170F9A31003453DD /* Icon_LeftArrow@2x~iphone.png */; };
-		9B6954AC170F9A33003453DD /* Icon_RightArrow_Highlight@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954A4170F9A32003453DD /* Icon_RightArrow_Highlight@2x~ipad.png */; };
-		9B6954AD170F9A33003453DD /* Icon_RightArrow_Highlight@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954A5170F9A32003453DD /* Icon_RightArrow_Highlight@2x~iphone.png */; };
-		9B6954AE170F9A33003453DD /* Icon_RightArrow@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954A6170F9A32003453DD /* Icon_RightArrow@2x~ipad.png */; };
-		9B6954AF170F9A33003453DD /* Icon_RightArrow@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954A7170F9A33003453DD /* Icon_RightArrow@2x~iphone.png */; };
-		9B6954B8170F9A54003453DD /* Icon_LeftArrow_Highlight~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954B0170F9A50003453DD /* Icon_LeftArrow_Highlight~ipad.png */; };
-		9B6954B9170F9A54003453DD /* Icon_LeftArrow_Highlight~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954B1170F9A51003453DD /* Icon_LeftArrow_Highlight~iphone.png */; };
-		9B6954BA170F9A54003453DD /* Icon_LeftArrow~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954B2170F9A51003453DD /* Icon_LeftArrow~ipad.png */; };
-		9B6954BB170F9A54003453DD /* Icon_LeftArrow~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954B3170F9A51003453DD /* Icon_LeftArrow~iphone.png */; };
-		9B6954BC170F9A54003453DD /* Icon_RightArrow_Highlight~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954B4170F9A52003453DD /* Icon_RightArrow_Highlight~ipad.png */; };
-		9B6954BD170F9A54003453DD /* Icon_RightArrow_Highlight~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954B5170F9A52003453DD /* Icon_RightArrow_Highlight~iphone.png */; };
-		9B6954BE170F9A54003453DD /* Icon_RightArrow~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954B6170F9A52003453DD /* Icon_RightArrow~ipad.png */; };
-		9B6954BF170F9A54003453DD /* Icon_RightArrow~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954B7170F9A53003453DD /* Icon_RightArrow~iphone.png */; };
-		9B6954C517150F07003453DD /* Icon_Purchases_Highlight@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954C117150F07003453DD /* Icon_Purchases_Highlight@2x~ipad.png */; };
-		9B6954C617150F07003453DD /* Icon_Purchases_Highlight@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954C217150F07003453DD /* Icon_Purchases_Highlight@2x~iphone.png */; };
-		9B6954C717150F07003453DD /* Icon_Purchases@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954C317150F07003453DD /* Icon_Purchases@2x~ipad.png */; };
-		9B6954C817150F07003453DD /* Icon_Purchases@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954C417150F07003453DD /* Icon_Purchases@2x~iphone.png */; };
-		9B6954CD17150F11003453DD /* Icon_Purchases_Highlight~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954C917150F11003453DD /* Icon_Purchases_Highlight~ipad.png */; };
-		9B6954CE17150F11003453DD /* Icon_Purchases_Highlight~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954CA17150F11003453DD /* Icon_Purchases_Highlight~iphone.png */; };
-		9B6954CF17150F11003453DD /* Icon_Purchases~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954CB17150F11003453DD /* Icon_Purchases~ipad.png */; };
-		9B6954D017150F11003453DD /* Icon_Purchases~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954CC17150F11003453DD /* Icon_Purchases~iphone.png */; };
-		9B6954DB1718931C003453DD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954DA1718931B003453DD /* Default-568h@2x.png */; };
-		9B6954DD17189EA3003453DD /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B6954DC17189EA3003453DD /* Icon-72@2x.png */; };
-		9B69800816DC6D990052C0BB /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69800716DC6D990052C0BB /* CCNode+SFGestureRecognizers.m */; };
-		9B69800C16DDC5220052C0BB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B69800B16DDC5220052C0BB /* MainViewController.m */; };
-		9B7DFE1F16E5415300A534DF /* ParallaxLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7DFE1E16E5415300A534DF /* ParallaxLayer.m */; };
-		9B7DFE2216E5589000A534DF /* FogLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2116E5589000A534DF /* FogLayer.m */; };
-		9B7DFE2F16E5672C00A534DF /* LandscapeSpriteSheet-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2316E5672C00A534DF /* LandscapeSpriteSheet-hd.plist */; };
-		9B7DFE3016E5672C00A534DF /* LandscapeSpriteSheet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2416E5672C00A534DF /* LandscapeSpriteSheet-hd.png */; };
-		9B7DFE3116E5672C00A534DF /* LandscapeSpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2516E5672C00A534DF /* LandscapeSpriteSheet.plist */; };
-		9B7DFE3216E5672C00A534DF /* LandscapeSpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2616E5672C00A534DF /* LandscapeSpriteSheet.png */; };
-		9B7DFE3316E5672C00A534DF /* SkySpriteSheet-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2716E5672C00A534DF /* SkySpriteSheet-hd.plist */; };
-		9B7DFE3416E5672C00A534DF /* SkySpriteSheet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2816E5672C00A534DF /* SkySpriteSheet-hd.png */; };
-		9B7DFE3516E5672C00A534DF /* SkySpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2916E5672C00A534DF /* SkySpriteSheet.plist */; };
-		9B7DFE3616E5672C00A534DF /* SkySpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2A16E5672C00A534DF /* SkySpriteSheet.png */; };
-		9B7DFE3716E5672C00A534DF /* WeatherSpriteSheet-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2B16E5672C00A534DF /* WeatherSpriteSheet-hd.plist */; };
-		9B7DFE3816E5672C00A534DF /* WeatherSpriteSheet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2C16E5672C00A534DF /* WeatherSpriteSheet-hd.png */; };
-		9B7DFE3916E5672C00A534DF /* WeatherSpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2D16E5672C00A534DF /* WeatherSpriteSheet.plist */; };
-		9B7DFE3A16E5672C00A534DF /* WeatherSpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DFE2E16E5672C00A534DF /* WeatherSpriteSheet.png */; };
-		9B8B97D31708F5240009A7D9 /* Icon_Warning~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97D21708F5240009A7D9 /* Icon_Warning~iphone.png */; };
-		9B8B97D51708F52C0009A7D9 /* Icon_Warning@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97D41708F52C0009A7D9 /* Icon_Warning@2x~iphone.png */; };
-		9B8B97D9170A7FE90009A7D9 /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97D6170A7FE80009A7D9 /* Default@2x~iphone.png */; };
-		9B8B97DA170A7FE90009A7D9 /* Default~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97D7170A7FE80009A7D9 /* Default~ipad.png */; };
-		9B8B97DB170A7FE90009A7D9 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97D8170A7FE90009A7D9 /* Default~iphone.png */; };
-		9B8B97DD170B9F1D0009A7D9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B8B97DC170B9F1C0009A7D9 /* MapKit.framework */; };
-		9B8B97E0170BB33C0009A7D9 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B97DF170BB33B0009A7D9 /* Icon-Small-50.png */; };
-		9B91636617028FBE009E9AF8 /* EditAlarmViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B91636517028FBE009E9AF8 /* EditAlarmViewController~ipad.xib */; };
-		9B96CB8A16B90318009A226B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B96CB8916B90318009A226B /* Localizable.strings */; };
-		9B97CFF716BB695B005BF0FF /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97CFF616BB695B005BF0FF /* AdsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9B97D00316BB6A72005BF0FF /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00216BB6A72005BF0FF /* libGoogleAdMobAds.a */; };
-		9B97D00B16BB730D005BF0FF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00A16BB730D005BF0FF /* StoreKit.framework */; };
-		9B97D00D16BB7335005BF0FF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00C16BB7335005BF0FF /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		9B97D00F16BB7374005BF0FF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00E16BB7374005BF0FF /* MessageUI.framework */; };
-		9B97D01116BB73D6005BF0FF /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D01016BB73D6005BF0FF /* iAd.framework */; };
-		9B97D05216BF0A4F005BF0FF /* SettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D05016BF0A4F005BF0FF /* SettingsTableViewController.xib */; };
-		9B97D05316BF0C7C005BF0FF /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D04F16BF0A4F005BF0FF /* SettingsTableViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9B97D05816BF0F02005BF0FF /* ButtonTrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D05716BF0F02005BF0FF /* ButtonTrayView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9B97D05D16BF1B3A005BF0FF /* WorldOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D05B16BF1B3A005BF0FF /* WorldOptionsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9B97D05E16BF1B3A005BF0FF /* WorldOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D05C16BF1B3A005BF0FF /* WorldOptionsViewController.xib */; };
-		9B97D06316BF2153005BF0FF /* SelectWeatherOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06116BF2153005BF0FF /* SelectWeatherOptionViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9B97D06416BF2153005BF0FF /* SelectWeatherOptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D06216BF2153005BF0FF /* SelectWeatherOptionViewController.xib */; };
-		9B97D06F16BF94A2005BF0FF /* ColorConverter.c in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06916BF949B005BF0FF /* ColorConverter.c */; };
-		9B97D07016BF94A2005BF0FF /* RandomUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06C16BF949E005BF0FF /* RandomUtil.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9B97D07116BF94A2005BF0FF /* TMPlistUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D06E16BF94A0005BF0FF /* TMPlistUtils.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9B97D07E16C0A45E005BF0FF /* AlarmCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D07516C0A45E005BF0FF /* AlarmCellView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9B97D07F16C0A45E005BF0FF /* AlarmCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D07616C0A45E005BF0FF /* AlarmCellView.xib */; };
-		9B97D08016C0A45E005BF0FF /* AlarmListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D07816C0A45E005BF0FF /* AlarmListViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9B97D08116C0A45E005BF0FF /* AlarmListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D07916C0A45E005BF0FF /* AlarmListViewController.xib */; };
-		9B97D08216C0A45E005BF0FF /* EditAlarmElementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D07B16C0A45E005BF0FF /* EditAlarmElementViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9B97D08316C0A45E005BF0FF /* EditAlarmRepeatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D07D16C0A45E005BF0FF /* EditAlarmRepeatViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9B97D09116C0A498005BF0FF /* EditAlarmRepeatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D08416C0A498005BF0FF /* EditAlarmRepeatViewController.xib */; };
-		9B97D09216C0A498005BF0FF /* EditAlarmSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08616C0A498005BF0FF /* EditAlarmSoundViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9B97D09316C0A498005BF0FF /* EditAlarmSoundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D08716C0A498005BF0FF /* EditAlarmSoundViewController.xib */; };
-		9B97D09416C0A498005BF0FF /* EditAlarmTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08916C0A498005BF0FF /* EditAlarmTitleViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9B97D09516C0A498005BF0FF /* EditAlarmTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D08A16C0A498005BF0FF /* EditAlarmTitleViewController.xib */; };
-		9B97D09616C0A498005BF0FF /* EditAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08C16C0A498005BF0FF /* EditAlarmViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9B97D09816C0A498005BF0FF /* MediaCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D08F16C0A498005BF0FF /* MediaCellView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9B97D09916C0A498005BF0FF /* MediaCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D09016C0A498005BF0FF /* MediaCellView.xib */; };
-		9B97D09D16C0E403005BF0FF /* Alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D09B16C0E403005BF0FF /* Alarm.xcdatamodeld */; };
-		9B97D0A016C0E43E005BF0FF /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D09F16C0E43E005BF0FF /* Alarm.m */; };
-		9B97D0A616C20178005BF0FF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D0A516C20177005BF0FF /* MediaPlayer.framework */; };
-		9B97D0AC16C21C3D005BF0FF /* AddItemRowTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D0AB16C21C3D005BF0FF /* AddItemRowTableView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9B97D0B416C21DD9005BF0FF /* air_raid_siren.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0AD16C21DD9005BF0FF /* air_raid_siren.mp3 */; };
-		9B97D0B516C21DD9005BF0FF /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0AE16C21DD9005BF0FF /* beep.mp3 */; };
-		9B97D0B616C21DD9005BF0FF /* gong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0AF16C21DD9005BF0FF /* gong.mp3 */; };
-		9B97D0B716C21DD9005BF0FF /* grandfather_clock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0B016C21DD9005BF0FF /* grandfather_clock.mp3 */; };
-		9B97D0B816C21DD9005BF0FF /* ranz_des_vaches.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0B116C21DD9005BF0FF /* ranz_des_vaches.mp3 */; };
-		9B97D0B916C21DD9005BF0FF /* reveille.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0B216C21DD9005BF0FF /* reveille.mp3 */; };
-		9B97D0BA16C21DD9005BF0FF /* train_whistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9B97D0B316C21DD9005BF0FF /* train_whistle.mp3 */; };
-		9BAB1A2716F7EB57005E5057 /* DebugDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAB1A2516F7EB57005E5057 /* DebugDataViewController.m */; };
-		9BAB1A2816F7EB57005E5057 /* DebugDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BAB1A2616F7EB57005E5057 /* DebugDataViewController.xib */; };
-		9BB464AF16C4A0B400BD5BBC /* AlarmService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB464AE16C4A0B400BD5BBC /* AlarmService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9BB464B216C4E12F00BD5BBC /* TMTimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB464B116C4E12F00BD5BBC /* TMTimeUtils.m */; };
-		9BC0363E16F54016002D6C02 /* Icon_Clock_Highlight@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363216F54016002D6C02 /* Icon_Clock_Highlight@2x~ipad.png */; };
-		9BC0363F16F54016002D6C02 /* Icon_Clock_Highlight@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363316F54016002D6C02 /* Icon_Clock_Highlight@2x~iphone.png */; };
-		9BC0364016F54016002D6C02 /* Icon_Clock@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363416F54016002D6C02 /* Icon_Clock@2x~ipad.png */; };
-		9BC0364116F54016002D6C02 /* Icon_Clock@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363516F54016002D6C02 /* Icon_Clock@2x~iphone.png */; };
-		9BC0364216F54016002D6C02 /* Icon_Settings_Highlight@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363616F54016002D6C02 /* Icon_Settings_Highlight@2x~ipad.png */; };
-		9BC0364316F54016002D6C02 /* Icon_Settings_Highlight@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363716F54016002D6C02 /* Icon_Settings_Highlight@2x~iphone.png */; };
-		9BC0364416F54016002D6C02 /* Icon_Settings@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363816F54016002D6C02 /* Icon_Settings@2x~ipad.png */; };
-		9BC0364516F54016002D6C02 /* Icon_Settings@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363916F54016002D6C02 /* Icon_Settings@2x~iphone.png */; };
-		9BC0364616F54016002D6C02 /* Icon_World_Highlight@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363A16F54016002D6C02 /* Icon_World_Highlight@2x~ipad.png */; };
-		9BC0364716F54016002D6C02 /* Icon_World_Highlight@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363B16F54016002D6C02 /* Icon_World_Highlight@2x~iphone.png */; };
-		9BC0364816F54016002D6C02 /* Icon_World@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363C16F54016002D6C02 /* Icon_World@2x~ipad.png */; };
-		9BC0364916F54016002D6C02 /* Icon_World@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0363D16F54016002D6C02 /* Icon_World@2x~iphone.png */; };
-		9BC0365616F54025002D6C02 /* Icon_Clock_Highlight~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0364A16F54025002D6C02 /* Icon_Clock_Highlight~ipad.png */; };
-		9BC0365716F54025002D6C02 /* Icon_Clock_Highlight~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0364B16F54025002D6C02 /* Icon_Clock_Highlight~iphone.png */; };
-		9BC0365816F54025002D6C02 /* Icon_Clock~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0364C16F54025002D6C02 /* Icon_Clock~ipad.png */; };
-		9BC0365916F54025002D6C02 /* Icon_Clock~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0364D16F54025002D6C02 /* Icon_Clock~iphone.png */; };
-		9BC0365A16F54025002D6C02 /* Icon_Settings_Highlight~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0364E16F54025002D6C02 /* Icon_Settings_Highlight~ipad.png */; };
-		9BC0365B16F54025002D6C02 /* Icon_Settings_Highlight~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0364F16F54025002D6C02 /* Icon_Settings_Highlight~iphone.png */; };
-		9BC0365C16F54025002D6C02 /* Icon_Settings~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0365016F54025002D6C02 /* Icon_Settings~ipad.png */; };
-		9BC0365D16F54025002D6C02 /* Icon_Settings~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0365116F54025002D6C02 /* Icon_Settings~iphone.png */; };
-		9BC0365E16F54025002D6C02 /* Icon_World_Highlight~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0365216F54025002D6C02 /* Icon_World_Highlight~ipad.png */; };
-		9BC0365F16F54025002D6C02 /* Icon_World_Highlight~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0365316F54025002D6C02 /* Icon_World_Highlight~iphone.png */; };
-		9BC0366016F54025002D6C02 /* Icon_World~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0365416F54025002D6C02 /* Icon_World~ipad.png */; };
-		9BC0366116F54025002D6C02 /* Icon_World~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0365516F54025002D6C02 /* Icon_World~iphone.png */; };
-		9BC0368416F64399002D6C02 /* Stars-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0367216F64399002D6C02 /* Stars-ipad.plist */; };
-		9BC0369416F64722002D6C02 /* RainLight.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368616F64722002D6C02 /* RainLight.plist */; };
-		9BC0369516F64722002D6C02 /* RainMedium-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368716F64722002D6C02 /* RainMedium-ipad.plist */; };
-		9BC0369616F64722002D6C02 /* RainMedium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368816F64722002D6C02 /* RainMedium.plist */; };
-		9BC0369716F64722002D6C02 /* SnowBlizzard-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368916F64722002D6C02 /* SnowBlizzard-ipad.plist */; };
-		9BC0369816F64722002D6C02 /* SnowBlizzard.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368A16F64722002D6C02 /* SnowBlizzard.plist */; };
-		9BC0369916F64722002D6C02 /* SnowBlowing-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368B16F64722002D6C02 /* SnowBlowing-ipad.plist */; };
-		9BC0369A16F64722002D6C02 /* SnowBlowing.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368C16F64722002D6C02 /* SnowBlowing.plist */; };
-		9BC0369B16F64722002D6C02 /* SnowHeavy-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368D16F64722002D6C02 /* SnowHeavy-ipad.plist */; };
-		9BC0369C16F64722002D6C02 /* SnowHeavy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368E16F64722002D6C02 /* SnowHeavy.plist */; };
-		9BC0369D16F64722002D6C02 /* SnowLight-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0368F16F64722002D6C02 /* SnowLight-ipad.plist */; };
-		9BC0369E16F64722002D6C02 /* SnowLight.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0369016F64722002D6C02 /* SnowLight.plist */; };
-		9BC0369F16F64722002D6C02 /* SnowMedium-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0369116F64722002D6C02 /* SnowMedium-ipad.plist */; };
-		9BC036A016F64722002D6C02 /* SnowMedium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0369216F64722002D6C02 /* SnowMedium.plist */; };
-		9BC036A116F64722002D6C02 /* Stars.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC0369316F64722002D6C02 /* Stars.plist */; };
-		9BC036A516F64732002D6C02 /* RainHeavy-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036A216F64732002D6C02 /* RainHeavy-ipad.plist */; };
-		9BC036A616F64732002D6C02 /* RainHeavy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036A316F64732002D6C02 /* RainHeavy.plist */; };
-		9BC036A716F64732002D6C02 /* RainLight-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036A416F64732002D6C02 /* RainLight-ipad.plist */; };
-		9BC036AA16F64DA9002D6C02 /* LandscapeSpriteSheet-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036A816F64DA9002D6C02 /* LandscapeSpriteSheet-ipad.plist */; };
-		9BC036AB16F64DA9002D6C02 /* LandscapeSpriteSheet-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036A916F64DA9002D6C02 /* LandscapeSpriteSheet-ipad.png */; };
-		9BC036B016F654F7002D6C02 /* SkySpriteSheet-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036AC16F654F7002D6C02 /* SkySpriteSheet-ipad.plist */; };
-		9BC036B116F654F7002D6C02 /* SkySpriteSheet-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036AD16F654F7002D6C02 /* SkySpriteSheet-ipad.png */; };
-		9BC036B216F654F7002D6C02 /* WeatherSpriteSheet-ipad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036AE16F654F7002D6C02 /* WeatherSpriteSheet-ipad.plist */; };
-		9BC036B316F654F7002D6C02 /* WeatherSpriteSheet-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC036AF16F654F7002D6C02 /* WeatherSpriteSheet-ipad.png */; };
-		9BC7963A16F80AFA001C2876 /* EditAlarmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BC7963916F80AFA001C2876 /* EditAlarmViewController.xib */; };
-		9BCE857416B5DB500043048E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857316B5DB500043048E /* QuartzCore.framework */; };
-		9BCE857616B5DB500043048E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857516B5DB500043048E /* OpenGLES.framework */; };
-		9BCE857816B5DB500043048E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857716B5DB500043048E /* OpenAL.framework */; };
-		9BCE857A16B5DB500043048E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857916B5DB500043048E /* AudioToolbox.framework */; };
-		9BCE857C16B5DB500043048E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857B16B5DB500043048E /* AVFoundation.framework */; };
-		9BCE857E16B5DB500043048E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857D16B5DB500043048E /* UIKit.framework */; };
-		9BCE858016B5DB500043048E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857F16B5DB500043048E /* Foundation.framework */; };
-		9BCE858216B5DB500043048E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE858116B5DB500043048E /* CoreGraphics.framework */; };
-		9BCE858416B5DB500043048E /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE858316B5DB500043048E /* GameKit.framework */; };
-		9BCE858C16B5DB500043048E /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858B16B5DB500043048E /* fps_images.png */; };
-		9BCE858E16B5DB500043048E /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858D16B5DB500043048E /* fps_images-hd.png */; };
-		9BCE859016B5DB500043048E /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858F16B5DB500043048E /* fps_images-ipadhd.png */; };
-		9BCE85A416B5DB500043048E /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85A316B5DB500043048E /* CCAction.m */; };
-		9BCE85A716B5DB500043048E /* CCActionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85A616B5DB500043048E /* CCActionCamera.m */; };
-		9BCE85AA16B5DB500043048E /* CCActionCatmullRom.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85A916B5DB500043048E /* CCActionCatmullRom.m */; };
-		9BCE85AD16B5DB500043048E /* CCActionEase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85AC16B5DB500043048E /* CCActionEase.m */; };
-		9BCE85B016B5DB500043048E /* CCActionGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85AF16B5DB500043048E /* CCActionGrid.m */; };
-		9BCE85B316B5DB500043048E /* CCActionGrid3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85B216B5DB500043048E /* CCActionGrid3D.m */; };
-		9BCE85B616B5DB500043048E /* CCActionInstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85B516B5DB500043048E /* CCActionInstant.m */; };
-		9BCE85B916B5DB500043048E /* CCActionInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85B816B5DB500043048E /* CCActionInterval.m */; };
-		9BCE85BC16B5DB510043048E /* CCActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85BB16B5DB510043048E /* CCActionManager.m */; };
-		9BCE85BF16B5DB510043048E /* CCActionPageTurn3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85BE16B5DB510043048E /* CCActionPageTurn3D.m */; };
-		9BCE85C216B5DB510043048E /* CCActionProgressTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85C116B5DB510043048E /* CCActionProgressTimer.m */; };
-		9BCE85C516B5DB510043048E /* CCActionTiledGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85C416B5DB510043048E /* CCActionTiledGrid.m */; };
-		9BCE85C816B5DB510043048E /* CCActionTween.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85C716B5DB510043048E /* CCActionTween.m */; };
-		9BCE85CB16B5DB510043048E /* CCAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85CA16B5DB510043048E /* CCAnimation.m */; };
-		9BCE85CE16B5DB510043048E /* CCAnimationCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85CD16B5DB510043048E /* CCAnimationCache.m */; };
-		9BCE85D116B5DB510043048E /* CCAtlasNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85D016B5DB510043048E /* CCAtlasNode.m */; };
-		9BCE85D416B5DB510043048E /* CCCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85D316B5DB510043048E /* CCCamera.m */; };
-		9BCE85D816B5DB510043048E /* CCConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85D716B5DB510043048E /* CCConfiguration.m */; };
-		9BCE85DB16B5DB510043048E /* ccDeprecated.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85DA16B5DB510043048E /* ccDeprecated.m */; };
-		9BCE85DE16B5DB510043048E /* CCDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85DD16B5DB510043048E /* CCDirector.m */; };
-		9BCE85E116B5DB510043048E /* CCDrawingPrimitives.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85E016B5DB510043048E /* CCDrawingPrimitives.m */; };
-		9BCE85E416B5DB510043048E /* CCGLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85E316B5DB510043048E /* CCGLProgram.m */; };
-		9BCE85E716B5DB510043048E /* ccGLStateCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85E616B5DB510043048E /* ccGLStateCache.m */; };
-		9BCE85EA16B5DB510043048E /* CCGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85E916B5DB510043048E /* CCGrabber.m */; };
-		9BCE85ED16B5DB510043048E /* CCGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85EC16B5DB510043048E /* CCGrid.m */; };
-		9BCE85F016B5DB510043048E /* CCLabelAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85EF16B5DB510043048E /* CCLabelAtlas.m */; };
-		9BCE85F316B5DB510043048E /* CCLabelBMFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85F216B5DB510043048E /* CCLabelBMFont.m */; };
-		9BCE85F616B5DB510043048E /* CCLabelTTF.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85F516B5DB510043048E /* CCLabelTTF.m */; };
-		9BCE85F916B5DB510043048E /* CCLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85F816B5DB510043048E /* CCLayer.m */; };
-		9BCE85FD16B5DB510043048E /* CCMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85FC16B5DB510043048E /* CCMenu.m */; };
-		9BCE860016B5DB510043048E /* CCMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85FF16B5DB510043048E /* CCMenuItem.m */; };
-		9BCE860316B5DB510043048E /* CCMotionStreak.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE860216B5DB510043048E /* CCMotionStreak.m */; };
-		9BCE860616B5DB510043048E /* CCNode+Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE860516B5DB510043048E /* CCNode+Debug.m */; };
-		9BCE860916B5DB510043048E /* CCNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE860816B5DB510043048E /* CCNode.m */; };
-		9BCE860C16B5DB510043048E /* CCParallaxNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE860B16B5DB510043048E /* CCParallaxNode.m */; };
-		9BCE860F16B5DB510043048E /* CCParticleBatchNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE860E16B5DB510043048E /* CCParticleBatchNode.m */; };
-		9BCE861216B5DB510043048E /* CCParticleExamples.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE861116B5DB510043048E /* CCParticleExamples.m */; };
-		9BCE861516B5DB510043048E /* CCParticleSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE861416B5DB510043048E /* CCParticleSystem.m */; };
-		9BCE861816B5DB510043048E /* CCParticleSystemQuad.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE861716B5DB510043048E /* CCParticleSystemQuad.m */; };
-		9BCE861B16B5DB510043048E /* CCProgressTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE861A16B5DB510043048E /* CCProgressTimer.m */; };
-		9BCE861F16B5DB510043048E /* CCRenderTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE861E16B5DB510043048E /* CCRenderTexture.m */; };
-		9BCE862216B5DB510043048E /* CCScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE862116B5DB510043048E /* CCScene.m */; };
-		9BCE862516B5DB510043048E /* CCScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE862416B5DB510043048E /* CCScheduler.m */; };
-		9BCE863516B5DB510043048E /* CCShaderCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE863416B5DB510043048E /* CCShaderCache.m */; };
-		9BCE863816B5DB510043048E /* ccShaders.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE863716B5DB510043048E /* ccShaders.m */; };
-		9BCE863B16B5DB510043048E /* CCSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE863A16B5DB510043048E /* CCSprite.m */; };
-		9BCE863E16B5DB510043048E /* CCSpriteBatchNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE863D16B5DB510043048E /* CCSpriteBatchNode.m */; };
-		9BCE864116B5DB510043048E /* CCSpriteFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE864016B5DB510043048E /* CCSpriteFrame.m */; };
-		9BCE864416B5DB510043048E /* CCSpriteFrameCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE864316B5DB510043048E /* CCSpriteFrameCache.m */; };
-		9BCE864716B5DB520043048E /* CCTexture2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE864616B5DB520043048E /* CCTexture2D.m */; };
-		9BCE864A16B5DB520043048E /* CCTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE864916B5DB520043048E /* CCTextureAtlas.m */; };
-		9BCE864D16B5DB520043048E /* CCTextureCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE864C16B5DB520043048E /* CCTextureCache.m */; };
-		9BCE865016B5DB520043048E /* CCTexturePVR.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE864F16B5DB520043048E /* CCTexturePVR.m */; };
-		9BCE865316B5DB520043048E /* CCTileMapAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE865216B5DB520043048E /* CCTileMapAtlas.m */; };
-		9BCE865616B5DB520043048E /* CCTMXLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE865516B5DB520043048E /* CCTMXLayer.m */; };
-		9BCE865916B5DB520043048E /* CCTMXObjectGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE865816B5DB520043048E /* CCTMXObjectGroup.m */; };
-		9BCE865C16B5DB520043048E /* CCTMXTiledMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE865B16B5DB520043048E /* CCTMXTiledMap.m */; };
-		9BCE865F16B5DB520043048E /* CCTMXXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE865E16B5DB520043048E /* CCTMXXMLParser.m */; };
-		9BCE866216B5DB520043048E /* CCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE866116B5DB520043048E /* CCTransition.m */; };
-		9BCE866516B5DB520043048E /* CCTransitionPageTurn.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE866416B5DB520043048E /* CCTransitionPageTurn.m */; };
-		9BCE866816B5DB520043048E /* CCTransitionProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE866716B5DB520043048E /* CCTransitionProgress.m */; };
-		9BCE866C16B5DB520043048E /* cocos2d.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE866B16B5DB520043048E /* cocos2d.m */; };
-		9BCE867316B5DB520043048E /* CCDirectorIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE867216B5DB520043048E /* CCDirectorIOS.m */; };
-		9BCE867616B5DB520043048E /* CCES2Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE867516B5DB520043048E /* CCES2Renderer.m */; };
-		9BCE867A16B5DB520043048E /* CCGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE867916B5DB520043048E /* CCGLView.m */; };
-		9BCE867E16B5DB520043048E /* CCTouchDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE867D16B5DB520043048E /* CCTouchDispatcher.m */; };
-		9BCE868116B5DB520043048E /* CCTouchHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE868016B5DB520043048E /* CCTouchHandler.m */; };
-		9BCE868516B5DB520043048E /* CCDirectorMac.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE868416B5DB520043048E /* CCDirectorMac.m */; };
-		9BCE868816B5DB520043048E /* CCEventDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE868716B5DB520043048E /* CCEventDispatcher.m */; };
-		9BCE868B16B5DB520043048E /* CCGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE868A16B5DB520043048E /* CCGLView.m */; };
-		9BCE868E16B5DB520043048E /* CCWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE868D16B5DB520043048E /* CCWindow.m */; };
-		9BCE869116B5DB520043048E /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE869016B5DB520043048E /* base64.c */; };
-		9BCE869516B5DB520043048E /* CCArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE869416B5DB520043048E /* CCArray.m */; };
-		9BCE869816B5DB520043048E /* ccCArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE869716B5DB520043048E /* ccCArray.m */; };
-		9BCE869B16B5DB520043048E /* CCFileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE869A16B5DB520043048E /* CCFileUtils.m */; };
-		9BCE869E16B5DB520043048E /* CCProfiling.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE869D16B5DB520043048E /* CCProfiling.m */; };
-		9BCE86A016B5DB520043048E /* ccUtils.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE869F16B5DB520043048E /* ccUtils.c */; };
-		9BCE86A416B5DB520043048E /* CCVertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86A316B5DB520043048E /* CCVertex.m */; };
-		9BCE86A716B5DB520043048E /* CGPointExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86A616B5DB520043048E /* CGPointExtension.m */; };
-		9BCE86AA16B5DB520043048E /* NSThread+performBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86A916B5DB520043048E /* NSThread+performBlock.m */; };
-		9BCE86AE16B5DB520043048E /* TGAlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86AD16B5DB520043048E /* TGAlib.m */; };
-		9BCE86B116B5DB520043048E /* TransformUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86B016B5DB520043048E /* TransformUtils.m */; };
-		9BCE86B616B5DB520043048E /* ZipUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86B516B5DB520043048E /* ZipUtils.m */; };
-		9BCE86BB16B5DB520043048E /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86BA16B5DB520043048E /* CDAudioManager.m */; };
-		9BCE86BF16B5DB520043048E /* CDOpenALSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86BE16B5DB520043048E /* CDOpenALSupport.m */; };
-		9BCE86C216B5DB520043048E /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86C116B5DB520043048E /* CocosDenshion.m */; };
-		9BCE86C516B5DB520043048E /* SimpleAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86C416B5DB520043048E /* SimpleAudioEngine.m */; };
-		9BCE86DB16B5DB530043048E /* aabb.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86DA16B5DB520043048E /* aabb.c */; };
-		9BCE86DD16B5DB530043048E /* ChangeLog in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE86DC16B5DB530043048E /* ChangeLog */; };
-		9BCE86E116B5DB530043048E /* mat4stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86E016B5DB530043048E /* mat4stack.c */; };
-		9BCE86E316B5DB530043048E /* matrix.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86E216B5DB530043048E /* matrix.c */; };
-		9BCE86E516B5DB530043048E /* mat3.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86E416B5DB530043048E /* mat3.c */; };
-		9BCE86E716B5DB530043048E /* mat4.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86E616B5DB530043048E /* mat4.c */; };
-		9BCE86E916B5DB530043048E /* neon_matrix_impl.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86E816B5DB530043048E /* neon_matrix_impl.c */; };
-		9BCE86EB16B5DB530043048E /* plane.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86EA16B5DB530043048E /* plane.c */; };
-		9BCE86ED16B5DB530043048E /* quaternion.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86EC16B5DB530043048E /* quaternion.c */; };
-		9BCE86EF16B5DB530043048E /* ray2.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86EE16B5DB530043048E /* ray2.c */; };
-		9BCE86F116B5DB530043048E /* utility.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86F016B5DB530043048E /* utility.c */; };
-		9BCE86F316B5DB530043048E /* vec2.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86F216B5DB530043048E /* vec2.c */; };
-		9BCE86F516B5DB530043048E /* vec3.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86F416B5DB530043048E /* vec3.c */; };
-		9BCE86F716B5DB530043048E /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86F616B5DB530043048E /* vec4.c */; };
-		9BCE86FC16B5DB530043048E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86FB16B5DB530043048E /* main.m */; };
-		9BCE86FF16B5DB530043048E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE86FE16B5DB530043048E /* AppDelegate.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9BCE870516B5DB530043048E /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE870416B5DB530043048E /* IntroLayer.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9BCE870E16B5E6240043048E /* SummerBaseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE870D16B5E6240043048E /* SummerBaseLayer.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9BCE871416B5F2D20043048E /* ClockFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE871216B5F2D20043048E /* ClockFaceView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9BCE871516B5F2D20043048E /* ClockFaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE871316B5F2D20043048E /* ClockFaceView.xib */; };
-		9BCE871716B5F2F70043048E /* century-gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE871616B5F2F60043048E /* century-gothic.ttf */; };
-		9BCE871D16B5F81A0043048E /* ClockConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE871C16B5F81A0043048E /* ClockConstants.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9BCE872316B5FD610043048E /* SoundEffects.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE872016B5FD600043048E /* SoundEffects.plist */; };
-		9BCE872416B5FD610043048E /* WorldOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE872116B5FD600043048E /* WorldOptions.plist */; };
-		9BCE872516B5FD610043048E /* AppDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE872216B5FD610043048E /* AppDefaults.plist */; };
-		9BCE874516B5FE060043048E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874416B5FE050043048E /* Constants.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9BCE874916B604570043048E /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874816B604570043048E /* LocationService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9BCE875216B607BC0043048E /* WeatherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE875116B607BC0043048E /* WeatherService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9BCE875C16B6094E0043048E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875B16B6094E0043048E /* CoreData.framework */; };
-		9BCE875E16B609560043048E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875D16B609560043048E /* SystemConfiguration.framework */; };
-		9BCE876016B6096E0043048E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE875F16B6096D0043048E /* CoreLocation.framework */; };
 		9BFDCC6B1718D73000ADEF30 /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85A316B5DB500043048E /* CCAction.m */; };
 		9BFDCC6C1718D73000ADEF30 /* CCActionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85A616B5DB500043048E /* CCActionCamera.m */; };
 		9BFDCC6D1718D73000ADEF30 /* CCActionCatmullRom.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE85A916B5DB500043048E /* CCActionCatmullRom.m */; };
@@ -404,7 +117,6 @@
 		9BFDCCD51718D73000ADEF30 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874416B5FE050043048E /* Constants.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCCD61718D73000ADEF30 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874816B604570043048E /* LocationService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCCD81718D73000ADEF30 /* WeatherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE875116B607BC0043048E /* WeatherService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9BFDCCD91718D73000ADEF30 /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97CFF616BB695B005BF0FF /* AdsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCCDA1718D73000ADEF30 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D04F16BF0A4F005BF0FF /* SettingsTableViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCCDB1718D73000ADEF30 /* ButtonTrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D05716BF0F02005BF0FF /* ButtonTrayView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCCDC1718D73000ADEF30 /* WorldOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D05B16BF1B3A005BF0FF /* WorldOptionsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -456,7 +168,6 @@
 		9BFDCD0B1718D73000ADEF30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857F16B5DB500043048E /* Foundation.framework */; };
 		9BFDCD0C1718D73000ADEF30 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE858116B5DB500043048E /* CoreGraphics.framework */; };
 		9BFDCD0D1718D73000ADEF30 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE858316B5DB500043048E /* GameKit.framework */; };
-		9BFDCD0F1718D73000ADEF30 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00216BB6A72005BF0FF /* libGoogleAdMobAds.a */; };
 		9BFDCD121718D73000ADEF30 /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858B16B5DB500043048E /* fps_images.png */; };
 		9BFDCD131718D73000ADEF30 /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858D16B5DB500043048E /* fps_images-hd.png */; };
 		9BFDCD141718D73000ADEF30 /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858F16B5DB500043048E /* fps_images-ipadhd.png */; };
@@ -685,7 +396,6 @@
 		9BFDCE061718D83100ADEF30 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874416B5FE050043048E /* Constants.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCE071718D83100ADEF30 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE874816B604570043048E /* LocationService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCE091718D83100ADEF30 /* WeatherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE875116B607BC0043048E /* WeatherService.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9BFDCE0A1718D83100ADEF30 /* AdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97CFF616BB695B005BF0FF /* AdsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCE0B1718D83100ADEF30 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D04F16BF0A4F005BF0FF /* SettingsTableViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCE0C1718D83100ADEF30 /* ButtonTrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D05716BF0F02005BF0FF /* ButtonTrayView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		9BFDCE0D1718D83100ADEF30 /* WorldOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D05B16BF1B3A005BF0FF /* WorldOptionsViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -737,7 +447,6 @@
 		9BFDCE3C1718D83100ADEF30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE857F16B5DB500043048E /* Foundation.framework */; };
 		9BFDCE3D1718D83100ADEF30 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE858116B5DB500043048E /* CoreGraphics.framework */; };
 		9BFDCE3E1718D83100ADEF30 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCE858316B5DB500043048E /* GameKit.framework */; };
-		9BFDCE401718D83100ADEF30 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B97D00216BB6A72005BF0FF /* libGoogleAdMobAds.a */; };
 		9BFDCE431718D83100ADEF30 /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858B16B5DB500043048E /* fps_images.png */; };
 		9BFDCE441718D83100ADEF30 /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858D16B5DB500043048E /* fps_images-hd.png */; };
 		9BFDCE451718D83100ADEF30 /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858F16B5DB500043048E /* fps_images-ipadhd.png */; };
@@ -873,18 +582,9 @@
 		9BFDCF061718DFBC00ADEF30 /* LiteIcon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BFDCEFE1718DFBC00ADEF30 /* LiteIcon-Small@2x.png */; };
 		9BFDCF071718DFBC00ADEF30 /* LiteIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BFDCEFF1718DFBC00ADEF30 /* LiteIcon.png */; };
 		9BFDCF081718DFBC00ADEF30 /* LiteIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BFDCF001718DFBC00ADEF30 /* LiteIcon@2x.png */; };
-		9BFF80ED16E022E300051E6E /* AnalyticsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFF80EC16E022E300051E6E /* AnalyticsConstants.m */; };
-		FECA790D729441C49E3E14CC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB604FD809A44CC965BAC60 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9B1881D416CD62BE00E68930 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9BCE856616B5DB500043048E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9B1881D016CD626B00E68930;
-			remoteInfo = SpriteSheet;
-		};
 		9BFDCC691718D73000ADEF30 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9BCE856616B5DB500043048E /* Project object */;
@@ -981,18 +681,6 @@
 		9B8B97DF170BB33B0009A7D9 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Assets/Art/App/Icon-Small-50.png"; sourceTree = SOURCE_ROOT; };
 		9B91636517028FBE009E9AF8 /* EditAlarmViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "EditAlarmViewController~ipad.xib"; sourceTree = "<group>"; };
 		9B96CB8916B90318009A226B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Resources/Localizable.strings; sourceTree = "<group>"; };
-		9B97CFF516BB695B005BF0FF /* AdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdsViewController.h; sourceTree = "<group>"; };
-		9B97CFF616BB695B005BF0FF /* AdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdsViewController.m; sourceTree = "<group>"; };
-		9B97CFF916BB6A72005BF0FF /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
-		9B97CFFA16BB6A72005BF0FF /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
-		9B97CFFB16BB6A72005BF0FF /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
-		9B97CFFC16BB6A72005BF0FF /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
-		9B97CFFD16BB6A72005BF0FF /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
-		9B97CFFE16BB6A72005BF0FF /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
-		9B97CFFF16BB6A72005BF0FF /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
-		9B97D00016BB6A72005BF0FF /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
-		9B97D00116BB6A72005BF0FF /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
-		9B97D00216BB6A72005BF0FF /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
 		9B97D00A16BB730D005BF0FF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		9B97D00C16BB7335005BF0FF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		9B97D00E16BB7374005BF0FF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -1105,7 +793,6 @@
 		9BC036AE16F654F7002D6C02 /* WeatherSpriteSheet-ipad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "WeatherSpriteSheet-ipad.plist"; path = "Assets/SpriteSheet/WeatherSpriteSheet-ipad.plist"; sourceTree = SOURCE_ROOT; };
 		9BC036AF16F654F7002D6C02 /* WeatherSpriteSheet-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WeatherSpriteSheet-ipad.png"; path = "Assets/SpriteSheet/WeatherSpriteSheet-ipad.png"; sourceTree = SOURCE_ROOT; };
 		9BC7963916F80AFA001C2876 /* EditAlarmViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditAlarmViewController.xib; sourceTree = "<group>"; };
-		9BCE856F16B5DB500043048E /* atidyworld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = atidyworld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BCE857316B5DB500043048E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9BCE857516B5DB500043048E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		9BCE857716B5DB500043048E /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -1379,9 +1066,9 @@
 		9BCE875D16B609560043048E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9BCE875F16B6096D0043048E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9BFDCD961718D73000ADEF30 /* atidyworldlite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = atidyworldlite.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BFDCD971718D73000ADEF30 /* ATidyWorldLite-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ATidyWorldLite-Info.plist"; path = "/Users/rudi/Source/ios/ATidyWorld/ATidyWorldLite-Info.plist"; sourceTree = "<absolute>"; };
+		9BFDCD971718D73000ADEF30 /* ATidyWorldLite-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ATidyWorldLite-Info.plist"; path = "../ATidyWorldLite-Info.plist"; sourceTree = "<group>"; };
 		9BFDCEC71718D83100ADEF30 /* atidyworldbeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = atidyworldbeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BFDCEC81718D83200ADEF30 /* ATidyWorldBeta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ATidyWorldBeta-Info.plist"; path = "/Users/rudi/Source/ios/ATidyWorld/ATidyWorldBeta-Info.plist"; sourceTree = "<absolute>"; };
+		9BFDCEC81718D83200ADEF30 /* ATidyWorldBeta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ATidyWorldBeta-Info.plist"; path = "../ATidyWorldBeta-Info.plist"; sourceTree = "<group>"; };
 		9BFDCEE91718DFA100ADEF30 /* BetaIcon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BetaIcon-72.png"; path = "Assets/Art/App/BetaIcon-72.png"; sourceTree = SOURCE_ROOT; };
 		9BFDCEEA1718DFA100ADEF30 /* BetaIcon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BetaIcon-72@2x.png"; path = "Assets/Art/App/BetaIcon-72@2x.png"; sourceTree = SOURCE_ROOT; };
 		9BFDCEEB1718DFA100ADEF30 /* BetaIcon-Large-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BetaIcon-Large-1024.png"; path = "Assets/Art/App/BetaIcon-Large-1024.png"; sourceTree = SOURCE_ROOT; };
@@ -1404,33 +1091,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9BCE856C16B5DB500043048E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9B8B97DD170B9F1D0009A7D9 /* MapKit.framework in Frameworks */,
-				9B97D0A616C20178005BF0FF /* MediaPlayer.framework in Frameworks */,
-				9B97D01116BB73D6005BF0FF /* iAd.framework in Frameworks */,
-				9B97D00F16BB7374005BF0FF /* MessageUI.framework in Frameworks */,
-				9B97D00D16BB7335005BF0FF /* AdSupport.framework in Frameworks */,
-				9B97D00B16BB730D005BF0FF /* StoreKit.framework in Frameworks */,
-				9BCE876016B6096E0043048E /* CoreLocation.framework in Frameworks */,
-				9BCE875E16B609560043048E /* SystemConfiguration.framework in Frameworks */,
-				9BCE875C16B6094E0043048E /* CoreData.framework in Frameworks */,
-				9BCE857416B5DB500043048E /* QuartzCore.framework in Frameworks */,
-				9BCE857616B5DB500043048E /* OpenGLES.framework in Frameworks */,
-				9BCE857816B5DB500043048E /* OpenAL.framework in Frameworks */,
-				9BCE857A16B5DB500043048E /* AudioToolbox.framework in Frameworks */,
-				9BCE857C16B5DB500043048E /* AVFoundation.framework in Frameworks */,
-				9BCE857E16B5DB500043048E /* UIKit.framework in Frameworks */,
-				9BCE858016B5DB500043048E /* Foundation.framework in Frameworks */,
-				9BCE858216B5DB500043048E /* CoreGraphics.framework in Frameworks */,
-				9BCE858416B5DB500043048E /* GameKit.framework in Frameworks */,
-				9B97D00316BB6A72005BF0FF /* libGoogleAdMobAds.a in Frameworks */,
-				FECA790D729441C49E3E14CC /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9BFDCCFB1718D73000ADEF30 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1453,7 +1113,6 @@
 				9BFDCD0B1718D73000ADEF30 /* Foundation.framework in Frameworks */,
 				9BFDCD0C1718D73000ADEF30 /* CoreGraphics.framework in Frameworks */,
 				9BFDCD0D1718D73000ADEF30 /* GameKit.framework in Frameworks */,
-				9BFDCD0F1718D73000ADEF30 /* libGoogleAdMobAds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1479,7 +1138,6 @@
 				9BFDCE3C1718D83100ADEF30 /* Foundation.framework in Frameworks */,
 				9BFDCE3D1718D83100ADEF30 /* CoreGraphics.framework in Frameworks */,
 				9BFDCE3E1718D83100ADEF30 /* GameKit.framework in Frameworks */,
-				9BFDCE401718D83100ADEF30 /* libGoogleAdMobAds.a in Frameworks */,
 				28CBCB09B04B47D3A7472F2D /* libPods-atidyworldbeta.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1612,32 +1270,6 @@
 				9B97D05716BF0F02005BF0FF /* ButtonTrayView.m */,
 			);
 			name = "Button Tray";
-			sourceTree = "<group>";
-		};
-		9B97CFF316BB68BA005BF0FF /* Ads */ = {
-			isa = PBXGroup;
-			children = (
-				9B97CFF516BB695B005BF0FF /* AdsViewController.h */,
-				9B97CFF616BB695B005BF0FF /* AdsViewController.m */,
-			);
-			name = Ads;
-			sourceTree = "<group>";
-		};
-		9B97CFF816BB6A5C005BF0FF /* GoogleAdMob */ = {
-			isa = PBXGroup;
-			children = (
-				9B97CFF916BB6A72005BF0FF /* GADAdMobExtras.h */,
-				9B97CFFA16BB6A72005BF0FF /* GADAdNetworkExtras.h */,
-				9B97CFFB16BB6A72005BF0FF /* GADAdSize.h */,
-				9B97CFFC16BB6A72005BF0FF /* GADBannerView.h */,
-				9B97CFFD16BB6A72005BF0FF /* GADBannerViewDelegate.h */,
-				9B97CFFE16BB6A72005BF0FF /* GADInterstitial.h */,
-				9B97CFFF16BB6A72005BF0FF /* GADInterstitialDelegate.h */,
-				9B97D00016BB6A72005BF0FF /* GADRequest.h */,
-				9B97D00116BB6A72005BF0FF /* GADRequestError.h */,
-				9B97D00216BB6A72005BF0FF /* libGoogleAdMobAds.a */,
-			);
-			name = GoogleAdMob;
 			sourceTree = "<group>";
 		};
 		9B97D01216BB74B2005BF0FF /* Core */ = {
@@ -1796,7 +1428,6 @@
 		9B97D04C16BF09FE005BF0FF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9B97CFF316BB68BA005BF0FF /* Ads */,
 				9B97D07316C0A415005BF0FF /* Alarm */,
 				9B69800D16DECACB0052C0BB /* Button Tray */,
 				9BCE871016B5F2BF0043048E /* Clock */,
@@ -1976,7 +1607,6 @@
 		9BCE857016B5DB500043048E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9BCE856F16B5DB500043048E /* atidyworld.app */,
 				9BFDCD961718D73000ADEF30 /* atidyworldlite.app */,
 				9BFDCEC71718D83100ADEF30 /* atidyworldbeta.app */,
 			);
@@ -2036,7 +1666,6 @@
 				9BCE85A116B5DB500043048E /* cocos2d */,
 				9BCE86B816B5DB520043048E /* CocosDenshion */,
 				9BCE86C716B5DB520043048E /* kazmath */,
-				9B97CFF816BB6A5C005BF0FF /* GoogleAdMob */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -2468,26 +2097,6 @@
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
-		9BCE856E16B5DB500043048E /* atidyworld */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9BCE870816B5DB530043048E /* Build configuration list for PBXNativeTarget "atidyworld" */;
-			buildPhases = (
-				CA0AEEF1FC3A4347879217A1 /* Check Pods Manifest.lock */,
-				9BCE856B16B5DB500043048E /* Sources */,
-				9BCE856C16B5DB500043048E /* Frameworks */,
-				9BCE856D16B5DB500043048E /* Resources */,
-				C25B89119D4B41CF984E80D3 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9B1881D516CD62BE00E68930 /* PBXTargetDependency */,
-			);
-			name = atidyworld;
-			productName = ATidyWorld;
-			productReference = 9BCE856F16B5DB500043048E /* atidyworld.app */;
-			productType = "com.apple.product-type.application";
-		};
 		9BFDCC671718D73000ADEF30 /* atidyworldlite */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BFDCD921718D73000ADEF30 /* Build configuration list for PBXNativeTarget "atidyworldlite" */;
@@ -2546,7 +2155,6 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9BCE856E16B5DB500043048E /* atidyworld */,
 				9BFDCC671718D73000ADEF30 /* atidyworldlite */,
 				9BFDCD981718D83100ADEF30 /* atidyworldbeta */,
 				9B1881D016CD626B00E68930 /* SpriteSheet */,
@@ -2555,139 +2163,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9BCE856D16B5DB500043048E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9BCE858C16B5DB500043048E /* fps_images.png in Resources */,
-				9BCE858E16B5DB500043048E /* fps_images-hd.png in Resources */,
-				9BCE859016B5DB500043048E /* fps_images-ipadhd.png in Resources */,
-				9BCE86DD16B5DB530043048E /* ChangeLog in Resources */,
-				9BCE871516B5F2D20043048E /* ClockFaceView.xib in Resources */,
-				9BCE871716B5F2F70043048E /* century-gothic.ttf in Resources */,
-				9BCE872316B5FD610043048E /* SoundEffects.plist in Resources */,
-				9BCE872416B5FD610043048E /* WorldOptions.plist in Resources */,
-				9BCE872516B5FD610043048E /* AppDefaults.plist in Resources */,
-				9B96CB8A16B90318009A226B /* Localizable.strings in Resources */,
-				9B97D05216BF0A4F005BF0FF /* SettingsTableViewController.xib in Resources */,
-				9B97D05E16BF1B3A005BF0FF /* WorldOptionsViewController.xib in Resources */,
-				9B97D06416BF2153005BF0FF /* SelectWeatherOptionViewController.xib in Resources */,
-				9B97D07F16C0A45E005BF0FF /* AlarmCellView.xib in Resources */,
-				9B97D08116C0A45E005BF0FF /* AlarmListViewController.xib in Resources */,
-				9B97D09116C0A498005BF0FF /* EditAlarmRepeatViewController.xib in Resources */,
-				9B97D09316C0A498005BF0FF /* EditAlarmSoundViewController.xib in Resources */,
-				9B97D09516C0A498005BF0FF /* EditAlarmTitleViewController.xib in Resources */,
-				9B97D09916C0A498005BF0FF /* MediaCellView.xib in Resources */,
-				9B97D0B416C21DD9005BF0FF /* air_raid_siren.mp3 in Resources */,
-				9B97D0B516C21DD9005BF0FF /* beep.mp3 in Resources */,
-				9B97D0B616C21DD9005BF0FF /* gong.mp3 in Resources */,
-				9B97D0B716C21DD9005BF0FF /* grandfather_clock.mp3 in Resources */,
-				9B97D0B816C21DD9005BF0FF /* ranz_des_vaches.mp3 in Resources */,
-				9B97D0B916C21DD9005BF0FF /* reveille.mp3 in Resources */,
-				9B97D0BA16C21DD9005BF0FF /* train_whistle.mp3 in Resources */,
-				9B7DFE2F16E5672C00A534DF /* LandscapeSpriteSheet-hd.plist in Resources */,
-				9B7DFE3016E5672C00A534DF /* LandscapeSpriteSheet-hd.png in Resources */,
-				9B7DFE3116E5672C00A534DF /* LandscapeSpriteSheet.plist in Resources */,
-				9B7DFE3216E5672C00A534DF /* LandscapeSpriteSheet.png in Resources */,
-				9B7DFE3316E5672C00A534DF /* SkySpriteSheet-hd.plist in Resources */,
-				9B7DFE3416E5672C00A534DF /* SkySpriteSheet-hd.png in Resources */,
-				9B7DFE3516E5672C00A534DF /* SkySpriteSheet.plist in Resources */,
-				9B7DFE3616E5672C00A534DF /* SkySpriteSheet.png in Resources */,
-				9B7DFE3716E5672C00A534DF /* WeatherSpriteSheet-hd.plist in Resources */,
-				9B7DFE3816E5672C00A534DF /* WeatherSpriteSheet-hd.png in Resources */,
-				9B7DFE3916E5672C00A534DF /* WeatherSpriteSheet.plist in Resources */,
-				9B7DFE3A16E5672C00A534DF /* WeatherSpriteSheet.png in Resources */,
-				9B141EA316F2C54E002B5EB6 /* Icon-72.png in Resources */,
-				9B141EA416F2C54E002B5EB6 /* Icon-Small.png in Resources */,
-				9B141EA516F2C54E002B5EB6 /* Icon-Small@2x.png in Resources */,
-				9B141EA616F2C54E002B5EB6 /* Icon.png in Resources */,
-				9B141EA716F2C54E002B5EB6 /* Icon@2x.png in Resources */,
-				9BC0363E16F54016002D6C02 /* Icon_Clock_Highlight@2x~ipad.png in Resources */,
-				9BC0363F16F54016002D6C02 /* Icon_Clock_Highlight@2x~iphone.png in Resources */,
-				9BC0364016F54016002D6C02 /* Icon_Clock@2x~ipad.png in Resources */,
-				9BC0364116F54016002D6C02 /* Icon_Clock@2x~iphone.png in Resources */,
-				9BC0364216F54016002D6C02 /* Icon_Settings_Highlight@2x~ipad.png in Resources */,
-				9BC0364316F54016002D6C02 /* Icon_Settings_Highlight@2x~iphone.png in Resources */,
-				9BC0364416F54016002D6C02 /* Icon_Settings@2x~ipad.png in Resources */,
-				9BC0364516F54016002D6C02 /* Icon_Settings@2x~iphone.png in Resources */,
-				9BC0364616F54016002D6C02 /* Icon_World_Highlight@2x~ipad.png in Resources */,
-				9BC0364716F54016002D6C02 /* Icon_World_Highlight@2x~iphone.png in Resources */,
-				9BC0364816F54016002D6C02 /* Icon_World@2x~ipad.png in Resources */,
-				9BC0364916F54016002D6C02 /* Icon_World@2x~iphone.png in Resources */,
-				9BC0365616F54025002D6C02 /* Icon_Clock_Highlight~ipad.png in Resources */,
-				9BC0365716F54025002D6C02 /* Icon_Clock_Highlight~iphone.png in Resources */,
-				9BC0365816F54025002D6C02 /* Icon_Clock~ipad.png in Resources */,
-				9BC0365916F54025002D6C02 /* Icon_Clock~iphone.png in Resources */,
-				9BC0365A16F54025002D6C02 /* Icon_Settings_Highlight~ipad.png in Resources */,
-				9BC0365B16F54025002D6C02 /* Icon_Settings_Highlight~iphone.png in Resources */,
-				9BC0365C16F54025002D6C02 /* Icon_Settings~ipad.png in Resources */,
-				9BC0365D16F54025002D6C02 /* Icon_Settings~iphone.png in Resources */,
-				9BC0365E16F54025002D6C02 /* Icon_World_Highlight~ipad.png in Resources */,
-				9BC0365F16F54025002D6C02 /* Icon_World_Highlight~iphone.png in Resources */,
-				9BC0366016F54025002D6C02 /* Icon_World~ipad.png in Resources */,
-				9BC0366116F54025002D6C02 /* Icon_World~iphone.png in Resources */,
-				9BC0368416F64399002D6C02 /* Stars-ipad.plist in Resources */,
-				9BC0369416F64722002D6C02 /* RainLight.plist in Resources */,
-				9BC0369516F64722002D6C02 /* RainMedium-ipad.plist in Resources */,
-				9BC0369616F64722002D6C02 /* RainMedium.plist in Resources */,
-				9BC0369716F64722002D6C02 /* SnowBlizzard-ipad.plist in Resources */,
-				9BC0369816F64722002D6C02 /* SnowBlizzard.plist in Resources */,
-				9BC0369916F64722002D6C02 /* SnowBlowing-ipad.plist in Resources */,
-				9BC0369A16F64722002D6C02 /* SnowBlowing.plist in Resources */,
-				9BC0369B16F64722002D6C02 /* SnowHeavy-ipad.plist in Resources */,
-				9BC0369C16F64722002D6C02 /* SnowHeavy.plist in Resources */,
-				9BC0369D16F64722002D6C02 /* SnowLight-ipad.plist in Resources */,
-				9BC0369E16F64722002D6C02 /* SnowLight.plist in Resources */,
-				9BC0369F16F64722002D6C02 /* SnowMedium-ipad.plist in Resources */,
-				9BC036A016F64722002D6C02 /* SnowMedium.plist in Resources */,
-				9BC036A116F64722002D6C02 /* Stars.plist in Resources */,
-				9BC036A516F64732002D6C02 /* RainHeavy-ipad.plist in Resources */,
-				9BC036A616F64732002D6C02 /* RainHeavy.plist in Resources */,
-				9BC036A716F64732002D6C02 /* RainLight-ipad.plist in Resources */,
-				9BC036AA16F64DA9002D6C02 /* LandscapeSpriteSheet-ipad.plist in Resources */,
-				9BC036AB16F64DA9002D6C02 /* LandscapeSpriteSheet-ipad.png in Resources */,
-				9BC036B016F654F7002D6C02 /* SkySpriteSheet-ipad.plist in Resources */,
-				9BC036B116F654F7002D6C02 /* SkySpriteSheet-ipad.png in Resources */,
-				9BC036B216F654F7002D6C02 /* WeatherSpriteSheet-ipad.plist in Resources */,
-				9BC036B316F654F7002D6C02 /* WeatherSpriteSheet-ipad.png in Resources */,
-				9BAB1A2816F7EB57005E5057 /* DebugDataViewController.xib in Resources */,
-				9BC7963A16F80AFA001C2876 /* EditAlarmViewController.xib in Resources */,
-				9B91636617028FBE009E9AF8 /* EditAlarmViewController~ipad.xib in Resources */,
-				9B8B97D31708F5240009A7D9 /* Icon_Warning~iphone.png in Resources */,
-				9B8B97D51708F52C0009A7D9 /* Icon_Warning@2x~iphone.png in Resources */,
-				9B8B97D9170A7FE90009A7D9 /* Default@2x~iphone.png in Resources */,
-				9B8B97DA170A7FE90009A7D9 /* Default~ipad.png in Resources */,
-				9B8B97DB170A7FE90009A7D9 /* Default~iphone.png in Resources */,
-				9B8B97E0170BB33C0009A7D9 /* Icon-Small-50.png in Resources */,
-				9B6954A8170F9A33003453DD /* Icon_LeftArrow_Highlight@2x~ipad.png in Resources */,
-				9B6954A9170F9A33003453DD /* Icon_LeftArrow_Highlight@2x~iphone.png in Resources */,
-				9B6954AA170F9A33003453DD /* Icon_LeftArrow@2x~ipad.png in Resources */,
-				9B6954AB170F9A33003453DD /* Icon_LeftArrow@2x~iphone.png in Resources */,
-				9B6954AC170F9A33003453DD /* Icon_RightArrow_Highlight@2x~ipad.png in Resources */,
-				9B6954AD170F9A33003453DD /* Icon_RightArrow_Highlight@2x~iphone.png in Resources */,
-				9B6954AE170F9A33003453DD /* Icon_RightArrow@2x~ipad.png in Resources */,
-				9B6954AF170F9A33003453DD /* Icon_RightArrow@2x~iphone.png in Resources */,
-				9B6954B8170F9A54003453DD /* Icon_LeftArrow_Highlight~ipad.png in Resources */,
-				9B6954B9170F9A54003453DD /* Icon_LeftArrow_Highlight~iphone.png in Resources */,
-				9B6954BA170F9A54003453DD /* Icon_LeftArrow~ipad.png in Resources */,
-				9B6954BB170F9A54003453DD /* Icon_LeftArrow~iphone.png in Resources */,
-				9B6954BC170F9A54003453DD /* Icon_RightArrow_Highlight~ipad.png in Resources */,
-				9B6954BD170F9A54003453DD /* Icon_RightArrow_Highlight~iphone.png in Resources */,
-				9B6954BE170F9A54003453DD /* Icon_RightArrow~ipad.png in Resources */,
-				9B6954BF170F9A54003453DD /* Icon_RightArrow~iphone.png in Resources */,
-				9B6954C517150F07003453DD /* Icon_Purchases_Highlight@2x~ipad.png in Resources */,
-				9B6954C617150F07003453DD /* Icon_Purchases_Highlight@2x~iphone.png in Resources */,
-				9B6954C717150F07003453DD /* Icon_Purchases@2x~ipad.png in Resources */,
-				9B6954C817150F07003453DD /* Icon_Purchases@2x~iphone.png in Resources */,
-				9B6954CD17150F11003453DD /* Icon_Purchases_Highlight~ipad.png in Resources */,
-				9B6954CE17150F11003453DD /* Icon_Purchases_Highlight~iphone.png in Resources */,
-				9B6954CF17150F11003453DD /* Icon_Purchases~ipad.png in Resources */,
-				9B6954D017150F11003453DD /* Icon_Purchases~iphone.png in Resources */,
-				9B6954DB1718931C003453DD /* Default-568h@2x.png in Resources */,
-				9B6954DD17189EA3003453DD /* Icon-72@2x.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9BFDCD111718D73000ADEF30 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2989,189 +2464,9 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-atidyworldbeta-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C25B89119D4B41CF984E80D3 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CA0AEEF1FC3A4347879217A1 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9BCE856B16B5DB500043048E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9BCE85A416B5DB500043048E /* CCAction.m in Sources */,
-				9BCE85A716B5DB500043048E /* CCActionCamera.m in Sources */,
-				9BCE85AA16B5DB500043048E /* CCActionCatmullRom.m in Sources */,
-				9BCE85AD16B5DB500043048E /* CCActionEase.m in Sources */,
-				9BCE85B016B5DB500043048E /* CCActionGrid.m in Sources */,
-				9BCE85B316B5DB500043048E /* CCActionGrid3D.m in Sources */,
-				9BCE85B616B5DB500043048E /* CCActionInstant.m in Sources */,
-				9BCE85B916B5DB500043048E /* CCActionInterval.m in Sources */,
-				9BCE85BC16B5DB510043048E /* CCActionManager.m in Sources */,
-				9BCE85BF16B5DB510043048E /* CCActionPageTurn3D.m in Sources */,
-				9BCE85C216B5DB510043048E /* CCActionProgressTimer.m in Sources */,
-				9BCE85C516B5DB510043048E /* CCActionTiledGrid.m in Sources */,
-				9BCE85C816B5DB510043048E /* CCActionTween.m in Sources */,
-				9BCE85CB16B5DB510043048E /* CCAnimation.m in Sources */,
-				9BCE85CE16B5DB510043048E /* CCAnimationCache.m in Sources */,
-				9BCE85D116B5DB510043048E /* CCAtlasNode.m in Sources */,
-				9BCE85D416B5DB510043048E /* CCCamera.m in Sources */,
-				9BCE85D816B5DB510043048E /* CCConfiguration.m in Sources */,
-				9BCE85DB16B5DB510043048E /* ccDeprecated.m in Sources */,
-				9BCE85DE16B5DB510043048E /* CCDirector.m in Sources */,
-				9BCE85E116B5DB510043048E /* CCDrawingPrimitives.m in Sources */,
-				9BCE85E416B5DB510043048E /* CCGLProgram.m in Sources */,
-				9BCE85E716B5DB510043048E /* ccGLStateCache.m in Sources */,
-				9BCE85EA16B5DB510043048E /* CCGrabber.m in Sources */,
-				9BCE85ED16B5DB510043048E /* CCGrid.m in Sources */,
-				9BCE85F016B5DB510043048E /* CCLabelAtlas.m in Sources */,
-				9BCE85F316B5DB510043048E /* CCLabelBMFont.m in Sources */,
-				9BCE85F616B5DB510043048E /* CCLabelTTF.m in Sources */,
-				9BCE85F916B5DB510043048E /* CCLayer.m in Sources */,
-				9BCE85FD16B5DB510043048E /* CCMenu.m in Sources */,
-				9BCE860016B5DB510043048E /* CCMenuItem.m in Sources */,
-				9BCE860316B5DB510043048E /* CCMotionStreak.m in Sources */,
-				9BCE860616B5DB510043048E /* CCNode+Debug.m in Sources */,
-				9BCE860916B5DB510043048E /* CCNode.m in Sources */,
-				9BCE860C16B5DB510043048E /* CCParallaxNode.m in Sources */,
-				9BCE860F16B5DB510043048E /* CCParticleBatchNode.m in Sources */,
-				9BCE861216B5DB510043048E /* CCParticleExamples.m in Sources */,
-				9BCE861516B5DB510043048E /* CCParticleSystem.m in Sources */,
-				9BCE861816B5DB510043048E /* CCParticleSystemQuad.m in Sources */,
-				9BCE861B16B5DB510043048E /* CCProgressTimer.m in Sources */,
-				9BCE861F16B5DB510043048E /* CCRenderTexture.m in Sources */,
-				9BCE862216B5DB510043048E /* CCScene.m in Sources */,
-				9BCE862516B5DB510043048E /* CCScheduler.m in Sources */,
-				9BCE863516B5DB510043048E /* CCShaderCache.m in Sources */,
-				9BCE863816B5DB510043048E /* ccShaders.m in Sources */,
-				9BCE863B16B5DB510043048E /* CCSprite.m in Sources */,
-				9BCE863E16B5DB510043048E /* CCSpriteBatchNode.m in Sources */,
-				9BCE864116B5DB510043048E /* CCSpriteFrame.m in Sources */,
-				9BCE864416B5DB510043048E /* CCSpriteFrameCache.m in Sources */,
-				9BCE864716B5DB520043048E /* CCTexture2D.m in Sources */,
-				9BCE864A16B5DB520043048E /* CCTextureAtlas.m in Sources */,
-				9BCE864D16B5DB520043048E /* CCTextureCache.m in Sources */,
-				9BCE865016B5DB520043048E /* CCTexturePVR.m in Sources */,
-				9BCE865316B5DB520043048E /* CCTileMapAtlas.m in Sources */,
-				9BCE865616B5DB520043048E /* CCTMXLayer.m in Sources */,
-				9BCE865916B5DB520043048E /* CCTMXObjectGroup.m in Sources */,
-				9BCE865C16B5DB520043048E /* CCTMXTiledMap.m in Sources */,
-				9BCE865F16B5DB520043048E /* CCTMXXMLParser.m in Sources */,
-				9BCE866216B5DB520043048E /* CCTransition.m in Sources */,
-				9BCE866516B5DB520043048E /* CCTransitionPageTurn.m in Sources */,
-				9BCE866816B5DB520043048E /* CCTransitionProgress.m in Sources */,
-				9BCE866C16B5DB520043048E /* cocos2d.m in Sources */,
-				9BCE867316B5DB520043048E /* CCDirectorIOS.m in Sources */,
-				9BCE867616B5DB520043048E /* CCES2Renderer.m in Sources */,
-				9BCE867A16B5DB520043048E /* CCGLView.m in Sources */,
-				9BCE867E16B5DB520043048E /* CCTouchDispatcher.m in Sources */,
-				9BCE868116B5DB520043048E /* CCTouchHandler.m in Sources */,
-				9BCE868516B5DB520043048E /* CCDirectorMac.m in Sources */,
-				9BCE868816B5DB520043048E /* CCEventDispatcher.m in Sources */,
-				9BCE868B16B5DB520043048E /* CCGLView.m in Sources */,
-				9BCE868E16B5DB520043048E /* CCWindow.m in Sources */,
-				9BCE869116B5DB520043048E /* base64.c in Sources */,
-				9BCE869516B5DB520043048E /* CCArray.m in Sources */,
-				9BCE869816B5DB520043048E /* ccCArray.m in Sources */,
-				9BCE869B16B5DB520043048E /* CCFileUtils.m in Sources */,
-				9BCE869E16B5DB520043048E /* CCProfiling.m in Sources */,
-				9BCE86A016B5DB520043048E /* ccUtils.c in Sources */,
-				9BCE86A416B5DB520043048E /* CCVertex.m in Sources */,
-				9BCE86A716B5DB520043048E /* CGPointExtension.m in Sources */,
-				9BCE86AA16B5DB520043048E /* NSThread+performBlock.m in Sources */,
-				9BCE86AE16B5DB520043048E /* TGAlib.m in Sources */,
-				9BCE86B116B5DB520043048E /* TransformUtils.m in Sources */,
-				9BCE86B616B5DB520043048E /* ZipUtils.m in Sources */,
-				9BCE86BB16B5DB520043048E /* CDAudioManager.m in Sources */,
-				9BCE86BF16B5DB520043048E /* CDOpenALSupport.m in Sources */,
-				9BCE86C216B5DB520043048E /* CocosDenshion.m in Sources */,
-				9BCE86C516B5DB520043048E /* SimpleAudioEngine.m in Sources */,
-				9BCE86DB16B5DB530043048E /* aabb.c in Sources */,
-				9BCE86E116B5DB530043048E /* mat4stack.c in Sources */,
-				9BCE86E316B5DB530043048E /* matrix.c in Sources */,
-				9BCE86E516B5DB530043048E /* mat3.c in Sources */,
-				9BCE86E716B5DB530043048E /* mat4.c in Sources */,
-				9BCE86E916B5DB530043048E /* neon_matrix_impl.c in Sources */,
-				9BCE86EB16B5DB530043048E /* plane.c in Sources */,
-				9BCE86ED16B5DB530043048E /* quaternion.c in Sources */,
-				9BCE86EF16B5DB530043048E /* ray2.c in Sources */,
-				9BCE86F116B5DB530043048E /* utility.c in Sources */,
-				9BCE86F316B5DB530043048E /* vec2.c in Sources */,
-				9BCE86F516B5DB530043048E /* vec3.c in Sources */,
-				9BCE86F716B5DB530043048E /* vec4.c in Sources */,
-				9BCE86FC16B5DB530043048E /* main.m in Sources */,
-				9BCE86FF16B5DB530043048E /* AppDelegate.m in Sources */,
-				9BCE870516B5DB530043048E /* IntroLayer.m in Sources */,
-				9BCE870E16B5E6240043048E /* SummerBaseLayer.m in Sources */,
-				9BCE871416B5F2D20043048E /* ClockFaceView.m in Sources */,
-				9BCE871D16B5F81A0043048E /* ClockConstants.m in Sources */,
-				9BCE874516B5FE060043048E /* Constants.m in Sources */,
-				9BCE874916B604570043048E /* LocationService.m in Sources */,
-				9BCE875216B607BC0043048E /* WeatherService.m in Sources */,
-				9B97CFF716BB695B005BF0FF /* AdsViewController.m in Sources */,
-				9B97D05316BF0C7C005BF0FF /* SettingsTableViewController.m in Sources */,
-				9B97D05816BF0F02005BF0FF /* ButtonTrayView.m in Sources */,
-				9B97D05D16BF1B3A005BF0FF /* WorldOptionsViewController.m in Sources */,
-				9B97D06316BF2153005BF0FF /* SelectWeatherOptionViewController.m in Sources */,
-				9B97D06F16BF94A2005BF0FF /* ColorConverter.c in Sources */,
-				9B97D07016BF94A2005BF0FF /* RandomUtil.m in Sources */,
-				9B97D07116BF94A2005BF0FF /* TMPlistUtils.m in Sources */,
-				9B97D07E16C0A45E005BF0FF /* AlarmCellView.m in Sources */,
-				9B97D08016C0A45E005BF0FF /* AlarmListViewController.m in Sources */,
-				9B97D08216C0A45E005BF0FF /* EditAlarmElementViewController.m in Sources */,
-				9B97D08316C0A45E005BF0FF /* EditAlarmRepeatViewController.m in Sources */,
-				9B97D09216C0A498005BF0FF /* EditAlarmSoundViewController.m in Sources */,
-				9B97D09416C0A498005BF0FF /* EditAlarmTitleViewController.m in Sources */,
-				9B97D09616C0A498005BF0FF /* EditAlarmViewController.m in Sources */,
-				9B97D09816C0A498005BF0FF /* MediaCellView.m in Sources */,
-				9B97D09D16C0E403005BF0FF /* Alarm.xcdatamodeld in Sources */,
-				9B97D0A016C0E43E005BF0FF /* Alarm.m in Sources */,
-				9B97D0AC16C21C3D005BF0FF /* AddItemRowTableView.m in Sources */,
-				9BB464AF16C4A0B400BD5BBC /* AlarmService.m in Sources */,
-				9BB464B216C4E12F00BD5BBC /* TMTimeUtils.m in Sources */,
-				9B1881C116CB1D0B00E68930 /* SkyLayer.m in Sources */,
-				9B1881C616CB6C1100E68930 /* SunMoonSprite.m in Sources */,
-				9B1881CC16CB6C2F00E68930 /* SkyGradient.m in Sources */,
-				9B1881CF16CC8A4800E68930 /* DawnDuskGradient.m in Sources */,
-				9B3B2BAF16D2BCA000179904 /* WeatherLayer.m in Sources */,
-				9B3B2BC316D4227C00179904 /* Cloud.m in Sources */,
-				9B67A8B716D85D9F00659006 /* LandscapeLayer.m in Sources */,
-				9B69800816DC6D990052C0BB /* CCNode+SFGestureRecognizers.m in Sources */,
-				9B69800C16DDC5220052C0BB /* MainViewController.m in Sources */,
-				9BFF80ED16E022E300051E6E /* AnalyticsConstants.m in Sources */,
-				9B7DFE1F16E5415300A534DF /* ParallaxLayer.m in Sources */,
-				9B7DFE2216E5589000A534DF /* FogLayer.m in Sources */,
-				9BAB1A2716F7EB57005E5057 /* DebugDataViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9BFDCC6A1718D73000ADEF30 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3285,7 +2580,6 @@
 				9BFDCCD51718D73000ADEF30 /* Constants.m in Sources */,
 				9BFDCCD61718D73000ADEF30 /* LocationService.m in Sources */,
 				9BFDCCD81718D73000ADEF30 /* WeatherService.m in Sources */,
-				9BFDCCD91718D73000ADEF30 /* AdsViewController.m in Sources */,
 				9BFDCCDA1718D73000ADEF30 /* SettingsTableViewController.m in Sources */,
 				9BFDCCDB1718D73000ADEF30 /* ButtonTrayView.m in Sources */,
 				9BFDCCDC1718D73000ADEF30 /* WorldOptionsViewController.m in Sources */,
@@ -3435,7 +2729,6 @@
 				9BFDCE061718D83100ADEF30 /* Constants.m in Sources */,
 				9BFDCE071718D83100ADEF30 /* LocationService.m in Sources */,
 				9BFDCE091718D83100ADEF30 /* WeatherService.m in Sources */,
-				9BFDCE0A1718D83100ADEF30 /* AdsViewController.m in Sources */,
 				9BFDCE0B1718D83100ADEF30 /* SettingsTableViewController.m in Sources */,
 				9BFDCE0C1718D83100ADEF30 /* ButtonTrayView.m in Sources */,
 				9BFDCE0D1718D83100ADEF30 /* WorldOptionsViewController.m in Sources */,
@@ -3475,11 +2768,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9B1881D516CD62BE00E68930 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9B1881D016CD626B00E68930 /* SpriteSheet */;
-			targetProxy = 9B1881D416CD62BE00E68930 /* PBXContainerItemProxy */;
-		};
 		9BFDCC681718D73000ADEF30 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9B1881D016CD626B00E68930 /* SpriteSheet */;
@@ -3597,80 +2885,6 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		9BCE870916B5DB530043048E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B6731D322C4A443495382F0A /* Pods.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)",
-				);
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ATidyWorld/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = (
-					"-lz",
-					"-ObjC",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		9BCE870A16B5DB530043048E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B6731D322C4A443495382F0A /* Pods.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: E. Rudi Strahl";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = ATidyWorld/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					NDEBUG,
-					"NS_BLOCK_ASSERTIONS=1",
-					"ANALYTICS=1",
-					"APPSTORE=1",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ATidyWorld/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)",
-					"$(inherited)",
-				);
-				OTHER_LDFLAGS = (
-					"-lz",
-					"-ObjC",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E744094C-CCC4-4E46-A435-CB8696E372A8";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				VALIDATE_PRODUCT = YES;
-				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -3830,15 +3044,6 @@
 			buildConfigurations = (
 				9BCE870616B5DB530043048E /* Debug */,
 				9BCE870716B5DB530043048E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9BCE870816B5DB530043048E /* Build configuration list for PBXNativeTarget "atidyworld" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9BCE870916B5DB530043048E /* Debug */,
-				9BCE870A16B5DB530043048E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
