@@ -43,7 +43,7 @@
     [super viewWillAppear:animated];
     if (ANALYTICS)
     {
-        [[GAI sharedInstance].defaultTracker trackView:[NSString stringWithFormat:@"World Options - %@", self.title]];
+//        [[GAI sharedInstance].defaultTracker trackView:[NSString stringWithFormat:@"World Options - %@", self.title]];
     }
 }
 

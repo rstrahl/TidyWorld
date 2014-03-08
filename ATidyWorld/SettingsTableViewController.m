@@ -79,7 +79,9 @@
 	self.tableView.tableFooterView = footer;
     [self.tableView reloadData];
     if (ANALYTICS)
-        [[GAI sharedInstance].defaultTracker trackView:@"Settings View"];
+    {
+//        [[GAI sharedInstance].defaultTracker trackView:@"Settings View"];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated

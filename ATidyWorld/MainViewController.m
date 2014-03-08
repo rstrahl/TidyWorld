@@ -9,7 +9,6 @@
 #import "MainViewController.h"
 #import "ClockFaceView.h"
 #import "ButtonTrayView.h"
-#import "AdsViewController.h"
 #import "AppDelegate.h"
 
 @interface MainViewController ()
@@ -20,7 +19,6 @@
 
 @synthesize buttonsView = mButtonsView,
             clockView = mClockView,
-            adsViewController = mAdsViewController,
             buttonsHighAlphaTimer = mButtonsHighAlphaTimer,
             adsDisabled = mAdsDisabled;
 
@@ -34,18 +32,6 @@
         self.view.frame = viewFrame;
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
         CGFloat sizeMultiplier = ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) ? 2.0 : 1.0;
-        
-#ifdef ADS
-        // Add AdsViewController for Ads
-        mAdsViewController = [[AdsViewController alloc] initWithNibName:nil bundle:nil];
-        [self.view addSubview:mAdsViewController.view];
-        AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
-        appDelegate.adsViewController = mAdsViewController;
-#endif
-//        [[NSNotificationCenter defaultCenter] addObserver:self
-//                                                 selector:@selector(didReceiveProductPurchasedNotification:)
-//                                                     name:TM_PRODUCT_PURCHASED_NOTIFICATION
-//                                                   object:nil];
         
         // Add Clock Label
         CGRect clockFaceFrame = CGRectMake(0,
@@ -203,16 +189,6 @@
                      }
      ];
 
-}
-
-- (void)didReceiveProductPurchasedNotification:(NSNotification *)notification
-{
-    self.adsDisabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"com.atidymind.atidyworld.removeads"];
-    if ((!self.adsDisabled) && self.adsViewController)
-    {
-        [self.adsViewController.view removeFromSuperview];
-        self.adsViewController = nil;
-    }
 }
 
 #pragma mark - Test

@@ -50,7 +50,9 @@
 {
     [super viewWillAppear:animated];
     if (ANALYTICS)
-        [[GAI sharedInstance].defaultTracker trackView:@"Edit Alarm Title"];
+    {
+//        [[GAI sharedInstance].defaultTracker trackView:@"Edit Alarm Title"];
+    }
 }
 
 

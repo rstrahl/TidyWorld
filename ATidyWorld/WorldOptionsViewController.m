@@ -64,7 +64,9 @@
 	self.tableView.tableFooterView = footer;
     [self.tableView reloadData];
     if (ANALYTICS)
-        [[GAI sharedInstance].defaultTracker trackView:@"World Options"];
+    {
+//        [[GAI sharedInstance].defaultTracker trackView:@"World Options"];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -671,10 +673,10 @@
 {
     if (ANALYTICS)
     {
-        [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"World"
-                                                         withAction:[NSString stringWithFormat:@"%@Changed", option]
-                                                          withLabel:[NSString stringWithFormat:@"%@Changed", option]
-                                                          withValue:[NSNumber numberWithInt:1]];
+//        [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"World"
+//                                                         withAction:[NSString stringWithFormat:@"%@Changed", option]
+//                                                          withLabel:[NSString stringWithFormat:@"%@Changed", option]
+//                                                          withValue:[NSNumber numberWithInt:1]];
     }
 }
 @end

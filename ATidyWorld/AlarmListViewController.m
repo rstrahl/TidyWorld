@@ -90,7 +90,7 @@
 		DLog(@"ERROR loading core data objects %@, %@", error, [error localizedDescription]);
         if (ANALYTICS)
         {
-            [[[GAI sharedInstance] defaultTracker] trackException:NO withNSError:error];
+//            [[[GAI sharedInstance] defaultTracker] trackException:NO withNSError:error];
         }
 	}
     self.contentSizeForViewInPopover = CGSizeMake(320,436);
@@ -128,7 +128,9 @@
 	footer.backgroundColor = [UIColor clearColor];
 	self.tableView.tableFooterView = footer;
     if (ANALYTICS)
-        [[GAI sharedInstance].defaultTracker trackView:@"Alarm List"];
+    {
+//        [[GAI sharedInstance].defaultTracker trackView:@"Alarm List"];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -202,7 +204,7 @@
             DLog(@"Unresolved error %@, %@", error, [error localizedDescription]);
             if (ANALYTICS)
             {
-                [[[GAI sharedInstance] defaultTracker] trackException:NO withNSError:error];
+//                [[[GAI sharedInstance] defaultTracker] trackException:NO withNSError:error];
             }
         }
     }   
@@ -421,7 +423,7 @@
         DLog(@"ERROR saving alarm data");
         if (ANALYTICS)
         {
-            [[[GAI sharedInstance] defaultTracker] trackException:NO withNSError:error];
+//            [[[GAI sharedInstance] defaultTracker] trackException:NO withNSError:error];
         }
     }
     else
@@ -594,10 +596,10 @@
 {
     if (ANALYTICS)
     {
-        [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Alarms"
-                                                         withAction:@"AlarmAdds"
-                                                          withLabel:@"Alarm Adds"
-                                                          withValue:[NSNumber numberWithInt:1]];
+//        [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Alarms"
+//                                                         withAction:@"AlarmAdds"
+//                                                          withLabel:@"Alarm Adds"
+//                                                          withValue:[NSNumber numberWithInt:1]];
     }
 }
 
@@ -605,10 +607,10 @@
 {
     if (ANALYTICS)
     {
-        [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Alarms"
-                                                         withAction:@"AlarmEdits"
-                                                          withLabel:@"Alarm Edits"
-                                                          withValue:[NSNumber numberWithInt:1]];
+//        [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Alarms"
+//                                                         withAction:@"AlarmEdits"
+//                                                          withLabel:@"Alarm Edits"
+//                                                          withValue:[NSNumber numberWithInt:1]];
     }
 }
 
@@ -616,10 +618,10 @@
 {
     if (ANALYTICS)
     {
-        [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Alarms"
-                                                         withAction:@"AlarmEnables"
-                                                          withLabel:@"Alarm Enables"
-                                                          withValue:[NSNumber numberWithInt:1]];
+//        [[GAI sharedInstance].defaultTracker trackEventWithCategory:@"Alarms"
+//                                                         withAction:@"AlarmEnables"
+//                                                          withLabel:@"Alarm Enables"
+//                                                          withValue:[NSNumber numberWithInt:1]];
     }
 }
 

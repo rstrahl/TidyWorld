@@ -389,7 +389,7 @@ static AlarmService *sharedClockService = nil;
 {
     if (ANALYTICS)
     {
-        [[GAI sharedInstance].defaultTracker trackException:NO withDescription:errorString];
+//        [[GAI sharedInstance].defaultTracker trackException:NO withDescription:errorString];
     }
 }
 
