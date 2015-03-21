@@ -14,7 +14,6 @@
 #import "SettingsConstants.h"
 #import "Constants.h"
 #import "Alarm.h"
-#import "AdsViewController.h"
 
 @interface AppController()
 /// Initialize Reachability service
@@ -314,9 +313,7 @@
     // Optional: automatically track uncaught exceptions with Google Analytics.
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
-    [GAI sharedInstance].dispatchInterval = 30;
-    // Optional: set debug to YES for extra debugging information.
-    [GAI sharedInstance].debug = YES;
+    [GAI sharedInstance].dispatchInterval = 15;
     // Create tracker instance.
     mGoogleTracker = [[GAI sharedInstance] trackerWithTrackingId:ANALYTICS_GOOGLE_TRACKING_ID];
     [GAI sharedInstance].defaultTracker = mGoogleTracker;
@@ -326,7 +323,7 @@
 - (void)initTestFlight
 {
     // Initialize TestFlight
-#ifdef TESTING
+#ifdef TESTFLIGHT
     NSLog(@"TestFlight initialization...");
     [TestFlight takeOff:TESTFLIGHT_APP_ID];
 #endif
@@ -426,10 +423,10 @@
 {
     if (ANALYTICS)
     {
-        [mGoogleTracker trackTimingWithCategory:@"resources"
-                                      withValue:fabs([date timeIntervalSinceNow])
-                                       withName:@"AppLoadTime"
-                                      withLabel:@"App Load Time"];
+//        [mGoogleTracker trackTimingWithCategory:@"resources"
+//                                      withValue:fabs([date timeIntervalSinceNow])
+//                                       withName:@"AppLoadTime"
+//                                      withLabel:@"App Load Time"];
     }
 }
 

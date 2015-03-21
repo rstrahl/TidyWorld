@@ -134,7 +134,9 @@
 {
     [super viewWillAppear:animated];
     if (ANALYTICS)
-        [[GAI sharedInstance].defaultTracker trackView:@"Edit Alarm"];
+    {
+//        [[GAI sharedInstance].defaultTracker trackView:@"Edit Alarm"];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated

@@ -459,10 +459,10 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
 {
     if (ANALYTICS)
     {
-        [[GAI sharedInstance].defaultTracker trackTimingWithCategory:@"resources"
-                                                           withValue:fabs([date timeIntervalSinceNow])
-                                                            withName:@"WeatherLoadTime"
-                                                           withLabel:@"Weather Data Load Time"];
+//        [[GAI sharedInstance].defaultTracker trackTimingWithCategory:@"resources"
+//                                                           withValue:fabs([date timeIntervalSinceNow])
+//                                                            withName:@"WeatherLoadTime"
+//                                                           withLabel:@"Weather Data Load Time"];
     }
 }
 
@@ -470,7 +470,7 @@ const NSTimeInterval kDefaultSunsetTime     = 68400.0f;
 {
     if (ANALYTICS)
     {
-        [[GAI sharedInstance].defaultTracker trackException:NO withDescription:errorString];
+//        [[GAI sharedInstance].defaultTracker trackException:NO withDescription:errorString];
     }
 }
 
