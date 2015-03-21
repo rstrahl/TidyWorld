@@ -65,7 +65,6 @@
 		9BFDCD131718D73000ADEF30 /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858D16B5DB500043048E /* fps_images-hd.png */; };
 		9BFDCD141718D73000ADEF30 /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858F16B5DB500043048E /* fps_images-ipadhd.png */; };
 		9BFDCD161718D73000ADEF30 /* ClockFaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE871316B5F2D20043048E /* ClockFaceView.xib */; };
-		9BFDCD171718D73000ADEF30 /* century-gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE871616B5F2F60043048E /* century-gothic.ttf */; };
 		9BFDCD181718D73000ADEF30 /* SoundEffects.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE872016B5FD600043048E /* SoundEffects.plist */; };
 		9BFDCD191718D73000ADEF30 /* WorldOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE872116B5FD600043048E /* WorldOptions.plist */; };
 		9BFDCD1A1718D73000ADEF30 /* AppDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE872216B5FD610043048E /* AppDefaults.plist */; };
@@ -236,7 +235,6 @@
 		9BFDCE441718D83100ADEF30 /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858D16B5DB500043048E /* fps_images-hd.png */; };
 		9BFDCE451718D83100ADEF30 /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE858F16B5DB500043048E /* fps_images-ipadhd.png */; };
 		9BFDCE471718D83100ADEF30 /* ClockFaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE871316B5F2D20043048E /* ClockFaceView.xib */; };
-		9BFDCE481718D83100ADEF30 /* century-gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE871616B5F2F60043048E /* century-gothic.ttf */; };
 		9BFDCE491718D83100ADEF30 /* SoundEffects.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE872016B5FD600043048E /* SoundEffects.plist */; };
 		9BFDCE4A1718D83100ADEF30 /* WorldOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE872116B5FD600043048E /* WorldOptions.plist */; };
 		9BFDCE4B1718D83100ADEF30 /* AppDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE872216B5FD610043048E /* AppDefaults.plist */; };
@@ -596,7 +594,6 @@
 		9BCE871116B5F2D20043048E /* ClockFaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockFaceView.h; sourceTree = "<group>"; };
 		9BCE871216B5F2D20043048E /* ClockFaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockFaceView.m; sourceTree = "<group>"; };
 		9BCE871316B5F2D20043048E /* ClockFaceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClockFaceView.xib; sourceTree = "<group>"; };
-		9BCE871616B5F2F60043048E /* century-gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "century-gothic.ttf"; path = "Resources/century-gothic.ttf"; sourceTree = "<group>"; };
 		9BCE871B16B5F81A0043048E /* ClockConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockConstants.h; sourceTree = "<group>"; };
 		9BCE871C16B5F81A0043048E /* ClockConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockConstants.m; sourceTree = "<group>"; };
 		9BCE872016B5FD600043048E /* SoundEffects.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SoundEffects.plist; path = Resources/SoundEffects.plist; sourceTree = "<group>"; };
@@ -853,7 +850,6 @@
 		9B97D01716BB7CD4005BF0FF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				9BCE871616B5F2F60043048E /* century-gothic.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -1351,7 +1347,6 @@
 				9BFDCD131718D73000ADEF30 /* fps_images-hd.png in Resources */,
 				9BFDCD141718D73000ADEF30 /* fps_images-ipadhd.png in Resources */,
 				9BFDCD161718D73000ADEF30 /* ClockFaceView.xib in Resources */,
-				9BFDCD171718D73000ADEF30 /* century-gothic.ttf in Resources */,
 				9BFDCD181718D73000ADEF30 /* SoundEffects.plist in Resources */,
 				9BFDCD191718D73000ADEF30 /* WorldOptions.plist in Resources */,
 				9BFDCD1A1718D73000ADEF30 /* AppDefaults.plist in Resources */,
@@ -1484,7 +1479,6 @@
 				9BFDCE441718D83100ADEF30 /* fps_images-hd.png in Resources */,
 				9BFDCE451718D83100ADEF30 /* fps_images-ipadhd.png in Resources */,
 				9BFDCE471718D83100ADEF30 /* ClockFaceView.xib in Resources */,
-				9BFDCE481718D83100ADEF30 /* century-gothic.ttf in Resources */,
 				9BFDCE491718D83100ADEF30 /* SoundEffects.plist in Resources */,
 				9BFDCE4A1718D83100ADEF30 /* WorldOptions.plist in Resources */,
 				9BFDCE4B1718D83100ADEF30 /* AppDefaults.plist in Resources */,
